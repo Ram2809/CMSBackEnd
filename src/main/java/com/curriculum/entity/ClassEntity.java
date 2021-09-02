@@ -1,52 +1,43 @@
 package com.curriculum.entity;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Entity
 @Table(name="Class")
+@Getter
+@Setter
+//@ToString
+@NoArgsConstructor
 public class ClassEntity {
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long roomNo;
 	@Column(nullable=false)
+	@Size(max=3)
 	private String standard;
 	@Column(nullable=false)
+	@Size(max=2)
 	private String section;
-	public Long getRoomNo() {
-		return roomNo;
-	}
-	public void setRoomNo(Long roomNo) {
-		this.roomNo = roomNo;
-	}
-	public String getStandard() {
-		return standard;
-	}
-	public void setStandard(String standard) {
-		this.standard = standard;
-	}
-	public String getSection() {
-		return section;
-	}
-	public void setSection(String section) {
-		this.section = section;
-	}
-	@Override
-	public String toString() {
-		return "ClassEntity [roomNo=" + roomNo + ", standard=" + standard + ", section=" + section + "]";
-	}
-	public ClassEntity() {
-		super();
-	}
+	@OneToMany(mappedBy="classEntity")
+	private Set<Student> student;
+	//,fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true
+	
 	public ClassEntity(Long roomNo, String standard, String section) {
 		super();
 		this.roomNo = roomNo;

@@ -28,5 +28,15 @@ public class ClassServiceImpl implements ClassService{
 		// TODO Auto-generated method stub
 		return classRepositoryImpl.updateClassDetails(roomNo,classDetails);
 	}
+	@Override
+	public ResponseEntity<String> deleteClassDetails(Long roomNo) {
+		// TODO Auto-generated method stub
+		return classRepositoryImpl.deleteClassDetails(roomNo);
+	}
+	@Override
+	public ResponseEntity<List<ClassEntity>> getParticularClassDetails(Long roomNo) throws ClassNotFoundException {
+		// TODO Auto-generated method stub
+		return classRepositoryImpl.getParticularClassDetails(roomNo);
+	}
 
 }

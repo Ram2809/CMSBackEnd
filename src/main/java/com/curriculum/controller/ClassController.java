@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +30,7 @@ public class ClassController {
 		return classServiceImpl.addClassDetails(classDetails);
 	}
 
-	@GetMapping("/getClassDetails")
+	@GetMapping("/getAllClassDetails")
 	public ResponseEntity<List<ClassEntity>> getAllClassDetails() {
 		return classServiceImpl.getAllClassDetails();
 	}
@@ -37,5 +38,16 @@ public class ClassController {
 	public ResponseEntity<String> updateClassDetails(@PathVariable("roomNo") Long roomNo,@RequestBody ClassEntity classDetails)
 	{
 			return classServiceImpl.updateClassDetails(roomNo,classDetails);
+	}
+	
+	@DeleteMapping("/deleteClassDetails/{roomNo}")
+	public ResponseEntity<String> deleteClassDetails(@PathVariable("roomNo") Long roomNo)
+	{
+		return classServiceImpl.deleteClassDetails(roomNo);
+	}
+	@GetMapping("/getClassDetails/{roomNo}")
+	public ResponseEntity<List<ClassEntity>> getParticularClassDetails(@PathVariable("roomNo") Long roomNo) throws ClassNotFoundException
+	{
+		return classServiceImpl.getParticularClassDetails(roomNo);
 	}
 }

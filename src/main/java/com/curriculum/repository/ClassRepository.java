@@ -10,4 +10,6 @@ public interface ClassRepository {
 	ResponseEntity<String> addClassDetails(ClassEntity classDetails);
 	ResponseEntity<List<ClassEntity>> getAllClassDetails();
 	ResponseEntity<String> updateClassDetails(Long roomNo,ClassEntity classDetails);
+	ResponseEntity<String> deleteClassDetails(Long roomNo);
+	ResponseEntity<List<ClassEntity>> getParticularClassDetails(Long roomNo) throws ClassNotFoundException;
 }

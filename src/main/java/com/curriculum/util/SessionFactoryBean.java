@@ -38,11 +38,14 @@ public class SessionFactoryBean {
 	        Properties properties = new Properties();
 	        properties.put("hibernate.dialect",
 	                environment.getProperty("spring.jpa.properties.hibernate.dialect"));
+	        properties.put("hibernate.hbm2ddl.auto",
+	        		environment.getProperty("spring.jpa.hibernate.ddl-auto"));
 	        properties.put("hibernate.default_schema",
 	                environment.getProperty("spring.jpa.properties.hibernate.default_schema"));
 	        properties.put("hibernate.connection.autocommit",
 	                environment.getProperty("spring.jpa.properties.hibernate.autocommit"));
 	        properties.put("hibernate.show_sql", environment.getProperty("spring.jpa.show-sql"));
+	        
 	        return properties;
 	    }
 }
