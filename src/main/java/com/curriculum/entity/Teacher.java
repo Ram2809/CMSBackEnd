@@ -50,9 +50,8 @@ public class Teacher {
 	@NotNull
 	private String address;
 	@OneToMany(mappedBy="teacher",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
-	private Set<Teacher> teachers;
-	@OneToMany(mappedBy="subject",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
-	private Set<Subject> subjects;
+	private Set<TeacherSubject> teachers;
+	
 	
 	public Teacher(Long id, @NotNull @Size(max = 20) String firstName, @NotNull @Size(max = 20) String lastName,
 			@NotNull Date dateOfBirth, @NotNull @Size(max = 7) String gender,
