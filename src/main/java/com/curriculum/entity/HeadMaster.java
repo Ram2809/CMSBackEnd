@@ -1,13 +1,9 @@
 package com.curriculum.entity;
 
 import java.util.Date;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,8 +19,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name="Teacher")
-public class Teacher {
+@Table(name="HeadMaster")
+public class HeadMaster {
 	@Id
 	private Long id;
 	@NotNull
@@ -49,12 +45,7 @@ public class Teacher {
 	private Long contactNo;
 	@NotNull
 	private String address;
-	@OneToMany(mappedBy="teacher",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
-	private Set<Teacher> teachers;
-	@OneToMany(mappedBy="subject",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
-	private Set<Subject> subjects;
-	
-	public Teacher(Long id, @NotNull @Size(max = 20) String firstName, @NotNull @Size(max = 20) String lastName,
+	public HeadMaster(Long id, @NotNull @Size(max = 20) String firstName, @NotNull @Size(max = 20) String lastName,
 			@NotNull Date dateOfBirth, @NotNull @Size(max = 7) String gender,
 			@NotNull @Size(max = 10) String qualification, @Email @NotNull String email, @NotNull Long contactNo,
 			@NotNull String address) {

@@ -88,7 +88,6 @@ public class StudentRepositoryImpl implements StudentRepository {
 	}
 
 	public boolean checkStudent(Long rollNo) {
-		Object a;
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("FROM Student WHERE rollNo=:regNo");
 		query.setParameter("regNo", rollNo);

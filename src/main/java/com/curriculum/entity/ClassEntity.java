@@ -37,6 +37,8 @@ public class ClassEntity {
 	@OneToMany(mappedBy="classEntity")
 	private Set<Student> student;
 	//,fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true
+	@OneToMany(mappedBy="classRoom",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
+	private Set<Subject> subject;
 	
 	public ClassEntity(Long roomNo, String standard, String section) {
 		super();
