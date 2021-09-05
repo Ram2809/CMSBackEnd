@@ -1,11 +1,15 @@
 package com.curriculum.entity;
 
 import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -37,6 +41,8 @@ public class Topic {
 	@JoinColumn(name="subjectCode",nullable=false)
 	@JsonIgnore
 	private Subject subject;
+	@OneToMany(mappedBy="topic",cascade=CascadeType.ALL,fetch=FetchType.LAZY,orphanRemoval=true)
+	private Set<Discussion> discussion;
 	public Topic(@Size(max = 8) String unitNo, @NotNull String unitName, @NotNull Date beginDate,
 			@NotNull String status) {
 		super();

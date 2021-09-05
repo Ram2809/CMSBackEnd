@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.curriculum.entity.Topic;
 import com.curriculum.exception.SubjectNotFoundException;
+import com.curriculum.exception.UnitNotFoundException;
 import com.curriculum.repository.TopicRepository;
 import com.curriculum.service.TopicService;
 
@@ -29,6 +30,16 @@ public class TopicServiceImpl implements TopicService{
 	public ResponseEntity<Topic> getTopicDetailsByUnitNo(String unitNo) {
 		// TODO Auto-generated method stub
 		return topicRepositoryImpl.getTopicDetailsByUnitNo(unitNo);
+	}
+	@Override
+	public ResponseEntity<String> updateTopicDetails(String subjectCode, String unitNo, Topic topicDetails) throws SubjectNotFoundException {
+		// TODO Auto-generated method stub
+		return topicRepositoryImpl.updateTopicDetails(subjectCode,unitNo,topicDetails);
+	}
+	@Override
+	public ResponseEntity<String> deleteTopicDetails(String unitNo) throws UnitNotFoundException {
+		// TODO Auto-generated method stub
+		return topicRepositoryImpl.deleteTopicDetails(unitNo);
 	}
 
 }
