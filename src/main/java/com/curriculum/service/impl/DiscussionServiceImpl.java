@@ -23,5 +23,20 @@ public class DiscussionServiceImpl implements DiscussionService{
 		// TODO Auto-generated method stub
 		return discussionRepositoryImpl.getDiscussionByUnitNo(unitNo);
 	}
+	@Override
+	public ResponseEntity<String> updateDiscussionDetails(String unitNo, Long questionNo,Discussion discussionDetails) {
+		// TODO Auto-generated method stub
+		return discussionRepositoryImpl.updateDiscussionDetails(unitNo,questionNo,discussionDetails);
+	}
+	@Override
+	public ResponseEntity<String> deleteDiscussionDetails(Long questionNo) {
+		// TODO Auto-generated method stub
+		return discussionRepositoryImpl.deleteDiscussionDetails(questionNo);
+	}
+	@Override
+	public ResponseEntity<Discussion> getDiscussionByQuestionNo(Long questionNo) {
+		// TODO Auto-generated method stub
+		return discussionRepositoryImpl.getDiscussionByQuestionNo(questionNo);
+	}
 
 }

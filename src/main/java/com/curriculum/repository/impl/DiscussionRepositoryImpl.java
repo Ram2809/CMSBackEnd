@@ -15,7 +15,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import com.curriculum.entity.Discussion;
+import com.curriculum.entity.Student;
 import com.curriculum.entity.Topic;
+import com.curriculum.exception.QuestionNotFoundException;
 import com.curriculum.exception.UnitNotFoundException;
 import com.curriculum.repository.DiscussionRepository;
 
@@ -77,6 +79,104 @@ public class DiscussionRepositoryImpl implements DiscussionRepository{
 			response=new ResponseEntity<List<Discussion>>(discussionList,new HttpHeaders(),HttpStatus.OK);
 		}
 		catch(HibernateException |UnitNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		return response;
+	}
+	public boolean checkQuestion(Long questionNo) {
+		Session session = sessionFactory.openSession();
+		Query query = session.createQuery("FROM Discussion WHERE questionNo=:questionId");
+		query.setParameter("questionId", questionNo);
+		List<Discussion> discussionList = query.list();
+		if (discussionList.isEmpty()) {
+			return false;
+		}
+		return true;
+	}
+	@Override
+	public ResponseEntity<String> updateDiscussionDetails(String unitNo, Long questionNo,Discussion discussionDetails) {
+		// TODO Auto-generated method stub
+		ResponseEntity<String> response=null;
+		Session session=null;
+		try
+		{
+			boolean questionStatus=checkQuestion(questionNo);
+			if(!questionStatus)
+			{
+				throw new QuestionNotFoundException("Question Not Found With"+" "+questionNo+"!");
+			}
+			boolean topicStatus=topicRepositoryImpl.checkTopic(unitNo);
+			if(!topicStatus)
+			{
+				throw new UnitNotFoundException("Unit Not Found With"+" "+unitNo+"!");
+			}
+			session=sessionFactory.getCurrentSession();
+			session.beginTransaction();
+			session.find(Discussion.class, questionNo);
+			Discussion discussion=session.load(Discussion.class, questionNo);
+			Topic topic=new Topic();
+			topic.setUnitNo(unitNo);
+			discussion.setQuestion(discussionDetails.getQuestion());
+			discussion.setAnswer(discussionDetails.getAnswer());
+			discussion.setDate(discussionDetails.getDate());
+			discussion.setTopic(topic);
+			session.merge(discussion);
+			session.getTransaction().commit();
+			response=new ResponseEntity<String>("Discussion Details Updated Successfully!",new HttpHeaders(),HttpStatus.OK);
+		}
+		catch(HibernateException | QuestionNotFoundException |UnitNotFoundException e)
+		{
+			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
+		}
+		return response;
+	}
+	@Override
+	public ResponseEntity<String> deleteDiscussionDetails(Long questionNo) {
+		// TODO Auto-generated method stub
+		ResponseEntity<String> response=null;
+		Session session=null;
+		try
+		{
+			boolean questionStatus=checkQuestion(questionNo);
+			if(!questionStatus)
+			{
+				throw new QuestionNotFoundException("Question Not Found With"+" "+questionNo+"!");
+			}
+			session=sessionFactory.getCurrentSession();
+			session.beginTransaction();
+			session.find(Discussion.class, questionNo);
+			Discussion discussion=session.load(Discussion.class, questionNo);
+			session.delete(discussion);
+			session.getTransaction().commit();
+			response=new ResponseEntity<String>("Discussion Details Deleted Successfully!",new HttpHeaders(),HttpStatus.OK);
+		}
+		catch(HibernateException | QuestionNotFoundException e)
+		{
+			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
+		}
+		return response;
+	}
+	@Override
+	public ResponseEntity<Discussion> getDiscussionByQuestionNo(Long questionNo) {
+		// TODO Auto-generated method stub
+		ResponseEntity<Discussion> response=null;
+		Discussion discussion=new Discussion();
+		Session session=null;
+		try
+		{
+			boolean questionStatus=checkQuestion(questionNo);
+			if(!questionStatus)
+			{
+				throw new QuestionNotFoundException("Question Not Found With"+" "+questionNo+"!");
+			}
+			session=sessionFactory.getCurrentSession();
+			Query query=session.createQuery("FROM Discussion where questionNo=:questionId");
+			query.setParameter("questionId",questionNo);
+			discussion=(Discussion) query.getSingleResult();
+			response=new ResponseEntity<Discussion>(discussion,new HttpHeaders(),HttpStatus.OK);
+		}
+		catch(HibernateException | QuestionNotFoundException e)
 		{
 			e.printStackTrace();
 		}
