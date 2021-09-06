@@ -27,7 +27,6 @@ import lombok.Setter;
 @Table(name="StudentPersonal")
 public class Student implements Serializable{
 	@Id
-	//@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long rollNo;
 	@NotNull
 	@Size(max=20)

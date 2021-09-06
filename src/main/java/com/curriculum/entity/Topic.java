@@ -1,5 +1,6 @@
 package com.curriculum.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
@@ -28,7 +29,7 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table(name="Topic")
-public class Topic {
+public class Topic implements Serializable{
 	@Id
 	@Size(max=8)
 	private String unitNo;
