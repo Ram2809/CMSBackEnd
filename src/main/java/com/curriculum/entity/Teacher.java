@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -51,8 +52,8 @@ public class Teacher {
 	private String address;
 	@OneToMany(mappedBy="teacher",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
 	private Set<TeacherSubject> teachers;
-	
-	
+	@OneToOne(mappedBy="teacher",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
+	private Login login;
 	public Teacher(Long id, @NotNull @Size(max = 20) String firstName, @NotNull @Size(max = 20) String lastName,
 			@NotNull Date dateOfBirth, @NotNull @Size(max = 7) String gender,
 			@NotNull @Size(max = 10) String qualification, @Email @NotNull String email, @NotNull Long contactNo,
