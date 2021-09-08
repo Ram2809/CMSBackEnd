@@ -1,5 +1,6 @@
 package com.curriculum.entity;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -14,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,7 +27,7 @@ import lombok.Setter;
 @Setter
 //@ToString
 @NoArgsConstructor
-public class ClassEntity {
+public class ClassEntity implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long roomNo;
@@ -37,8 +40,10 @@ public class ClassEntity {
 	@OneToMany(mappedBy="classEntity")
 	private Set<Student> student;
 	@OneToMany(mappedBy="classRoom",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
+	@JsonIgnore
 	private Set<Subject> subject;
 	@OneToMany(mappedBy="classRoom",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
+	@JsonIgnore
 	private Set<TimeTable> timeTable;
 	
 	public ClassEntity(Long roomNo, String standard, String section) {

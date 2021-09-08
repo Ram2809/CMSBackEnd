@@ -5,9 +5,14 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.LogicalExpression;
+import org.hibernate.criterion.Property;
+import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -166,6 +171,65 @@ public class ClassRepositoryImpl implements ClassRepository {
 			System.out.println(classDetails.getStandard());
 			System.out.println(classDetails.getSection());
 			response=new ResponseEntity<List<ClassEntity>>(classDetailsList,new HttpHeaders(),HttpStatus.OK);
+		}
+		catch(HibernateException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return response;
+	}
+	@Override
+	public ResponseEntity<List<String>> getSection(String standard) {
+		// TODO Auto-generated method stub
+		ResponseEntity<List<String>> response=null;
+		Session session=null;
+		List<String> sectionList=new ArrayList<>();
+		try
+		{
+			session=sessionFactory.openSession();
+			Criteria criteria=session.createCriteria(ClassEntity.class)
+					.add(Restrictions.eq("standard", standard))
+					.setProjection(Property.forName("section"));
+			sectionList=criteria.list();
+			response=new ResponseEntity<List<String>>(sectionList,new HttpHeaders(),HttpStatus.OK);
+		}
+		catch(HibernateException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return response;
+	}
+	@Override
+	public ResponseEntity<Long> getClassDetails(String standard, String section) {
+		// TODO Auto-generated method stub
+		ResponseEntity<Long> response=null;
+		Session session=null;
+		Long classList=null;
+		try
+		{
+			session=sessionFactory.openSession();
+			Criteria criteria=session.createCriteria(ClassEntity.class);
+			Criterion standardCriteria=Restrictions.eq("standard", standard);
+			Criterion sectionCriteria=Restrictions.eq("section",section);
+			LogicalExpression andExp=Restrictions.and(standardCriteria,sectionCriteria);
+			criteria.add(andExp)
+			.setProjection(Property.forName("roomNo"));
+			classList=(Long) criteria.uniqueResult();
+			response=new ResponseEntity<Long>(classList,new HttpHeaders(),HttpStatus.OK);
 		}
 		catch(HibernateException e)
 		{

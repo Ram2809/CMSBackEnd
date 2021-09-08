@@ -27,34 +27,40 @@ import com.curriculum.service.TeacherService;
 public class TeacherController {
 	@Autowired
 	private TeacherService teacherServiceImpl;
+
 	@PostMapping("/addTeacherDetails")
-	public ResponseEntity<String> addTeacherDetails(@RequestBody Teacher teacherDetails)
-	{
+	public ResponseEntity<String> addTeacherDetails(@RequestBody Teacher teacherDetails) {
 		return teacherServiceImpl.addTeacherDetails(teacherDetails);
 	}
+
 	@GetMapping("/getAllTeachers")
-	public ResponseEntity<List<Teacher>> getAllTeacherDetails()
-	{
+	public ResponseEntity<List<Teacher>> getAllTeacherDetails() {
 		return teacherServiceImpl.getAllTeacherDetails();
 	}
+
 	@PutMapping("/updateTeacherDetails/{id}")
-	public ResponseEntity<String> updateTeacherDetails(@PathVariable("id") Long id,@RequestBody Teacher teacherDetails) throws TeacherNotFoundException
-	{
+	public ResponseEntity<String> updateTeacherDetails(@PathVariable("id") Long id, @RequestBody Teacher teacherDetails)
+			throws TeacherNotFoundException {
 		try {
-			return teacherServiceImpl.updateTeacherDetails(id,teacherDetails);
+			return teacherServiceImpl.updateTeacherDetails(id, teacherDetails);
 		} catch (BusinessServiceException e) {
 			// TODO Auto-generated catch block
-			return new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
+			return new ResponseEntity<String>(e.getMessage(), new HttpHeaders(), HttpStatus.OK);
 		}
 	}
+
 	@DeleteMapping("/deleteTeacherDetails/{id}")
-	public ResponseEntity<String> deleteTeacherDetails(@PathVariable("id") Long id)
-	{
-		return teacherServiceImpl.deleteTeacherDetails(id);
+	public ResponseEntity<String> deleteTeacherDetails(@PathVariable("id") Long id) {
+		try {
+			return teacherServiceImpl.deleteTeacherDetails(id);
+		} catch (BusinessServiceException e) {
+			// TODO Auto-generated catch block
+			return new ResponseEntity<String>(e.getMessage(), new HttpHeaders(), HttpStatus.OK);
+		}
 	}
+
 	@GetMapping("/getTeacherDetails/{id}")
-	public ResponseEntity<Teacher> getParticularTeacherDetails(@PathVariable("id") Long id)
-	{
-		return teacherServiceImpl.getParticularTeacherDetails(id);
+	public ResponseEntity<Teacher> getParticularTeacherDetails(@PathVariable("id") Long id) throws BusinessServiceException{
+		return teacherServiceImpl.getParticularTeacherDetails(id);	 	
 	}
 }

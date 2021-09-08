@@ -1,5 +1,6 @@
 package com.curriculum.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
@@ -16,6 +17,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,7 +28,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name="Teacher")
-public class Teacher {
+public class Teacher implements Serializable{
 	@Id
 	private Long id;
 	@NotNull
@@ -53,8 +56,10 @@ public class Teacher {
 	@NotNull
 	private String address;
 	@OneToMany(mappedBy="teacher",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
+	@JsonIgnore
 	private Set<TeacherSubject> teachers;
 	@OneToOne(mappedBy="teacher",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
+	@JsonIgnore
 	private Login login;
 	public Teacher(Long id, @NotNull @Size(max = 20) String firstName, @NotNull @Size(max = 20) String lastName,
 			@NotNull Date dateOfBirth, @NotNull @Size(max = 7) String gender,

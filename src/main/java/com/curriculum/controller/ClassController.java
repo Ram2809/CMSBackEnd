@@ -50,4 +50,14 @@ public class ClassController {
 	{
 		return classServiceImpl.getParticularClassDetails(roomNo);
 	}
+	@GetMapping("/getSection/{standard}")
+	public ResponseEntity<List<String>> getSection(@PathVariable("standard") String standard)
+	{
+		return classServiceImpl.getSection(standard);
+	}
+	@GetMapping("/getClass/{standard}/{section}")
+	public ResponseEntity<Long> getClassDetails(@PathVariable("standard") String standard,@PathVariable("section") String section)
+	{
+		return classServiceImpl.getClassDetails(standard,section);
+	}
 }

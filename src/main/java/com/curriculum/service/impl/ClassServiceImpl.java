@@ -38,5 +38,15 @@ public class ClassServiceImpl implements ClassService{
 		// TODO Auto-generated method stub
 		return classRepositoryImpl.getParticularClassDetails(roomNo);
 	}
+	@Override
+	public ResponseEntity<List<String>> getSection(String standard) {
+		// TODO Auto-generated method stub
+		return classRepositoryImpl.getSection(standard);
+	}
+	@Override
+	public ResponseEntity<Long> getClassDetails(String standard, String section) {
+		// TODO Auto-generated method stub
+		return classRepositoryImpl.getClassDetails(standard,section);
+	}
 
 }
