@@ -29,7 +29,7 @@ public class Teacher {
 	@Id
 	private Long id;
 	@NotNull
-	@Size(max=20)
+	@Size(max=20,message="First Name only contain 20 Letters")
 	private String firstName;
 	@NotNull
 	@Size(max=20)
@@ -43,6 +43,8 @@ public class Teacher {
 	@NotNull
 	@Size(max=10)
 	private String qualification;
+	@NotNull
+	private String major;
 	@Email
 	@NotNull
 	private String email;

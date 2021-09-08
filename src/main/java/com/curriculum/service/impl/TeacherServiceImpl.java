@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.curriculum.entity.Teacher;
+import com.curriculum.exception.BusinessServiceException;
+import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.TeacherNotFoundException;
 import com.curriculum.repository.TeacherRepository;
 import com.curriculum.service.TeacherService;
@@ -26,9 +28,14 @@ public class TeacherServiceImpl implements TeacherService{
 		return teacherRepositoryImpl.getAllTeacherDetails();
 	}
 	@Override
-	public ResponseEntity<String> updateTeacherDetails(Long id, Teacher teacherDetails) throws TeacherNotFoundException {
+	public ResponseEntity<String> updateTeacherDetails(Long id, Teacher teacherDetails) throws BusinessServiceException {
 		// TODO Auto-generated method stub
-		return teacherRepositoryImpl.updateTeacherDetails(id,teacherDetails);
+		try {
+			return teacherRepositoryImpl.updateTeacherDetails(id,teacherDetails);
+		} catch (DatabaseException e) {
+			// TODO Auto-generated catch block
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 	@Override
 	public ResponseEntity<String> deleteTeacherDetails(Long id) {

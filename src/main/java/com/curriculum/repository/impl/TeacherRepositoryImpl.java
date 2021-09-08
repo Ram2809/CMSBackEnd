@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.curriculum.entity.Teacher;
+import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.TeacherNotFoundException;
 import com.curriculum.repository.TeacherRepository;
 @Repository
@@ -85,7 +86,7 @@ public class TeacherRepositoryImpl implements TeacherRepository{
 		return true;
 	}
 	@Override
-	public ResponseEntity<String> updateTeacherDetails(Long id, Teacher teacherDetails) throws TeacherNotFoundException {
+	public ResponseEntity<String> updateTeacherDetails(Long id, Teacher teacherDetails) throws  DatabaseException {
 		ResponseEntity<String> response=null;
 		Session session=null;
 		try
@@ -104,6 +105,7 @@ public class TeacherRepositoryImpl implements TeacherRepository{
 			newTeacherDetails.setDateOfBirth(teacherDetails.getDateOfBirth());
 			newTeacherDetails.setGender(teacherDetails.getGender());
 			newTeacherDetails.setQualification(teacherDetails.getQualification());
+			newTeacherDetails.setMajor(teacherDetails.getMajor());
 			newTeacherDetails.setEmail(teacherDetails.getEmail());
 			newTeacherDetails.setContactNo(teacherDetails.getContactNo());
 			newTeacherDetails.setAddress(teacherDetails.getAddress());
@@ -114,7 +116,7 @@ public class TeacherRepositoryImpl implements TeacherRepository{
 		}
 		catch(HibernateException |TeacherNotFoundException e)
 		{
-			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
+			throw new DatabaseException(e.getMessage());
 		}
 		finally
 		{
