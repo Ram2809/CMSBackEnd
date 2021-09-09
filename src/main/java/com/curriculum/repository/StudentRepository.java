@@ -18,4 +18,5 @@ public interface StudentRepository {
 	ResponseEntity<String> deleteStudentDetails(Long rollNo) throws StudentNotFoundException;
 
 	ResponseEntity<Student> getParticularStudentDetails(Long rollNo) throws StudentNotFoundException;
+	ResponseEntity<List<Student>> getStudentByClass(Long roomNo);
 }

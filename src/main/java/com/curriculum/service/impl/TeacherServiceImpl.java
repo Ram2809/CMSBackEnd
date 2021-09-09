@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.curriculum.entity.Teacher;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.DatabaseException;
-import com.curriculum.exception.TeacherNotFoundException;
 import com.curriculum.repository.TeacherRepository;
 import com.curriculum.service.TeacherService;
 

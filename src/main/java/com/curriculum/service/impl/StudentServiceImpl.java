@@ -44,5 +44,10 @@ public class StudentServiceImpl implements StudentService{
 		// TODO Auto-generated method stub
 		return studentRepositoryImpl.getParticularStudentDetails(rollNo);
 	}
+	@Override
+	public ResponseEntity<List<Student>> getStudentByClass(Long roomNo) {
+		// TODO Auto-generated method stub
+		return studentRepositoryImpl.getStudentByClass(roomNo);
+	}
 
 }

@@ -184,4 +184,37 @@ public class StudentRepositoryImpl implements StudentRepository {
 		return response;
 	}
 
+	@Override
+	public ResponseEntity<List<Student>> getStudentByClass(Long roomNo) {
+		// TODO Auto-generated method stub
+		ResponseEntity<List<Student>> response=null;
+		Session session=null;
+		List<Student> studentsList=null;
+		try
+		{
+			boolean checkStatus = classRepositoryImpl.checkClassRoomNo(roomNo);
+			if (!checkStatus) {
+				throw new ClassNotFoundException("Class Not Found with" + " " + roomNo + "!");
+			}
+			session=sessionFactory.openSession();
+			Query query=session.createQuery("FROM Student WHERE roomNo=:roomId");
+			query.setParameter("roomId", roomNo);
+			studentsList=query.list();
+			response=new ResponseEntity<List<Student>>(studentsList,new HttpHeaders(),HttpStatus.OK);
+		}
+		catch(HibernateException | ClassNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return response;
+	}
+
 }
+;
