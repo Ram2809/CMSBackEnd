@@ -193,7 +193,7 @@ public class SubjectRepositoryImpl implements SubjectRepository{
 			subjectDetails=(Subject) query.getSingleResult();
 			response=new ResponseEntity<Subject>(subjectDetails,new HttpHeaders(),HttpStatus.OK);
 		}
-		catch(HibernateException |SubjectNotFoundException e)
+		catch(HibernateException  e)
 		{
 			e.printStackTrace();
 		}
@@ -203,6 +203,33 @@ public class SubjectRepositoryImpl implements SubjectRepository{
 			{
 				session.close();
 			}
+		}
+		return response;
+	}
+	@Override
+	public ResponseEntity<List<Subject>> getSubjectByClass(Long roomNo) throws ClassNotFoundException {
+		// TODO Auto-generated method stub
+		ResponseEntity<List<Subject>> response=null;
+		Session session=null;
+		List<Subject> subjectList=new ArrayList<>();
+		try
+		{
+			boolean checkRoomNo=classRepositoryImpl.checkClassRoomNo(roomNo);
+			if(!checkRoomNo)
+			{
+				throw new ClassNotFoundException("Class Not Found with"+" "+roomNo+"!");
+			}
+			System.out.println(roomNo);
+			session=sessionFactory.getCurrentSession();
+			Query query=session.createQuery("FROM Subject WHERE roomNo=:roomId");
+			query.setParameter("roomId", roomNo);
+			subjectList=query.list();
+			System.out.println(subjectList);
+			response=new ResponseEntity<List<Subject>>(subjectList,new HttpHeaders(),HttpStatus.OK);
+		}
+		catch(HibernateException e)
+		{
+			e.printStackTrace();
 		}
 		return response;
 	}

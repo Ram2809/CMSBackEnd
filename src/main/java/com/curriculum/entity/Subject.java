@@ -36,7 +36,9 @@ public class Subject implements Serializable{
 	@JsonIgnore
 	private ClassEntity classRoom;
 	@OneToMany(mappedBy="subject",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
+	@JsonIgnore
 	private Set<TeacherSubject> subjects;
 	@OneToMany(mappedBy="subject",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
+	@JsonIgnore
 	private Set<Topic> topics;
 }
