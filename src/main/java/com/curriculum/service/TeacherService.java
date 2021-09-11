@@ -8,7 +8,7 @@ import com.curriculum.entity.Teacher;
 import com.curriculum.exception.BusinessServiceException;
 
 public interface TeacherService {
-	ResponseEntity<String> addTeacherDetails(Teacher teacherDetails);
+	ResponseEntity<?> addTeacherDetails(Teacher teacherDetails);
 
 	ResponseEntity<List<Teacher>> getAllTeacherDetails();
 

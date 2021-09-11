@@ -3,6 +3,7 @@ package com.curriculum.repository.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -18,6 +19,7 @@ import com.curriculum.entity.ClassEntity;
 import com.curriculum.entity.TimeTable;
 import com.curriculum.repository.TimeTableRepository;
 @Repository
+@Transactional
 public class TimeTableRepositoryImpl implements TimeTableRepository{
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -36,7 +38,7 @@ public class TimeTableRepositoryImpl implements TimeTableRepository{
 				throw new ClassNotFoundException("Class Not Found With"+" "+roomNo+"!");
 			}
 			session=sessionFactory.getCurrentSession();
-			session.beginTransaction();
+			//session.beginTransaction();
 			ClassEntity classRoom=new ClassEntity();
 			classRoom.setRoomNo(roomNo);
 			TimeTable timeTable=new TimeTable();
@@ -52,7 +54,7 @@ public class TimeTableRepositoryImpl implements TimeTableRepository{
 			timeTable.setPeriodEight(timeTableDetails.getPeriodEight());
 			timeTable.setClassRoom(classRoom);
 			session.save(timeTable);
-			session.getTransaction().commit();
+			//session.getTransaction().commit();
 			response=new ResponseEntity<String>("TimeTable Details Added Successfully!",new HttpHeaders(),HttpStatus.OK);
 		}
 		catch(HibernateException | ClassNotFoundException e)
@@ -75,7 +77,7 @@ public class TimeTableRepositoryImpl implements TimeTableRepository{
 				throw new ClassNotFoundException("Class Not Found With"+" "+roomNo+"!");
 			}
 			session=sessionFactory.getCurrentSession();
-			Query query=session.createQuery("FROM TimeTable WHERE roomNo=:roomId");
+			Query<TimeTable> query=session.createQuery("FROM TimeTable WHERE roomNo=:roomId");
 			query.setParameter("roomId", roomNo);
 			timeTableList=query.getResultList();
 			response=new ResponseEntity<List<TimeTable>>(timeTableList,new HttpHeaders(),HttpStatus.OK);

@@ -28,7 +28,6 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ClassEntity implements Serializable{
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long roomNo;
 	@Column(nullable=false)
 	@Size(max=3)
@@ -37,6 +36,7 @@ public class ClassEntity implements Serializable{
 	@Size(max=2)
 	private String section;
 	@OneToMany(mappedBy="classEntity")
+	@JsonIgnore
 	private Set<Student> student;
 	@OneToMany(mappedBy="classRoom",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
 	@JsonIgnore

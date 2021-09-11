@@ -26,24 +26,19 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 	private SessionFactory sessionFactory;
 
 	@Override
-	public ResponseEntity<String> addTeacherDetails(Teacher teacherDeteails) {
+	public ResponseEntity<?> addTeacherDetails(Teacher teacherDetails) {
 		// TODO Auto-generated method stub
 		Session session = null;
-		ResponseEntity<String> response = null;
+		ResponseEntity<?> response = null;
 		try {
-			session = sessionFactory.openSession();
-			session.beginTransaction();
-			session.save(teacherDeteails);
-			session.getTransaction().commit();
-			response = new ResponseEntity<String>("Teacher Details Added Successfully!", new HttpHeaders(),
-					HttpStatus.OK);
+			session = sessionFactory.getCurrentSession();
+			//session.beginTransaction();
+			session.save(teacherDetails);
+			//session.getTransaction().commit();
+			response = new ResponseEntity("Teacher Details Added Successfully!",new HttpHeaders(),HttpStatus.OK);
 		} catch (HibernateException e) {
 			response = new ResponseEntity<String>(e.getMessage(), new HttpHeaders(), HttpStatus.OK);
-		} finally {
-			if (session != null) {
-				session.close();
-			}
-		}
+		} 
 		return response;
 	}
 
@@ -54,23 +49,19 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 		Session session = null;
 		List<Teacher> teacherDetailsList = new ArrayList<>();
 		try {
-			session = sessionFactory.openSession();
-			Query query = session.createQuery("FROM Teacher t");
+			session = sessionFactory.getCurrentSession();
+			Query<Teacher> query = session.createQuery("FROM Teacher t");
 			teacherDetailsList = query.list();
 			response = new ResponseEntity<List<Teacher>>(teacherDetailsList, new HttpHeaders(), HttpStatus.OK);
 		} catch (HibernateException e) {
 			e.printStackTrace();
-		} finally {
-			if (session != null) {
-				session.close();
-			}
-		}
+		} 
 		return response;
 	}
 
 	public boolean checkTeacher(Long id) {
-		Session session = sessionFactory.openSession();
-		Query query = session.createQuery("FROM Teacher WHERE id=:teacherId");
+		Session session = sessionFactory.getCurrentSession();
+		Query<Teacher> query = session.createQuery("FROM Teacher WHERE id=:teacherId");
 		query.setParameter("teacherId", id);
 		List<Teacher> teacherList = query.list();
 		if (teacherList.isEmpty()) {
@@ -88,8 +79,8 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 			if (!checkTeacher) {
 				throw new TeacherNotFoundException("Teacher Not Found with" + " " + id + "!");
 			}
-			session = sessionFactory.openSession();
-			session.beginTransaction();
+			session = sessionFactory.getCurrentSession();
+			//session.beginTransaction();
 			session.find(Teacher.class, id);
 			Teacher newTeacherDetails = session.load(Teacher.class, id);
 			newTeacherDetails.setFirstName(teacherDetails.getFirstName());
@@ -102,17 +93,18 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 			newTeacherDetails.setContactNo(teacherDetails.getContactNo());
 			newTeacherDetails.setAddress(teacherDetails.getAddress());
 			session.merge(newTeacherDetails);
-			session.flush();
-			session.getTransaction().commit();
+			//session.flush();
+			//session.getTransaction().commit();
 			response = new ResponseEntity<String>("Teacher Details Updated Successfully!", new HttpHeaders(),
 					HttpStatus.OK);
 		} catch (HibernateException | TeacherNotFoundException e) {
 			throw new DatabaseException(e.getMessage());
-		} finally {
-			if (session != null) {
-				session.close();
-			}
-		}
+		} 
+//		finally {
+//			if (session != null) {
+//				session.close();
+//			}
+//		}
 		return response;
 	}
 
@@ -126,22 +118,23 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 			if (!checkTeacher) {
 				throw new TeacherNotFoundException("Teacher Not Found with" + " " + id + "!");
 			}
-			session = sessionFactory.openSession();
-			session.beginTransaction();
+			session = sessionFactory.getCurrentSession();
+			//session.beginTransaction();
 			session.find(Teacher.class, id);
 			Teacher teacherDetails = session.load(Teacher.class, id);
 			session.delete(teacherDetails);
-			session.flush();
-			session.getTransaction().commit();
+			//session.flush();
+			//session.getTransaction().commit();
 			response = new ResponseEntity<String>("Teacher Details Deleted Successfully!", new HttpHeaders(),
 					HttpStatus.OK);
 		} catch (HibernateException | TeacherNotFoundException e) {
 			throw new DatabaseException(e.getMessage());
-		} finally {
-			if (session != null) {
-				session.close();
-			}
-		}
+		} 
+//		finally {
+//			if (session != null) {
+//				session.close();
+//			}
+//		}
 		return response;
 	}
 
@@ -156,18 +149,19 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 //			if (!checkTeacher) {
 //				throw new TeacherNotFoundException("Teacher Not Found with" + " " + id + "!");
 //			}
-			session = sessionFactory.openSession();
-			Query query = session.createQuery("FROM Teacher WHERE id=:teacherId");
+			session = sessionFactory.getCurrentSession();
+			Query<Teacher> query = session.createQuery("FROM Teacher WHERE id=:teacherId");
 			query.setParameter("teacherId", id);
 			teacherDetails = (Teacher) query.getSingleResult();
 			response = new ResponseEntity<Teacher>(teacherDetails, new HttpHeaders(), HttpStatus.OK);
 		} catch (HibernateException e) { //| //TeacherNotFoundException e) {
 			throw new DatabaseException(e.getMessage());
-		} finally {
-			if (session != null) {
-				session.close();
-			}
-		}
+		} 
+//		finally {
+//			if (session != null) {
+//				session.close();
+//			}
+//		}
 
 		return response;
 	}

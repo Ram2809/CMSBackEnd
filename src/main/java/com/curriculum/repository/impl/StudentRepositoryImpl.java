@@ -38,8 +38,8 @@ public class StudentRepositoryImpl implements StudentRepository {
 			if (!checkStatus) {
 				throw new ClassNotFoundException("Class Not Found with" + " " + roomNo + "!");
 			}
-			session = sessionFactory.openSession();
-			session.beginTransaction();
+			session = sessionFactory.getCurrentSession();
+			//session.beginTransaction();
 			ClassEntity classEntity = new ClassEntity();
 			classEntity.setRoomNo(roomNo);
 			// Set<Student> studentSet=new HashSet<Student>();
@@ -53,16 +53,12 @@ public class StudentRepositoryImpl implements StudentRepository {
 			studentEntity.setAddress(studentDetails.getAddress());
 			studentEntity.setClassEntity(classEntity);
 			session.save(studentEntity);
-			session.getTransaction().commit();
+			//session.getTransaction().commit();
 			response = new ResponseEntity<String>("Student Details Added Successfully!", new HttpHeaders(),
 					HttpStatus.OK);
 		} catch (HibernateException | ClassNotFoundException e) {
 			response = new ResponseEntity<String>(e.getMessage(), new HttpHeaders(), HttpStatus.OK);
-		} finally {
-			if (session != null) {
-				session.close();
-			}
-		}
+		} 
 		return response;
 	}
 
@@ -73,23 +69,19 @@ public class StudentRepositoryImpl implements StudentRepository {
 		List<Student> studentDetailsList = new ArrayList();
 		Session session = null;
 		try {
-			session = sessionFactory.openSession();
-			Query query = session.createQuery("FROM Student s");
+			session = sessionFactory.getCurrentSession();
+			Query<Student> query = session.createQuery("FROM Student s");
 			studentDetailsList = query.list();
 			response = new ResponseEntity<List<Student>>(studentDetailsList, new HttpHeaders(), HttpStatus.OK);
 		} catch (HibernateException e) {
 			e.printStackTrace();
-		} finally {
-			if (session != null) {
-				session.close();
-			}
-		}
+		} 
 		return response;
 	}
 
 	public boolean checkStudent(Long rollNo) {
-		Session session = sessionFactory.openSession();
-		Query query = session.createQuery("FROM Student WHERE rollNo=:regNo");
+		Session session = sessionFactory.getCurrentSession();
+		Query<Student> query = session.createQuery("FROM Student WHERE rollNo=:regNo");
 		query.setParameter("regNo", rollNo);
 		List<Student> studentList = query.list();
 		if (studentList.isEmpty()) {
@@ -109,8 +101,8 @@ public class StudentRepositoryImpl implements StudentRepository {
 			if (!checkStudent) {
 				throw new StudentNotFoundException("Student Not Found with" + " " + rollNo + "!");
 			}
-			session = sessionFactory.openSession();
-			session.beginTransaction();
+			session = sessionFactory.getCurrentSession();
+			//session.beginTransaction();
 			session.find(Student.class, rollNo);
 			Student newStudentDetails = session.load(Student.class, rollNo);
 			newStudentDetails.setFirstName(studentDetails.getFirstName());
@@ -120,17 +112,13 @@ public class StudentRepositoryImpl implements StudentRepository {
 			newStudentDetails.setContactNo(studentDetails.getContactNo());
 			newStudentDetails.setAddress(studentDetails.getAddress());
 			session.merge(newStudentDetails);
-			session.flush();
-			session.getTransaction().commit();
+			//session.flush();
+			//session.getTransaction().commit();
 			response = new ResponseEntity<String>("Student Details Updated Successfully!", new HttpHeaders(),
 					HttpStatus.OK);
 		} catch (HibernateException | StudentNotFoundException e) {
 			response = new ResponseEntity<String>(e.getMessage(), new HttpHeaders(), HttpStatus.OK);
-		} finally {
-			if (session != null) {
-				session.close();
-			}
-		}
+		}		
 		return response;
 	}
 
@@ -144,13 +132,13 @@ public class StudentRepositoryImpl implements StudentRepository {
 			if (!checkStudent) {
 				throw new StudentNotFoundException("Student Not Found with" + " " + rollNo + "!");
 			}
-			session = sessionFactory.openSession();
-			session.beginTransaction();
+			session = sessionFactory.getCurrentSession();
+			//session.beginTransaction();
 			session.find(Student.class, rollNo);
 			Student studentEntity = session.load(Student.class, rollNo);
 			session.delete(studentEntity);
-			session.flush();
-			session.getTransaction().commit();
+			//session.flush();
+			//session.getTransaction().commit();
 			response = new ResponseEntity<String>("Student Details Deleted Successfully!", new HttpHeaders(),
 					HttpStatus.OK);
 		} catch (HibernateException e) {
@@ -169,18 +157,14 @@ public class StudentRepositoryImpl implements StudentRepository {
 			if (!checkStudent) {
 				throw new StudentNotFoundException("Student Not Found with" + " " + rollNo + "!");
 			}
-			session = sessionFactory.openSession();
-			Query query = session.createQuery("FROM Student Where rollNo=:rollNo");
+			session = sessionFactory.getCurrentSession();
+			Query<Student> query = session.createQuery("FROM Student Where rollNo=:rollNo");
 			query.setParameter("rollNo", rollNo);
 			Student studentDetails = (Student) query.getSingleResult();
 			response = new ResponseEntity<Student>(studentDetails, new HttpHeaders(), HttpStatus.OK);
 		} catch (HibernateException | StudentNotFoundException e) {
 			e.printStackTrace();
-		} finally {
-			if (session != null) {
-				session.close();
-			}
-		}
+		} 
 		return response;
 	}
 
@@ -196,8 +180,8 @@ public class StudentRepositoryImpl implements StudentRepository {
 			if (!checkStatus) {
 				throw new ClassNotFoundException("Class Not Found with" + " " + roomNo + "!");
 			}
-			session=sessionFactory.openSession();
-			Query query=session.createQuery("FROM Student WHERE roomNo=:roomId");
+			session=sessionFactory.getCurrentSession();
+			Query<Student> query=session.createQuery("FROM Student WHERE roomNo=:roomId");
 			query.setParameter("roomId", roomNo);
 			studentsList=query.list();
 			response=new ResponseEntity<List<Student>>(studentsList,new HttpHeaders(),HttpStatus.OK);
@@ -205,13 +189,6 @@ public class StudentRepositoryImpl implements StudentRepository {
 		catch(HibernateException | ClassNotFoundException e)
 		{
 			e.printStackTrace();
-		}
-		finally
-		{
-			if(session!=null)
-			{
-				session.close();
-			}
 		}
 		return response;
 	}

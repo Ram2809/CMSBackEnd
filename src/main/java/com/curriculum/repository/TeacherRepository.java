@@ -8,7 +8,7 @@ import com.curriculum.entity.Teacher;
 import com.curriculum.exception.DatabaseException;
 
 public interface TeacherRepository {
-	ResponseEntity<String> addTeacherDetails(Teacher teacherDeteails);
+	ResponseEntity<?> addTeacherDetails(Teacher teacherDeteails);
 
 	ResponseEntity<List<Teacher>> getAllTeacherDetails();
 

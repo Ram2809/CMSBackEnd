@@ -29,8 +29,11 @@ public class TeacherController {
 	private TeacherService teacherServiceImpl;
 
 	@PostMapping("/addTeacherDetails")
-	public ResponseEntity<String> addTeacherDetails(@RequestBody Teacher teacherDetails) {
-		return teacherServiceImpl.addTeacherDetails(teacherDetails);
+	public ResponseEntity<?> addTeacherDetails(@RequestBody Teacher teacherDetails) {
+		ResponseEntity<?> response=null;
+		response=teacherServiceImpl.addTeacherDetails(teacherDetails);
+		return new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.OK);
+		//return teacherServiceImpl.addTeacherDetails(teacherDetails);
 	}
 
 	@GetMapping("/getAllTeachers")

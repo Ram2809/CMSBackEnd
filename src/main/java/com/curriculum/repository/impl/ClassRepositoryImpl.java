@@ -5,14 +5,9 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.LogicalExpression;
-import org.hibernate.criterion.Property;
-import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -33,22 +28,15 @@ public class ClassRepositoryImpl implements ClassRepository {
 		Session session=null;
 		ResponseEntity<String> response=null;
 		try {
-			session=sessionFactory.openSession();
-			session.beginTransaction();
+			session=sessionFactory.getCurrentSession();
+			//session.beginTransaction();
 			session.save(classDetails);
-			session.getTransaction().commit();
+			//session.getTransaction().commit();
 			response=new ResponseEntity<String>("Class Details Added Successfully!",new HttpHeaders(),HttpStatus.OK);
 		}
 		catch(HibernateException e)
 		{
 			return new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
-		}
-		finally
-		{
-			if(session!=null)
-			{
-				session.close();
-			}
 		}
 		return response;
 	}
@@ -58,7 +46,7 @@ public class ClassRepositoryImpl implements ClassRepository {
 		ResponseEntity<List<ClassEntity>> response=null;
 		Session session=null;
 		try {
-		session=sessionFactory.openSession();
+		session=sessionFactory.getCurrentSession();
 		Query query=session.createQuery("FROM ClassEntity c");
 		List<ClassEntity> classDetails=query.list();
 		response=new ResponseEntity<List<ClassEntity>>(classDetails,new HttpHeaders(),HttpStatus.OK);
@@ -66,13 +54,6 @@ public class ClassRepositoryImpl implements ClassRepository {
 		catch(HibernateException e)
 		{
 			e.printStackTrace();
-		}
-		finally
-		{
-			if(session!=null)
-			{
-				session.close();
-			}
 		}
 		return response;
 	}
@@ -83,33 +64,26 @@ public class ClassRepositoryImpl implements ClassRepository {
 		ResponseEntity<String> response=null;
 		try
 		{
-			session=sessionFactory.openSession();
-			session.beginTransaction();
+			session=sessionFactory.getCurrentSession();
+			//session.beginTransaction();
 			session.find(ClassEntity.class, roomNo);
 			ClassEntity classEntity=session.load(ClassEntity.class, roomNo);
 			classEntity.setStandard(classDetails.getStandard());
 			classEntity.setSection(classDetails.getSection());
 			session.merge(classEntity);
 			session.flush();
-			session.getTransaction().commit();
+			//session.getTransaction().commit();
 			response=new ResponseEntity<String>("Class Details Updated Successfully!",new HttpHeaders(),HttpStatus.OK);
 		}
 		catch(HibernateException e)
 		{
 			return new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
 		}
-		finally
-		{
-			if(session!=null)
-			{
-				session.close();
-			}
-		}
 		return response;
 	}
 	public boolean checkClassRoomNo(Long roomNo)
 	{
-		Session session=sessionFactory.openSession();
+		Session session=sessionFactory.getCurrentSession();
 		Query query=session.createQuery("FROM ClassEntity WHERE roomNo=:roomNo");
 		query.setParameter("roomNo",roomNo);
 		List<ClassEntity> classList=query.list();
@@ -126,25 +100,18 @@ public class ClassRepositoryImpl implements ClassRepository {
 		ResponseEntity<String> response=null;
 		try
 		{
-			session=sessionFactory.openSession();
-			session.beginTransaction();
+			session=sessionFactory.getCurrentSession();
+			//session.beginTransaction();
 			session.get(ClassEntity.class, roomNo);
 			ClassEntity classEntity=session.load(ClassEntity.class, roomNo);
 			session.delete(classEntity);
 			session.flush();
-			session.getTransaction().commit();
+			//session.getTransaction().commit();
 			response=new ResponseEntity<String>("Class Details Deleted Successfully!",new HttpHeaders(),HttpStatus.OK);
 		}
 		catch(HibernateException e)
 		{
 			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
-		}
-		finally
-		{
-			if(session!=null)
-			{
-				session.close();
-			}
 		}
 		return response;
 	}
@@ -162,7 +129,7 @@ public class ClassRepositoryImpl implements ClassRepository {
 			{
 				throw new ClassNotFoundException("Class Room Not Found with"+" "+roomNo);
 			}
-			session=sessionFactory.openSession();
+			session=sessionFactory.getCurrentSession();
 			Query query=session.createQuery("FROM ClassEntity WHERE roomNo=:roomId");
 			query.setParameter("roomId", roomNo);
 			classDetailsList=query.list();
@@ -176,15 +143,9 @@ public class ClassRepositoryImpl implements ClassRepository {
 		{
 			e.printStackTrace();
 		}
-		finally
-		{
-			if(session!=null)
-			{
-				session.close();
-			}
-		}
 		return response;
 	}
+	//@SuppressWarnings("unchecked")
 	@Override
 	public ResponseEntity<List<String>> getSection(String standard) {
 		// TODO Auto-generated method stub
@@ -193,23 +154,19 @@ public class ClassRepositoryImpl implements ClassRepository {
 		List<String> sectionList=new ArrayList<>();
 		try
 		{
-			session=sessionFactory.openSession();
-			Criteria criteria=session.createCriteria(ClassEntity.class)
-					.add(Restrictions.eq("standard", standard))
-					.setProjection(Property.forName("section"));
-			sectionList=criteria.list();
+			session=sessionFactory.getCurrentSession();
+//			CriteriaBuilder criteria=session.createCriteria(ClassEntity.class)
+//					.add(Restrictions.eq("standard", standard))
+//					.setProjection(Property.forName("section"));
+//			sectionList=criteria.list();
+			Query query=session.createQuery("SELECT c.section FROM ClassEntity c where c.standard=:standard");
+			query.setParameter("standard", standard);
+			sectionList=query.list();
 			response=new ResponseEntity<List<String>>(sectionList,new HttpHeaders(),HttpStatus.OK);
 		}
 		catch(HibernateException e)
 		{
 			e.printStackTrace();
-		}
-		finally
-		{
-			if(session!=null)
-			{
-				session.close();
-			}
 		}
 		return response;
 	}
@@ -221,26 +178,23 @@ public class ClassRepositoryImpl implements ClassRepository {
 		Long classList=null;
 		try
 		{
-			session=sessionFactory.openSession();
-			Criteria criteria=session.createCriteria(ClassEntity.class);
-			Criterion standardCriteria=Restrictions.eq("standard", standard);
-			Criterion sectionCriteria=Restrictions.eq("section",section);
-			LogicalExpression andExp=Restrictions.and(standardCriteria,sectionCriteria);
-			criteria.add(andExp)
-			.setProjection(Property.forName("roomNo"));
-			classList=(Long) criteria.uniqueResult();
+			session=sessionFactory.getCurrentSession();
+//			Criteria criteria=session.createCriteria(ClassEntity.class);
+//			Criterion standardCriteria=Restrictions.eq("standard", standard);
+//			Criterion sectionCriteria=Restrictions.eq("section",section);
+//			LogicalExpression andExp=Restrictions.and(standardCriteria,sectionCriteria);
+//			criteria.add(andExp)
+//			.setProjection(Property.forName("roomNo"));
+//			classList=(Long) criteria.uniqueResult();
+			Query query=session.createQuery("SELECT c.roomNo FROM ClassEntity c WHERE c.standard=:standard AND c.section=:section");
+			query.setParameter("standard", standard);
+			query.setParameter("section", section);
+			classList=(Long) query.uniqueResult();
 			response=new ResponseEntity<Long>(classList,new HttpHeaders(),HttpStatus.OK);
 		}
 		catch(HibernateException e)
 		{
 			e.printStackTrace();
-		}
-		finally
-		{
-			if(session!=null)
-			{
-				session.close();
-			}
 		}
 		return response;
 	}

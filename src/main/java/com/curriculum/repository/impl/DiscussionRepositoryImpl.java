@@ -4,6 +4,8 @@ package com.curriculum.repository.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -22,6 +24,7 @@ import com.curriculum.exception.UnitNotFoundException;
 import com.curriculum.repository.DiscussionRepository;
 
 @Repository
+@Transactional
 public class DiscussionRepositoryImpl implements DiscussionRepository{
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -40,7 +43,7 @@ public class DiscussionRepositoryImpl implements DiscussionRepository{
 				throw new UnitNotFoundException("Unit Not Found With"+" "+unitNo+"!");
 			}
 			session=sessionFactory.getCurrentSession();
-			session.beginTransaction();
+			//session.beginTransaction();
 			Topic topic=new Topic();
 			topic.setUnitNo(unitNo);
 			Discussion discussion=new Discussion();
@@ -50,7 +53,7 @@ public class DiscussionRepositoryImpl implements DiscussionRepository{
 			discussion.setDate(discussionDetails.getDate());
 			discussion.setTopic(topic);
 			session.save(discussion);
-			session.getTransaction().commit();
+			//session.getTransaction().commit();
 			response=new ResponseEntity<String>("Discussion Details Added Successfully!",new HttpHeaders(),HttpStatus.OK);
 		}
 		catch(HibernateException | UnitNotFoundException e)
@@ -73,7 +76,7 @@ public class DiscussionRepositoryImpl implements DiscussionRepository{
 				throw new UnitNotFoundException("Unit Not Found With"+" "+unitNo+"!");
 			}
 			session=sessionFactory.getCurrentSession();
-			Query query=session.createQuery("FROM Discussion d WHERE d.topic.unitNo=:unitId");
+			Query<Discussion> query=session.createQuery("FROM Discussion d WHERE d.topic.unitNo=:unitId");
 			query.setParameter("unitId", unitNo);
 			discussionList=query.list();
 			response=new ResponseEntity<List<Discussion>>(discussionList,new HttpHeaders(),HttpStatus.OK);
@@ -85,8 +88,8 @@ public class DiscussionRepositoryImpl implements DiscussionRepository{
 		return response;
 	}
 	public boolean checkQuestion(Long questionNo) {
-		Session session = sessionFactory.openSession();
-		Query query = session.createQuery("FROM Discussion WHERE questionNo=:questionId");
+		Session session = sessionFactory.getCurrentSession();
+		Query<Discussion> query = session.createQuery("FROM Discussion WHERE questionNo=:questionId");
 		query.setParameter("questionId", questionNo);
 		List<Discussion> discussionList = query.list();
 		if (discussionList.isEmpty()) {
@@ -112,7 +115,7 @@ public class DiscussionRepositoryImpl implements DiscussionRepository{
 				throw new UnitNotFoundException("Unit Not Found With"+" "+unitNo+"!");
 			}
 			session=sessionFactory.getCurrentSession();
-			session.beginTransaction();
+			//session.beginTransaction();
 			session.find(Discussion.class, questionNo);
 			Discussion discussion=session.load(Discussion.class, questionNo);
 			Topic topic=new Topic();
@@ -122,7 +125,7 @@ public class DiscussionRepositoryImpl implements DiscussionRepository{
 			discussion.setDate(discussionDetails.getDate());
 			discussion.setTopic(topic);
 			session.merge(discussion);
-			session.getTransaction().commit();
+			//session.getTransaction().commit();
 			response=new ResponseEntity<String>("Discussion Details Updated Successfully!",new HttpHeaders(),HttpStatus.OK);
 		}
 		catch(HibernateException | QuestionNotFoundException |UnitNotFoundException e)
@@ -144,11 +147,11 @@ public class DiscussionRepositoryImpl implements DiscussionRepository{
 				throw new QuestionNotFoundException("Question Not Found With"+" "+questionNo+"!");
 			}
 			session=sessionFactory.getCurrentSession();
-			session.beginTransaction();
+			//session.beginTransaction();
 			session.find(Discussion.class, questionNo);
 			Discussion discussion=session.load(Discussion.class, questionNo);
 			session.delete(discussion);
-			session.getTransaction().commit();
+			//session.getTransaction().commit();
 			response=new ResponseEntity<String>("Discussion Details Deleted Successfully!",new HttpHeaders(),HttpStatus.OK);
 		}
 		catch(HibernateException | QuestionNotFoundException e)
@@ -171,7 +174,7 @@ public class DiscussionRepositoryImpl implements DiscussionRepository{
 				throw new QuestionNotFoundException("Question Not Found With"+" "+questionNo+"!");
 			}
 			session=sessionFactory.getCurrentSession();
-			Query query=session.createQuery("FROM Discussion where questionNo=:questionId");
+			Query<Discussion> query=session.createQuery("FROM Discussion where questionNo=:questionId");
 			query.setParameter("questionId",questionNo);
 			discussion=(Discussion) query.getSingleResult();
 			response=new ResponseEntity<Discussion>(discussion,new HttpHeaders(),HttpStatus.OK);

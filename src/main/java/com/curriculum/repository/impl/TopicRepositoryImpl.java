@@ -3,15 +3,11 @@ package com.curriculum.repository.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.Criteria;
+import javax.transaction.Transactional;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.LogicalExpression;
-import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Property;
-import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -19,7 +15,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
-import com.curriculum.entity.Student;
 import com.curriculum.entity.Subject;
 import com.curriculum.entity.Topic;
 import com.curriculum.exception.SubjectNotFoundException;
@@ -27,6 +22,7 @@ import com.curriculum.exception.UnitNotFoundException;
 import com.curriculum.repository.TopicRepository;
 
 @Repository
+@Transactional
 public class TopicRepositoryImpl implements TopicRepository{
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -45,7 +41,7 @@ public class TopicRepositoryImpl implements TopicRepository{
 				throw new SubjectNotFoundException("Subject Not Found With"+" "+subjectCode+"!");
 			}
 			session=sessionFactory.getCurrentSession();
-			session.beginTransaction();
+			//session.beginTransaction();
 			Subject subject=new Subject();
 			subject.setCode(subjectCode);
 			Topic topic=new Topic();
@@ -55,7 +51,7 @@ public class TopicRepositoryImpl implements TopicRepository{
 			topic.setStatus(topicDetails.getStatus());
 			topic.setSubject(subject);
 			session.save(topic);
-			session.getTransaction().commit();
+			//session.getTransaction().commit();
 			response=new ResponseEntity<String>("Topic Added Successfully for Subject!",new HttpHeaders(),HttpStatus.OK);
 		}
 		catch(HibernateException | SubjectNotFoundException e)
@@ -78,11 +74,11 @@ public class TopicRepositoryImpl implements TopicRepository{
 				throw new SubjectNotFoundException("Subject Not Found With"+" "+subjectCode+"!");
 			}
 			session=sessionFactory.getCurrentSession();
-			Criteria criteria=session.createCriteria(Topic.class)
-					.add(Restrictions.eq("subject.code",subjectCode))
-					.setProjection(Property.forName("unitNo"));
-			topicList=criteria.list();
-			System.out.println(topicList);
+//			Criteria criteria=session.createCriteria(Topic.class)
+//					.add(Restrictions.eq("subject.code",subjectCode))
+//					.setProjection(Property.forName("unitNo"));
+//			topicList=criteria.list();
+//			System.out.println(topicList);
 			response=new ResponseEntity<List<String>>(topicList,new HttpHeaders(),HttpStatus.OK);
 		}
 		catch(HibernateException | SubjectNotFoundException e)
@@ -93,7 +89,7 @@ public class TopicRepositoryImpl implements TopicRepository{
 		return response;
 	}
 	public boolean checkTopic(String unitNo) {
-		Session session = sessionFactory.openSession();
+		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("FROM Topic WHERE unitNo=:topicNo");
 		query.setParameter("topicNo",unitNo);
 		List<Topic> topicList = query.list();
@@ -145,7 +141,7 @@ public class TopicRepositoryImpl implements TopicRepository{
 				throw new SubjectNotFoundException("Subject Not Found With"+" "+subjectCode+"!");
 			}
 			session=sessionFactory.getCurrentSession();
-			session.beginTransaction();
+			//session.beginTransaction();
 			session.find(Topic.class, unitNo);
 			Topic newTopicDetails=session.load(Topic.class, unitNo);
 			Subject subjectDetails=new Subject();
@@ -155,7 +151,7 @@ public class TopicRepositoryImpl implements TopicRepository{
 			newTopicDetails.setStatus(topicDetails.getStatus());
 			newTopicDetails.setSubject(subjectDetails);
 			session.merge(newTopicDetails);
-			session.getTransaction().commit();
+			//session.getTransaction().commit();
 			response=new ResponseEntity<String>("Topic Status is Updated Successfully!",new HttpHeaders(),HttpStatus.OK);
 		}
 		catch(HibernateException |UnitNotFoundException |SubjectNotFoundException e)
@@ -177,11 +173,11 @@ public class TopicRepositoryImpl implements TopicRepository{
 				throw new UnitNotFoundException("Unit Not Found With"+" "+unitNo+"!");
 			}
 			session=sessionFactory.getCurrentSession();
-			session.beginTransaction();
+			//session.beginTransaction();
 			session.find(Topic.class, unitNo);
 			Topic topicDetails=session.load(Topic.class, unitNo);
 			session.delete(topicDetails);
-			session.getTransaction().commit();
+			//session.getTransaction().commit();
 			response=new ResponseEntity<String>("Topic is Deleted Successfully!",new HttpHeaders(),HttpStatus.OK);
 		}
 		catch(HibernateException e)

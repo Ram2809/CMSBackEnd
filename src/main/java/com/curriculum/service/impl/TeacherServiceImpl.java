@@ -18,7 +18,7 @@ public class TeacherServiceImpl implements TeacherService {
 	private TeacherRepository teacherRepositoryImpl;
 
 	@Override
-	public ResponseEntity<String> addTeacherDetails(Teacher teacherDetails) {
+	public ResponseEntity<?> addTeacherDetails(Teacher teacherDetails) {
 		// TODO Auto-generated method stub
 		return teacherRepositoryImpl.addTeacherDetails(teacherDetails);
 	}
