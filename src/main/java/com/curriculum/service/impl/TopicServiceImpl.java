@@ -22,7 +22,7 @@ public class TopicServiceImpl implements TopicService{
 		return topicRepositoryImpl.addTopicDetails(subjectCode,topicDetails);
 	}
 	@Override
-	public ResponseEntity<List<String>> getTopicDetailsBySubjectCode(String subjectCode) {
+	public ResponseEntity<List<Topic>> getTopicDetailsBySubjectCode(String subjectCode) throws SubjectNotFoundException {
 		// TODO Auto-generated method stub
 		return topicRepositoryImpl.getTopicDetailsBySubjectCode(subjectCode);
 	}

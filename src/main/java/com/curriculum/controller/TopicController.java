@@ -3,8 +3,11 @@ package com.curriculum.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +23,7 @@ import com.curriculum.service.TopicService;
 
 @RestController
 @RequestMapping("/topic")
+@CrossOrigin("http://localhost:4200")
 public class TopicController {
 	@Autowired
 	private TopicService topicServiceImpl;
@@ -29,7 +33,7 @@ public class TopicController {
 		return topicServiceImpl.addTopicDetails(subjectCode,topicDetails);
 	}
 	@GetMapping("/getBySubjectCode/{subjectCode}")
-	public ResponseEntity<List<String>> getTopicDetailsBySubjectCode(@PathVariable("subjectCode") String subjectCode)
+	public ResponseEntity<List<Topic>> getTopicDetailsBySubjectCode(@PathVariable("subjectCode") String subjectCode) throws SubjectNotFoundException
 	{
 		return topicServiceImpl.getTopicDetailsBySubjectCode(subjectCode);
 	}
@@ -47,5 +51,11 @@ public class TopicController {
 	public ResponseEntity<String> deleteTopicDetails(@PathVariable("unitNo") String unitNo) throws UnitNotFoundException
 	{
 		return topicServiceImpl.deleteTopicDetails(unitNo);
+	}
+	//@GetMapping("")
+	@ExceptionHandler(SubjectNotFoundException.class)
+	public ResponseEntity<String> topicNotFound(ClassNotFoundException e)
+	{
+		return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
 	}
 }

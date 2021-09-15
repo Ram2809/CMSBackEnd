@@ -14,4 +14,6 @@ public interface SubjectRepository {
 	ResponseEntity<String> deleteSubjectDetails(String subjectCode) throws SubjectNotFoundException;
 	ResponseEntity<Subject> getParticularSubjectDetails(String subjectCode) throws SubjectNotFoundException;
 	ResponseEntity<List<Subject>> getSubjectByClass(Long roomNo) throws ClassNotFoundException;
+	ResponseEntity<List<String>> getSubjectName(Long roomNo) throws ClassNotFoundException;
+	ResponseEntity<String> getSubjectCode(Long roomNo,String name) throws ClassNotFoundException;
 }

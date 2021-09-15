@@ -30,11 +30,11 @@ public class ClassController {
 		return classServiceImpl.addClassDetails(classDetails);
 	}
 
-	@GetMapping("/getAllClassDetails")
+	@GetMapping("/getAllClassDetails")//@JsonIgnore
 	public ResponseEntity<List<ClassEntity>> getAllClassDetails() {
 		return classServiceImpl.getAllClassDetails();
 	}
-	@PutMapping("/updateClassDetails/{roomNo}")
+	@PutMapping("/updateClassDetails/{roomNo}")//@JsonIgnore(x)
 	public ResponseEntity<String> updateClassDetails(@PathVariable("roomNo") Long roomNo,@RequestBody ClassEntity classDetails)
 	{
 			return classServiceImpl.updateClassDetails(roomNo,classDetails);

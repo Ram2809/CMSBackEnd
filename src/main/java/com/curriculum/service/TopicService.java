@@ -10,7 +10,7 @@ import com.curriculum.exception.UnitNotFoundException;
 
 public interface TopicService {
 	ResponseEntity<String> addTopicDetails(String subjectCode,Topic topicDetails) throws SubjectNotFoundException;
-	ResponseEntity<List<String>> getTopicDetailsBySubjectCode(String subjectCode);
+	ResponseEntity<List<Topic>> getTopicDetailsBySubjectCode(String subjectCode) throws SubjectNotFoundException;
 	ResponseEntity<Topic> getTopicDetailsByUnitNo(String unitNo);
 	ResponseEntity<String> updateTopicDetails(String subjectCode,String unitNo,Topic topicDetails) throws SubjectNotFoundException;
 	ResponseEntity<String> deleteTopicDetails(String unitNo) throws UnitNotFoundException;

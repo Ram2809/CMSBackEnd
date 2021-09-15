@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -49,6 +50,8 @@ public class TopicRepositoryImpl implements TopicRepository{
 			topic.setUnitName(topicDetails.getUnitName());
 			topic.setBeginDate(topicDetails.getBeginDate());
 			topic.setStatus(topicDetails.getStatus());
+			topic.setDescription(topicDetails.getDescription());
+			topic.setEndDate(topicDetails.getEndDate());
 			topic.setSubject(subject);
 			session.save(topic);
 			//session.getTransaction().commit();
@@ -61,11 +64,11 @@ public class TopicRepositoryImpl implements TopicRepository{
 		return response;
 	}
 	@Override
-	public ResponseEntity<List<String>> getTopicDetailsBySubjectCode(String subjectCode) {
+	public ResponseEntity<List<Topic>> getTopicDetailsBySubjectCode(String subjectCode) throws SubjectNotFoundException {
 		// TODO Auto-generated method stub
-		ResponseEntity<List<String>> response=null;
+		ResponseEntity<List<Topic>> response=null;
 		Session session=null;
-		List<String> topicList=new ArrayList<>();
+		List<Topic> topicDetailsList=new ArrayList<>();
 		try
 		{
 			boolean checkSubject=subjectRepositoryImpl.checkSubject(subjectCode);
@@ -74,14 +77,12 @@ public class TopicRepositoryImpl implements TopicRepository{
 				throw new SubjectNotFoundException("Subject Not Found With"+" "+subjectCode+"!");
 			}
 			session=sessionFactory.getCurrentSession();
-//			Criteria criteria=session.createCriteria(Topic.class)
-//					.add(Restrictions.eq("subject.code",subjectCode))
-//					.setProjection(Property.forName("unitNo"));
-//			topicList=criteria.list();
-//			System.out.println(topicList);
-			response=new ResponseEntity<List<String>>(topicList,new HttpHeaders(),HttpStatus.OK);
+			Query query=session.createQuery("FROM Topic t WHERE t.subject.code=:subjectCode");
+			query.setParameter("subjectCode", subjectCode);
+			topicDetailsList=query.getResultList();
+			response=new ResponseEntity<List<Topic>>(topicDetailsList,new HttpHeaders(),HttpStatus.OK);
 		}
-		catch(HibernateException | SubjectNotFoundException e)
+		catch(HibernateException e)
 		{
 			e.printStackTrace();
 		}

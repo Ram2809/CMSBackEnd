@@ -34,11 +34,13 @@ public class SessionFactoryBean {
 	        sessionFactoryBuilder.addProperties(getHibernateProperties());
 	        return sessionFactoryBuilder.buildSessionFactory();
 	    }
+	    
 	    @Autowired
 	    @Bean(name = "transactionManager")
 	    public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
 	      return new HibernateTransactionManager(sessionFactory);
 	    }
+	    
 	    /*  Get Properties from Application.properties File and config into Hibernate */
 	    private Properties getHibernateProperties() {
 	        Properties properties = new Properties();

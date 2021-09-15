@@ -2,13 +2,12 @@ package com.curriculum.entity;
 
 import java.io.Serializable;
 import java.util.Set;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -19,12 +18,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name="Class")
 @Getter
 @Setter
-//@ToString
+@ToString
 @NoArgsConstructor
 public class ClassEntity implements Serializable{
 	@Id
@@ -35,7 +35,7 @@ public class ClassEntity implements Serializable{
 	@Column(nullable=false)
 	@Size(max=2)
 	private String section;
-	@OneToMany(mappedBy="classEntity")
+	@OneToMany(mappedBy="classEntity",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
 	@JsonIgnore
 	private Set<Student> student;
 	@OneToMany(mappedBy="classRoom",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)

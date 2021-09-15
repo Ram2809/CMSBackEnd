@@ -199,5 +199,56 @@ public class SubjectRepositoryImpl implements SubjectRepository{
 		}
 		return response;
 	}
+	@Override
+	public ResponseEntity<List<String>> getSubjectName(Long roomNo) throws ClassNotFoundException {
+		// TODO Auto-generated method stub
+		ResponseEntity<List<String>> response=null;
+		Session session=null;
+		List<String> subjectNames=new ArrayList<>();
+		try
+		{
+			boolean checkRoomNo=classRepositoryImpl.checkClassRoomNo(roomNo);
+			if(!checkRoomNo)
+			{
+				throw new ClassNotFoundException("Class Not Found with"+" "+roomNo+"!");
+			}
+			session=sessionFactory.getCurrentSession();
+			Query query=session.createQuery("SELECT s.name FROM Subject s WHERE s.classRoom.roomNo=:roomId");
+			query.setParameter("roomId", roomNo);
+			subjectNames=query.getResultList();
+			response=new ResponseEntity<List<String>>(subjectNames,new HttpHeaders(),HttpStatus.OK);
+		}
+		catch(HibernateException e)
+		{
+			e.printStackTrace();
+		}
+		return response;
+	}
+	@Override
+	public ResponseEntity<String> getSubjectCode(Long roomNo, String name) throws ClassNotFoundException {
+		// TODO Auto-generated method stub
+		ResponseEntity<String> response=null;
+		Session session=null;
+		String code="";
+		try
+		{
+			boolean checkRoomNo=classRepositoryImpl.checkClassRoomNo(roomNo);
+			if(!checkRoomNo)
+			{
+				throw new ClassNotFoundException("Class Not Found with"+" "+roomNo+"!");
+			}
+			session=sessionFactory.getCurrentSession();
+			Query query=session.createQuery("SELECT s.code FROM Subject s WHERE s.name=:subjectName AND s.classRoom.roomNo=:roomId");
+			query.setParameter("subjectName", name);
+			query.setParameter("roomId", roomNo);
+			code=(String) query.uniqueResult();
+			response=new ResponseEntity<String>(code,new HttpHeaders(),HttpStatus.OK);
+		}
+		catch(HibernateException e)
+		{
+			e.printStackTrace();
+		}
+		return response;
+	}
 
 }

@@ -45,4 +45,14 @@ public class SubjectServiceImpl implements SubjectService{
 		// TODO Auto-generated method stub
 		return subjectRepositoryImpl.getSubjectByClass(roomNo);
 	}
+	@Override
+	public ResponseEntity<List<String>> getSubjectName(Long roomNo) throws ClassNotFoundException {
+		// TODO Auto-generated method stub
+		return subjectRepositoryImpl.getSubjectName(roomNo);
+	}
+	@Override
+	public ResponseEntity<String> getSubjectCode(Long roomNo, String name) throws ClassNotFoundException {
+		// TODO Auto-generated method stub
+		return subjectRepositoryImpl.getSubjectCode(roomNo,name);
+	}
 }

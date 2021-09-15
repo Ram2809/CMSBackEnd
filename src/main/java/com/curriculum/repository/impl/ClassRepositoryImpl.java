@@ -71,7 +71,7 @@ public class ClassRepositoryImpl implements ClassRepository {
 			classEntity.setStandard(classDetails.getStandard());
 			classEntity.setSection(classDetails.getSection());
 			session.merge(classEntity);
-			session.flush();
+			//session.flush();
 			//session.getTransaction().commit();
 			response=new ResponseEntity<String>("Class Details Updated Successfully!",new HttpHeaders(),HttpStatus.OK);
 		}

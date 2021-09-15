@@ -61,6 +61,16 @@ public class SubjectController {
 	{
 		return subjectServiceImpl.getSubjectByClass(roomNo);
 	}
+	@GetMapping("/getSubjectName/{roomNo}")
+	public ResponseEntity<List<String>> getSubjectName(@PathVariable("roomNo") Long roomNo) throws ClassNotFoundException
+	{
+		return subjectServiceImpl.getSubjectName(roomNo);
+	}
+	@GetMapping("/getSubjectCode/{roomNo}/{name}")
+	public ResponseEntity<String> getSubjectCode(@PathVariable("roomNo") Long roomNo,@PathVariable("name") String name) throws ClassNotFoundException
+	{
+		return subjectServiceImpl.getSubjectCode(roomNo,name);
+	}
 	@ExceptionHandler(SubjectNotFoundException.class)
 	public ResponseEntity<String> subjectNotFound(SubjectNotFoundException e)
 	{
