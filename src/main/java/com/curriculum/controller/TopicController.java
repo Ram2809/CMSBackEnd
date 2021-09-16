@@ -47,12 +47,16 @@ public class TopicController {
 	{
 		return topicServiceImpl.updateTopicDetails(subjectCode,unitNo,topicDetails);
 	}
+//	@DeleteMapping("/deleteTopic")
+//	public ResponseEntity<String> deleteTopicDetails(@RequestBody Topic topicDetails)
+//	{
+//		return topicServiceImpl.deleteTopicDetails(topicDetails);
+//	}
 	@DeleteMapping("/deleteTopic/{unitNo}")
 	public ResponseEntity<String> deleteTopicDetails(@PathVariable("unitNo") String unitNo) throws UnitNotFoundException
 	{
 		return topicServiceImpl.deleteTopicDetails(unitNo);
 	}
-	//@GetMapping("")
 	@ExceptionHandler(SubjectNotFoundException.class)
 	public ResponseEntity<String> topicNotFound(ClassNotFoundException e)
 	{

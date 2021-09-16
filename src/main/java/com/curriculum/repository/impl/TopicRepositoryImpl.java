@@ -161,8 +161,34 @@ public class TopicRepositoryImpl implements TopicRepository{
 		}
 		return response;
 	}
+//	@Override
+//	public ResponseEntity<String> deleteTopicDetails(Topic topic){// throws UnitNotFoundException {
+//		// TODO Auto-generated method stub
+//		ResponseEntity<String> response=null;
+//		Session session=null;
+//		try
+//		{
+//			boolean topicStatus=checkTopic(topic.getUnitNo());
+//			if(!topicStatus)
+//			{
+//				throw new UnitNotFoundException("Unit Not Found With"+" "+topic.getUnitNo()+"!");
+//			}
+//			session=sessionFactory.getCurrentSession();
+//			//session.beginTransaction();
+//			session.find(Topic.class, topic.getUnitNo());
+//			Topic topicDetails=session.load(Topic.class, topic.getUnitNo());
+//			session.delete(topicDetails);
+//			//session.getTransaction().commit();
+//			response=new ResponseEntity<String>("Topic is Deleted Successfully!",new HttpHeaders(),HttpStatus.OK);
+//		}
+//		catch(HibernateException e) //| UnitNotFoundException e)
+//		{
+//			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
+//		}
+//		return response;
+//	}
 	@Override
-	public ResponseEntity<String> deleteTopicDetails(String unitNo) throws UnitNotFoundException {
+	public ResponseEntity<String> deleteTopicDetails(String unitNo){// throws UnitNotFoundException {
 		// TODO Auto-generated method stub
 		ResponseEntity<String> response=null;
 		Session session=null;
@@ -181,11 +207,12 @@ public class TopicRepositoryImpl implements TopicRepository{
 			//session.getTransaction().commit();
 			response=new ResponseEntity<String>("Topic is Deleted Successfully!",new HttpHeaders(),HttpStatus.OK);
 		}
-		catch(HibernateException e)
+		catch(HibernateException  |UnitNotFoundException e)
 		{
 			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
 		}
 		return response;
 	}
+
 
 }

@@ -36,8 +36,13 @@ public class TopicServiceImpl implements TopicService{
 		// TODO Auto-generated method stub
 		return topicRepositoryImpl.updateTopicDetails(subjectCode,unitNo,topicDetails);
 	}
+//	@Override
+//	public ResponseEntity<String> deleteTopicDetails(Topic topic){ //throws UnitNotFoundException {
+//		// TODO Auto-generated method stub
+//		return topicRepositoryImpl.deleteTopicDetails(topic);
+//	}
 	@Override
-	public ResponseEntity<String> deleteTopicDetails(String unitNo) throws UnitNotFoundException {
+	public ResponseEntity<String> deleteTopicDetails(String unitNo) throws UnitNotFoundException{ //throws UnitNotFoundException {
 		// TODO Auto-generated method stub
 		return topicRepositoryImpl.deleteTopicDetails(unitNo);
 	}
