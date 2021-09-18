@@ -8,13 +8,13 @@ import com.curriculum.entity.Teacher;
 import com.curriculum.exception.DatabaseException;
 
 public interface TeacherRepository {
-	ResponseEntity<?> addTeacherDetails(Teacher teacherDeteails);
+	Teacher addTeacher(Teacher teacher) throws DatabaseException;
 
-	ResponseEntity<List<Teacher>> getAllTeacherDetails();
+	List<Teacher> getAllTeacher() throws DatabaseException;
 
-	ResponseEntity<String> updateTeacherDetails(Long id, Teacher teacherDetails) throws DatabaseException;
+	Teacher updateTeacher(Long id, Teacher teacherDetails) throws DatabaseException;
 
-	ResponseEntity<String> deleteTeacherDetails(Long id) throws DatabaseException;
+	Teacher deleteTeacher(Long id) throws DatabaseException;
 
-	ResponseEntity<Teacher> getParticularTeacherDetails(Long id) throws DatabaseException;
+	Teacher getParticularTeacher(Long id) throws DatabaseException;
 }

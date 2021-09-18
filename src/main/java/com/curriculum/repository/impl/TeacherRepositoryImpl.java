@@ -3,18 +3,17 @@ package com.curriculum.repository.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.curriculum.entity.Teacher;
+import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.TeacherNotFoundException;
 import com.curriculum.repository.TeacherRepository;
@@ -22,148 +21,137 @@ import com.curriculum.repository.TeacherRepository;
 @Repository
 @Transactional
 public class TeacherRepositoryImpl implements TeacherRepository {
+	static Logger logger = Logger.getLogger(TeacherRepositoryImpl.class);
 	@Autowired
 	private SessionFactory sessionFactory;
 
 	@Override
-	public ResponseEntity<?> addTeacherDetails(Teacher teacherDetails) {
-		// TODO Auto-generated method stub
+	public Teacher addTeacher(Teacher teacher) throws DatabaseException {
+		logger.info("Adding teacher");
 		Session session = null;
-		ResponseEntity<?> response = null;
+		Long count = 0l;
+		Teacher response = null;
 		try {
 			session = sessionFactory.getCurrentSession();
-			//session.beginTransaction();
-			session.save(teacherDetails);
-			//session.getTransaction().commit();
-			response = new ResponseEntity("Teacher Details Added Successfully!",new HttpHeaders(),HttpStatus.OK);
-		} catch (HibernateException e) {
-			response = new ResponseEntity<String>(e.getMessage(), new HttpHeaders(), HttpStatus.OK);
-		} 
+			if (teacher.getMajor() == null) {
+				throw new ConstraintValidationException("Major must be entered!");
+			}
+			count = (Long) session.save(teacher);
+			if (count > 0) {
+				response = teacher;
+				logger.info("Teacher details added successfully!");
+			}
+		} catch (HibernateException | ConstraintValidationException e) {
+			logger.error("Error while adding the teacher!");
+			throw new DatabaseException(e.getMessage());
+		}
 		return response;
 	}
 
 	@Override
-	public ResponseEntity<List<Teacher>> getAllTeacherDetails() {
-		// TODO Auto-generated method stub
-		ResponseEntity<List<Teacher>> response = null;
+	public List<Teacher> getAllTeacher() throws DatabaseException {
+		logger.info("Getting all teacher details");
 		Session session = null;
-		List<Teacher> teacherDetailsList = new ArrayList<>();
+		List<Teacher> teacherList = new ArrayList<>();
 		try {
 			session = sessionFactory.getCurrentSession();
-			Query<Teacher> query = session.createQuery("FROM Teacher t");
-			teacherDetailsList = query.list();
-			response = new ResponseEntity<List<Teacher>>(teacherDetailsList, new HttpHeaders(), HttpStatus.OK);
+			Query<Teacher> query = session.createQuery("FROM Login t");
+			teacherList = query.list();
+			logger.info("Teacher list is fetched successfully!");
 		} catch (HibernateException e) {
-			e.printStackTrace();
-		} 
-		return response;
+			logger.error("Error while fetching the teacher list");
+			throw new DatabaseException(e.getMessage());
+		}
+		return teacherList;
 	}
 
-	public boolean checkTeacher(Long id) {
+	public boolean checkTeacher(Long id) throws TeacherNotFoundException {
 		Session session = sessionFactory.getCurrentSession();
 		Query<Teacher> query = session.createQuery("FROM Teacher WHERE id=:teacherId");
 		query.setParameter("teacherId", id);
 		List<Teacher> teacherList = query.list();
 		if (teacherList.isEmpty()) {
-			return false;
+			throw new TeacherNotFoundException("Teacher Not Found With" + " " + id + "!");
 		}
 		return true;
 	}
 
 	@Override
-	public ResponseEntity<String> updateTeacherDetails(Long id, Teacher teacherDetails) throws DatabaseException {
-		ResponseEntity<String> response = null;
+	public Teacher updateTeacher(Long id, Teacher teacher) throws DatabaseException {
+		logger.info("Updating the teacher details");
+		Teacher response = null;
 		Session session = null;
 		try {
 			boolean checkTeacher = checkTeacher(id);
-			if (!checkTeacher) {
-				throw new TeacherNotFoundException("Teacher Not Found with" + " " + id + "!");
-			}
 			session = sessionFactory.getCurrentSession();
-			//session.beginTransaction();
 			session.find(Teacher.class, id);
-			Teacher newTeacherDetails = session.load(Teacher.class, id);
-			newTeacherDetails.setFirstName(teacherDetails.getFirstName());
-			newTeacherDetails.setLastName(teacherDetails.getLastName());
-			newTeacherDetails.setDateOfBirth(teacherDetails.getDateOfBirth());
-			newTeacherDetails.setGender(teacherDetails.getGender());
-			newTeacherDetails.setQualification(teacherDetails.getQualification());
-			newTeacherDetails.setMajor(teacherDetails.getMajor());
-			newTeacherDetails.setEmail(teacherDetails.getEmail());
-			newTeacherDetails.setContactNo(teacherDetails.getContactNo());
-			newTeacherDetails.setAddress(teacherDetails.getAddress());
-			session.merge(newTeacherDetails);
-			//session.flush();
-			//session.getTransaction().commit();
-			response = new ResponseEntity<String>("Teacher Details Updated Successfully!", new HttpHeaders(),
-					HttpStatus.OK);
-		} catch (HibernateException | TeacherNotFoundException e) {
+			Teacher newTeacher = session.load(Teacher.class, id);
+			newTeacher.setFirstName(teacher.getFirstName());
+			newTeacher.setLastName(teacher.getLastName());
+			newTeacher.setDateOfBirth(teacher.getDateOfBirth());
+			newTeacher.setGender(teacher.getGender());
+			newTeacher.setQualification(teacher.getQualification());
+			System.out.println(teacher.getMajor());
+			if (teacher.getMajor() == null) {
+				throw new ConstraintValidationException("Major must be entered!");
+			}
+			newTeacher.setMajor(teacher.getMajor());
+			newTeacher.setEmail(teacher.getEmail());
+			newTeacher.setContactNo(teacher.getContactNo());
+			newTeacher.setAddress(teacher.getAddress());
+			response = (Teacher) session.merge(newTeacher);
+			logger.info("Teacher Details updated successfully!");
+		} catch (HibernateException | TeacherNotFoundException | ConstraintValidationException e) {
+			logger.error("Error while updating the teacher!");
 			throw new DatabaseException(e.getMessage());
-		} 
-//		finally {
-//			if (session != null) {
-//				session.close();
-//			}
-//		}
+		}
 		return response;
 	}
 
 	@Override
-	public ResponseEntity<String> deleteTeacherDetails(Long id) throws DatabaseException {
-		// TODO Auto-generated method stub
-		ResponseEntity<String> response = null;
+	public Teacher deleteTeacher(Long id) throws DatabaseException {
+		logger.info("Deleting the teacher");
 		Session session = null;
+		Teacher response = null;
 		try {
 			boolean checkTeacher = checkTeacher(id);
-			if (!checkTeacher) {
-				throw new TeacherNotFoundException("Teacher Not Found with" + " " + id + "!");
-			}
 			session = sessionFactory.getCurrentSession();
-			//session.beginTransaction();
 			session.find(Teacher.class, id);
-			Teacher teacherDetails = session.load(Teacher.class, id);
-			session.delete(teacherDetails);
-			//session.flush();
-			//session.getTransaction().commit();
-			response = new ResponseEntity<String>("Teacher Details Deleted Successfully!", new HttpHeaders(),
-					HttpStatus.OK);
+			Teacher teacher = session.load(Teacher.class, id);
+			session.delete(teacher);
+			Teacher teacherDetail = session.get(Teacher.class, id);
+			if (teacherDetail == null) {
+				response = teacher;
+				logger.info("Teacher Deleted Successfully!");
+			} else {
+				logger.error("Error while deleting the teacher!");
+			}
 		} catch (HibernateException | TeacherNotFoundException e) {
+			logger.error("Error while deleting the teacher!");
 			throw new DatabaseException(e.getMessage());
-		} 
-//		finally {
-//			if (session != null) {
-//				session.close();
-//			}
-//		}
+		}
+
 		return response;
 	}
 
 	@Override
-	public ResponseEntity<Teacher> getParticularTeacherDetails(Long id) throws DatabaseException {
-		// TODO Auto-generated method stub
-		ResponseEntity<Teacher> response = null;
+	public Teacher getParticularTeacher(Long id) throws DatabaseException {
+		logger.info("Getting teacher detail");
 		Session session = null;
-		Teacher teacherDetails = new Teacher();
+		Teacher teacher = new Teacher();
 		try {
-//			boolean checkTeacher = checkTeacher(id);
-//			if (!checkTeacher) {
-//				throw new TeacherNotFoundException("Teacher Not Found with" + " " + id + "!");
-//			}
+			boolean checkTeacher = checkTeacher(id);
 			session = sessionFactory.getCurrentSession();
-			Query<Teacher> query = session.createQuery("FROM Teacher WHERE id=:teacherId");
+			Query query = session.createQuery("FROM Teacher WHERE id=:teacherId");
 			query.setParameter("teacherId", id);
-			teacherDetails = (Teacher) query.getSingleResult();
-			response = new ResponseEntity<Teacher>(teacherDetails, new HttpHeaders(), HttpStatus.OK);
-		} catch (HibernateException e) { //| //TeacherNotFoundException e) {
+			teacher = (Teacher) query.getSingleResult();
+			logger.info("Teacher details fetched succesfully!");
+		} catch (HibernateException | TeacherNotFoundException e) {
+			logger.error("Error while fecthing teacher detail!");
+			;
 			throw new DatabaseException(e.getMessage());
-		} 
-//		finally {
-//			if (session != null) {
-//				session.close();
-//			}
-//		}
-
-		return response;
+		}
+		return teacher;
 	}
 
 }

@@ -47,11 +47,11 @@ public class TopicController {
 	{
 		return topicServiceImpl.updateTopicDetails(subjectCode,unitNo,topicDetails);
 	}
-//	@DeleteMapping("/deleteTopic")
-//	public ResponseEntity<String> deleteTopicDetails(@RequestBody Topic topicDetails)
-//	{
-//		return topicServiceImpl.deleteTopicDetails(topicDetails);
-//	}
+	@GetMapping("/getSubjectCode/{unitNo}")
+	public ResponseEntity<String> getSubjectCode(@PathVariable("unitNo") String unitNo)
+	{
+		return topicServiceImpl.getSubjectCode(unitNo);
+	}
 	@DeleteMapping("/deleteTopic/{unitNo}")
 	public ResponseEntity<String> deleteTopicDetails(@PathVariable("unitNo") String unitNo) throws UnitNotFoundException
 	{

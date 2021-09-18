@@ -13,6 +13,6 @@ public interface TopicRepository {
 	ResponseEntity<List<Topic>> getTopicDetailsBySubjectCode(String subjectCode) throws SubjectNotFoundException;
 	ResponseEntity<Topic> getTopicDetailsByUnitNo(String unitNo);
 	ResponseEntity<String> updateTopicDetails(String subjectCode,String unitNo,Topic topicDetails) throws SubjectNotFoundException;
-	//ResponseEntity<String> deleteTopicDetails(Topic topic);//throws UnitNotFoundException;
+	ResponseEntity<String> getSubjectCode(String unitNo); 
 	ResponseEntity<String> deleteTopicDetails(String unitNo)throws UnitNotFoundException;
 }

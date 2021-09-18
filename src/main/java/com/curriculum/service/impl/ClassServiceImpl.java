@@ -16,7 +16,6 @@ public class ClassServiceImpl implements ClassService{
 	private ClassRepository classRepositoryImpl;
 	@Override
 	public ResponseEntity<String> addClassDetails(ClassEntity classDetails) {
-		// TODO Auto-generated method stub
 		return classRepositoryImpl.addClassDetails(classDetails);
 	}
 	@Override

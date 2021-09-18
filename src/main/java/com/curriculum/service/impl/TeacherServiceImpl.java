@@ -18,47 +18,47 @@ public class TeacherServiceImpl implements TeacherService {
 	private TeacherRepository teacherRepositoryImpl;
 
 	@Override
-	public ResponseEntity<?> addTeacherDetails(Teacher teacherDetails) {
-		// TODO Auto-generated method stub
-		return teacherRepositoryImpl.addTeacherDetails(teacherDetails);
+	public Teacher addTeacher(Teacher teacher) throws BusinessServiceException {
+		try {
+			return teacherRepositoryImpl.addTeacher(teacher);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
 	@Override
-	public ResponseEntity<List<Teacher>> getAllTeacherDetails() {
-		// TODO Auto-generated method stub
-		return teacherRepositoryImpl.getAllTeacherDetails();
+	public List<Teacher> getAllTeacher() throws BusinessServiceException {
+		try {
+			return teacherRepositoryImpl.getAllTeacher();
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
 	@Override
-	public ResponseEntity<String> updateTeacherDetails(Long id, Teacher teacherDetails)
+	public Teacher updateTeacher(Long id, Teacher teacherDetails)
 			throws BusinessServiceException {
-		// TODO Auto-generated method stub
 		try {
-			return teacherRepositoryImpl.updateTeacherDetails(id, teacherDetails);
+			return teacherRepositoryImpl.updateTeacher(id, teacherDetails);
 		} catch (DatabaseException e) {
-			// TODO Auto-generated catch block
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
 
 	@Override
-	public ResponseEntity<String> deleteTeacherDetails(Long id) throws BusinessServiceException {
-		// TODO Auto-generated method stub
+	public Teacher deleteTeacher(Long id) throws BusinessServiceException {
 		try {
-			return teacherRepositoryImpl.deleteTeacherDetails(id);
+			return teacherRepositoryImpl.deleteTeacher(id);
 		} catch (DatabaseException e) {
-			// TODO Auto-generated catch block
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
 
 	@Override
-	public ResponseEntity<Teacher> getParticularTeacherDetails(Long id) throws BusinessServiceException {
-		// TODO Auto-generated method stub
+	public Teacher getParticularTeacher(Long id) throws BusinessServiceException {
 		try {
-			return teacherRepositoryImpl.getParticularTeacherDetails(id);
+			return teacherRepositoryImpl.getParticularTeacher(id);
 		} catch (DatabaseException e) {
-			// TODO Auto-generated catch block
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}

@@ -8,13 +8,13 @@ import com.curriculum.entity.Teacher;
 import com.curriculum.exception.BusinessServiceException;
 
 public interface TeacherService {
-	ResponseEntity<?> addTeacherDetails(Teacher teacherDetails);
+	Teacher addTeacher(Teacher teacher) throws BusinessServiceException;
 
-	ResponseEntity<List<Teacher>> getAllTeacherDetails();
+	List<Teacher> getAllTeacher() throws BusinessServiceException;
 
-	ResponseEntity<String> updateTeacherDetails(Long id, Teacher teacherDetails) throws BusinessServiceException;
+	Teacher updateTeacher(Long id, Teacher teacherDetails) throws BusinessServiceException;
 
-	ResponseEntity<String> deleteTeacherDetails(Long id) throws BusinessServiceException;
+	Teacher deleteTeacher(Long id) throws BusinessServiceException;
 
-	ResponseEntity<Teacher> getParticularTeacherDetails(Long id) throws BusinessServiceException;
+	Teacher getParticularTeacher(Long id) throws BusinessServiceException;
 }

@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import com.curriculum.entity.ClassEntity;
+import com.curriculum.exception.DatabaseException;
 import com.curriculum.repository.ClassRepository;
 
 @Repository
@@ -86,8 +87,8 @@ public class ClassRepositoryImpl implements ClassRepository {
 		Session session=sessionFactory.getCurrentSession();
 		Query query=session.createQuery("FROM ClassEntity WHERE roomNo=:roomNo");
 		query.setParameter("roomNo",roomNo);
-		List<ClassEntity> classList=query.list();
-		if(classList.isEmpty())
+		ClassEntity classDetails=(ClassEntity) query.getSingleResult();
+		if(classDetails==null)
 		{
 			return false;
 		}
@@ -115,8 +116,8 @@ public class ClassRepositoryImpl implements ClassRepository {
 		}
 		return response;
 	}
-	@Override
-	public ResponseEntity<List<ClassEntity>> getParticularClassDetails(Long roomNo) throws ClassNotFoundException {
+	/*@Override
+	public ResponseEntity<List<ClassEntity>> getParticularClassDetails(Long roomNo) throws DatabaseException {
 		// TODO Auto-generated method stub
 		ResponseEntity<List<ClassEntity>> response=null;
 		Session session=null;
@@ -134,17 +135,14 @@ public class ClassRepositoryImpl implements ClassRepository {
 			query.setParameter("roomId", roomNo);
 			classDetailsList=query.list();
 			classDetails=(ClassEntity) query.getSingleResult();
-			System.out.println(classDetails.getRoomNo());
-			System.out.println(classDetails.getStandard());
-			System.out.println(classDetails.getSection());
 			response=new ResponseEntity<List<ClassEntity>>(classDetailsList,new HttpHeaders(),HttpStatus.OK);
 		}
-		catch(HibernateException e)
+		catch(HibernateException |ClassNotFoundException e)
 		{
-			e.printStackTrace();
+			throw new DatabaseException(e.getMessage());
 		}
 		return response;
-	}
+	}*/
 	//@SuppressWarnings("unchecked")
 	@Override
 	public ResponseEntity<List<String>> getSection(String standard) {
@@ -197,5 +195,10 @@ public class ClassRepositoryImpl implements ClassRepository {
 			e.printStackTrace();
 		}
 		return response;
+	}
+	@Override
+	public ResponseEntity<List<ClassEntity>> getParticularClassDetails(Long roomNo) throws ClassNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

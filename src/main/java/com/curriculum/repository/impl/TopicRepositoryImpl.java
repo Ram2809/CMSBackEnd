@@ -148,12 +148,14 @@ public class TopicRepositoryImpl implements TopicRepository{
 			Subject subjectDetails=new Subject();
 			subjectDetails.setCode(subjectCode);
 			newTopicDetails.setUnitName(topicDetails.getUnitName());
+			newTopicDetails.setDescription(topicDetails.getDescription());
 			newTopicDetails.setBeginDate(topicDetails.getBeginDate());
+			newTopicDetails.setEndDate(topicDetails.getEndDate());
 			newTopicDetails.setStatus(topicDetails.getStatus());
 			newTopicDetails.setSubject(subjectDetails);
 			session.merge(newTopicDetails);
 			//session.getTransaction().commit();
-			response=new ResponseEntity<String>("Topic Status is Updated Successfully!",new HttpHeaders(),HttpStatus.OK);
+			response=new ResponseEntity<String>("Topic is Updated Successfully!",new HttpHeaders(),HttpStatus.OK);
 		}
 		catch(HibernateException |UnitNotFoundException |SubjectNotFoundException e)
 		{
@@ -161,32 +163,7 @@ public class TopicRepositoryImpl implements TopicRepository{
 		}
 		return response;
 	}
-//	@Override
-//	public ResponseEntity<String> deleteTopicDetails(Topic topic){// throws UnitNotFoundException {
-//		// TODO Auto-generated method stub
-//		ResponseEntity<String> response=null;
-//		Session session=null;
-//		try
-//		{
-//			boolean topicStatus=checkTopic(topic.getUnitNo());
-//			if(!topicStatus)
-//			{
-//				throw new UnitNotFoundException("Unit Not Found With"+" "+topic.getUnitNo()+"!");
-//			}
-//			session=sessionFactory.getCurrentSession();
-//			//session.beginTransaction();
-//			session.find(Topic.class, topic.getUnitNo());
-//			Topic topicDetails=session.load(Topic.class, topic.getUnitNo());
-//			session.delete(topicDetails);
-//			//session.getTransaction().commit();
-//			response=new ResponseEntity<String>("Topic is Deleted Successfully!",new HttpHeaders(),HttpStatus.OK);
-//		}
-//		catch(HibernateException e) //| UnitNotFoundException e)
-//		{
-//			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
-//		}
-//		return response;
-//	}
+
 	@Override
 	public ResponseEntity<String> deleteTopicDetails(String unitNo){// throws UnitNotFoundException {
 		// TODO Auto-generated method stub
@@ -200,16 +177,39 @@ public class TopicRepositoryImpl implements TopicRepository{
 				throw new UnitNotFoundException("Unit Not Found With"+" "+unitNo+"!");
 			}
 			session=sessionFactory.getCurrentSession();
-			//session.beginTransaction();
 			session.find(Topic.class, unitNo);
 			Topic topicDetails=session.load(Topic.class, unitNo);
 			session.delete(topicDetails);
-			//session.getTransaction().commit();
 			response=new ResponseEntity<String>("Topic is Deleted Successfully!",new HttpHeaders(),HttpStatus.OK);
 		}
 		catch(HibernateException  |UnitNotFoundException e)
 		{
 			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
+		}
+		return response;
+	}
+	@Override
+	public ResponseEntity<String> getSubjectCode(String unitNo) {
+		// TODO Auto-generated method stub
+		ResponseEntity<String> response=null;
+		Session session=null;
+		String subjectCode="";
+		try
+		{
+			boolean topicStatus=checkTopic(unitNo);
+			if(!topicStatus)
+			{
+				throw new UnitNotFoundException("Unit Not Found With"+" "+unitNo+"!");
+			}
+			session=sessionFactory.getCurrentSession();
+			Query query=session.createQuery("SELECT t.subject.code FROM Topic t WHERE t.unitNo=:unitNo");
+			query.setParameter("unitNo", unitNo);
+			subjectCode=(String) query.uniqueResult();
+			response=new ResponseEntity<String>(subjectCode,new HttpHeaders(),HttpStatus.OK);
+		}
+		catch(HibernateException | UnitNotFoundException e)
+		{
+			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.NOT_FOUND);
 		}
 		return response;
 	}

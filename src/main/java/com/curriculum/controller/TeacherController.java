@@ -1,5 +1,6 @@
 package com.curriculum.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,54 +17,124 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.curriculum.entity.Response;
 import com.curriculum.entity.Teacher;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.TeacherNotFoundException;
 import com.curriculum.service.TeacherService;
 
 @RestController
-@RequestMapping("/teacher")
+@RequestMapping("/api/teacher")
 @CrossOrigin("http://localhost:4200")
 public class TeacherController {
 	@Autowired
 	private TeacherService teacherServiceImpl;
 
-	@PostMapping("/addTeacherDetails")
-	public ResponseEntity<?> addTeacherDetails(@RequestBody Teacher teacherDetails) {
-		ResponseEntity<?> response=null;
-		response=teacherServiceImpl.addTeacherDetails(teacherDetails);
-		return new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.OK);
-		//return teacherServiceImpl.addTeacherDetails(teacherDetails);
-	}
-
-	@GetMapping("/getAllTeachers")
-	public ResponseEntity<List<Teacher>> getAllTeacherDetails() {
-		return teacherServiceImpl.getAllTeacherDetails();
-	}
-
-	@PutMapping("/updateTeacherDetails/{id}")
-	public ResponseEntity<String> updateTeacherDetails(@PathVariable("id") Long id, @RequestBody Teacher teacherDetails)
-			throws TeacherNotFoundException {
+	@PostMapping
+	public ResponseEntity<Response> addTeacher(@RequestBody Teacher teacher) {
+		ResponseEntity<Response> responseEntity = null;
+		Response response = new Response();
+		Teacher teacherDetail = null;
 		try {
-			return teacherServiceImpl.updateTeacherDetails(id, teacherDetails);
+			teacherDetail = teacherServiceImpl.addTeacher(teacher);
+			response.setCode(200);
+			response.setMessage("Teacher Details Added Successfully!");
+			response.setData(teacherDetail);
+			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
 		} catch (BusinessServiceException e) {
-			// TODO Auto-generated catch block
-			return new ResponseEntity<String>(e.getMessage(), new HttpHeaders(), HttpStatus.OK);
+			response.setCode(500);
+			response.setMessage("Internal Server Error");
+			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+		return responseEntity;
 	}
 
-	@DeleteMapping("/deleteTeacherDetails/{id}")
-	public ResponseEntity<String> deleteTeacherDetails(@PathVariable("id") Long id) {
+	@GetMapping
+	public ResponseEntity<Response> getAllTeacher() {
+		ResponseEntity<Response> responseEntity = null;
+		Response response = new Response();
+		List<Teacher> teacherList = new ArrayList();
 		try {
-			return teacherServiceImpl.deleteTeacherDetails(id);
+			teacherList = teacherServiceImpl.getAllTeacher();
+			if (!teacherList.isEmpty()) {
+				response.setCode(200);
+				response.setMessage("Teacher List fetched successfully!");
+				response.setData(teacherList);
+				responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.OK);
+			} else {
+				response.setCode(404);
+				response.setMessage("Not Found!");
+				responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.OK);
+			}
 		} catch (BusinessServiceException e) {
-			// TODO Auto-generated catch block
-			return new ResponseEntity<String>(e.getMessage(), new HttpHeaders(), HttpStatus.OK);
+			response.setCode(500);
+			response.setMessage("Internal Server Error");
+			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
 		}
+		return responseEntity;
 	}
 
-	@GetMapping("/getTeacherDetails/{id}")
-	public ResponseEntity<Teacher> getParticularTeacherDetails(@PathVariable("id") Long id) throws BusinessServiceException{
-		return teacherServiceImpl.getParticularTeacherDetails(id);	 	
+	@PutMapping("/{id}")
+	public ResponseEntity<Response> updateTeacher(@PathVariable("id") Long id, @RequestBody Teacher teacherDetails) {
+		Response response = new Response();
+		ResponseEntity<Response> responseEntity = null;
+		Teacher teacher = new Teacher();
+		try {
+			teacher = teacherServiceImpl.updateTeacher(id, teacherDetails);
+			response.setCode(200);
+			response.setMessage("Teacher details updated successfully!");
+			response.setData(teacher);
+			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.OK);
+		} catch (BusinessServiceException e) {
+			response.setCode(404);
+			response.setMessage("Teacher Not Found with" + " " + id + "!");
+			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.OK);
+		}
+		return responseEntity;
+	}
+
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Response> deleteTeacher(@PathVariable("id") Long id) {
+		ResponseEntity<Response> responseEntity = null;
+		Response response = new Response();
+		Teacher teacher = new Teacher();
+		try {
+			teacher = teacherServiceImpl.deleteTeacher(id);
+			if (teacher != null) {
+				response.setCode(200);
+				response.setMessage("Teacher details successfully!");
+				response.setData(teacher);
+				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
+			} else {
+				response.setCode(500);
+				response.setMessage("Internal Server Error");
+				response.setData(teacher);
+				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+		} catch (BusinessServiceException e) {
+			response.setCode(404);
+			response.setMessage("Teacher Not Found with" + " " + id + "!");
+			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<Response> getParticularTeacher(@PathVariable("id") Long id) {
+		ResponseEntity<Response> responseEntity = null;
+		Response response = new Response();
+		Teacher teacher = new Teacher();
+		try {
+			teacher = teacherServiceImpl.getParticularTeacher(id);
+			response.setData(teacher);
+			response.setCode(400);
+			response.setMessage("Success");
+			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
+		} catch (BusinessServiceException e) {
+			response.setMessage(e.getMessage());
+			response.setCode(404);
+			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
 	}
 }

@@ -1,0 +1,56 @@
+2021-09-18 11:51:52 INFO  TeacherRepositoryImpl:124 - Getting teacher detail
+2021-09-18 11:51:52 ERROR TeacherRepositoryImpl:135 - Error while fecthing teacher detail!
+2021-09-18 11:52:18 INFO  TeacherRepositoryImpl:124 - Getting teacher detail
+2021-09-18 11:52:18 INFO  TeacherRepositoryImpl:133 - Teacher details fetched succesfully!
+2021-09-18 12:18:19 INFO  TeacherRepositoryImpl:123 - Getting teacher detail
+2021-09-18 12:18:20 INFO  TeacherRepositoryImpl:132 - Teacher details fetched succesfully!
+2021-09-18 12:18:28 INFO  TeacherRepositoryImpl:123 - Getting teacher detail
+2021-09-18 12:18:28 INFO  TeacherRepositoryImpl:132 - Teacher details fetched succesfully!
+2021-09-18 12:18:37 INFO  TeacherRepositoryImpl:123 - Getting teacher detail
+2021-09-18 12:18:37 ERROR TeacherRepositoryImpl:134 - Error while fecthing teacher detail!
+2021-09-18 12:18:46 INFO  TeacherRepositoryImpl:123 - Getting teacher detail
+2021-09-18 12:18:46 INFO  TeacherRepositoryImpl:132 - Teacher details fetched succesfully!
+2021-09-18 12:18:52 INFO  TeacherRepositoryImpl:123 - Getting teacher detail
+2021-09-18 12:18:52 ERROR TeacherRepositoryImpl:134 - Error while fecthing teacher detail!
+2021-09-18 12:20:24 INFO  TeacherRepositoryImpl:123 - Getting teacher detail
+2021-09-18 12:20:25 ERROR TeacherRepositoryImpl:135 - Error while fecthing teacher detail!
+2021-09-18 12:21:01 INFO  TeacherRepositoryImpl:123 - Getting teacher detail
+2021-09-18 12:21:01 INFO  TeacherRepositoryImpl:133 - Teacher details fetched succesfully!
+2021-09-18 12:24:53 INFO  TeacherRepositoryImpl:126 - Getting teacher detail
+2021-09-18 12:24:54 INFO  TeacherRepositoryImpl:135 - Teacher details fetched succesfully!
+2021-09-18 12:28:04 INFO  TeacherRepositoryImpl:104 - Deleting the teacher
+2021-09-18 12:42:16 INFO  TeacherRepositoryImpl:129 - Getting teacher detail
+2021-09-18 12:42:16 INFO  TeacherRepositoryImpl:138 - Teacher details fetched succesfully!
+2021-09-18 12:42:24 INFO  TeacherRepositoryImpl:129 - Getting teacher detail
+2021-09-18 12:42:24 INFO  TeacherRepositoryImpl:138 - Teacher details fetched succesfully!
+2021-09-18 12:42:31 INFO  TeacherRepositoryImpl:129 - Getting teacher detail
+2021-09-18 12:42:31 ERROR TeacherRepositoryImpl:140 - Error while fecthing teacher detail!
+2021-09-18 12:42:43 INFO  TeacherRepositoryImpl:129 - Getting teacher detail
+2021-09-18 12:42:43 INFO  TeacherRepositoryImpl:138 - Teacher details fetched succesfully!
+2021-09-18 12:43:11 INFO  TeacherRepositoryImpl:104 - Deleting the teacher
+2021-09-18 12:43:11 ERROR TeacherRepositoryImpl:120 - Error while deleting the teacher!
+2021-09-18 12:44:50 INFO  TeacherRepositoryImpl:104 - Deleting the teacher
+2021-09-18 12:44:50 ERROR TeacherRepositoryImpl:122 - Error while deleting the teacher!
+2021-09-18 12:45:51 INFO  TeacherRepositoryImpl:104 - Deleting the teacher
+2021-09-18 12:45:51 ERROR TeacherRepositoryImpl:121 - Error while deleting the teacher!
+2021-09-18 12:46:54 INFO  TeacherRepositoryImpl:104 - Deleting the teacher
+2021-09-18 12:46:54 INFO  TeacherRepositoryImpl:117 - Teacher Deleted Successfully!
+2021-09-18 13:09:51 INFO  TeacherRepositoryImpl:72 - Updating the teacher details
+2021-09-18 13:09:59 INFO  TeacherRepositoryImpl:72 - Updating the teacher details
+2021-09-18 13:11:59 INFO  TeacherRepositoryImpl:74 - Updating the teacher details
+2021-09-18 13:13:18 INFO  TeacherRepositoryImpl:74 - Updating the teacher details
+2021-09-18 13:18:13 INFO  TeacherRepositoryImpl:75 - Updating the teacher details
+2021-09-18 13:19:16 INFO  TeacherRepositoryImpl:75 - Updating the teacher details
+2021-09-18 13:20:31 INFO  TeacherRepositoryImpl:75 - Updating the teacher details
+2021-09-18 13:21:34 INFO  TeacherRepositoryImpl:75 - Updating the teacher details
+2021-09-18 13:22:22 INFO  TeacherRepositoryImpl:75 - Updating the teacher details
+2021-09-18 14:16:29 INFO  TeacherRepositoryImpl:73 - Updating the teacher details
+2021-09-18 14:54:33 INFO  TeacherRepositoryImpl:73 - Updating the teacher details
+2021-09-18 15:50:57 INFO  TeacherRepositoryImpl:30 - Adding teacher
+2021-09-18 15:50:57 ERROR TeacherRepositoryImpl:45 - Error while adding the teacher!
+2021-09-18 15:51:42 INFO  TeacherRepositoryImpl:30 - Adding teacher
+2021-09-18 15:51:42 INFO  TeacherRepositoryImpl:42 - Teacher details added successfully!
+2021-09-18 15:54:00 INFO  TeacherRepositoryImpl:30 - Adding teacher
+2021-09-18 15:54:00 INFO  TeacherRepositoryImpl:42 - Teacher details added successfully!
+2021-09-18 15:54:37 INFO  TeacherRepositoryImpl:30 - Adding teacher
+2021-09-18 15:54:37 INFO  TeacherRepositoryImpl:42 - Teacher details added successfully!

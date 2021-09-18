@@ -18,23 +18,23 @@ import com.curriculum.entity.ClassEntity;
 import com.curriculum.service.ClassService;
 
 @RestController
-@RequestMapping("/class")
+@RequestMapping("/api/class")
 @CrossOrigin("http://localhost:4200")
 public class ClassController {
 	@Autowired
 	private ClassService classServiceImpl;
 
-	@PostMapping("/addClassDetails")
+	@PostMapping
 	public ResponseEntity<String> addClassDetails(@RequestBody ClassEntity classDetails) {
 		System.out.println(classDetails);
 		return classServiceImpl.addClassDetails(classDetails);
 	}
 
-	@GetMapping("/getAllClassDetails")//@JsonIgnore
+	@GetMapping//@JsonIgnore
 	public ResponseEntity<List<ClassEntity>> getAllClassDetails() {
 		return classServiceImpl.getAllClassDetails();
 	}
-	@PutMapping("/updateClassDetails/{roomNo}")//@JsonIgnore(x)
+	@PutMapping("/{roomNo}")//@JsonIgnore(x)
 	public ResponseEntity<String> updateClassDetails(@PathVariable("roomNo") Long roomNo,@RequestBody ClassEntity classDetails)
 	{
 			return classServiceImpl.updateClassDetails(roomNo,classDetails);

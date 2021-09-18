@@ -24,14 +24,14 @@ import lombok.ToString;
 @Table(name="TeacherSubject")
 public class TeacherSubject implements Serializable{
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	@ManyToOne(targetEntity=Teacher.class)
 	@JoinColumn(name="teacherId",nullable=false)
 	@JsonIgnore
 	private Teacher teacher;
 	@ManyToOne(targetEntity=Subject.class)
-	@JoinColumn(name="subjectCode",nullable=false)
+	@JoinColumn(name="subjectCode",nullable=false,unique=true)
 	@JsonIgnore
 	private Subject subject;
 }
