@@ -15,38 +15,33 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
 @NoArgsConstructor
-//@ToString
+@Data
 @Entity
-@Table(name="StudentPersonal")
-public class Student implements Serializable{
+@Table(name = "Student")
+public class Student implements Serializable {
 	@Id
 	private Long rollNo;
 	@NotNull
-	@Size(max=20)
 	private String firstName;
 	@NotNull
-	@Size(max=20)
 	private String lastName;
 	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date dateOfBirth;
 	@NotNull
-	@Size(max=7)
+	@Size(max = 7)
 	private String gender;
 	@NotNull
 	private Long contactNo;
 	@NotNull
 	private String address;
 	@ManyToOne
-	@JoinColumn(name="roomNo",nullable=false)
+	@JoinColumn(name = "roomNo", nullable = false)
 	@JsonIgnore
 	private ClassEntity classEntity;
-	
+
 }

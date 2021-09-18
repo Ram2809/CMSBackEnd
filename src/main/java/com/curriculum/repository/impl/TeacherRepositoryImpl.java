@@ -3,6 +3,8 @@ package com.curriculum.repository.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.NoResultException;
+
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -55,7 +57,7 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 		List<Teacher> teacherList = new ArrayList<>();
 		try {
 			session = sessionFactory.getCurrentSession();
-			Query<Teacher> query = session.createQuery("FROM Login t");
+			Query<Teacher> query = session.createQuery("FROM Teacher t");
 			teacherList = query.list();
 			logger.info("Teacher list is fetched successfully!");
 		} catch (HibernateException e) {
@@ -65,12 +67,23 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 		return teacherList;
 	}
 
+//	public boolean checkTeacher(Long id) throws TeacherNotFoundException {
+//		Session session = sessionFactory.getCurrentSession();
+//		Query<Teacher> query = session.createQuery("FROM Teacher WHERE id=:teacherId");
+//		query.setParameter("teacherId", id);
+//		List<Teacher> teacherList = query.list();
+//		if (teacherList.isEmpty()) {
+//			throw new TeacherNotFoundException("Teacher Not Found With" + " " + id + "!");
+//		}
+//		return true;
+//	}
 	public boolean checkTeacher(Long id) throws TeacherNotFoundException {
+		Teacher teacher=null;
 		Session session = sessionFactory.getCurrentSession();
-		Query<Teacher> query = session.createQuery("FROM Teacher WHERE id=:teacherId");
+		Query query = session.createQuery("FROM Teacher WHERE id=:teacherId");
 		query.setParameter("teacherId", id);
-		List<Teacher> teacherList = query.list();
-		if (teacherList.isEmpty()) {
+		teacher =(Teacher) query.uniqueResultOptional().orElse(null);
+		if (teacher==null) {
 			throw new TeacherNotFoundException("Teacher Not Found With" + " " + id + "!");
 		}
 		return true;
@@ -148,7 +161,6 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 			logger.info("Teacher details fetched succesfully!");
 		} catch (HibernateException | TeacherNotFoundException e) {
 			logger.error("Error while fecthing teacher detail!");
-			;
 			throw new DatabaseException(e.getMessage());
 		}
 		return teacher;

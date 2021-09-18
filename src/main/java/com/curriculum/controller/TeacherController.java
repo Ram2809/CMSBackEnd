@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.curriculum.entity.Response;
 import com.curriculum.entity.Teacher;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.TeacherNotFoundException;
 import com.curriculum.service.TeacherService;
+import com.curriculum.util.Response;
 
 @RestController
 @RequestMapping("/api/teacher")

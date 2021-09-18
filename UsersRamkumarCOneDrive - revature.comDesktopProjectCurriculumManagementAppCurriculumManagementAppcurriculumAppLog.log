@@ -54,3 +54,31 @@
 2021-09-18 15:54:00 INFO  TeacherRepositoryImpl:42 - Teacher details added successfully!
 2021-09-18 15:54:37 INFO  TeacherRepositoryImpl:30 - Adding teacher
 2021-09-18 15:54:37 INFO  TeacherRepositoryImpl:42 - Teacher details added successfully!
+2021-09-18 18:57:53 INFO  TeacherRepositoryImpl:53 - Getting all teacher details
+2021-09-18 18:57:53 INFO  TeacherRepositoryImpl:60 - Teacher list is fetched successfully!
+2021-09-18 18:58:08 INFO  TeacherRepositoryImpl:53 - Getting all teacher details
+2021-09-18 18:58:08 INFO  TeacherRepositoryImpl:60 - Teacher list is fetched successfully!
+2021-09-18 18:58:51 INFO  TeacherRepositoryImpl:53 - Getting all teacher details
+2021-09-18 18:58:51 INFO  TeacherRepositoryImpl:60 - Teacher list is fetched successfully!
+2021-09-18 18:59:24 INFO  TeacherRepositoryImpl:53 - Getting all teacher details
+2021-09-18 18:59:24 INFO  TeacherRepositoryImpl:60 - Teacher list is fetched successfully!
+2021-09-18 18:59:51 INFO  TeacherRepositoryImpl:139 - Getting teacher detail
+2021-09-18 18:59:51 ERROR TeacherRepositoryImpl:150 - Error while fecthing teacher detail!
+2021-09-18 19:03:50 INFO  TeacherRepositoryImpl:149 - Getting teacher detail
+2021-09-18 19:05:46 INFO  TeacherRepositoryImpl:150 - Getting teacher detail
+2021-09-18 19:13:51 INFO  TeacherRepositoryImpl:150 - Getting teacher detail
+2021-09-18 19:17:34 INFO  TeacherRepositoryImpl:150 - Getting teacher detail
+2021-09-18 19:19:39 INFO  TeacherRepositoryImpl:150 - Getting teacher detail
+2021-09-18 19:20:39 INFO  TeacherRepositoryImpl:150 - Getting teacher detail
+2021-09-18 19:29:53 INFO  TeacherRepositoryImpl:158 - Getting teacher detail
+2021-09-18 19:30:52 INFO  TeacherRepositoryImpl:158 - Getting teacher detail
+2021-09-18 19:36:11 INFO  TeacherRepositoryImpl:158 - Getting teacher detail
+2021-09-18 19:40:14 INFO  TeacherRepositoryImpl:158 - Getting teacher detail
+2021-09-18 19:40:15 ERROR TeacherRepositoryImpl:169 - Error while fecthing teacher detail!
+2021-09-18 19:40:54 INFO  TeacherRepositoryImpl:158 - Getting teacher detail
+2021-09-18 19:40:54 ERROR TeacherRepositoryImpl:169 - Error while fecthing teacher detail!
+2021-09-18 19:41:54 INFO  TeacherRepositoryImpl:158 - Getting teacher detail
+2021-09-18 19:45:05 INFO  TeacherRepositoryImpl:158 - Getting teacher detail
+2021-09-18 19:45:05 ERROR TeacherRepositoryImpl:169 - Error while fecthing teacher detail!
+2021-09-18 19:45:11 INFO  TeacherRepositoryImpl:158 - Getting teacher detail
+2021-09-18 19:45:11 INFO  TeacherRepositoryImpl:167 - Teacher details fetched succesfully!

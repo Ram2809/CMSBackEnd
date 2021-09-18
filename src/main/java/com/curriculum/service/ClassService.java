@@ -5,11 +5,12 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 
 import com.curriculum.entity.ClassEntity;
+import com.curriculum.exception.BusinessServiceException;
 
 public interface ClassService {
-	ResponseEntity<String> addClassDetails(ClassEntity classDetails);
+	ClassEntity addClass(ClassEntity classDetails) throws BusinessServiceException;
 
-	ResponseEntity<List<ClassEntity>> getAllClassDetails();
+	List<ClassEntity> getAllClass() throws BusinessServiceException;
 
 	ResponseEntity<String> updateClassDetails(Long roomNo, ClassEntity classDetails);
 

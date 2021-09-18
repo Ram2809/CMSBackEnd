@@ -5,10 +5,11 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 
 import com.curriculum.entity.ClassEntity;
+import com.curriculum.exception.DatabaseException;
 
 public interface ClassRepository {
-	ResponseEntity<String> addClassDetails(ClassEntity classDetails);
-	ResponseEntity<List<ClassEntity>> getAllClassDetails();
+	ClassEntity addClass(ClassEntity classDetails) throws DatabaseException;
+	List<ClassEntity> getAllClass() throws DatabaseException;
 	ResponseEntity<String> updateClassDetails(Long roomNo,ClassEntity classDetails);
 	ResponseEntity<String> deleteClassDetails(Long roomNo);
 	ResponseEntity<List<ClassEntity>> getParticularClassDetails(Long roomNo) throws ClassNotFoundException;

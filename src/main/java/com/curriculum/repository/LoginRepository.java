@@ -1,11 +1,10 @@
 package com.curriculum.repository;
 
-import org.springframework.http.ResponseEntity;
-
 import com.curriculum.entity.Login;
+import com.curriculum.exception.DatabaseException;
 
 public interface LoginRepository {
-	ResponseEntity<String> addLogin(Long teacherId,Login loginDetails);
-	ResponseEntity<Login> getLoginDetails(Long teacherId);
-	ResponseEntity<String> updateLoginDetails(Long teacherId,Login loginDetails);
+	Login addLogin(Login loginDetails) throws DatabaseException;
+	Login getLogin(Long teacherId) throws DatabaseException;
+	Login updateLogin(Long teacherId,Login loginDetails) throws DatabaseException;
 }

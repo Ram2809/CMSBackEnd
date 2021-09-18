@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import com.curriculum.entity.ClassEntity;
+import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.repository.ClassRepository;
 
@@ -24,39 +26,50 @@ import com.curriculum.repository.ClassRepository;
 public class ClassRepositoryImpl implements ClassRepository {
 	@Autowired
 	private SessionFactory sessionFactory;
+	private Logger logger=Logger.getLogger(ClassRepositoryImpl.class);
 	@Override
-	public ResponseEntity<String> addClassDetails(ClassEntity classDetails) {
+	public ClassEntity addClass(ClassEntity classDetails) throws DatabaseException {
+		logger.info("Adding class details");
 		Session session=null;
-		ResponseEntity<String> response=null;
+		ClassEntity classEntity=null;
 		try {
+			if(classDetails.getStandard()==null)
+			{
+				throw new ConstraintValidationException("Standard must be entered!");
+			}
+			if(classDetails.getSection()==null)
+			{
+				throw new ConstraintValidationException("Section must be entered!");
+			}
 			session=sessionFactory.getCurrentSession();
-			//session.beginTransaction();
-			session.save(classDetails);
-			//session.getTransaction().commit();
-			response=new ResponseEntity<String>("Class Details Added Successfully!",new HttpHeaders(),HttpStatus.OK);
+			Long count=(Long) session.save(classDetails);
+			if(count>0)
+			{
+				classEntity=classDetails;
+				logger.info("Class details added successfully!");
+			}
 		}
-		catch(HibernateException e)
+		catch(HibernateException | ConstraintValidationException e)
 		{
-			return new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
+			logger.error("Error while adding the class!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return classEntity;
 	}
 	@Override
-	public ResponseEntity<List<ClassEntity>> getAllClassDetails() {
-		// TODO Auto-generated method stub
-		ResponseEntity<List<ClassEntity>> response=null;
+	public List<ClassEntity> getAllClass() throws DatabaseException {
 		Session session=null;
+		List<ClassEntity> classList=new ArrayList<>();
 		try {
-		session=sessionFactory.getCurrentSession();
-		Query query=session.createQuery("FROM ClassEntity c");
-		List<ClassEntity> classDetails=query.list();
-		response=new ResponseEntity<List<ClassEntity>>(classDetails,new HttpHeaders(),HttpStatus.OK);
+			session=sessionFactory.getCurrentSession();
+			Query query=session.createQuery("FROM ClassEntity c");
+			classList=query.list();
 		}
 		catch(HibernateException e)
 		{
-			e.printStackTrace();
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return classList;
 	}
 	@Override
 	public ResponseEntity<String> updateClassDetails(Long roomNo, ClassEntity classDetails) {
@@ -198,7 +211,6 @@ public class ClassRepositoryImpl implements ClassRepository {
 	}
 	@Override
 	public ResponseEntity<List<ClassEntity>> getParticularClassDetails(Long roomNo) throws ClassNotFoundException {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }

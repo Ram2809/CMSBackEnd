@@ -12,16 +12,16 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter
-@Setter
-@ToString
+@Data
 @NoArgsConstructor
 
 @Entity
@@ -34,7 +34,7 @@ public class Login implements Serializable{
 	@Size(min=8)
 	private String password;
 	@OneToOne(targetEntity=Teacher.class,optional=false)
-	@JoinColumn(name="teacher_id",nullable=false)
-	@JsonIgnore
+	@JoinColumn(name="teacher_id",referencedColumnName="id",nullable=false)
+	@JsonBackReference
 	private Teacher teacher; 
 }

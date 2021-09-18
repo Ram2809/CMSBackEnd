@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.curriculum.entity.ClassEntity;
+import com.curriculum.exception.BusinessServiceException;
+import com.curriculum.exception.DatabaseException;
 import com.curriculum.repository.ClassRepository;
 import com.curriculum.service.ClassService;
 
@@ -15,12 +17,20 @@ public class ClassServiceImpl implements ClassService{
 	@Autowired
 	private ClassRepository classRepositoryImpl;
 	@Override
-	public ResponseEntity<String> addClassDetails(ClassEntity classDetails) {
-		return classRepositoryImpl.addClassDetails(classDetails);
+	public ClassEntity addClass(ClassEntity classDetails) throws BusinessServiceException {
+		try {
+			return classRepositoryImpl.addClass(classDetails);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 	@Override
-	public ResponseEntity<List<ClassEntity>> getAllClassDetails() {
-		return classRepositoryImpl.getAllClassDetails();
+	public List<ClassEntity> getAllClass() throws BusinessServiceException {
+		try {
+			return classRepositoryImpl.getAllClass();
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 	@Override
 	public ResponseEntity<String> updateClassDetails(Long roomNo, ClassEntity classDetails) {

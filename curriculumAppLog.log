@@ -1,0 +1,68 @@
+2021-09-18 20:11:09 INFO  TeacherRepositoryImpl:152 - Getting teacher detail
+2021-09-18 20:11:09 INFO  TeacherRepositoryImpl:161 - Teacher details fetched succesfully!
+2021-09-18 20:11:18 INFO  TeacherRepositoryImpl:152 - Getting teacher detail
+2021-09-18 20:11:18 INFO  TeacherRepositoryImpl:161 - Teacher details fetched succesfully!
+2021-09-18 20:11:23 INFO  TeacherRepositoryImpl:152 - Getting teacher detail
+2021-09-18 20:11:55 INFO  TeacherRepositoryImpl:152 - Getting teacher detail
+2021-09-18 20:11:55 ERROR TeacherRepositoryImpl:163 - Error while fecthing teacher detail!
+2021-09-18 20:12:48 INFO  TeacherRepositoryImpl:152 - Getting teacher detail
+2021-09-18 20:12:49 ERROR TeacherRepositoryImpl:163 - Error while fecthing teacher detail!
+2021-09-18 20:12:54 INFO  TeacherRepositoryImpl:152 - Getting teacher detail
+2021-09-18 20:12:54 INFO  TeacherRepositoryImpl:161 - Teacher details fetched succesfully!
+2021-09-18 20:13:00 INFO  TeacherRepositoryImpl:152 - Getting teacher detail
+2021-09-18 20:13:00 ERROR TeacherRepositoryImpl:163 - Error while fecthing teacher detail!
+2021-09-18 20:29:31 INFO  TeacherRepositoryImpl:152 - Getting teacher detail
+2021-09-18 20:29:31 INFO  TeacherRepositoryImpl:161 - Teacher details fetched succesfully!
+2021-09-18 20:31:39 INFO  TeacherRepositoryImpl:152 - Getting teacher detail
+2021-09-18 20:31:40 ERROR TeacherRepositoryImpl:163 - Error while fecthing teacher detail!
+2021-09-18 20:31:49 INFO  TeacherRepositoryImpl:152 - Getting teacher detail
+2021-09-18 20:31:49 INFO  TeacherRepositoryImpl:161 - Teacher details fetched succesfully!
+2021-09-18 20:53:33 INFO  TeacherRepositoryImpl:94 - Updating the teacher details
+2021-09-18 20:53:33 ERROR TeacherRepositoryImpl:118 - Error while updating the teacher!
+2021-09-18 20:54:44 INFO  TeacherRepositoryImpl:94 - Updating the teacher details
+2021-09-18 20:54:44 ERROR TeacherRepositoryImpl:118 - Error while updating the teacher!
+2021-09-18 22:53:06 INFO  LoginRepositoryImpl:88 - Updating login credentials
+2021-09-18 22:53:06 INFO  LoginRepositoryImpl:67 - Fetching login credentials
+2021-09-18 22:53:07 INFO  LoginRepositoryImpl:77 - Login Credentials Updated successfully!
+2021-09-18 22:53:07 INFO  LoginRepositoryImpl:113 - Password updated successfully!
+2021-09-18 22:54:15 INFO  LoginRepositoryImpl:88 - Updating login credentials
+2021-09-18 22:54:15 INFO  LoginRepositoryImpl:67 - Fetching login credentials
+2021-09-18 22:54:15 INFO  LoginRepositoryImpl:77 - Login Credentials Updated successfully!
+2021-09-18 22:54:15 INFO  LoginRepositoryImpl:113 - Password updated successfully!
+2021-09-18 22:55:30 INFO  LoginRepositoryImpl:88 - Updating login credentials
+2021-09-18 22:55:30 INFO  LoginRepositoryImpl:67 - Fetching login credentials
+2021-09-18 22:55:30 INFO  LoginRepositoryImpl:77 - Login Credentials Updated successfully!
+2021-09-18 22:55:30 INFO  LoginRepositoryImpl:114 - Password updated successfully!
+2021-09-18 22:56:53 INFO  LoginRepositoryImpl:88 - Updating login credentials
+2021-09-18 22:56:53 INFO  LoginRepositoryImpl:67 - Fetching login credentials
+2021-09-18 22:56:53 INFO  LoginRepositoryImpl:77 - Login Credentials Updated successfully!
+2021-09-18 23:07:25 INFO  LoginRepositoryImpl:88 - Updating login credentials
+2021-09-18 23:07:26 INFO  LoginRepositoryImpl:67 - Fetching login credentials
+2021-09-18 23:07:26 INFO  LoginRepositoryImpl:77 - Login Credentials Updated successfully!
+2021-09-18 23:07:26 INFO  LoginRepositoryImpl:115 - Password updated successfully!
+2021-09-18 23:11:14 INFO  LoginRepositoryImpl:88 - Updating login credentials
+2021-09-18 23:11:14 INFO  LoginRepositoryImpl:67 - Fetching login credentials
+2021-09-18 23:11:14 INFO  LoginRepositoryImpl:77 - Login Credentials Updated successfully!
+2021-09-18 23:11:14 INFO  LoginRepositoryImpl:115 - Password updated successfully!
+2021-09-18 23:12:25 INFO  LoginRepositoryImpl:88 - Updating login credentials
+2021-09-18 23:12:25 INFO  LoginRepositoryImpl:67 - Fetching login credentials
+2021-09-18 23:12:25 INFO  LoginRepositoryImpl:77 - Login Credentials Updated successfully!
+2021-09-18 23:12:25 INFO  LoginRepositoryImpl:114 - Password updated successfully!
+2021-09-18 23:13:40 INFO  LoginRepositoryImpl:88 - Updating login credentials
+2021-09-18 23:13:40 INFO  LoginRepositoryImpl:67 - Fetching login credentials
+2021-09-18 23:13:40 INFO  LoginRepositoryImpl:77 - Login Credentials Updated successfully!
+2021-09-18 23:13:40 INFO  LoginRepositoryImpl:115 - Password updated successfully!
+2021-09-18 23:15:35 INFO  LoginRepositoryImpl:67 - Fetching login credentials
+2021-09-18 23:15:35 INFO  LoginRepositoryImpl:77 - Login Credentials Updated successfully!
+2021-09-18 23:17:17 INFO  LoginRepositoryImpl:29 - Adding login credentials
+2021-09-18 23:17:17 INFO  LoginRepositoryImpl:55 - Login credentials added successfully!
+2021-09-18 23:17:40 INFO  LoginRepositoryImpl:67 - Fetching login credentials
+2021-09-18 23:17:40 INFO  LoginRepositoryImpl:77 - Login Credentials Updated successfully!
+2021-09-18 23:18:32 INFO  LoginRepositoryImpl:88 - Updating login credentials
+2021-09-18 23:18:32 INFO  LoginRepositoryImpl:67 - Fetching login credentials
+2021-09-18 23:18:32 INFO  LoginRepositoryImpl:77 - Login Credentials Updated successfully!
+2021-09-18 23:18:32 INFO  LoginRepositoryImpl:115 - Password updated successfully!
+2021-09-18 23:49:03 INFO  ClassRepositoryImpl:32 - Adding class details
+2021-09-18 23:49:03 ERROR ClassRepositoryImpl:54 - Error while adding the class!
+2021-09-18 23:49:16 INFO  ClassRepositoryImpl:32 - Adding class details
+2021-09-18 23:49:16 INFO  ClassRepositoryImpl:49 - Class details added successfully!
