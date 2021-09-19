@@ -106,3 +106,29 @@
 2021-09-19 12:19:44 INFO  ClassRepositoryImpl:98 - Class Details updated successfully!
 2021-09-19 12:19:51 INFO  ClassRepositoryImpl:86 - Updating the class details!
 2021-09-19 12:19:51 ERROR ClassRepositoryImpl:102 - Error while updating the class!
+2021-09-19 18:14:09 INFO  StudentRepositoryImpl:34 - Adding student details
+2021-09-19 18:14:40 INFO  StudentRepositoryImpl:34 - Adding student details
+2021-09-19 18:15:06 INFO  StudentRepositoryImpl:34 - Adding student details
+2021-09-19 18:15:07 INFO  StudentRepositoryImpl:55 - Student details added successfully!
+2021-09-19 18:18:00 INFO  StudentRepositoryImpl:34 - Adding student details
+2021-09-19 18:18:00 ERROR StudentRepositoryImpl:60 - Error while adding student details!
+2021-09-19 18:18:37 INFO  StudentRepositoryImpl:34 - Adding student details
+2021-09-19 18:18:37 INFO  StudentRepositoryImpl:55 - Student details added successfully!
+2021-09-19 18:34:31 INFO  StudentRepositoryImpl:174 - Getting student details by class!
+2021-09-19 18:34:31 INFO  StudentRepositoryImpl:184 - Student details fetched successfully!
+2021-09-19 19:37:47 INFO  StudentRepositoryImpl:128 - Deleting the Student details!
+2021-09-19 19:37:48 ERROR StudentRepositoryImpl:148 - Error while deleting the student!
+2021-09-19 19:38:09 INFO  StudentRepositoryImpl:34 - Adding student details
+2021-09-19 19:38:09 INFO  StudentRepositoryImpl:55 - Student details added successfully!
+2021-09-19 19:38:32 INFO  StudentRepositoryImpl:177 - Getting student details by class!
+2021-09-19 19:38:32 INFO  StudentRepositoryImpl:187 - Student details fetched successfully!
+2021-09-19 19:39:12 INFO  StudentRepositoryImpl:128 - Deleting the Student details!
+2021-09-19 19:39:12 ERROR StudentRepositoryImpl:148 - Error while deleting the student!
+2021-09-19 19:39:20 INFO  StudentRepositoryImpl:128 - Deleting the Student details!
+2021-09-19 19:39:20 INFO  StudentRepositoryImpl:141 - Student is deleted successfully!
+2021-09-19 19:40:30 INFO  StudentRepositoryImpl:34 - Adding student details
+2021-09-19 19:40:30 INFO  StudentRepositoryImpl:55 - Student details added successfully!
+2021-09-19 19:40:47 INFO  StudentRepositoryImpl:128 - Deleting the Student details!
+2021-09-19 19:40:47 ERROR StudentRepositoryImpl:148 - Error while deleting the student!
+2021-09-19 19:40:57 INFO  StudentRepositoryImpl:128 - Deleting the Student details!
+2021-09-19 19:40:57 INFO  StudentRepositoryImpl:141 - Student is deleted successfully!

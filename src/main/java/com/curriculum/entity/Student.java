@@ -12,6 +12,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 
@@ -41,7 +42,7 @@ public class Student implements Serializable {
 	private String address;
 	@ManyToOne
 	@JoinColumn(name = "roomNo", nullable = false)
-	@JsonIgnore
+	@JsonBackReference
 	private ClassEntity classEntity;
 
 }
