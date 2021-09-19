@@ -3,6 +3,7 @@ package com.curriculum.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,20 +18,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curriculum.entity.Subject;
+import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.SubjectNotFoundException;
 import com.curriculum.service.SubjectService;
+import com.curriculum.util.Response;
 
 @RestController
-@RequestMapping("/subject")
+@RequestMapping("api/subject")
 @CrossOrigin("http://localhost:4200")
 public class SubjectController {
 	@Autowired
 	private SubjectService subjectServiceImpl;
 
-	@PostMapping("/class/{roomNo}/addSubjectDetails")
-	public ResponseEntity<String> addSubjectDetails(@PathVariable("roomNo") Long roomNo,
-			@RequestBody Subject subjectDetails) throws ClassNotFoundException {
-		return subjectServiceImpl.addSubjectDetails(roomNo, subjectDetails);
+	@PostMapping
+	public ResponseEntity<Response> addSubject(@RequestBody Subject subjectDetails) {
+		Response response=new Response();
+		ResponseEntity<Response> responseEntity=null;
+		Subject subject=null;
+		try {
+			subject=subjectServiceImpl.addSubject(subjectDetails);
+			response.setCode(200);
+			response.setMessage("Subject details added successfully!");
+			response.setData(subject);
+			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
+		} catch (BusinessServiceException e) {
+			response.setCode(404);
+			response.setMessage(e.getMessage());
+			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
 	}
 
 	@GetMapping("/getSubjectDetails")
@@ -51,10 +67,33 @@ public class SubjectController {
 		return subjectServiceImpl.deleteSubjectDetails(subjectCode);
 	}
 
-	@GetMapping("/getParticularSubjectDetails/{code}")
-	public ResponseEntity<Subject> getParticularSubjectDetails(@PathVariable("code") String subjectCode)
-			throws SubjectNotFoundException {
-		return subjectServiceImpl.getParticularSubjectDetails(subjectCode);
+	@GetMapping("/{code}")
+	public ResponseEntity<Response> getParticularSubject(@PathVariable("code") String subjectCode)
+	{
+		Response response=new Response();
+		ResponseEntity<Response> responseEntity=null;
+		Subject subject=null;
+		try {
+			subject=subjectServiceImpl.getParticularSubject(subjectCode);
+			if(subject!=null)
+			{
+				response.setCode(200);
+				response.setMessage("Success!");
+				response.setData(subject);
+				responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
+			}
+			else
+			{
+				response.setCode(404);
+				response.setMessage("Not Found!");
+				responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+			}
+		} catch (BusinessServiceException e) {
+			response.setCode(404);
+			response.setMessage(e.getMessage());
+			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
 	}
 	@GetMapping("/getSubjectByClass/{roomNo}")
 	public ResponseEntity<List<Subject>> getSubjectByClass(@PathVariable("roomNo") Long roomNo) throws ClassNotFoundException

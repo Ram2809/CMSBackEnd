@@ -170,3 +170,27 @@
 2021-09-19 22:04:10 ERROR HeadMasterRepositoryImpl:119 - Error while deleting the head master details!
 2021-09-19 22:04:26 INFO  HeadMasterRepositoryImpl:96 - Deleting the head master details!
 2021-09-19 22:04:26 INFO  HeadMasterRepositoryImpl:110 - Head master details deleted successfully!
+2021-09-19 22:54:55 INFO  SubjectRepositoryImpl:51 - Subject details added successfully!
+2021-09-19 22:55:09 INFO  SubjectRepositoryImpl:51 - Subject details added successfully!
+2021-09-19 22:55:45 INFO  SubjectRepositoryImpl:51 - Subject details added successfully!
+2021-09-19 23:11:01 INFO  SubjectRepositoryImpl:36 - Adding subject details!
+2021-09-19 23:12:25 INFO  SubjectRepositoryImpl:36 - Adding subject details!
+2021-09-19 23:12:25 ERROR SubjectRepositoryImpl:71 - Error while adding subject details!
+2021-09-19 23:12:37 INFO  SubjectRepositoryImpl:36 - Adding subject details!
+2021-09-19 23:12:37 INFO  SubjectRepositoryImpl:64 - Subject details added successfully!
+2021-09-19 23:13:06 INFO  SubjectRepositoryImpl:36 - Adding subject details!
+2021-09-19 23:13:06 ERROR SubjectRepositoryImpl:71 - Error while adding subject details!
+2021-09-19 23:13:28 INFO  SubjectRepositoryImpl:36 - Adding subject details!
+2021-09-19 23:13:28 INFO  SubjectRepositoryImpl:64 - Subject details added successfully!
+2021-09-19 23:13:45 INFO  SubjectRepositoryImpl:36 - Adding subject details!
+2021-09-19 23:13:45 ERROR SubjectRepositoryImpl:71 - Error while adding subject details!
+2021-09-19 23:13:51 INFO  SubjectRepositoryImpl:36 - Adding subject details!
+2021-09-19 23:13:51 INFO  SubjectRepositoryImpl:64 - Subject details added successfully!
+2021-09-19 23:28:21 INFO  SubjectRepositoryImpl:170 - Getting subject details by code!
+2021-09-19 23:28:22 INFO  SubjectRepositoryImpl:180 - Subject details fetched successfully!
+2021-09-19 23:28:29 INFO  SubjectRepositoryImpl:170 - Getting subject details by code!
+2021-09-19 23:28:54 INFO  SubjectRepositoryImpl:170 - Getting subject details by code!
+2021-09-19 23:29:50 INFO  SubjectRepositoryImpl:170 - Getting subject details by code!
+2021-09-19 23:29:50 ERROR SubjectRepositoryImpl:184 - Error while fetching the subject details!
+2021-09-19 23:30:06 INFO  SubjectRepositoryImpl:170 - Getting subject details by code!
+2021-09-19 23:30:06 INFO  SubjectRepositoryImpl:180 - Subject details fetched successfully!

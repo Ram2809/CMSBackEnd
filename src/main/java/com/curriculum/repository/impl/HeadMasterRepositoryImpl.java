@@ -1,7 +1,5 @@
 package com.curriculum.repository.impl;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
 
 import org.apache.log4j.Logger;
@@ -10,9 +8,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import com.curriculum.entity.HeadMaster;

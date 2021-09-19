@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -18,6 +19,8 @@ import org.springframework.stereotype.Repository;
 import com.curriculum.entity.ClassEntity;
 import com.curriculum.entity.Student;
 import com.curriculum.entity.Subject;
+import com.curriculum.exception.ConstraintValidationException;
+import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.SubjectNotFoundException;
 import com.curriculum.repository.SubjectRepository;
 @Repository
@@ -27,35 +30,48 @@ public class SubjectRepositoryImpl implements SubjectRepository{
 	private SessionFactory sessionFactory;
 	@Autowired
 	private ClassRepositoryImpl classRepositoryImpl;
+	private Logger logger=Logger.getLogger(SubjectRepositoryImpl.class);
 	@Override
-	public ResponseEntity<String> addSubjectDetails(Long roomNo, Subject subjectDetails) throws ClassNotFoundException{
-		// TODO Auto-generated method stub
-		ResponseEntity<String> response=null;
+	public Subject addSubject(Subject subjectDetails) throws DatabaseException {
+		logger.info("Adding subject details!");
 		Session session=null;
+		Subject subject=null;
 		try
 		{	
-			boolean checkRoomNo=classRepositoryImpl.checkClassRoom(roomNo);
-			if(!checkRoomNo)
-			{
-				throw new ClassNotFoundException("Class Not Found with"+" "+roomNo+"!");
-			}
+			boolean checkRoomNo=classRepositoryImpl.checkClassRoom(subjectDetails.getClassRoom().getRoomNo());
 			session=sessionFactory.getCurrentSession();
-			//session.beginTransaction();
+			Query query = session.createQuery("FROM Subject WHERE code=:subjectCode");
+			query.setParameter("subjectCode", subjectDetails.getCode());
+			Subject subjectDetail = (Subject) query.uniqueResultOptional().orElse(null);
+			if(subjectDetail!=null)
+			{
+				throw new SubjectNotFoundException("Subject already exits with"+" "+subjectDetails.getCode()+"!");
+			}
+			if(subjectDetails.getCode().length()>6)
+			{
+				throw new ConstraintValidationException("Subject code must contains only 6 characters!");
+			}
 			ClassEntity classDetails=new ClassEntity();
-			classDetails.setRoomNo(roomNo);
+			classDetails.setRoomNo(subjectDetails.getClassRoom().getRoomNo());
 			Subject subjectEntity=new Subject();
 			subjectEntity.setCode(subjectDetails.getCode());
 			subjectEntity.setName(subjectDetails.getName());
 			subjectEntity.setClassRoom(classDetails);
-			session.save(subjectEntity);
-			//session.getTransaction().commit();
-			response=new ResponseEntity<String>("Subject Details Added Successfully!",new HttpHeaders(),HttpStatus.OK);
+			String id=(String) session.save(subjectEntity);
+			System.out.println(id);
+			if(!id.isEmpty())
+			{
+				logger.info("Subject details added successfully!");
+				subject=subjectEntity;
+				System.out.println(subject);
+			}
 		}
-		catch(HibernateException e)
+		catch(HibernateException | ClassNotFoundException|SubjectNotFoundException|ConstraintValidationException e)
 		{
-			response=new ResponseEntity<String>("",new HttpHeaders(),HttpStatus.OK);
+			logger.error("Error while adding subject details!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return subject;
 	}
 	@Override
 	public ResponseEntity<List<Subject>> getAllSubjectDetails() {
@@ -76,13 +92,13 @@ public class SubjectRepositoryImpl implements SubjectRepository{
 		}
 		return response;
 	}
-	public boolean checkSubject(String code) {
+	public boolean checkSubject(String code) throws SubjectNotFoundException {
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("FROM Subject WHERE code=:subjectCode");
 		query.setParameter("subjectCode", code);
-		List<Subject> subjectList = query.list();
-		if (subjectList.isEmpty()) {
-			return false;
+		Subject subject = (Subject) query.uniqueResultOptional().orElse(null);
+		if (subject==null) {
+			throw new SubjectNotFoundException("Subject Not Found With"+" "+code+"!");
 		}
 		return true;
 	}
@@ -150,29 +166,25 @@ public class SubjectRepositoryImpl implements SubjectRepository{
 		return response;
 	}
 	@Override
-	public ResponseEntity<Subject> getParticularSubjectDetails(String subjectCode) throws SubjectNotFoundException {
-		// TODO Auto-generated method stub
-		ResponseEntity<Subject> response=null;
+	public Subject getParticularSubject(String subjectCode) throws DatabaseException {
+		logger.info("Getting subject details by code!");
 		Session session=null;
-		Subject subjectDetails=new Subject();
+		Subject subject=new Subject();
 		try
 		{
 			boolean checkSubject=checkSubject(subjectCode);
-			if(!checkSubject)
-			{
-				throw new SubjectNotFoundException("Subject Not Found With"+" "+subjectCode+"!");
-			}
 			session=sessionFactory.getCurrentSession();
 			Query query=session.createQuery("FROM Subject WHERE code=:subjectCode");
 			query.setParameter("subjectCode", subjectCode);
-			subjectDetails=(Subject) query.getSingleResult();
-			response=new ResponseEntity<Subject>(subjectDetails,new HttpHeaders(),HttpStatus.OK);
+			subject=(Subject) query.getSingleResult();
+			logger.info("Subject details fetched successfully!");
 		}
-		catch(HibernateException  e)
+		catch(HibernateException | SubjectNotFoundException  e)
 		{
-			e.printStackTrace();
+			logger.error("Error while fetching the subject details!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return subject;
 	}
 	@Override
 	public ResponseEntity<List<Subject>> getSubjectByClass(Long roomNo) throws ClassNotFoundException {

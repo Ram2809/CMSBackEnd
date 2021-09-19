@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.curriculum.entity.Subject;
+import com.curriculum.exception.BusinessServiceException;
+import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.SubjectNotFoundException;
 import com.curriculum.repository.SubjectRepository;
 import com.curriculum.service.SubjectService;
@@ -16,9 +18,12 @@ public class SubjectServiceImpl implements SubjectService{
 	@Autowired
 	private SubjectRepository subjectRepositoryImpl;
 	@Override
-	public ResponseEntity<String> addSubjectDetails(Long roomNo, Subject subjectDetails) throws ClassNotFoundException {
-		// TODO Auto-generated method stub
-		return subjectRepositoryImpl.addSubjectDetails(roomNo,subjectDetails);
+	public Subject addSubject(Subject subjectDetails) throws BusinessServiceException {
+		try {
+			return subjectRepositoryImpl.addSubject(subjectDetails);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 	@Override
 	public ResponseEntity<List<Subject>> getAllSubjectDetails() {
@@ -36,9 +41,12 @@ public class SubjectServiceImpl implements SubjectService{
 		return subjectRepositoryImpl.deleteSubjectDetails(subjectCode);
 	}
 	@Override
-	public ResponseEntity<Subject> getParticularSubjectDetails(String subjectCode) throws SubjectNotFoundException {
-		// TODO Auto-generated method stub
-		return subjectRepositoryImpl.getParticularSubjectDetails(subjectCode);
+	public Subject getParticularSubject(String subjectCode) throws BusinessServiceException {
+		try {
+			return subjectRepositoryImpl.getParticularSubject(subjectCode);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 	@Override
 	public ResponseEntity<List<Subject>> getSubjectByClass(Long roomNo) throws ClassNotFoundException {

@@ -14,26 +14,25 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-@Getter
-@Setter
+
+@Data
 @NoArgsConstructor
 @Entity
 @Table(name="Subject")
 public class Subject implements Serializable{
 	@Id
 	@Size(max=6)
-	@Column(nullable=false)
 	private String code;
 	@Column(nullable=false)
 	private String name;
 	@ManyToOne
 	@JoinColumn(name="roomNo",nullable=false)
-	@JsonIgnore
+	@JsonBackReference
 	private ClassEntity classRoom;
 	@OneToMany(mappedBy="subject",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
 	@JsonIgnore
