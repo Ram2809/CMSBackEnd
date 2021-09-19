@@ -21,35 +21,35 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name="Class")
+@Table(name = "Class")
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
-public class ClassEntity implements Serializable{
+public class ClassEntity implements Serializable {
 	@Id
 	private Long roomNo;
-	@Column(nullable=false)
-	@Size(max=3)
+	@Column(nullable = false)
+	@Size(max = 3)
 	private String standard;
-	@Column(nullable=false)
-	@Size(max=2)
+	@Column(nullable = false)
+	@Size(max = 2)
 	private String section;
-	@OneToMany(mappedBy="classEntity",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
+	@OneToMany(mappedBy = "classEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
 	private Set<Student> student;
-	@OneToMany(mappedBy="classRoom",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
+	@OneToMany(mappedBy = "classRoom", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
 	private Set<Subject> subject;
-	@OneToMany(mappedBy="classRoom",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
+	@OneToMany(mappedBy = "classRoom", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
 	private Set<TimeTable> timeTable;
-	
+
 	public ClassEntity(Long roomNo, String standard, String section) {
 		super();
 		this.roomNo = roomNo;
 		this.standard = standard;
 		this.section = section;
 	}
-	
+
 }

@@ -34,7 +34,7 @@ public class SubjectRepositoryImpl implements SubjectRepository{
 		Session session=null;
 		try
 		{	
-			boolean checkRoomNo=classRepositoryImpl.checkClassRoomNo(roomNo);
+			boolean checkRoomNo=classRepositoryImpl.checkClassRoom(roomNo);
 			if(!checkRoomNo)
 			{
 				throw new ClassNotFoundException("Class Not Found with"+" "+roomNo+"!");
@@ -98,7 +98,7 @@ public class SubjectRepositoryImpl implements SubjectRepository{
 			{
 				throw new SubjectNotFoundException("Subject Not Found With"+" "+subjectCode+"!");
 			}
-			boolean checkRoomNo=classRepositoryImpl.checkClassRoomNo(roomNo);
+			boolean checkRoomNo=classRepositoryImpl.checkClassRoom(roomNo);
 			if(!checkRoomNo)
 			{
 				throw new ClassNotFoundException("Class Not Found with"+" "+roomNo+"!");
@@ -182,7 +182,7 @@ public class SubjectRepositoryImpl implements SubjectRepository{
 		List<Subject> subjectList=new ArrayList<>();
 		try
 		{
-			boolean checkRoomNo=classRepositoryImpl.checkClassRoomNo(roomNo);
+			boolean checkRoomNo=classRepositoryImpl.checkClassRoom(roomNo);
 			if(!checkRoomNo)
 			{
 				throw new ClassNotFoundException("Class Not Found with"+" "+roomNo+"!");
@@ -207,7 +207,7 @@ public class SubjectRepositoryImpl implements SubjectRepository{
 		List<String> subjectNames=new ArrayList<>();
 		try
 		{
-			boolean checkRoomNo=classRepositoryImpl.checkClassRoomNo(roomNo);
+			boolean checkRoomNo=classRepositoryImpl.checkClassRoom(roomNo);
 			if(!checkRoomNo)
 			{
 				throw new ClassNotFoundException("Class Not Found with"+" "+roomNo+"!");
@@ -232,7 +232,7 @@ public class SubjectRepositoryImpl implements SubjectRepository{
 		String code="";
 		try
 		{
-			boolean checkRoomNo=classRepositoryImpl.checkClassRoomNo(roomNo);
+			boolean checkRoomNo=classRepositoryImpl.checkClassRoom(roomNo);
 			if(!checkRoomNo)
 			{
 				throw new ClassNotFoundException("Class Not Found with"+" "+roomNo+"!");

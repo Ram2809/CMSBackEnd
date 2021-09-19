@@ -31,65 +31,138 @@ public class ClassController {
 
 	@PostMapping
 	public ResponseEntity<Response> addClass(@RequestBody ClassEntity classDetails) {
-		Response response=new Response();
-		ResponseEntity<Response> responseEntity=null;
-		ClassEntity classEntity=null;
+		Response response = new Response();
+		ResponseEntity<Response> responseEntity = null;
+		ClassEntity classEntity = null;
 		try {
-			classEntity=classServiceImpl.addClass(classDetails);
+			classEntity = classServiceImpl.addClass(classDetails);
 			response.setCode(200);
 			response.setMessage("Class details added successfully!");
 			response.setData(classEntity);
-			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
+			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.OK);
 		} catch (BusinessServiceException e) {
 			response.setCode(500);
 			response.setMessage("Internal Server Error");
-			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.INTERNAL_SERVER_ERROR);
+			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(),
+					HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		return responseEntity;
 	}
 
-	@GetMapping//@JsonIgnore
+	@GetMapping // @JsonIgnore
 	public ResponseEntity<Response> getAllClass() {
-		Response response=new Response();
-		ResponseEntity<Response> responseEntity=null;
-		List<ClassEntity> classList=new ArrayList();
+		Response response = new Response();
+		ResponseEntity<Response> responseEntity = null;
+		List<ClassEntity> classList = new ArrayList();
 		try {
-			classList=classServiceImpl.getAllClass();
+			classList = classServiceImpl.getAllClass();
 			response.setCode(200);
 			response.setMessage("Success");
 			response.setData(classList);
-			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
+			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.OK);
 		} catch (BusinessServiceException e) {
 			response.setCode(500);
 			response.setMessage("Internal Server Error!");
-			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.INTERNAL_SERVER_ERROR);
+			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(),
+					HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		return responseEntity;
 	}
-	@PutMapping("/{roomNo}")//@JsonIgnore(x)
-	public ResponseEntity<String> updateClassDetails(@PathVariable("roomNo") Long roomNo,@RequestBody ClassEntity classDetails)
-	{
-			return classServiceImpl.updateClassDetails(roomNo,classDetails);
+
+	@PutMapping("/{roomNo}") // @JsonIgnore(x)
+	public ResponseEntity<Response> updateClass(@PathVariable("roomNo") Long roomNo,
+			@RequestBody ClassEntity classDetails) {
+		Response response = new Response();
+		ResponseEntity<Response> responseEntity = null;
+		ClassEntity classEntity = null;
+		try {
+			classEntity = classServiceImpl.updateClass(roomNo, classDetails);
+			response.setCode(200);
+			response.setMessage("Class details updated successfully!");
+			response.setData(classEntity);
+			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.OK);
+		} catch (BusinessServiceException e) {
+			response.setCode(404);
+			response.setMessage(e.getMessage());
+			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
 	}
-	
-	@DeleteMapping("/deleteClassDetails/{roomNo}")
-	public ResponseEntity<String> deleteClassDetails(@PathVariable("roomNo") Long roomNo)
-	{
-		return classServiceImpl.deleteClassDetails(roomNo);
+
+	@DeleteMapping("/{roomNo}")
+	public ResponseEntity<Response> deleteClass(@PathVariable("roomNo") Long roomNo) {
+		Response response = new Response();
+		ResponseEntity<Response> responseEntity = null;
+		ClassEntity classEntity = null;
+		try {
+			classEntity = classServiceImpl.deleteClass(roomNo);
+			response.setCode(200);
+			response.setMessage("Class details deleted successfully!");
+			response.setData(classEntity);
+			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.OK);
+		} catch (BusinessServiceException e) {
+			response.setCode(404);
+			response.setMessage(e.getMessage());
+			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
 	}
-	@GetMapping("/getClassDetails/{roomNo}")
-	public ResponseEntity<List<ClassEntity>> getParticularClassDetails(@PathVariable("roomNo") Long roomNo) throws ClassNotFoundException
-	{
-		return classServiceImpl.getParticularClassDetails(roomNo);
+
+	@GetMapping("/{roomNo}")
+	public ResponseEntity<Response> getParticularClass(@PathVariable("roomNo") Long roomNo) {
+		Response response = new Response();
+		ResponseEntity<Response> responseEntity = null;
+		ClassEntity classEntity = null;
+		try {
+			classEntity = classServiceImpl.getParticularClass(roomNo);
+			response.setCode(200);
+			response.setMessage("Success");
+			response.setData(classEntity);
+			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.OK);
+		} catch (BusinessServiceException e) {
+			response.setCode(404);
+			response.setMessage(e.getMessage());
+			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
 	}
-	@GetMapping("/getSection/{standard}")
-	public ResponseEntity<List<String>> getSection(@PathVariable("standard") String standard)
-	{
-		return classServiceImpl.getSection(standard);
+
+	@GetMapping("/standard/{standard}")
+	public ResponseEntity<Response> getSection(@PathVariable("standard") String standard) {
+		Response response = new Response();
+		ResponseEntity<Response> responseEntity = null;
+		List<String> sectionList = null;
+		try {
+			sectionList = classServiceImpl.getSection(standard);
+			response.setCode(200);
+			response.setMessage("Success");
+			response.setData(sectionList);
+			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.OK);
+		} catch (BusinessServiceException e) {
+			response.setCode(404);
+			response.setMessage(e.getMessage());
+			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
 	}
-	@GetMapping("/getClass/{standard}/{section}")
-	public ResponseEntity<Long> getClassDetails(@PathVariable("standard") String standard,@PathVariable("section") String section)
-	{
-		return classServiceImpl.getClassDetails(standard,section);
+
+	@GetMapping("/{standard}/{section}")
+	public ResponseEntity<Response> getClassRoomNo(@PathVariable("standard") String standard,
+			@PathVariable("section") String section) {
+		Response response = new Response();
+		ResponseEntity<Response> responseEntity = null;
+		Long roomNo = null;
+		try {
+			roomNo = classServiceImpl.getClassRoomNo(standard, section);
+			response.setCode(200);
+			response.setMessage("Success");
+			response.setData(roomNo);
+			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.OK);
+		} catch (BusinessServiceException e) {
+			response.setCode(404);
+			response.setMessage(e.getMessage());
+			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
 	}
 }

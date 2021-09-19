@@ -28,39 +28,36 @@ public class StudentRepositoryImpl implements StudentRepository {
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	@Override
-	public ResponseEntity<String> addStudentDetails(Long roomNo, Student studentDetails) {
-		// TODO Auto-generated method stub
-		Session session = null;
-		ResponseEntity<String> response = null;
-		try {
-			boolean checkStatus = classRepositoryImpl.checkClassRoomNo(roomNo);
-			if (!checkStatus) {
-				throw new ClassNotFoundException("Class Not Found with" + " " + roomNo + "!");
-			}
-			session = sessionFactory.getCurrentSession();
-			//session.beginTransaction();
-			ClassEntity classEntity = new ClassEntity();
-			classEntity.setRoomNo(roomNo);
-			// Set<Student> studentSet=new HashSet<Student>();
-			Student studentEntity = new Student();
-			studentEntity.setRollNo(studentDetails.getRollNo());
-			studentEntity.setFirstName(studentDetails.getFirstName());
-			studentEntity.setLastName(studentDetails.getLastName());
-			studentEntity.setDateOfBirth(studentDetails.getDateOfBirth());
-			studentEntity.setGender(studentDetails.getGender());
-			studentEntity.setContactNo(studentDetails.getContactNo());
-			studentEntity.setAddress(studentDetails.getAddress());
-			studentEntity.setClassEntity(classEntity);
-			session.save(studentEntity);
-			//session.getTransaction().commit();
-			response = new ResponseEntity<String>("Student Details Added Successfully!", new HttpHeaders(),
-					HttpStatus.OK);
-		} catch (HibernateException | ClassNotFoundException e) {
-			response = new ResponseEntity<String>(e.getMessage(), new HttpHeaders(), HttpStatus.OK);
-		} 
-		return response;
-	}
+//	@Override
+//	public ResponseEntity<String> addStudentDetails(Long roomNo, Student studentDetails) {
+//		// TODO Auto-generated method stub
+//		Session session = null;
+//		ResponseEntity<String> response = null;
+//		try {
+//			boolean checkStatus = classRepositoryImpl.checkClassRoom(roomNo);
+//			session = sessionFactory.getCurrentSession();
+//			//session.beginTransaction();
+//			ClassEntity classEntity = new ClassEntity();
+//			classEntity.setRoomNo(roomNo);
+//			// Set<Student> studentSet=new HashSet<Student>();
+//			Student studentEntity = new Student();
+//			studentEntity.setRollNo(studentDetails.getRollNo());
+//			studentEntity.setFirstName(studentDetails.getFirstName());
+//			studentEntity.setLastName(studentDetails.getLastName());
+//			studentEntity.setDateOfBirth(studentDetails.getDateOfBirth());
+//			studentEntity.setGender(studentDetails.getGender());
+//			studentEntity.setContactNo(studentDetails.getContactNo());
+//			studentEntity.setAddress(studentDetails.getAddress());
+//			studentEntity.setClassEntity(classEntity);
+//			session.save(studentEntity);
+//			//session.getTransaction().commit();
+//			response = new ResponseEntity<String>("Student Details Added Successfully!", new HttpHeaders(),
+//					HttpStatus.OK);
+//		} catch (HibernateException e) {
+//			response = new ResponseEntity<String>(e.getMessage(), new HttpHeaders(), HttpStatus.OK);
+//		} 
+//		return response;
+//	}
 
 	@Override
 	public ResponseEntity<List<Student>> getAllStudentDetails() {
@@ -169,29 +166,41 @@ public class StudentRepositoryImpl implements StudentRepository {
 	}
 
 	@Override
+	public ResponseEntity<String> addStudentDetails(Long roomNo, Student studentDetails) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
 	public ResponseEntity<List<Student>> getStudentByClass(Long roomNo) {
 		// TODO Auto-generated method stub
-		ResponseEntity<List<Student>> response=null;
-		Session session=null;
-		List<Student> studentsList=null;
-		try
-		{
-			boolean checkStatus = classRepositoryImpl.checkClassRoomNo(roomNo);
-			if (!checkStatus) {
-				throw new ClassNotFoundException("Class Not Found with" + " " + roomNo + "!");
-			}
-			session=sessionFactory.getCurrentSession();
-			Query<Student> query=session.createQuery("FROM Student WHERE roomNo=:roomId");
-			query.setParameter("roomId", roomNo);
-			studentsList=query.list();
-			response=new ResponseEntity<List<Student>>(studentsList,new HttpHeaders(),HttpStatus.OK);
-		}
-		catch(HibernateException | ClassNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-		return response;
+		return null;
 	}
+
+//	@Override
+//	public ResponseEntity<List<Student>> getStudentByClass(Long roomNo) {
+//		// TODO Auto-generated method stub
+//		ResponseEntity<List<Student>> response=null;
+//		Session session=null;
+//		List<Student> studentsList=null;
+//		try
+//		{
+//			boolean checkStatus = classRepositoryImpl.checkClassRoom(roomNo);
+//			if (!checkStatus) {
+//				throw new ClassNotFoundException("Class Not Found with" + " " + roomNo + "!");
+//			}
+//			session=sessionFactory.getCurrentSession();
+//			Query<Student> query=session.createQuery("FROM Student WHERE roomNo=:roomId");
+//			query.setParameter("roomId", roomNo);
+//			studentsList=query.list();
+//			response=new ResponseEntity<List<Student>>(studentsList,new HttpHeaders(),HttpStatus.OK);
+//		}
+//		catch(HibernateException | ClassNotFoundException e)
+//		{
+//			e.printStackTrace();
+//		}
+//		return response;
+//	}
 
 }
 ;

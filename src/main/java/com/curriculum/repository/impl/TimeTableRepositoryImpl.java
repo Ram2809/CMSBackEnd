@@ -32,7 +32,7 @@ public class TimeTableRepositoryImpl implements TimeTableRepository{
 		Session session=null;
 		try
 		{
-			boolean RoomNoStatus=classRepositoryImpl.checkClassRoomNo(roomNo);
+			boolean RoomNoStatus=classRepositoryImpl.checkClassRoom(roomNo);
 			if(!RoomNoStatus)
 			{
 				throw new ClassNotFoundException("Class Not Found With"+" "+roomNo+"!");
@@ -71,7 +71,7 @@ public class TimeTableRepositoryImpl implements TimeTableRepository{
 		List<TimeTable> timeTableList=new ArrayList<>();
 		try
 		{
-			boolean RoomNoStatus=classRepositoryImpl.checkClassRoomNo(roomNo);
+			boolean RoomNoStatus=classRepositoryImpl.checkClassRoom(roomNo);
 			if(!RoomNoStatus)
 			{
 				throw new ClassNotFoundException("Class Not Found With"+" "+roomNo+"!");

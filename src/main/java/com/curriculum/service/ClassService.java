@@ -2,8 +2,6 @@ package com.curriculum.service;
 
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
-
 import com.curriculum.entity.ClassEntity;
 import com.curriculum.exception.BusinessServiceException;
 
@@ -12,13 +10,13 @@ public interface ClassService {
 
 	List<ClassEntity> getAllClass() throws BusinessServiceException;
 
-	ResponseEntity<String> updateClassDetails(Long roomNo, ClassEntity classDetails);
+	ClassEntity updateClass(Long roomNo, ClassEntity classDetails) throws BusinessServiceException;
 
-	ResponseEntity<String> deleteClassDetails(Long roomNo);
+	ClassEntity deleteClass(Long roomNo) throws BusinessServiceException;
 
-	ResponseEntity<List<ClassEntity>> getParticularClassDetails(Long roomNo) throws ClassNotFoundException;
+	ClassEntity getParticularClass(Long roomNo) throws BusinessServiceException;
 
-	ResponseEntity<List<String>> getSection(String standard);
+	List<String> getSection(String standard) throws BusinessServiceException;
 
-	ResponseEntity<Long> getClassDetails(String standard, String section);
+	Long getClassRoomNo(String standard, String section) throws BusinessServiceException;
 }

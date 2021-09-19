@@ -3,7 +3,6 @@ package com.curriculum.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.curriculum.entity.ClassEntity;
@@ -33,29 +32,44 @@ public class ClassServiceImpl implements ClassService{
 		}
 	}
 	@Override
-	public ResponseEntity<String> updateClassDetails(Long roomNo, ClassEntity classDetails) {
-		// TODO Auto-generated method stub
-		return classRepositoryImpl.updateClassDetails(roomNo,classDetails);
+	public ClassEntity updateClass(Long roomNo, ClassEntity classDetails) throws BusinessServiceException {
+		try {
+			return classRepositoryImpl.updateClass(roomNo,classDetails);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 	@Override
-	public ResponseEntity<String> deleteClassDetails(Long roomNo) {
-		// TODO Auto-generated method stub
-		return classRepositoryImpl.deleteClassDetails(roomNo);
+	public ClassEntity deleteClass(Long roomNo) throws BusinessServiceException {
+		try {
+			return classRepositoryImpl.deleteClass(roomNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 	@Override
-	public ResponseEntity<List<ClassEntity>> getParticularClassDetails(Long roomNo) throws ClassNotFoundException {
-		// TODO Auto-generated method stub
-		return classRepositoryImpl.getParticularClassDetails(roomNo);
+	public ClassEntity getParticularClass(Long roomNo) throws BusinessServiceException  {
+		try {
+			return classRepositoryImpl.getParticularClass(roomNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 	@Override
-	public ResponseEntity<List<String>> getSection(String standard) {
-		// TODO Auto-generated method stub
-		return classRepositoryImpl.getSection(standard);
+	public List<String> getSection(String standard) throws BusinessServiceException {
+		try {
+			return classRepositoryImpl.getSection(standard);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 	@Override
-	public ResponseEntity<Long> getClassDetails(String standard, String section) {
-		// TODO Auto-generated method stub
-		return classRepositoryImpl.getClassDetails(standard,section);
+	public Long getClassRoomNo(String standard, String section) throws BusinessServiceException {
+		try {
+			return classRepositoryImpl.getClassRoomNo(standard,section);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
 }
