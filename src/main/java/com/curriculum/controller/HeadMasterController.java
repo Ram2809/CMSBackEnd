@@ -1,6 +1,8 @@
 package com.curriculum.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,31 +14,98 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curriculum.entity.HeadMaster;
+import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.HeadMasterNotFoundException;
 import com.curriculum.service.HeadMasterService;
+import com.curriculum.util.Response;
 @RestController
-@RequestMapping("/headMaster")
+@RequestMapping("api/headmaster")
 public class HeadMasterController {
 	@Autowired
 	private HeadMasterService headMasterServiceImpl;
-	@PostMapping("/addHeadMasterDetails")
-	public ResponseEntity<String> addHeadMasterDetails(@RequestBody HeadMaster headMasterDetails)
+	@PostMapping
+	public ResponseEntity<Response> addHeadMaster(@RequestBody HeadMaster headMasterDetails)
 	{
-		return headMasterServiceImpl.addHeadMasterDetails(headMasterDetails);
+		Response response=new Response();
+		ResponseEntity<Response> responseEntity=null;
+		HeadMaster headMaster=null;
+		try {
+			headMaster=headMasterServiceImpl.addHeadMaster(headMasterDetails);
+			response.setCode(200);
+			response.setMessage("Headmaster details added successfully!");
+			response.setData(headMaster);
+			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
+		} catch (BusinessServiceException e) {
+			response.setCode(500);
+			response.setMessage(e.getMessage());
+			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		return responseEntity;
 	}
-	@PutMapping("/updateHeadMasterDetails/{id}")
-	public ResponseEntity<String> updateHeadMasterDetails(@PathVariable("id") Long id,@RequestBody HeadMaster headMasterDetails) throws HeadMasterNotFoundException
+	@PutMapping("/{id}")
+	public ResponseEntity<Response> updateHeadMaster(@PathVariable("id") Long id,@RequestBody HeadMaster headMasterDetails) throws HeadMasterNotFoundException
 	{
-		return headMasterServiceImpl.updateHeadMasterDetails(id,headMasterDetails);
+		Response response=new Response();
+		ResponseEntity<Response> responseEntity=null;
+		HeadMaster headMaster=null;
+		try {
+			headMaster=headMasterServiceImpl.updateHeadMaster(id,headMasterDetails);
+			response.setCode(200);
+			response.setMessage("Head master details updated successfully!");
+			response.setData(headMaster);
+			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
+		} catch (BusinessServiceException e) {
+			response.setCode(404);
+			response.setMessage(e.getMessage());
+			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
 	}
-	@DeleteMapping("/deleteHeadMasterDetails/{id}")
-	public ResponseEntity<String> deleteHeadMasterDetails(@PathVariable("id") Long id)
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Response> deleteHeadMaster(@PathVariable("id") Long id)
 	{
-		return headMasterServiceImpl.deleteHeadMasterDetails(id);
+		Response response=new Response();
+		ResponseEntity<Response> responseEntity=null;
+		HeadMaster headMaster=null;
+		try {
+			headMaster=headMasterServiceImpl.deleteHeadMaster(id);
+			if(headMaster!=null)
+			{
+				response.setCode(200);
+				response.setMessage("Teacher details deleted successfully!");
+				response.setData(headMaster);
+				responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
+			}
+			else
+			{
+				response.setCode(500);
+				response.setMessage("Internal Server Error!");
+				responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+		} catch (BusinessServiceException e) {
+			response.setCode(404);
+			response.setMessage(e.getMessage());
+			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
 	}
-	@GetMapping("/getHeadMasterDetails/{id}")
-	public ResponseEntity<HeadMaster> getParticularHeadMasterDetails(@PathVariable("id") Long id) throws HeadMasterNotFoundException
+	@GetMapping("/{id}")
+	public ResponseEntity<Response> getHeadMaster(@PathVariable("id") Long id) 
 	{
-		return headMasterServiceImpl.getParticularHeadMasterDetails(id);
+		Response response=new Response();
+		ResponseEntity<Response> responseEntity=null;
+		HeadMaster headMaster=null;
+		try {
+			headMaster=headMasterServiceImpl.getHeadMaster(id);
+			response.setCode(200);
+			response.setMessage("Success!");
+			response.setData(headMaster);
+			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
+		} catch (BusinessServiceException e) {
+			response.setCode(404);
+			response.setMessage(e.getMessage());
+			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
 	}
 }

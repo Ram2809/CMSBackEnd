@@ -1,10 +1,10 @@
 package com.curriculum.repository.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,6 +16,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import com.curriculum.entity.HeadMaster;
+import com.curriculum.exception.ConstraintValidationException;
+import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.HeadMasterNotFoundException;
 import com.curriculum.repository.HeadMasterRepository;
 @Repository
@@ -23,47 +25,52 @@ import com.curriculum.repository.HeadMasterRepository;
 public class HeadMasterRepositoryImpl implements HeadMasterRepository{
 	@Autowired
 	private SessionFactory sessionFactory;
-	public ResponseEntity<String> addHeadMasterDetails(HeadMaster headMasterDeteails) {
-		// TODO Auto-generated method stub
+	private Logger logger=Logger.getLogger(HeadMasterRepositoryImpl.class);
+	public HeadMaster addHeadMaster(HeadMaster headMasterDetails) throws DatabaseException {
+		logger.info("Adding the headmaster details!");
 		Session session=null;
-		ResponseEntity<String> response=null;
+		HeadMaster headMaster=null;
 		try
 		{
+			if(String.valueOf(headMasterDetails.getContactNo()).length()!=10)
+			{
+				throw new ConstraintValidationException("Phone Number must contain 10 digits!");
+			}
 			session=sessionFactory.getCurrentSession();
-			//session.beginTransaction();
-			session.save(headMasterDeteails);
-			//session.getTransaction().commit();
-			response=new ResponseEntity<String>("HeadMaster Details Added Successfully!",new HttpHeaders(),HttpStatus.OK);
+			System.out.println(headMasterDetails.getContactNo());
+			Long count=(Long) session.save(headMasterDetails);
+			if(count>0)
+			{
+				headMaster=headMasterDetails;
+				logger.info("Headmaster details added successfully!");
+			}
 		}
-		catch(HibernateException e)
+		catch(HibernateException | ConstraintValidationException e)
 		{
-			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
+			logger.error("Error while adding the headmaster!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return headMaster;
 	}
 	
-	public boolean checkHeadMaster(Long id) {
+	public boolean checkHeadMaster(Long id) throws HeadMasterNotFoundException {
 		Session session = sessionFactory.openSession();
 		Query query = session.createQuery("FROM HeadMaster WHERE id=:headMasterId");
 		query.setParameter("headMasterId", id);
-		List<HeadMaster> headMasterList = query.list();
-		if (headMasterList.isEmpty()) {
-			return false;
+		HeadMaster headMaster = (HeadMaster) query.uniqueResultOptional().orElse(null);
+		if (headMaster==null) {
+			throw new HeadMasterNotFoundException("Head master not found with"+" "+id+"!");
 		}
 		return true;
 	}
-	public ResponseEntity<String> updateHeadMasterDetails(Long id, HeadMaster headMasterDetails) throws HeadMasterNotFoundException {
-		ResponseEntity<String> response=null;
+	public HeadMaster updateHeadMaster(Long id, HeadMaster headMasterDetails) throws DatabaseException {
+		logger.info("Updating head master details!");
 		Session session=null;
+		HeadMaster headMaster=null;
 		try
 		{
 			boolean checkHeadMaster=checkHeadMaster(id);
-			if(!checkHeadMaster)
-			{
-				throw new HeadMasterNotFoundException("HeadMaster Not Found with"+" "+id+"!");
-			}
 			session=sessionFactory.getCurrentSession();
-			//session.beginTransaction();
 			session.find(HeadMaster.class, id);
 			HeadMaster newHeadMasterDetails=session.load(HeadMaster.class, id);
 			newHeadMasterDetails.setFirstName(headMasterDetails.getFirstName());
@@ -71,69 +78,68 @@ public class HeadMasterRepositoryImpl implements HeadMasterRepository{
 			newHeadMasterDetails.setDateOfBirth(headMasterDetails.getDateOfBirth());
 			newHeadMasterDetails.setGender(headMasterDetails.getGender());
 			newHeadMasterDetails.setQualification(headMasterDetails.getQualification());
+			newHeadMasterDetails.setMajor(headMasterDetails.getMajor());
 			newHeadMasterDetails.setEmail(headMasterDetails.getEmail());
 			newHeadMasterDetails.setContactNo(headMasterDetails.getContactNo());
 			newHeadMasterDetails.setAddress(headMasterDetails.getAddress());
-			session.merge(newHeadMasterDetails);
-			session.flush();
-			//session.getTransaction().commit();
-			response=new ResponseEntity<String>("HeadMaster Details Updated Successfully!",new HttpHeaders(),HttpStatus.OK);
+			headMaster=(HeadMaster) session.merge(newHeadMasterDetails);
+			logger.info("Head master details updated successfully!");
 		}
 		catch(HibernateException |HeadMasterNotFoundException e)
 		{
-			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
+			logger.error("Error while updating the head master details!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return headMaster;
 	}
-	public ResponseEntity<String> deleteHeadMasterDetails(Long id) {
-		// TODO Auto-generated method stub
-		ResponseEntity<String> response=null;
+	public HeadMaster deleteHeadMaster(Long id) throws DatabaseException {
+		logger.info("Deleting the head master details!");
 		Session session=null;
+		HeadMaster headMaster=null;
 		try
 		{
 			boolean checkHeadMaster=checkHeadMaster(id);
-			if(!checkHeadMaster)
-			{
-				throw new HeadMasterNotFoundException("HeadMaster Not Found with"+" "+id+"!");
-			}
 			session=sessionFactory.getCurrentSession();
-			//session.beginTransaction();
 			session.find(HeadMaster.class, id);
 			HeadMaster headMasterDetails=session.load(HeadMaster.class, id);
 			session.delete(headMasterDetails);
-			//session.flush();
-			//session.getTransaction().commit();
-			response=new ResponseEntity<String>("HeadMaster Details Deleted Successfully!",new HttpHeaders(),HttpStatus.OK);
+			HeadMaster headMasterEntity=session.get(HeadMaster.class, id);
+			if(headMasterEntity==null)
+			{
+				headMaster=headMasterDetails;
+				logger.info("Head master details deleted successfully!");
+			}
+			else
+			{
+				logger.error("Error while deleting the head master details!");
+			}
 		}
 		catch(HibernateException |HeadMasterNotFoundException e)
 		{
-			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
+			logger.error("Error while deleting the head master details!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return headMaster;
 	}
-	public ResponseEntity<HeadMaster> getParticularHeadMasterDetails(Long id)throws HeadMasterNotFoundException {
-		// TODO Auto-generated method stub
-		ResponseEntity<HeadMaster> response=null;
+	public HeadMaster getHeadMaster(Long id) throws DatabaseException {
+		logger.info("Getting head master details!");
 		Session session=null;
-		HeadMaster headMasterDetails=new HeadMaster();
+		HeadMaster headMaster=new HeadMaster();
 		try
 		{
 			boolean checkHeadMaster=checkHeadMaster(id);
-			if(!checkHeadMaster)
-			{
-				throw new HeadMasterNotFoundException("HeadMaster Not Found with"+" "+id+"!");
-			}
 			session=sessionFactory.getCurrentSession();
-			Query<HeadMaster> query=session.createQuery("FROM HeadMaster WHERE id=:headMasterId");
+			Query query=session.createQuery("FROM HeadMaster WHERE id=:headMasterId");
 			query.setParameter("headMasterId", id);
-			headMasterDetails=(HeadMaster) query.getSingleResult();
-			response=new ResponseEntity<HeadMaster>(headMasterDetails,new HttpHeaders(),HttpStatus.OK);
+			headMaster=(HeadMaster) query.getSingleResult();
+			logger.info("Head master details fetched successfully!");
 		}
 		catch(HibernateException | HeadMasterNotFoundException e)
 		{
-			e.printStackTrace();
+			logger.error("Error while fetching head master details!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return headMaster;
 	}
 
 }

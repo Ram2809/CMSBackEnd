@@ -132,3 +132,41 @@
 2021-09-19 19:40:47 ERROR StudentRepositoryImpl:148 - Error while deleting the student!
 2021-09-19 19:40:57 INFO  StudentRepositoryImpl:128 - Deleting the Student details!
 2021-09-19 19:40:57 INFO  StudentRepositoryImpl:141 - Student is deleted successfully!
+2021-09-19 20:18:42 INFO  HeadMasterRepositoryImpl:30 - Adding the headmaster details!
+2021-09-19 20:18:42 INFO  HeadMasterRepositoryImpl:40 - Headmaster details added successfully!
+2021-09-19 20:19:49 INFO  HeadMasterRepositoryImpl:30 - Adding the headmaster details!
+2021-09-19 20:19:49 INFO  HeadMasterRepositoryImpl:40 - Headmaster details added successfully!
+2021-09-19 20:20:39 INFO  HeadMasterRepositoryImpl:30 - Adding the headmaster details!
+2021-09-19 20:20:39 INFO  HeadMasterRepositoryImpl:40 - Headmaster details added successfully!
+2021-09-19 20:20:58 INFO  HeadMasterRepositoryImpl:30 - Adding the headmaster details!
+2021-09-19 20:20:58 INFO  HeadMasterRepositoryImpl:40 - Headmaster details added successfully!
+2021-09-19 20:26:37 INFO  HeadMasterRepositoryImpl:30 - Adding the headmaster details!
+2021-09-19 20:26:37 INFO  HeadMasterRepositoryImpl:45 - Headmaster details added successfully!
+2021-09-19 20:29:15 INFO  HeadMasterRepositoryImpl:30 - Adding the headmaster details!
+2021-09-19 20:29:15 INFO  HeadMasterRepositoryImpl:41 - Headmaster details added successfully!
+2021-09-19 20:30:55 INFO  HeadMasterRepositoryImpl:30 - Adding the headmaster details!
+2021-09-19 20:30:55 ERROR HeadMasterRepositoryImpl:50 - Error while adding the headmaster!
+2021-09-19 20:31:38 INFO  HeadMasterRepositoryImpl:30 - Adding the headmaster details!
+2021-09-19 20:31:38 ERROR HeadMasterRepositoryImpl:50 - Error while adding the headmaster!
+2021-09-19 20:31:48 INFO  HeadMasterRepositoryImpl:30 - Adding the headmaster details!
+2021-09-19 20:31:48 ERROR HeadMasterRepositoryImpl:50 - Error while adding the headmaster!
+2021-09-19 20:32:37 INFO  HeadMasterRepositoryImpl:30 - Adding the headmaster details!
+2021-09-19 20:32:37 INFO  HeadMasterRepositoryImpl:45 - Headmaster details added successfully!
+2021-09-19 20:33:22 INFO  HeadMasterRepositoryImpl:30 - Adding the headmaster details!
+2021-09-19 20:33:22 INFO  HeadMasterRepositoryImpl:45 - Headmaster details added successfully!
+2021-09-19 21:08:09 INFO  HeadMasterRepositoryImpl:126 - Getting head master details!
+2021-09-19 21:08:10 INFO  HeadMasterRepositoryImpl:136 - Head master details fetched successfully!
+2021-09-19 21:08:24 INFO  HeadMasterRepositoryImpl:126 - Getting head master details!
+2021-09-19 21:08:24 ERROR HeadMasterRepositoryImpl:140 - Error while fetching head master details!
+2021-09-19 21:08:29 INFO  HeadMasterRepositoryImpl:126 - Getting head master details!
+2021-09-19 21:08:29 INFO  HeadMasterRepositoryImpl:136 - Head master details fetched successfully!
+2021-09-19 21:08:37 INFO  HeadMasterRepositoryImpl:126 - Getting head master details!
+2021-09-19 21:08:37 INFO  HeadMasterRepositoryImpl:136 - Head master details fetched successfully!
+2021-09-19 21:45:44 INFO  HeadMasterRepositoryImpl:67 - Updating head master details!
+2021-09-19 21:45:45 INFO  HeadMasterRepositoryImpl:86 - Head master details updated successfully!
+2021-09-19 21:46:07 INFO  HeadMasterRepositoryImpl:67 - Updating head master details!
+2021-09-19 21:46:07 ERROR HeadMasterRepositoryImpl:90 - Error while updating the head master details!
+2021-09-19 22:04:09 INFO  HeadMasterRepositoryImpl:96 - Deleting the head master details!
+2021-09-19 22:04:10 ERROR HeadMasterRepositoryImpl:119 - Error while deleting the head master details!
+2021-09-19 22:04:26 INFO  HeadMasterRepositoryImpl:96 - Deleting the head master details!
+2021-09-19 22:04:26 INFO  HeadMasterRepositoryImpl:110 - Head master details deleted successfully!

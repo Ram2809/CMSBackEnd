@@ -102,7 +102,7 @@ public class TeacherController {
 			teacher = teacherServiceImpl.deleteTeacher(id);
 			if (teacher != null) {
 				response.setCode(200);
-				response.setMessage("Teacher details successfully!");
+				response.setMessage("Teacher details deleted successfully!");
 				response.setData(teacher);
 				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
 			} else {
