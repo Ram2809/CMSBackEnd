@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.curriculum.entity.Subject;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.DatabaseException;
-import com.curriculum.exception.SubjectNotFoundException;
 import com.curriculum.repository.SubjectRepository;
 import com.curriculum.service.SubjectService;
 
@@ -27,18 +26,23 @@ public class SubjectServiceImpl implements SubjectService{
 	}
 	@Override
 	public ResponseEntity<List<Subject>> getAllSubjectDetails() {
-		// TODO Auto-generated method stub
 		return subjectRepositoryImpl.getAllSubjectDetails();
 	}
 	@Override
-	public ResponseEntity<String> updateSubjectDetails(String subjectCode, Long roomNo,Subject subjectDetails) throws SubjectNotFoundException, ClassNotFoundException {
-		// TODO Auto-generated method stub
-		return subjectRepositoryImpl.updateSubjectDetails(subjectCode,roomNo,subjectDetails);
+	public Subject updateSubject(String subjectCode,Subject subjectDetails) throws BusinessServiceException {
+		try {
+			return subjectRepositoryImpl.updateSubject(subjectCode,subjectDetails);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 	@Override
-	public ResponseEntity<String> deleteSubjectDetails(String subjectCode) throws SubjectNotFoundException {
-		// TODO Auto-generated method stub
-		return subjectRepositoryImpl.deleteSubjectDetails(subjectCode);
+	public Subject deleteSubject(String subjectCode) throws BusinessServiceException {
+		try {
+			return subjectRepositoryImpl.deleteSubject(subjectCode);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 	@Override
 	public Subject getParticularSubject(String subjectCode) throws BusinessServiceException {
@@ -49,18 +53,28 @@ public class SubjectServiceImpl implements SubjectService{
 		}
 	}
 	@Override
-	public ResponseEntity<List<Subject>> getSubjectByClass(Long roomNo) throws ClassNotFoundException {
-		// TODO Auto-generated method stub
-		return subjectRepositoryImpl.getSubjectByClass(roomNo);
+	public List<Subject> getSubjectByClass(Long roomNo) throws BusinessServiceException {
+		try {
+			return subjectRepositoryImpl.getSubjectByClass(roomNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 	@Override
-	public ResponseEntity<List<String>> getSubjectName(Long roomNo) throws ClassNotFoundException {
-		// TODO Auto-generated method stub
-		return subjectRepositoryImpl.getSubjectName(roomNo);
+	public List<String> getSubjectName(Long roomNo) throws BusinessServiceException {
+		try {
+			return subjectRepositoryImpl.getSubjectName(roomNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 	@Override
-	public ResponseEntity<String> getSubjectCode(Long roomNo, String name) throws ClassNotFoundException {
-		// TODO Auto-generated method stub
-		return subjectRepositoryImpl.getSubjectCode(roomNo,name);
+	public String getSubjectCode(Long roomNo, String name) throws BusinessServiceException {
+		try {
+			return subjectRepositoryImpl.getSubjectCode(roomNo,name);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
+	
 }

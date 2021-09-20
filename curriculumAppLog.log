@@ -194,3 +194,37 @@
 2021-09-19 23:29:50 ERROR SubjectRepositoryImpl:184 - Error while fetching the subject details!
 2021-09-19 23:30:06 INFO  SubjectRepositoryImpl:170 - Getting subject details by code!
 2021-09-19 23:30:06 INFO  SubjectRepositoryImpl:180 - Subject details fetched successfully!
+2021-09-20 09:55:23 INFO  SubjectRepositoryImpl:191 - Getting subject details by class!
+2021-09-20 09:55:23 INFO  SubjectRepositoryImpl:201 - Subject details are fetched successfully!
+2021-09-20 09:55:44 INFO  SubjectRepositoryImpl:191 - Getting subject details by class!
+2021-09-20 09:55:44 ERROR SubjectRepositoryImpl:205 - Error while fetching the subject details!
+2021-09-20 09:55:52 INFO  SubjectRepositoryImpl:191 - Getting subject details by class!
+2021-09-20 09:55:52 INFO  SubjectRepositoryImpl:201 - Subject details are fetched successfully!
+2021-09-20 09:56:46 INFO  SubjectRepositoryImpl:191 - Getting subject details by class!
+2021-09-20 09:56:46 INFO  SubjectRepositoryImpl:201 - Subject details are fetched successfully!
+2021-09-20 10:15:54 INFO  SubjectRepositoryImpl:212 - Getting subject names!
+2021-09-20 10:15:54 INFO  SubjectRepositoryImpl:222 - Subject Names fetched successfully!
+2021-09-20 10:16:02 INFO  SubjectRepositoryImpl:212 - Getting subject names!
+2021-09-20 10:16:02 ERROR SubjectRepositoryImpl:226 - Error while fetching the subject names!
+2021-09-20 10:16:11 INFO  SubjectRepositoryImpl:212 - Getting subject names!
+2021-09-20 10:16:11 INFO  SubjectRepositoryImpl:222 - Subject Names fetched successfully!
+2021-09-20 11:19:33 INFO  SubjectRepositoryImpl:36 - Adding subject details!
+2021-09-20 11:19:33 INFO  SubjectRepositoryImpl:64 - Subject details added successfully!
+2021-09-20 11:19:50 INFO  SubjectRepositoryImpl:142 - Deleting the subject details!
+2021-09-20 11:19:51 INFO  SubjectRepositoryImpl:156 - Subject is deleted successfully!
+2021-09-20 11:19:58 INFO  SubjectRepositoryImpl:142 - Deleting the subject details!
+2021-09-20 11:19:58 ERROR SubjectRepositoryImpl:165 - Error while deleting the subject!
+2021-09-20 11:20:02 INFO  SubjectRepositoryImpl:142 - Deleting the subject details!
+2021-09-20 11:20:02 ERROR SubjectRepositoryImpl:165 - Error while deleting the subject!
+2021-09-20 11:20:27 INFO  SubjectRepositoryImpl:36 - Adding subject details!
+2021-09-20 11:20:27 INFO  SubjectRepositoryImpl:64 - Subject details added successfully!
+2021-09-20 11:35:50 INFO  SubjectRepositoryImpl:106 - Deleting the subject details!
+2021-09-20 11:35:50 INFO  SubjectRepositoryImpl:121 - Subject details updated successfully!
+2021-09-20 11:36:17 INFO  SubjectRepositoryImpl:106 - Deleting the subject details!
+2021-09-20 11:36:17 ERROR SubjectRepositoryImpl:125 - Error while updating the subject!
+2021-09-20 11:36:25 INFO  SubjectRepositoryImpl:106 - Deleting the subject details!
+2021-09-20 11:36:25 ERROR SubjectRepositoryImpl:125 - Error while updating the subject!
+2021-09-20 11:36:33 INFO  SubjectRepositoryImpl:106 - Deleting the subject details!
+2021-09-20 11:36:33 ERROR SubjectRepositoryImpl:125 - Error while updating the subject!
+2021-09-20 11:36:57 INFO  SubjectRepositoryImpl:106 - Deleting the subject details!
+2021-09-20 11:36:57 INFO  SubjectRepositoryImpl:121 - Subject details updated successfully!

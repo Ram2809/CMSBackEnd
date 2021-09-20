@@ -17,7 +17,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import com.curriculum.entity.ClassEntity;
-import com.curriculum.entity.Student;
 import com.curriculum.entity.Subject;
 import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.DatabaseException;
@@ -75,7 +74,6 @@ public class SubjectRepositoryImpl implements SubjectRepository{
 	}
 	@Override
 	public ResponseEntity<List<Subject>> getAllSubjectDetails() {
-		// TODO Auto-generated method stub
 		ResponseEntity<List<Subject>> response=null;
 		Session session=null;
 		List<Subject> subjectList=new ArrayList<>();
@@ -103,67 +101,60 @@ public class SubjectRepositoryImpl implements SubjectRepository{
 		return true;
 	}
 	@Override
-	public ResponseEntity<String> updateSubjectDetails(String subjectCode, Long roomNo,Subject subjectDetails) throws SubjectNotFoundException,ClassNotFoundException {
-		// TODO Auto-generated method stub
-		ResponseEntity<String> response=null;
+	public Subject updateSubject(String subjectCode,Subject subjectDetails) throws DatabaseException {
+		logger.info("Updating the subject details!");
 		Session session=null;
+		Subject subject=null;
 		try
 		{
 			boolean checkSubject=checkSubject(subjectCode);
-			if(!checkSubject)
-			{
-				throw new SubjectNotFoundException("Subject Not Found With"+" "+subjectCode+"!");
-			}
-			boolean checkRoomNo=classRepositoryImpl.checkClassRoom(roomNo);
-			if(!checkRoomNo)
-			{
-				throw new ClassNotFoundException("Class Not Found with"+" "+roomNo+"!");
-			}
+			boolean checkRoomNo=classRepositoryImpl.checkClassRoom(subjectDetails.getClassRoom().getRoomNo());
 			session=sessionFactory.getCurrentSession();
-			//session.beginTransaction();
 			session.find(Subject.class, subjectCode);
 			Subject subjectEntity=session.load(Subject.class, subjectCode);
 			ClassEntity classDetails=new ClassEntity();
-			classDetails.setRoomNo(roomNo);
+			classDetails.setRoomNo(subjectDetails.getClassRoom().getRoomNo());
 			subjectEntity.setName(subjectDetails.getName());
 			subjectEntity.setClassRoom(classDetails);
-			session.merge(subjectEntity);
-			//session.flush();
-			//session.getTransaction().commit();
-			response=new ResponseEntity<String>("Subject Details Updated Successfully!",new HttpHeaders(),HttpStatus.OK);
+			subject=(Subject) session.merge(subjectEntity);
+			logger.info("Subject details updated successfully!");
 		}
-		catch(HibernateException e)
+		catch(HibernateException | SubjectNotFoundException |ClassNotFoundException e)
 		{
-			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
+			logger.error("Error while updating the subject!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return subject;
 	}
 	@Override
-	public ResponseEntity<String> deleteSubjectDetails(String subjectCode) throws SubjectNotFoundException {
-		// TODO Auto-generated method stub
-		ResponseEntity<String> response=null;
+	public Subject deleteSubject(String subjectCode) throws DatabaseException {
+		logger.info("Deleting the subject details!");
 		Session session=null;
+		Subject subject=null;
 		try
 		{
 			boolean checkSubject=checkSubject(subjectCode);
-			if(!checkSubject)
-			{
-				throw new SubjectNotFoundException("Subject Not Found With"+" "+subjectCode+"!");
-			}
 			session=sessionFactory.getCurrentSession();
-			//session.beginTransaction();
 			session.find(Subject.class, subjectCode);
 			Subject subjectDetails=session.load(Subject.class, subjectCode);
 			session.delete(subjectDetails);
-			//session.flush();
-			//session.getTransaction().commit();
-			response=new ResponseEntity<String>("Subject Details Deleted Successfully!",new HttpHeaders(),HttpStatus.OK);
+			Subject subjectEntity=session.get(Subject.class, subjectCode);
+			if(subjectEntity==null)
+			{
+				subject=subjectDetails;
+				logger.info("Subject is deleted successfully!");
+			}
+			else
+			{
+				logger.error("Error while deleting the subject!");
+			}
 		}
-		catch(HibernateException e)
+		catch(HibernateException |SubjectNotFoundException e)
 		{
-			response= new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
+			logger.error("Error while deleting the subject!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return subject;
 	}
 	@Override
 	public Subject getParticularSubject(String subjectCode) throws DatabaseException {
@@ -187,80 +178,65 @@ public class SubjectRepositoryImpl implements SubjectRepository{
 		return subject;
 	}
 	@Override
-	public ResponseEntity<List<Subject>> getSubjectByClass(Long roomNo) throws ClassNotFoundException {
-		// TODO Auto-generated method stub
-		ResponseEntity<List<Subject>> response=null;
+	public List<Subject> getSubjectByClass(Long roomNo) throws DatabaseException{
+		logger.info("Getting subject details by class!");
 		Session session=null;
 		List<Subject> subjectList=new ArrayList<>();
 		try
 		{
 			boolean checkRoomNo=classRepositoryImpl.checkClassRoom(roomNo);
-			if(!checkRoomNo)
-			{
-				throw new ClassNotFoundException("Class Not Found with"+" "+roomNo+"!");
-			}
 			session=sessionFactory.getCurrentSession();
 			Query query=session.createQuery("FROM Subject WHERE roomNo=:roomId");
 			query.setParameter("roomId", roomNo);
 			subjectList=query.list();
-			response=new ResponseEntity<List<Subject>>(subjectList,new HttpHeaders(),HttpStatus.OK);
+			logger.info("Subject details are fetched successfully!");
 		}
-		catch(HibernateException e)
+		catch(HibernateException | ClassNotFoundException e)
 		{
-			e.printStackTrace();
+			logger.error("Error while fetching the subject details!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return subjectList;
 	}
 	@Override
-	public ResponseEntity<List<String>> getSubjectName(Long roomNo) throws ClassNotFoundException {
-		// TODO Auto-generated method stub
-		ResponseEntity<List<String>> response=null;
+	public List<String> getSubjectName(Long roomNo) throws DatabaseException {
+		logger.info("Getting subject names!");
 		Session session=null;
 		List<String> subjectNames=new ArrayList<>();
 		try
 		{
 			boolean checkRoomNo=classRepositoryImpl.checkClassRoom(roomNo);
-			if(!checkRoomNo)
-			{
-				throw new ClassNotFoundException("Class Not Found with"+" "+roomNo+"!");
-			}
 			session=sessionFactory.getCurrentSession();
 			Query query=session.createQuery("SELECT s.name FROM Subject s WHERE s.classRoom.roomNo=:roomId");
 			query.setParameter("roomId", roomNo);
 			subjectNames=query.getResultList();
-			response=new ResponseEntity<List<String>>(subjectNames,new HttpHeaders(),HttpStatus.OK);
+			logger.info("Subject Names fetched successfully!");
 		}
-		catch(HibernateException e)
+		catch(HibernateException | ClassNotFoundException e)
 		{
-			e.printStackTrace();
+			logger.error("Error while fetching the subject names!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return subjectNames;
 	}
 	@Override
-	public ResponseEntity<String> getSubjectCode(Long roomNo, String name) throws ClassNotFoundException {
-		// TODO Auto-generated method stub
-		ResponseEntity<String> response=null;
+	public String getSubjectCode(Long roomNo, String name) throws DatabaseException {
 		Session session=null;
 		String code="";
 		try
 		{
 			boolean checkRoomNo=classRepositoryImpl.checkClassRoom(roomNo);
-			if(!checkRoomNo)
-			{
-				throw new ClassNotFoundException("Class Not Found with"+" "+roomNo+"!");
-			}
 			session=sessionFactory.getCurrentSession();
 			Query query=session.createQuery("SELECT s.code FROM Subject s WHERE s.name=:subjectName AND s.classRoom.roomNo=:roomId");
 			query.setParameter("subjectName", name);
 			query.setParameter("roomId", roomNo);
 			code=(String) query.uniqueResult();
-			response=new ResponseEntity<String>(code,new HttpHeaders(),HttpStatus.OK);
 		}
-		catch(HibernateException e)
+		catch(HibernateException |ClassNotFoundException e)
 		{
-			e.printStackTrace();
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return code;
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.curriculum.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curriculum.entity.Subject;
@@ -54,17 +56,52 @@ public class SubjectController {
 		return subjectServiceImpl.getAllSubjectDetails();
 	}
 
-	@PutMapping("/class/{roomNo}/updateSubjectDetails/{code}")
-	public ResponseEntity<String> updateSubjectDetails(@PathVariable("code") String code,
-			@PathVariable("roomNo") Long roomNo, @RequestBody Subject subjectDetails)
-			throws ClassNotFoundException, SubjectNotFoundException {
-		return subjectServiceImpl.updateSubjectDetails(code, roomNo, subjectDetails);
+	@PutMapping("/{code}")
+	public ResponseEntity<Response> updateSubject(@PathVariable("code") String code, @RequestBody Subject subjectDetails)
+	{
+		Response response=new Response();
+		ResponseEntity responseEntity=null;
+		Subject subject=null;
+		try {
+			subject=subjectServiceImpl.updateSubject(code,subjectDetails);
+			response.setCode(200);
+			response.setMessage("Subject details updated successfully!");
+			response.setData(subject);
+			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
+		} catch (BusinessServiceException e) {
+			response.setCode(404);
+			response.setMessage(e.getMessage());
+			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
 	}
 
-	@DeleteMapping("/deleteSubjectDetails/{code}")
-	public ResponseEntity<String> deleteSubjectDetails(@PathVariable("code") String subjectCode)
-			throws SubjectNotFoundException {
-		return subjectServiceImpl.deleteSubjectDetails(subjectCode);
+	@DeleteMapping("/{code}")
+	public ResponseEntity<Response> deleteSubject(@PathVariable("code") String subjectCode) {
+		Response response=new Response();
+		ResponseEntity responseEntity=null;
+		Subject subject=null;
+		try {
+			subject=subjectServiceImpl.deleteSubject(subjectCode);
+			if(subject!=null)
+			{
+				response.setCode(200);
+				response.setMessage("Subject details deleted successfully!");
+				response.setData(subject);
+				responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
+			}
+			else
+			{
+				response.setCode(500);
+				response.setMessage("Internal Server Error");
+				responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+		} catch (BusinessServiceException e) {
+			response.setCode(404);
+			response.setMessage(e.getMessage());
+			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
 	}
 
 	@GetMapping("/{code}")
@@ -95,30 +132,89 @@ public class SubjectController {
 		}
 		return responseEntity;
 	}
-	@GetMapping("/getSubjectByClass/{roomNo}")
-	public ResponseEntity<List<Subject>> getSubjectByClass(@PathVariable("roomNo") Long roomNo) throws ClassNotFoundException
+	@GetMapping
+	public ResponseEntity<Response> getSubjectByClass(@RequestParam("roomNo") Long roomNo) throws ClassNotFoundException
 	{
-		return subjectServiceImpl.getSubjectByClass(roomNo);
+		Response response=new Response();
+		ResponseEntity<Response> responseEntity=null;
+		List<Subject> subjectList=new ArrayList<>();
+		try {
+			subjectList=subjectServiceImpl.getSubjectByClass(roomNo);
+			if(!subjectList.isEmpty())
+			{
+				response.setCode(200);
+				response.setMessage("Success!");
+				response.setData(subjectList);
+				responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
+			}
+			else
+			{
+				response.setCode(404);
+				response.setMessage("No Subject Found!");
+				responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+			}
+		} catch (BusinessServiceException e) {
+			response.setCode(404);
+			response.setMessage(e.getMessage());
+			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
 	}
-	@GetMapping("/getSubjectName/{roomNo}")
-	public ResponseEntity<List<String>> getSubjectName(@PathVariable("roomNo") Long roomNo) throws ClassNotFoundException
+	@GetMapping("class/{roomNo}")
+	public ResponseEntity<Response> getSubjectName(@PathVariable("roomNo") Long roomNo)
 	{
-		return subjectServiceImpl.getSubjectName(roomNo);
+		Response response=new Response();
+		ResponseEntity responseEntity=null;
+		List<String> subjectNames=new ArrayList();
+		try {
+			subjectNames=subjectServiceImpl.getSubjectName(roomNo);
+			if(!subjectNames.isEmpty())
+			{
+				response.setCode(200);
+				response.setMessage("Success!");
+				response.setData(subjectNames);
+				responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
+			}
+			else
+			{
+				response.setCode(404);
+				response.setMessage("No Subject Name Found!");
+				responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+			}
+		} catch (BusinessServiceException e) {
+			response.setCode(404);
+			response.setMessage(e.getMessage());
+			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
 	}
-	@GetMapping("/getSubjectCode/{roomNo}/{name}")
-	public ResponseEntity<String> getSubjectCode(@PathVariable("roomNo") Long roomNo,@PathVariable("name") String name) throws ClassNotFoundException
+	@GetMapping("/{roomNo}/{name}")
+	public ResponseEntity<String> getSubjectCode(@PathVariable("roomNo") Long roomNo,@PathVariable("name") String name) 
 	{
-		return subjectServiceImpl.getSubjectCode(roomNo,name);
-	}
-	@ExceptionHandler(SubjectNotFoundException.class)
-	public ResponseEntity<String> subjectNotFound(SubjectNotFoundException e)
-	{
-		return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
-	}
-	@ExceptionHandler(ClassNotFoundException.class)
-	public ResponseEntity<String> classNotFound(ClassNotFoundException e)
-	{
-		return new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+		Response response=new Response();
+		ResponseEntity responseEntity=null;
+		String code=null;
+		try {
+			code=subjectServiceImpl.getSubjectCode(roomNo,name);
+			if(code!=null)
+			{
+				response.setCode(200);
+				response.setMessage("Success!");
+				response.setData(code);
+				responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
+			}
+			else
+			{
+				response.setCode(404);
+				response.setMessage("No subject code found!");
+				responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+			}
+		} catch (BusinessServiceException e) {
+			response.setCode(404);
+			response.setMessage(e.getMessage());
+			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+		}
+		return responseEntity;
 	}
 	
 }

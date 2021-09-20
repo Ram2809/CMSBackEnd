@@ -13,16 +13,15 @@ public interface SubjectRepository {
 
 	ResponseEntity<List<Subject>> getAllSubjectDetails();
 
-	ResponseEntity<String> updateSubjectDetails(String subjectCode, Long roomNo, Subject subjectDetails)
-			throws SubjectNotFoundException, ClassNotFoundException;
+	Subject updateSubject(String subjectCode, Subject subjectDetails) throws DatabaseException;
 
-	ResponseEntity<String> deleteSubjectDetails(String subjectCode) throws SubjectNotFoundException;
+	Subject deleteSubject(String subjectCode) throws DatabaseException;
 
 	Subject getParticularSubject(String subjectCode) throws DatabaseException;
 
-	ResponseEntity<List<Subject>> getSubjectByClass(Long roomNo) throws ClassNotFoundException;
+	List<Subject> getSubjectByClass(Long roomNo) throws DatabaseException;
 
-	ResponseEntity<List<String>> getSubjectName(Long roomNo) throws ClassNotFoundException;
+	List<String> getSubjectName(Long roomNo) throws DatabaseException;
 
-	ResponseEntity<String> getSubjectCode(Long roomNo, String name) throws ClassNotFoundException;
+	String getSubjectCode(Long roomNo, String name) throws DatabaseException;
 }
