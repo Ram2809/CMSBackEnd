@@ -5,14 +5,20 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 
 import com.curriculum.entity.Topic;
+import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.SubjectNotFoundException;
 import com.curriculum.exception.UnitNotFoundException;
 
 public interface TopicRepository {
-	ResponseEntity<String> addTopicDetails(String subjectCode,Topic topicDetails) throws SubjectNotFoundException;
-	ResponseEntity<List<Topic>> getTopicDetailsBySubjectCode(String subjectCode) throws SubjectNotFoundException;
-	ResponseEntity<Topic> getTopicDetailsByUnitNo(String unitNo);
-	ResponseEntity<String> updateTopicDetails(String subjectCode,String unitNo,Topic topicDetails) throws SubjectNotFoundException;
-	ResponseEntity<String> getSubjectCode(String unitNo); 
-	ResponseEntity<String> deleteTopicDetails(String unitNo)throws UnitNotFoundException;
+	Topic addTopic(Topic topicDetails) throws DatabaseException;
+
+	List<Topic> getTopicBySubjectCode(String subjectCode) throws DatabaseException;
+
+	Topic getTopicByUnitNo(String unitNo) throws DatabaseException;
+
+	Topic updateTopic(String unitNo, Topic topicDetails) throws DatabaseException;
+
+	String getSubjectCode(String unitNo) throws DatabaseException;
+
+	Topic deleteTopic(String unitNo) throws DatabaseException;
 }

@@ -2,17 +2,19 @@ package com.curriculum.service;
 
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
-
 import com.curriculum.entity.Topic;
-import com.curriculum.exception.SubjectNotFoundException;
-import com.curriculum.exception.UnitNotFoundException;
+import com.curriculum.exception.BusinessServiceException;
 
 public interface TopicService {
-	ResponseEntity<String> addTopicDetails(String subjectCode,Topic topicDetails) throws SubjectNotFoundException;
-	ResponseEntity<List<Topic>> getTopicDetailsBySubjectCode(String subjectCode) throws SubjectNotFoundException;
-	ResponseEntity<Topic> getTopicDetailsByUnitNo(String unitNo);
-	ResponseEntity<String> updateTopicDetails(String subjectCode,String unitNo,Topic topicDetails) throws SubjectNotFoundException;
-	ResponseEntity<String> getSubjectCode(String unitNo);
-	ResponseEntity<String> deleteTopicDetails(String unitNo) throws UnitNotFoundException;
+	Topic addTopic(Topic topicDetails) throws BusinessServiceException;
+
+	List<Topic> getTopicBySubjectCode(String subjectCode) throws BusinessServiceException;
+
+	Topic getTopicByUnitNo(String unitNo) throws BusinessServiceException;
+
+	Topic updateTopic(String unitNo, Topic topicDetails) throws BusinessServiceException;
+
+	String getSubjectCode(String unitNo) throws BusinessServiceException;
+
+	Topic deleteTopic(String unitNo) throws BusinessServiceException;
 }

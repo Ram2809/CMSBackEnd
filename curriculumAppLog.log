@@ -228,3 +228,39 @@
 2021-09-20 11:36:33 ERROR SubjectRepositoryImpl:125 - Error while updating the subject!
 2021-09-20 11:36:57 INFO  SubjectRepositoryImpl:106 - Deleting the subject details!
 2021-09-20 11:36:57 INFO  SubjectRepositoryImpl:121 - Subject details updated successfully!
+2021-09-20 12:49:21 INFO  TopicRepositoryImpl:208 - Getting subject by unit number!
+2021-09-20 12:49:22 INFO  TopicRepositoryImpl:218 - Subject code fetched successfully using unit number!
+2021-09-20 12:49:30 INFO  TopicRepositoryImpl:208 - Getting subject by unit number!
+2021-09-20 12:49:30 ERROR TopicRepositoryImpl:222 - Error while fetching the subject code!
+2021-09-20 14:09:27 INFO  TopicRepositoryImpl:144 - Updating topic details!
+2021-09-20 14:09:39 INFO  TopicRepositoryImpl:144 - Updating topic details!
+2021-09-20 14:10:02 INFO  TopicRepositoryImpl:144 - Updating topic details!
+2021-09-20 14:10:02 INFO  TopicRepositoryImpl:167 - Topic details updated successfully!
+2021-09-20 14:11:30 INFO  TopicRepositoryImpl:144 - Updating topic details!
+2021-09-20 14:11:30 INFO  TopicRepositoryImpl:167 - Topic details updated successfully!
+2021-09-20 14:12:31 INFO  TopicRepositoryImpl:144 - Updating topic details!
+2021-09-20 14:12:31 INFO  TopicRepositoryImpl:167 - Topic details updated successfully!
+2021-09-20 14:32:22 INFO  TopicRepositoryImpl:38 - Adding the topic details!
+2021-09-20 14:32:22 INFO  TopicRepositoryImpl:71 - Unit is added successfully!
+2021-09-20 14:32:59 INFO  TopicRepositoryImpl:179 - Deleting the topic details!
+2021-09-20 14:32:59 ERROR TopicRepositoryImpl:203 - Error while deleting the topic details!
+2021-09-20 14:33:06 INFO  TopicRepositoryImpl:179 - Deleting the topic details!
+2021-09-20 14:33:06 INFO  TopicRepositoryImpl:194 - Topic is deleted successfully!
+2021-09-20 14:34:18 INFO  TopicRepositoryImpl:179 - Deleting the topic details!
+2021-09-20 14:34:18 ERROR TopicRepositoryImpl:203 - Error while deleting the topic details!
+2021-09-20 14:34:23 INFO  TopicRepositoryImpl:179 - Deleting the topic details!
+2021-09-20 14:34:23 ERROR TopicRepositoryImpl:203 - Error while deleting the topic details!
+2021-09-20 14:34:51 INFO  TopicRepositoryImpl:38 - Adding the topic details!
+2021-09-20 14:34:51 INFO  TopicRepositoryImpl:71 - Unit is added successfully!
+2021-09-20 14:35:09 INFO  TopicRepositoryImpl:179 - Deleting the topic details!
+2021-09-20 14:35:09 ERROR TopicRepositoryImpl:203 - Error while deleting the topic details!
+2021-09-20 14:35:13 INFO  TopicRepositoryImpl:179 - Deleting the topic details!
+2021-09-20 14:35:13 INFO  TopicRepositoryImpl:194 - Topic is deleted successfully!
+2021-09-20 14:47:42 INFO  TopicRepositoryImpl:119 - Getting particular topic details
+2021-09-20 14:47:42 INFO  TopicRepositoryImpl:129 - Topic details fetched successfully!
+2021-09-20 14:48:01 INFO  TopicRepositoryImpl:119 - Getting particular topic details
+2021-09-20 14:48:01 ERROR TopicRepositoryImpl:133 - Error while fetching the topic details!
+2021-09-20 15:03:55 INFO  TopicRepositoryImpl:83 - Getting units for given subject!
+2021-09-20 15:03:55 ERROR TopicRepositoryImpl:97 - Error while fetching the unit details!
+2021-09-20 15:04:08 INFO  TopicRepositoryImpl:83 - Getting units for given subject!
+2021-09-20 15:04:08 INFO  TopicRepositoryImpl:93 - Unit details are fetched successfully!

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -18,6 +19,8 @@ import org.springframework.stereotype.Repository;
 
 import com.curriculum.entity.Subject;
 import com.curriculum.entity.Topic;
+import com.curriculum.exception.ConstraintValidationException;
+import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.SubjectNotFoundException;
 import com.curriculum.exception.UnitNotFoundException;
 import com.curriculum.repository.TopicRepository;
@@ -29,22 +32,29 @@ public class TopicRepositoryImpl implements TopicRepository{
 	private SessionFactory sessionFactory;
 	@Autowired
 	private SubjectRepositoryImpl subjectRepositoryImpl;
+	private Logger logger=Logger.getLogger(TopicRepositoryImpl.class);
 	@Override
-	public ResponseEntity<String> addTopicDetails(String subjectCode, Topic topicDetails) throws SubjectNotFoundException {
-		// TODO Auto-generated method stub
-		ResponseEntity<String> response=null;
+	public Topic addTopic(Topic topicDetails) throws DatabaseException {
+		logger.info("Adding the topic details!");
 		Session session=null;
+		Topic topicEntity=null;
 		try
 		{
-			boolean checkSubject=subjectRepositoryImpl.checkSubject(subjectCode);
-			if(!checkSubject)
+			boolean checkSubject=subjectRepositoryImpl.checkSubject(topicDetails.getSubject().getCode());
+			if(topicDetails.getUnitNo().length()>8)
 			{
-				throw new SubjectNotFoundException("Subject Not Found With"+" "+subjectCode+"!");
+				throw new ConstraintValidationException("Unit Number not exceeds the 8 characters!");
 			}
 			session=sessionFactory.getCurrentSession();
-			//session.beginTransaction();
+			Query query = session.createQuery("FROM Topic WHERE unitNo=:unitCode");
+			query.setParameter("unitCode", topicDetails.getUnitNo());
+			Topic topicDetail = (Topic) query.uniqueResultOptional().orElse(null);
+			if(topicDetail!=null)
+			{
+				throw new UnitNotFoundException("Unit already exits with"+" "+topicDetails.getUnitNo()+"!");
+			}
 			Subject subject=new Subject();
-			subject.setCode(subjectCode);
+			subject.setCode(topicDetails.getSubject().getCode());
 			Topic topic=new Topic();
 			topic.setUnitNo(topicDetails.getUnitNo());
 			topic.setUnitName(topicDetails.getUnitName());
@@ -53,165 +63,159 @@ public class TopicRepositoryImpl implements TopicRepository{
 			topic.setDescription(topicDetails.getDescription());
 			topic.setEndDate(topicDetails.getEndDate());
 			topic.setSubject(subject);
-			session.save(topic);
-			//session.getTransaction().commit();
-			response=new ResponseEntity<String>("Topic Added Successfully for Subject!",new HttpHeaders(),HttpStatus.OK);
+			String unitNo=(String) session.save(topic);
+			if(!unitNo.isEmpty())
+			{
+				topicEntity=topicDetails;
+				System.out.println(topicEntity);
+				logger.info("Unit is added successfully!");
+			}
 		}
-		catch(HibernateException | SubjectNotFoundException e)
+		catch(HibernateException | SubjectNotFoundException | UnitNotFoundException | ConstraintValidationException e)
 		{
-			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
+			logger.error("Error while adding the topic!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return topicEntity;
 	}
 	@Override
-	public ResponseEntity<List<Topic>> getTopicDetailsBySubjectCode(String subjectCode) throws SubjectNotFoundException {
-		// TODO Auto-generated method stub
-		ResponseEntity<List<Topic>> response=null;
+	public List<Topic> getTopicBySubjectCode(String subjectCode) throws DatabaseException{
+		logger.info("Getting units for given subject!");
 		Session session=null;
-		List<Topic> topicDetailsList=new ArrayList<>();
+		List<Topic> topicsList=new ArrayList<>();
 		try
 		{
 			boolean checkSubject=subjectRepositoryImpl.checkSubject(subjectCode);
-			if(!checkSubject)
-			{
-				throw new SubjectNotFoundException("Subject Not Found With"+" "+subjectCode+"!");
-			}
 			session=sessionFactory.getCurrentSession();
 			Query query=session.createQuery("FROM Topic t WHERE t.subject.code=:subjectCode");
 			query.setParameter("subjectCode", subjectCode);
-			topicDetailsList=query.getResultList();
-			response=new ResponseEntity<List<Topic>>(topicDetailsList,new HttpHeaders(),HttpStatus.OK);
+			topicsList=query.getResultList();
+			logger.info("Unit details are fetched successfully!");
 		}
-		catch(HibernateException e)
+		catch(HibernateException | SubjectNotFoundException e)
 		{
-			e.printStackTrace();
+			logger.error("Error while fetching the unit details!");
+			throw new DatabaseException(e.getMessage());
 		}
-		
-		return response;
+		return topicsList;
 	}
-	public boolean checkTopic(String unitNo) {
+	public boolean checkTopic(String unitNo) throws UnitNotFoundException {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("FROM Topic WHERE unitNo=:topicNo");
 		query.setParameter("topicNo",unitNo);
-		List<Topic> topicList = query.list();
-		if (topicList.isEmpty()) {
-			return false;
+		Topic topic = (Topic) query.uniqueResultOptional().orElse(null);
+		if (topic==null) {
+			throw new UnitNotFoundException("Topic not found with"+" "+unitNo+"!");
 		}
 		return true;
 	}
 	@Override
-	public ResponseEntity<Topic> getTopicDetailsByUnitNo(String unitNo) {
-		// TODO Auto-generated method stub
-		ResponseEntity<Topic> response=null;
+	public Topic getTopicByUnitNo(String unitNo) throws DatabaseException {
+		logger.info("Getting particular topic details");
 		Session session=null;
-		Topic topicDetails=new Topic();
+		Topic topicDetails=null;
 		try
 		{
 			boolean topicStatus=checkTopic(unitNo);
-			if(!topicStatus)
-			{
-				throw new UnitNotFoundException("Unit Not Found With"+" "+unitNo+"!");
-			}
 			session=sessionFactory.getCurrentSession();
 			Query query=session.createQuery("FROM Topic WHERE unitNo=:topicNo");
 			query.setParameter("topicNo", unitNo);
 			topicDetails=(Topic) query.getSingleResult();
-			response=new ResponseEntity<Topic>(topicDetails,new HttpHeaders(),HttpStatus.OK);
+			logger.info("Topic details fetched successfully!");
 		}
 		catch(UnitNotFoundException|HibernateException e)
 		{	
-			e.printStackTrace();
+			logger.error("Error while fetching the topic details!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return topicDetails;
 	}
 	@Override
-	public ResponseEntity<String> updateTopicDetails(String subjectCode, String unitNo, Topic topicDetails) throws SubjectNotFoundException {
-		// TODO Auto-generated method stub
-		ResponseEntity<String> response=null;
+	public Topic updateTopic(String unitNo, Topic topicDetails) throws DatabaseException {
+		logger.info("Updating topic details!");
 		Session session=null;
+		Topic topic=null;
 		try
 		{
 			boolean topicStatus=checkTopic(unitNo);
-			if(!topicStatus)
-			{
-				throw new UnitNotFoundException("Unit Not Found With"+" "+unitNo+"!");
-			}
-			boolean checkSubject=subjectRepositoryImpl.checkSubject(subjectCode);
-			if(!checkSubject)
-			{
-				throw new SubjectNotFoundException("Subject Not Found With"+" "+subjectCode+"!");
-			}
+			boolean subjectStatus=subjectRepositoryImpl.checkSubject(topicDetails.getSubject().getCode());
 			session=sessionFactory.getCurrentSession();
-			//session.beginTransaction();
 			session.find(Topic.class, unitNo);
 			Topic newTopicDetails=session.load(Topic.class, unitNo);
 			Subject subjectDetails=new Subject();
-			subjectDetails.setCode(subjectCode);
+			if(topicDetails.getSubject().getCode().length()>6)
+			{
+				throw new ConstraintValidationException("Subject code must contains only 6 characters!");
+			}
+			subjectDetails.setCode(topicDetails.getSubject().getCode());
 			newTopicDetails.setUnitName(topicDetails.getUnitName());
 			newTopicDetails.setDescription(topicDetails.getDescription());
 			newTopicDetails.setBeginDate(topicDetails.getBeginDate());
 			newTopicDetails.setEndDate(topicDetails.getEndDate());
 			newTopicDetails.setStatus(topicDetails.getStatus());
 			newTopicDetails.setSubject(subjectDetails);
-			session.merge(newTopicDetails);
-			//session.getTransaction().commit();
-			response=new ResponseEntity<String>("Topic is Updated Successfully!",new HttpHeaders(),HttpStatus.OK);
+			topic=(Topic) session.merge(newTopicDetails);
+			logger.info("Topic details updated successfully!");
 		}
-		catch(HibernateException |UnitNotFoundException |SubjectNotFoundException e)
+		catch(HibernateException | UnitNotFoundException | SubjectNotFoundException | ConstraintValidationException e)
 		{
-			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
+			logger.error("Error while updating the topic details!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return topic;
 	}
 
 	@Override
-	public ResponseEntity<String> deleteTopicDetails(String unitNo){// throws UnitNotFoundException {
-		// TODO Auto-generated method stub
-		ResponseEntity<String> response=null;
+	public Topic deleteTopic(String unitNo) throws DatabaseException{
+		logger.info("Deleting the topic details!");
 		Session session=null;
+		Topic topic=null;
+		
 		try
 		{
 			boolean topicStatus=checkTopic(unitNo);
-			if(!topicStatus)
-			{
-				throw new UnitNotFoundException("Unit Not Found With"+" "+unitNo+"!");
-			}
 			session=sessionFactory.getCurrentSession();
 			session.find(Topic.class, unitNo);
 			Topic topicDetails=session.load(Topic.class, unitNo);
 			session.delete(topicDetails);
-			response=new ResponseEntity<String>("Topic is Deleted Successfully!",new HttpHeaders(),HttpStatus.OK);
+			Topic topicEntity=session.get(Topic.class, unitNo);
+			if(topicEntity==null)
+			{
+				topic=topicDetails;
+				logger.info("Topic is deleted successfully!");
+			}
+			else
+			{
+				logger.error("Error while deleting the topic details!");
+			}
 		}
 		catch(HibernateException  |UnitNotFoundException e)
 		{
-			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
+			logger.error("Error while deleting the topic details!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return topic;
 	}
 	@Override
-	public ResponseEntity<String> getSubjectCode(String unitNo) {
-		// TODO Auto-generated method stub
-		ResponseEntity<String> response=null;
+	public String getSubjectCode(String unitNo) throws DatabaseException {
+		logger.info("Getting subject by unit number!");
 		Session session=null;
 		String subjectCode="";
 		try
 		{
 			boolean topicStatus=checkTopic(unitNo);
-			if(!topicStatus)
-			{
-				throw new UnitNotFoundException("Unit Not Found With"+" "+unitNo+"!");
-			}
 			session=sessionFactory.getCurrentSession();
 			Query query=session.createQuery("SELECT t.subject.code FROM Topic t WHERE t.unitNo=:unitNo");
 			query.setParameter("unitNo", unitNo);
 			subjectCode=(String) query.uniqueResult();
-			response=new ResponseEntity<String>(subjectCode,new HttpHeaders(),HttpStatus.OK);
+			logger.info("Subject code fetched successfully using unit number!");
 		}
 		catch(HibernateException | UnitNotFoundException e)
 		{
-			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.NOT_FOUND);
+			logger.error("Error while fetching the subject code!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return subjectCode;
 	}
 
 

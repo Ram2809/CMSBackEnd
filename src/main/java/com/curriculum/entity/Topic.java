@@ -16,6 +16,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
@@ -38,7 +39,7 @@ public class Topic implements Serializable{
 	private Date endDate;
 	@ManyToOne
 	@JoinColumn(name="subjectCode",nullable=false)
-	@JsonIgnore
+	@JsonBackReference
 	private Subject subject;
 	@OneToMany(mappedBy="topic",cascade=CascadeType.ALL,fetch=FetchType.LAZY,orphanRemoval=true)
 	@JsonIgnore
