@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -19,9 +20,12 @@ import org.springframework.stereotype.Repository;
 import com.curriculum.entity.Discussion;
 import com.curriculum.entity.Student;
 import com.curriculum.entity.Topic;
+import com.curriculum.exception.ConstraintValidationException;
+import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.QuestionNotFoundException;
 import com.curriculum.exception.UnitNotFoundException;
 import com.curriculum.repository.DiscussionRepository;
+import com.curriculum.util.DateValidator;
 
 @Repository
 @Transactional
@@ -30,160 +34,147 @@ public class DiscussionRepositoryImpl implements DiscussionRepository{
 	private SessionFactory sessionFactory;
 	@Autowired
 	private TopicRepositoryImpl topicRepositoryImpl;
+	private Logger logger=Logger.getLogger(DiscussionRepositoryImpl.class);
 	@Override
-	public ResponseEntity<String> addDiscussionDetails(String unitNo, Discussion discussionDetails) {
-		// TODO Auto-generated method stub
-		ResponseEntity<String> response=null;
+	public Discussion addDiscussion(Discussion discussionDetails) throws DatabaseException {
+		logger.info("Adding discussion details!");
 		Session session=null;
+		Discussion discussionEntity=null;
 		try
 		{
-			boolean topicStatus=topicRepositoryImpl.checkTopic(unitNo);
-			if(!topicStatus)
-			{
-				throw new UnitNotFoundException("Unit Not Found With"+" "+unitNo+"!");
-			}
+			boolean topicStatus=topicRepositoryImpl.checkTopic(discussionDetails.getTopic().getUnitNo());
 			session=sessionFactory.getCurrentSession();
-			//session.beginTransaction();
 			Topic topic=new Topic();
-			topic.setUnitNo(unitNo);
+			topic.setUnitNo(discussionDetails.getTopic().getUnitNo());
 			Discussion discussion=new Discussion();
 			discussion.setQuestionNo(discussionDetails.getQuestionNo());
 			discussion.setQuestion(discussionDetails.getQuestion());
 			discussion.setAnswer(discussionDetails.getAnswer());
 			discussion.setDate(discussionDetails.getDate());
 			discussion.setTopic(topic);
-			session.save(discussion);
-			//session.getTransaction().commit();
-			response=new ResponseEntity<String>("Discussion Details Added Successfully!",new HttpHeaders(),HttpStatus.OK);
+			Long count=(Long) session.save(discussion);
+			if(count>0)
+			{
+				discussionEntity=discussion;
+				logger.info("Discussion details added successfully!");
+			}
 		}
-		catch(HibernateException | UnitNotFoundException e)
+		catch(HibernateException | UnitNotFoundException  e)
 		{
-			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
+			logger.error("Error while adding discussion details!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return discussionEntity;
 	}
 	@Override
-	public ResponseEntity<List<Discussion>> getDiscussionByUnitNo(String unitNo) {
-		// TODO Auto-generated method stub
-		ResponseEntity<List<Discussion>> response=null;
+	public List<Discussion> getDiscussionByUnitNo(String unitNo) throws DatabaseException {
+		logger.info("Getting discussion details by Unit Number!");
 		Session session=null;
 		List<Discussion> discussionList=new ArrayList<Discussion>();
 		try
 		{
 			boolean topicStatus=topicRepositoryImpl.checkTopic(unitNo);
-			if(!topicStatus)
-			{
-				throw new UnitNotFoundException("Unit Not Found With"+" "+unitNo+"!");
-			}
 			session=sessionFactory.getCurrentSession();
 			Query<Discussion> query=session.createQuery("FROM Discussion d WHERE d.topic.unitNo=:unitId");
 			query.setParameter("unitId", unitNo);
 			discussionList=query.list();
-			response=new ResponseEntity<List<Discussion>>(discussionList,new HttpHeaders(),HttpStatus.OK);
+			logger.info("Discussion details are fetched successfully!");
 		}
 		catch(HibernateException |UnitNotFoundException e)
 		{
-			e.printStackTrace();
+			logger.error("Error while fetching the discussion details!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return discussionList;
 	}
-	public boolean checkQuestion(Long questionNo) {
+	public boolean checkQuestion(Long questionNo) throws QuestionNotFoundException {
 		Session session = sessionFactory.getCurrentSession();
-		Query<Discussion> query = session.createQuery("FROM Discussion WHERE questionNo=:questionId");
+		Query query = session.createQuery("FROM Discussion WHERE questionNo=:questionId");
 		query.setParameter("questionId", questionNo);
-		List<Discussion> discussionList = query.list();
-		if (discussionList.isEmpty()) {
-			return false;
+		Discussion discussion = (Discussion) query.uniqueResultOptional().orElse(null);
+		if (discussion==null) {
+			throw new QuestionNotFoundException("Question Not Found With"+" "+questionNo+"!");
 		}
 		return true;
 	}
 	@Override
-	public ResponseEntity<String> updateDiscussionDetails(String unitNo, Long questionNo,Discussion discussionDetails) {
-		// TODO Auto-generated method stub
-		ResponseEntity<String> response=null;
+	public Discussion updateDiscussion(Long questionNo,Discussion discussionDetails) throws DatabaseException {
+		logger.info("Updating the discussion details!");
 		Session session=null;
+		Discussion discussionEntity=null;
 		try
 		{
 			boolean questionStatus=checkQuestion(questionNo);
-			if(!questionStatus)
-			{
-				throw new QuestionNotFoundException("Question Not Found With"+" "+questionNo+"!");
-			}
-			boolean topicStatus=topicRepositoryImpl.checkTopic(unitNo);
-			if(!topicStatus)
-			{
-				throw new UnitNotFoundException("Unit Not Found With"+" "+unitNo+"!");
-			}
+			boolean topicStatus=topicRepositoryImpl.checkTopic(discussionDetails.getTopic().getUnitNo());
 			session=sessionFactory.getCurrentSession();
-			//session.beginTransaction();
 			session.find(Discussion.class, questionNo);
 			Discussion discussion=session.load(Discussion.class, questionNo);
 			Topic topic=new Topic();
-			topic.setUnitNo(unitNo);
+			topic.setUnitNo(discussionDetails.getTopic().getUnitNo());
 			discussion.setQuestion(discussionDetails.getQuestion());
 			discussion.setAnswer(discussionDetails.getAnswer());
 			discussion.setDate(discussionDetails.getDate());
 			discussion.setTopic(topic);
-			session.merge(discussion);
-			//session.getTransaction().commit();
-			response=new ResponseEntity<String>("Discussion Details Updated Successfully!",new HttpHeaders(),HttpStatus.OK);
+			discussionEntity=(Discussion)session.merge(discussion);
+			logger.info("Discussion details are updated successfully!");
 		}
 		catch(HibernateException | QuestionNotFoundException |UnitNotFoundException e)
 		{
-			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
+			logger.error("Error while updating the discussion details!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return discussionEntity;
 	}
 	@Override
-	public ResponseEntity<String> deleteDiscussionDetails(Long questionNo) {
-		// TODO Auto-generated method stub
-		ResponseEntity<String> response=null;
+	public Discussion deleteDiscussion(Long questionNo) throws DatabaseException {
+		logger.info("Deleting the discussion details!");
 		Session session=null;
+		Discussion discussionDetails=null;
 		try
 		{
 			boolean questionStatus=checkQuestion(questionNo);
-			if(!questionStatus)
-			{
-				throw new QuestionNotFoundException("Question Not Found With"+" "+questionNo+"!");
-			}
 			session=sessionFactory.getCurrentSession();
-			//session.beginTransaction();
 			session.find(Discussion.class, questionNo);
 			Discussion discussion=session.load(Discussion.class, questionNo);
 			session.delete(discussion);
-			//session.getTransaction().commit();
-			response=new ResponseEntity<String>("Discussion Details Deleted Successfully!",new HttpHeaders(),HttpStatus.OK);
+			Discussion discussionEntity=session.get(Discussion.class, questionNo);
+			if(discussionEntity==null)
+			{
+				discussionDetails=discussion;
+				logger.info("Discussion is deleted successfully!");
+			}
+			else
+			{
+				logger.error("Error while deleting the discussion details!");
+			}
 		}
 		catch(HibernateException | QuestionNotFoundException e)
 		{
-			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
+			logger.error("Error while deleting the discussion details!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return discussionDetails;
 	}
 	@Override
-	public ResponseEntity<Discussion> getDiscussionByQuestionNo(Long questionNo) {
-		// TODO Auto-generated method stub
-		ResponseEntity<Discussion> response=null;
-		Discussion discussion=new Discussion();
+	public Discussion getParticularDiscussion(Long questionNo) throws DatabaseException {
+		logger.info("Getting discussion detail!");
+		Discussion discussion=null;
 		Session session=null;
 		try
 		{
 			boolean questionStatus=checkQuestion(questionNo);
-			if(!questionStatus)
-			{
-				throw new QuestionNotFoundException("Question Not Found With"+" "+questionNo+"!");
-			}
 			session=sessionFactory.getCurrentSession();
 			Query<Discussion> query=session.createQuery("FROM Discussion where questionNo=:questionId");
 			query.setParameter("questionId",questionNo);
 			discussion=(Discussion) query.getSingleResult();
-			response=new ResponseEntity<Discussion>(discussion,new HttpHeaders(),HttpStatus.OK);
+			logger.info("Discussion detail is fetched successfully!");
 		}
 		catch(HibernateException | QuestionNotFoundException e)
 		{
-			e.printStackTrace();
+			logger.error("Error while fetching the discussion details!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return discussion;
 	}
 
 }

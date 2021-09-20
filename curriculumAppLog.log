@@ -264,3 +264,37 @@
 2021-09-20 15:03:55 ERROR TopicRepositoryImpl:97 - Error while fetching the unit details!
 2021-09-20 15:04:08 INFO  TopicRepositoryImpl:83 - Getting units for given subject!
 2021-09-20 15:04:08 INFO  TopicRepositoryImpl:93 - Unit details are fetched successfully!
+2021-09-20 15:35:51 INFO  DiscussionRepositoryImpl:38 - Adding discussion details!
+2021-09-20 15:35:52 INFO  DiscussionRepositoryImpl:57 - Disucssion details added successfully!
+2021-09-20 15:37:25 INFO  DiscussionRepositoryImpl:38 - Adding discussion details!
+2021-09-20 15:37:25 ERROR DiscussionRepositoryImpl:62 - Error while adding discussion details!
+2021-09-20 16:07:05 INFO  DiscussionRepositoryImpl:40 - Adding discussion details!
+2021-09-20 16:07:06 INFO  DiscussionRepositoryImpl:59 - Disucssion details added successfully!
+2021-09-20 16:08:09 INFO  DiscussionRepositoryImpl:71 - Getting discussion details by Unit Number!
+2021-09-20 16:08:09 ERROR DiscussionRepositoryImpl:85 - Error while fetching the discussion details!
+2021-09-20 16:09:01 INFO  DiscussionRepositoryImpl:71 - Getting discussion details by Unit Number!
+2021-09-20 16:09:01 INFO  DiscussionRepositoryImpl:81 - Discussion details are fetched successfully!
+2021-09-20 16:09:09 INFO  DiscussionRepositoryImpl:71 - Getting discussion details by Unit Number!
+2021-09-20 16:09:09 ERROR DiscussionRepositoryImpl:85 - Error while fetching the discussion details!
+2021-09-20 16:22:18 INFO  DiscussionRepositoryImpl:165 - Getting discussion detail!
+2021-09-20 16:22:19 INFO  DiscussionRepositoryImpl:175 - Discussion detail is fetched successfully!
+2021-09-20 16:22:27 INFO  DiscussionRepositoryImpl:165 - Getting discussion detail!
+2021-09-20 16:22:27 INFO  DiscussionRepositoryImpl:175 - Discussion detail is fetched successfully!
+2021-09-20 16:22:33 INFO  DiscussionRepositoryImpl:165 - Getting discussion detail!
+2021-09-20 16:22:33 ERROR DiscussionRepositoryImpl:179 - Error while fetching the discussion details!
+2021-09-20 16:41:50 INFO  DiscussionRepositoryImpl:102 - Updating the discussion details!
+2021-09-20 16:41:51 INFO  DiscussionRepositoryImpl:119 - Discussion details are updated successfully!
+2021-09-20 16:42:16 INFO  DiscussionRepositoryImpl:102 - Updating the discussion details!
+2021-09-20 16:42:16 ERROR DiscussionRepositoryImpl:123 - Error while updating the discussion details!
+2021-09-20 16:42:24 INFO  DiscussionRepositoryImpl:102 - Updating the discussion details!
+2021-09-20 16:42:24 ERROR DiscussionRepositoryImpl:123 - Error while updating the discussion details!
+2021-09-20 16:42:32 INFO  DiscussionRepositoryImpl:102 - Updating the discussion details!
+2021-09-20 16:42:32 ERROR DiscussionRepositoryImpl:123 - Error while updating the discussion details!
+2021-09-20 16:43:08 INFO  DiscussionRepositoryImpl:40 - Adding discussion details!
+2021-09-20 16:43:08 ERROR DiscussionRepositoryImpl:64 - Error while adding discussion details!
+2021-09-20 16:43:25 INFO  DiscussionRepositoryImpl:40 - Adding discussion details!
+2021-09-20 16:43:25 INFO  DiscussionRepositoryImpl:59 - Disucssion details added successfully!
+2021-09-20 16:43:53 INFO  DiscussionRepositoryImpl:130 - Deleting the discussion details!
+2021-09-20 16:43:53 ERROR DiscussionRepositoryImpl:153 - Error while deleting the discussion details!
+2021-09-20 16:44:10 INFO  DiscussionRepositoryImpl:130 - Deleting the discussion details!
+2021-09-20 16:44:10 INFO  DiscussionRepositoryImpl:144 - Discussion is deleted successfully!

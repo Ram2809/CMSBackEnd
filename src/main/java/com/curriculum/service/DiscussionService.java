@@ -5,11 +5,16 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 
 import com.curriculum.entity.Discussion;
+import com.curriculum.exception.BusinessServiceException;
 
 public interface DiscussionService {
-	ResponseEntity<String> addDiscussionDetails(String unitNo,Discussion discussionDetails);
-	ResponseEntity<List<Discussion>> getDiscussionByUnitNo(String unitNo);
-	ResponseEntity<String> updateDiscussionDetails(String unitNo,Long questionNo,Discussion discussionDetails);
-	ResponseEntity<String> deleteDiscussionDetails(Long questionNo);
-	ResponseEntity<Discussion> getDiscussionByQuestionNo(Long questionNo);
+	Discussion addDiscussion(Discussion discussionDetails) throws BusinessServiceException;
+
+	List<Discussion> getDiscussionByUnitNo(String unitNo) throws BusinessServiceException;
+
+	Discussion updateDiscussion(Long questionNo, Discussion discussionDetails) throws BusinessServiceException;
+
+	Discussion deleteDiscussion(Long questionNo) throws BusinessServiceException;
+
+	Discussion getParticularDiscussion(Long questionNo) throws BusinessServiceException;
 }

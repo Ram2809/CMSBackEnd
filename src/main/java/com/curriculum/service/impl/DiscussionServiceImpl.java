@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.curriculum.entity.Discussion;
+import com.curriculum.exception.BusinessServiceException;
+import com.curriculum.exception.DatabaseException;
 import com.curriculum.repository.DiscussionRepository;
 import com.curriculum.service.DiscussionService;
 @Service
@@ -14,29 +16,44 @@ public class DiscussionServiceImpl implements DiscussionService{
 	@Autowired
 	private DiscussionRepository discussionRepositoryImpl;
 	@Override
-	public ResponseEntity<String> addDiscussionDetails(String unitNo, Discussion discussionDetails) {
-		// TODO Auto-generated method stub
-		return discussionRepositoryImpl.addDiscussionDetails(unitNo,discussionDetails);
+	public Discussion addDiscussion(Discussion discussionDetails) throws BusinessServiceException {
+		try {
+			return discussionRepositoryImpl.addDiscussion(discussionDetails);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 	@Override
-	public ResponseEntity<List<Discussion>> getDiscussionByUnitNo(String unitNo) {
-		// TODO Auto-generated method stub
-		return discussionRepositoryImpl.getDiscussionByUnitNo(unitNo);
+	public List<Discussion> getDiscussionByUnitNo(String unitNo) throws BusinessServiceException {
+		try {
+			return discussionRepositoryImpl.getDiscussionByUnitNo(unitNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 	@Override
-	public ResponseEntity<String> updateDiscussionDetails(String unitNo, Long questionNo,Discussion discussionDetails) {
-		// TODO Auto-generated method stub
-		return discussionRepositoryImpl.updateDiscussionDetails(unitNo,questionNo,discussionDetails);
+	public Discussion updateDiscussion(Long questionNo,Discussion discussionDetails) throws BusinessServiceException {
+		try {
+			return discussionRepositoryImpl.updateDiscussion(questionNo,discussionDetails);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 	@Override
-	public ResponseEntity<String> deleteDiscussionDetails(Long questionNo) {
-		// TODO Auto-generated method stub
-		return discussionRepositoryImpl.deleteDiscussionDetails(questionNo);
+	public Discussion deleteDiscussion(Long questionNo) throws BusinessServiceException {
+		try {
+			return discussionRepositoryImpl.deleteDiscussion(questionNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 	@Override
-	public ResponseEntity<Discussion> getDiscussionByQuestionNo(Long questionNo) {
-		// TODO Auto-generated method stub
-		return discussionRepositoryImpl.getDiscussionByQuestionNo(questionNo);
+	public Discussion getParticularDiscussion(Long questionNo) throws BusinessServiceException {
+		try {
+			return discussionRepositoryImpl.getParticularDiscussion(questionNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
 }
