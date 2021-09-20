@@ -13,16 +13,15 @@ public interface SubjectService {
 
 	ResponseEntity<List<Subject>> getAllSubjectDetails();
 
-	ResponseEntity<String> updateSubjectDetails(String subjectCode, Long roomNo, Subject subjectDetails)
-			throws SubjectNotFoundException, ClassNotFoundException;
+	Subject updateSubject(String subjectCode,Subject subjectDetails)throws BusinessServiceException;
 
-	ResponseEntity<String> deleteSubjectDetails(String subjectCode) throws SubjectNotFoundException;
+	Subject deleteSubject(String subjectCode) throws BusinessServiceException;
 
 	Subject getParticularSubject(String subjectCode) throws BusinessServiceException;
 
-	ResponseEntity<List<Subject>> getSubjectByClass(Long roomNo) throws ClassNotFoundException;
+	List<Subject> getSubjectByClass(Long roomNo) throws BusinessServiceException;
 
-	ResponseEntity<List<String>> getSubjectName(Long roomNo) throws ClassNotFoundException;
+	List<String> getSubjectName(Long roomNo) throws BusinessServiceException;
 
-	ResponseEntity<String> getSubjectCode(Long roomNo, String name) throws ClassNotFoundException;
+	String getSubjectCode(Long roomNo, String name) throws BusinessServiceException;
 }
