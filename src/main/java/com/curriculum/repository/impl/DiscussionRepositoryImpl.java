@@ -12,20 +12,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import com.curriculum.entity.Discussion;
-import com.curriculum.entity.Student;
 import com.curriculum.entity.Topic;
-import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.QuestionNotFoundException;
 import com.curriculum.exception.UnitNotFoundException;
 import com.curriculum.repository.DiscussionRepository;
-import com.curriculum.util.DateValidator;
 
 @Repository
 @Transactional

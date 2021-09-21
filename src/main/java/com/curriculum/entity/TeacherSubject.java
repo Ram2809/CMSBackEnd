@@ -10,15 +10,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import lombok.Getter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-@Getter
-@Setter
-@ToString
+@Data
 @NoArgsConstructor
 @Entity
 @Table(name="TeacherSubject")
@@ -28,10 +23,10 @@ public class TeacherSubject implements Serializable{
 	private Long id;
 	@ManyToOne(targetEntity=Teacher.class)
 	@JoinColumn(name="teacherId",nullable=false)
-	@JsonIgnore
+	@JsonBackReference(value="teacher")
 	private Teacher teacher;
 	@ManyToOne(targetEntity=Subject.class)
 	@JoinColumn(name="subjectCode",nullable=false,unique=true)
-	@JsonIgnore
+	@JsonBackReference(value="subject")
 	private Subject subject;
 }

@@ -298,3 +298,21 @@
 2021-09-20 16:43:53 ERROR DiscussionRepositoryImpl:153 - Error while deleting the discussion details!
 2021-09-20 16:44:10 INFO  DiscussionRepositoryImpl:130 - Deleting the discussion details!
 2021-09-20 16:44:10 INFO  DiscussionRepositoryImpl:144 - Discussion is deleted successfully!
+2021-09-20 18:46:04 INFO  TeacherSubjectRepositoryImpl:35 - Assigning teacher for particular course!
+2021-09-20 18:46:05 INFO  TeacherSubjectRepositoryImpl:56 - Teacher assigned for course successfully!
+2021-09-20 18:46:44 INFO  TeacherSubjectRepositoryImpl:35 - Assigning teacher for particular course!
+2021-09-20 18:46:44 ERROR TeacherSubjectRepositoryImpl:61 - Error while assigning staff for course!
+2021-09-20 18:47:22 INFO  TeacherSubjectRepositoryImpl:35 - Assigning teacher for particular course!
+2021-09-20 18:47:22 ERROR TeacherSubjectRepositoryImpl:61 - Error while assigning staff for course!
+2021-09-20 18:47:33 INFO  TeacherSubjectRepositoryImpl:35 - Assigning teacher for particular course!
+2021-09-20 18:47:33 ERROR TeacherSubjectRepositoryImpl:61 - Error while assigning staff for course!
+2021-09-20 18:47:47 INFO  TeacherSubjectRepositoryImpl:35 - Assigning teacher for particular course!
+2021-09-20 18:47:47 INFO  TeacherSubjectRepositoryImpl:56 - Teacher assigned for course successfully!
+2021-09-21 14:17:14 INFO  TeacherSubjectRepositoryImpl:38 - Assigning teacher for particular course!
+2021-09-21 14:17:15 INFO  TeacherSubjectRepositoryImpl:59 - Teacher assigned for course successfully!
+2021-09-21 14:17:27 INFO  TeacherSubjectRepositoryImpl:38 - Assigning teacher for particular course!
+2021-09-21 14:17:27 ERROR TeacherSubjectRepositoryImpl:64 - Error while assigning staff for course!
+2021-09-21 14:56:58 INFO  TeacherSubjectRepositoryImpl:117 - Deleting the teacher subject assign!
+2021-09-21 14:56:58 ERROR TeacherSubjectRepositoryImpl:140 - Error while deleting the teacher subject assign!
+2021-09-21 14:57:15 INFO  TeacherSubjectRepositoryImpl:117 - Deleting the teacher subject assign!
+2021-09-21 14:57:16 INFO  TeacherSubjectRepositoryImpl:131 - Teacher subject assign is deleted successfully!
