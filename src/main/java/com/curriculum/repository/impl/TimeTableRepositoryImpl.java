@@ -1,10 +1,12 @@
 package com.curriculum.repository.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Repository;
 
 import com.curriculum.entity.ClassEntity;
 import com.curriculum.entity.TimeTable;
+import com.curriculum.exception.DatabaseException;
 import com.curriculum.repository.TimeTableRepository;
 @Repository
 @Transactional
@@ -25,43 +28,42 @@ public class TimeTableRepositoryImpl implements TimeTableRepository{
 	private SessionFactory sessionFactory;
 	@Autowired
 	private ClassRepositoryImpl classRepositoryImpl;
+	private Logger logger=Logger.getLogger(TimeTableRepositoryImpl.class);
 	@Override
-	public ResponseEntity<String> addTimeTable(Long roomNo, TimeTable timeTableDetails) {
-		// TODO Auto-generated method stub
-		ResponseEntity<String> response=null;
+	public TimeTable addTimeTable(TimeTable timeTableDetails) throws DatabaseException {
+		logger.info("Adding timetable details!");
+		TimeTable timeTableEntity=null;
 		Session session=null;
 		try
 		{
-			boolean RoomNoStatus=classRepositoryImpl.checkClassRoom(roomNo);
-			if(!RoomNoStatus)
-			{
-				throw new ClassNotFoundException("Class Not Found With"+" "+roomNo+"!");
-			}
+//			System.out.println(timeTableDetails.getClassRoom().getRoomNo());
+//			System.out.println(timeTableDetails.getDay());
+//			System.out.println(timeTableDetails.getPeriods());
+			boolean RoomNoStatus=classRepositoryImpl.checkClassRoom(timeTableDetails.getClassRoom().getRoomNo());
 			session=sessionFactory.getCurrentSession();
-			//session.beginTransaction();
 			ClassEntity classRoom=new ClassEntity();
-			classRoom.setRoomNo(roomNo);
+			classRoom.setRoomNo(timeTableDetails.getClassRoom().getRoomNo());
 			TimeTable timeTable=new TimeTable();
 			timeTable.setId(timeTableDetails.getId());
 			timeTable.setDay(timeTableDetails.getDay());
-			timeTable.setPeriodOne(timeTableDetails.getPeriodOne());
-			timeTable.setPeriodTwo(timeTableDetails.getPeriodTwo());
-			timeTable.setPeriodThree(timeTableDetails.getPeriodThree());
-			timeTable.setPeriodFour(timeTableDetails.getPeriodFour());
-			timeTable.setPeriodFive(timeTableDetails.getPeriodFive());
-			timeTable.setPeriodSix(timeTableDetails.getPeriodSix());
-			timeTable.setPeriodSeven(timeTableDetails.getPeriodSeven());
-			timeTable.setPeriodEight(timeTableDetails.getPeriodEight());
+			HashMap<Integer,String> timeTableMap=(HashMap<Integer, String>) timeTableDetails.getPeriods();
+			System.out.println(timeTableMap);
+			timeTable.setPeriods(timeTableMap);
 			timeTable.setClassRoom(classRoom);
-			session.save(timeTable);
-			//session.getTransaction().commit();
-			response=new ResponseEntity<String>("TimeTable Details Added Successfully!",new HttpHeaders(),HttpStatus.OK);
+			Long count=(Long) session.save(timeTable);
+			if(count>0)
+			{
+				timeTableEntity=timeTable;
+				System.out.println(timeTableEntity);
+				logger.info("Timetable details are added successfully!");
+			}
 		}
 		catch(HibernateException | ClassNotFoundException e)
 		{
-			response=new ResponseEntity<String>(e.getMessage(),new HttpHeaders(),HttpStatus.OK);
+			logger.error("Error while adding the timetable details!");
+			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return timeTableEntity;
 	}
 	@Override
 	public ResponseEntity<List<TimeTable>> getTimeTable(Long roomNo) {

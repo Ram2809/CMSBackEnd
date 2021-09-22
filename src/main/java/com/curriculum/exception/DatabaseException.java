@@ -5,4 +5,8 @@ public class DatabaseException extends Exception{
 	{
 		super(message);
 	}
+	public DatabaseException(String message,Throwable e)
+	{
+		super(message,e);
+	}
 }

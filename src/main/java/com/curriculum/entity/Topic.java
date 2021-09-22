@@ -26,7 +26,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Topic implements Serializable{
 	@Id
-	@Size(max=8)
+	@Size(max=8,message="")
 	private String unitNo;
 	@NotNull
 	private String unitName;

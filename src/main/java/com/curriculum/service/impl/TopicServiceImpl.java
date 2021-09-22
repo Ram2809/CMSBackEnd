@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.curriculum.entity.Topic;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.DatabaseException;
+import com.curriculum.exception.NotFoundException;
 import com.curriculum.repository.TopicRepository;
 import com.curriculum.service.TopicService;
 
@@ -16,12 +17,15 @@ public class TopicServiceImpl implements TopicService{
 	@Autowired
 	private TopicRepository topicRepositoryImpl;
 	@Override
-	public Topic addTopic(Topic topicDetails) throws BusinessServiceException {
+	public Topic addTopic(Topic topicDetails) throws BusinessServiceException, NotFoundException {
+		Topic topic=null;
 		try {
-			return topicRepositoryImpl.addTopic(topicDetails);
-		} catch (DatabaseException e) {
+			 topic=topicRepositoryImpl.addTopic(topicDetails);
+		}
+		catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
+		return topic;
 	}
 	@Override
 	public List<Topic> getTopicBySubjectCode(String subjectCode) throws BusinessServiceException {

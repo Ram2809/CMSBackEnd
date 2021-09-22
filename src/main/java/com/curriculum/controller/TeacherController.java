@@ -28,7 +28,7 @@ import com.curriculum.util.Response;
 @CrossOrigin("http://localhost:4200")
 public class TeacherController {
 	@Autowired
-	private TeacherService teacherServiceImpl;
+	private TeacherService teacherService;
 
 	@PostMapping
 	public ResponseEntity<Response> addTeacher(@RequestBody Teacher teacher) {
@@ -36,7 +36,7 @@ public class TeacherController {
 		Response response = new Response();
 		Teacher teacherDetail = null;
 		try {
-			teacherDetail = teacherServiceImpl.addTeacher(teacher);
+			teacherDetail = teacherService.addTeacher(teacher);
 			response.setCode(200);
 			response.setMessage("Teacher Details Added Successfully!");
 			response.setData(teacherDetail);
@@ -55,7 +55,7 @@ public class TeacherController {
 		Response response = new Response();
 		List<Teacher> teacherList = new ArrayList();
 		try {
-			teacherList = teacherServiceImpl.getAllTeacher();
+			teacherList = teacherService.getAllTeacher();
 			if (!teacherList.isEmpty()) {
 				response.setCode(200);
 				response.setMessage("Teacher List fetched successfully!");
@@ -80,7 +80,7 @@ public class TeacherController {
 		ResponseEntity<Response> responseEntity = null;
 		Teacher teacher = new Teacher();
 		try {
-			teacher = teacherServiceImpl.updateTeacher(id, teacherDetails);
+			teacher = teacherService.updateTeacher(id, teacherDetails);
 			response.setCode(200);
 			response.setMessage("Teacher details updated successfully!");
 			response.setData(teacher);
@@ -99,7 +99,7 @@ public class TeacherController {
 		Response response = new Response();
 		Teacher teacher = new Teacher();
 		try {
-			teacher = teacherServiceImpl.deleteTeacher(id);
+			teacher = teacherService.deleteTeacher(id);
 			if (teacher != null) {
 				response.setCode(200);
 				response.setMessage("Teacher details deleted successfully!");
@@ -125,7 +125,7 @@ public class TeacherController {
 		Response response = new Response();
 		Teacher teacher = new Teacher();
 		try {
-			teacher = teacherServiceImpl.getParticularTeacher(id);
+			teacher = teacherService.getParticularTeacher(id);
 			response.setData(teacher);
 			response.setCode(400);
 			response.setMessage("Success");

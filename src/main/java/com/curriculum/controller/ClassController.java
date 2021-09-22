@@ -27,7 +27,7 @@ import com.curriculum.util.Response;
 @CrossOrigin("http://localhost:4200")
 public class ClassController {
 	@Autowired
-	private ClassService classServiceImpl;
+	private ClassService classService;
 
 	@PostMapping
 	public ResponseEntity<Response> addClass(@RequestBody ClassEntity classDetails) {
@@ -35,7 +35,7 @@ public class ClassController {
 		ResponseEntity<Response> responseEntity = null;
 		ClassEntity classEntity = null;
 		try {
-			classEntity = classServiceImpl.addClass(classDetails);
+			classEntity = classService.addClass(classDetails);
 			response.setCode(200);
 			response.setMessage("Class details added successfully!");
 			response.setData(classEntity);
@@ -53,9 +53,9 @@ public class ClassController {
 	public ResponseEntity<Response> getAllClass() {
 		Response response = new Response();
 		ResponseEntity<Response> responseEntity = null;
-		List<ClassEntity> classList = new ArrayList();
+		List<ClassEntity> classList = new ArrayList<ClassEntity>();
 		try {
-			classList = classServiceImpl.getAllClass();
+			classList = classService.getAllClass();
 			response.setCode(200);
 			response.setMessage("Success");
 			response.setData(classList);
@@ -76,7 +76,7 @@ public class ClassController {
 		ResponseEntity<Response> responseEntity = null;
 		ClassEntity classEntity = null;
 		try {
-			classEntity = classServiceImpl.updateClass(roomNo, classDetails);
+			classEntity = classService.updateClass(roomNo, classDetails);
 			response.setCode(200);
 			response.setMessage("Class details updated successfully!");
 			response.setData(classEntity);
@@ -95,7 +95,7 @@ public class ClassController {
 		ResponseEntity<Response> responseEntity = null;
 		ClassEntity classEntity = null;
 		try {
-			classEntity = classServiceImpl.deleteClass(roomNo);
+			classEntity = classService.deleteClass(roomNo);
 			response.setCode(200);
 			response.setMessage("Class details deleted successfully!");
 			response.setData(classEntity);
@@ -114,7 +114,7 @@ public class ClassController {
 		ResponseEntity<Response> responseEntity = null;
 		ClassEntity classEntity = null;
 		try {
-			classEntity = classServiceImpl.getParticularClass(roomNo);
+			classEntity = classService.getParticularClass(roomNo);
 			response.setCode(200);
 			response.setMessage("Success");
 			response.setData(classEntity);
@@ -133,7 +133,7 @@ public class ClassController {
 		ResponseEntity<Response> responseEntity = null;
 		List<String> sectionList = null;
 		try {
-			sectionList = classServiceImpl.getSection(standard);
+			sectionList = classService.getSection(standard);
 			response.setCode(200);
 			response.setMessage("Success");
 			response.setData(sectionList);
@@ -153,7 +153,7 @@ public class ClassController {
 		ResponseEntity<Response> responseEntity = null;
 		Long roomNo = null;
 		try {
-			roomNo = classServiceImpl.getClassRoomNo(standard, section);
+			roomNo = classService.getClassRoomNo(standard, section);
 			response.setCode(200);
 			response.setMessage("Success");
 			response.setData(roomNo);

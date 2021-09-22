@@ -21,18 +21,18 @@ import com.curriculum.util.Response;
 @RequestMapping("api/login")
 public class LoginController {
 	@Autowired
-	private LoginService loginServiceImpl;
+	private LoginService loginService;
 	@PostMapping
-	public ResponseEntity<Response> addLogin(@RequestBody Login loginDetails)
+	public ResponseEntity<Response> addLogin(@RequestBody Login login)
 	{
 		ResponseEntity<Response> responseEntity=null;
 		Response response=new Response();
-		Login login=null;
+		Login loginDetails=null;
 		try {
-			login=loginServiceImpl.addLogin(loginDetails);
+			loginDetails=loginService.addLogin(login);
 			response.setCode(200);
 			response.setMessage("Login credentials added successfully!");
-			response.setData(login);
+			response.setData(loginDetails);
 			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
 		} catch (BusinessServiceException e) {
 			response.setCode(404);
@@ -48,7 +48,7 @@ public class LoginController {
 		Response response=new Response();
 		Login login=null;
 		try {
-			login=loginServiceImpl.getLogin(teacherId);
+			login=loginService.getLogin(teacherId);
 			response.setCode(200);
 			response.setMessage("Success");
 			response.setData(login);
@@ -61,16 +61,16 @@ public class LoginController {
 		return responseEntity;
 	}
 	@PutMapping("/{teacherId}")
-	public ResponseEntity<Response> updateLogin(@PathVariable("teacherId") Long teacherId,@RequestBody Login loginDetails)
+	public ResponseEntity<Response> updateLogin(@PathVariable("teacherId") Long teacherId,@RequestBody Login login)
 	{
 		ResponseEntity<Response> responseEntity=null;
 		Response response=new Response();
-		Login login=null;
+		Login loginDetails=null;
 		try {
-			login=loginServiceImpl.updateLogin(teacherId, loginDetails);
+			loginDetails=loginService.updateLogin(teacherId, login);
 			response.setCode(200);
 			response.setMessage("Password Changed Successfully!");
-			response.setData(login);
+			response.setData(loginDetails);
 			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
 		} catch (BusinessServiceException e) {
 			response.setCode(404);

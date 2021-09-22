@@ -1,6 +1,6 @@
 package com.curriculum.exception;
 
-public class UnitNotFoundException extends Exception{
+public class UnitNotFoundException extends NotFoundException{
 	public UnitNotFoundException(String message)
 	{
 		super(message);

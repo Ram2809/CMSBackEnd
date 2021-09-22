@@ -24,7 +24,7 @@ import com.curriculum.util.Response;
 @RequestMapping("api/teachersubject")
 public class TeacherSubjectController {
 	@Autowired
-	private TeacherSubjectService teacherSubjectServiceImpl;
+	private TeacherSubjectService teacherSubjectService;
 	@PostMapping
 	public ResponseEntity<Response> assignTeacherSubject(@RequestBody TeacherSubject teacherSubjectDetails) throws TeacherNotFoundException, SubjectNotFoundException
 	{
@@ -32,7 +32,7 @@ public class TeacherSubjectController {
 		ResponseEntity<Response> responseEntity=null;
 		TeacherSubject teacherSubject=null;
 		try {
-			teacherSubject=teacherSubjectServiceImpl.assignTeacherSubject(teacherSubjectDetails);
+			teacherSubject=teacherSubjectService.assignTeacherSubject(teacherSubjectDetails);
 			response.setCode(200);
 			response.setMessage("Teacher assigned for course successfully!");
 			response.setData(teacherSubject);
@@ -51,7 +51,7 @@ public class TeacherSubjectController {
 		ResponseEntity<Response> responseEntity=null;
 		TeacherSubject teacherSubject=null;
 		try {
-			teacherSubject=teacherSubjectServiceImpl.updateTeacherSubjectAssign(id,teacherSubjectDetails);
+			teacherSubject=teacherSubjectService.updateTeacherSubjectAssign(id,teacherSubjectDetails);
 			response.setCode(200);
 			response.setMessage("Teacher assigned for course successfully!");
 			response.setData(teacherSubject);
@@ -70,7 +70,7 @@ public class TeacherSubjectController {
 		ResponseEntity<Response> responseEntity=null;
 		TeacherSubject teacherSubject=null;
 		try {
-			teacherSubject=teacherSubjectServiceImpl.deleteTeacherSubjectAssign(id);
+			teacherSubject=teacherSubjectService.deleteTeacherSubjectAssign(id);
 			if(teacherSubject!=null)
 			{
 				response.setCode(200);

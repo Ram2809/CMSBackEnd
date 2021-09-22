@@ -14,11 +14,11 @@ import com.curriculum.service.ClassService;
 @Service
 public class ClassServiceImpl implements ClassService{
 	@Autowired
-	private ClassRepository classRepositoryImpl;
+	private ClassRepository classRepository;
 	@Override
 	public ClassEntity addClass(ClassEntity classDetails) throws BusinessServiceException {
 		try {
-			return classRepositoryImpl.addClass(classDetails);
+			return classRepository.addClass(classDetails);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -26,7 +26,7 @@ public class ClassServiceImpl implements ClassService{
 	@Override
 	public List<ClassEntity> getAllClass() throws BusinessServiceException {
 		try {
-			return classRepositoryImpl.getAllClass();
+			return classRepository.getAllClass();
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -34,7 +34,7 @@ public class ClassServiceImpl implements ClassService{
 	@Override
 	public ClassEntity updateClass(Long roomNo, ClassEntity classDetails) throws BusinessServiceException {
 		try {
-			return classRepositoryImpl.updateClass(roomNo,classDetails);
+			return classRepository.updateClass(roomNo,classDetails);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -42,7 +42,7 @@ public class ClassServiceImpl implements ClassService{
 	@Override
 	public ClassEntity deleteClass(Long roomNo) throws BusinessServiceException {
 		try {
-			return classRepositoryImpl.deleteClass(roomNo);
+			return classRepository.deleteClass(roomNo);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -50,7 +50,7 @@ public class ClassServiceImpl implements ClassService{
 	@Override
 	public ClassEntity getParticularClass(Long roomNo) throws BusinessServiceException  {
 		try {
-			return classRepositoryImpl.getParticularClass(roomNo);
+			return classRepository.getParticularClass(roomNo);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -58,7 +58,7 @@ public class ClassServiceImpl implements ClassService{
 	@Override
 	public List<String> getSection(String standard) throws BusinessServiceException {
 		try {
-			return classRepositoryImpl.getSection(standard);
+			return classRepository.getSection(standard);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -66,7 +66,7 @@ public class ClassServiceImpl implements ClassService{
 	@Override
 	public Long getClassRoomNo(String standard, String section) throws BusinessServiceException {
 		try {
-			return classRepositoryImpl.getClassRoomNo(standard,section);
+			return classRepository.getClassRoomNo(standard,section);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}

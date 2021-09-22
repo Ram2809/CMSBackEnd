@@ -28,7 +28,7 @@ import com.curriculum.util.Response;
 @CrossOrigin("http://localhost:4200")
 public class StudentController {
 	@Autowired
-	private StudentService studentServiceImpl;
+	private StudentService studentService;
 
 	@PostMapping
 	public ResponseEntity<Response> addStudent(@RequestBody Student studentDetails) {
@@ -36,7 +36,7 @@ public class StudentController {
 		ResponseEntity<Response> responseEntity=null;
 		Student student=null;
 		try {
-			student=studentServiceImpl.addStudent(studentDetails);
+			student=studentService.addStudent(studentDetails);
 			if(student!=null)
 			{
 				response.setCode(200);
@@ -61,13 +61,13 @@ public class StudentController {
 	@GetMapping("/getAllStudentDetails")
 	public ResponseEntity<List<Student>> getAllStudentDetails()
 	{
-		return studentServiceImpl.getAllStudentDetails();
+		return studentService.getAllStudentDetails();
 	}
 	
 	@PutMapping("/updateStudentDetails/{rollNo}")
 	public ResponseEntity<String> updateStudentDetails(@PathVariable("rollNo") Long rollNo,@RequestBody Student studentDetails) throws StudentNotFoundException
 	{
-		return studentServiceImpl.updateStudentDetails(rollNo,studentDetails);
+		return studentService.updateStudentDetails(rollNo,studentDetails);
 	}
 	
 	@DeleteMapping("/{rollNo}")
@@ -77,7 +77,7 @@ public class StudentController {
 		ResponseEntity<Response> responseEntity=null;
 		Student student=null;
 		try {
-			student=studentServiceImpl.deleteStudent(rollNo);
+			student=studentService.deleteStudent(rollNo);
 			if(student!=null)
 			{
 				response.setCode(200);
@@ -102,7 +102,7 @@ public class StudentController {
 	@GetMapping("/getStudentDetails/{rollNo}")
 	public ResponseEntity<Student> getParticularStudentDetails(@PathVariable("rollNo") Long rollNo) throws StudentNotFoundException
 	{
-		return studentServiceImpl.getParticularStudentDetails(rollNo);
+		return studentService.getParticularStudentDetails(rollNo);
 	}
 	@GetMapping("/{roomNo}")
 	public ResponseEntity<Response> getStudentByClass(@PathVariable("roomNo") Long roomNo)
@@ -111,7 +111,7 @@ public class StudentController {
 		ResponseEntity<Response> responseEntity=null;
 		List<Student> studentsList=new ArrayList<>();
 		try {
-			studentsList=studentServiceImpl.getStudentByClass(roomNo);
+			studentsList=studentService.getStudentByClass(roomNo);
 			if(!studentsList.isEmpty())
 			{
 				response.setCode(200);

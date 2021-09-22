@@ -5,8 +5,9 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 
 import com.curriculum.entity.TimeTable;
+import com.curriculum.exception.BusinessServiceException;
 
 public interface TimeTableService {
-	ResponseEntity<String> addTimeTable(Long roomNo,TimeTable timeTableDetails);
+	TimeTable addTimeTable(TimeTable timeTableDetails) throws BusinessServiceException;
 	ResponseEntity<List<TimeTable>> getTimeTable(Long roomNo);
 }

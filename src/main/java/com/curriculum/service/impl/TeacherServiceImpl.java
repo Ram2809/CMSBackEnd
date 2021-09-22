@@ -15,12 +15,12 @@ import com.curriculum.service.TeacherService;
 @Service
 public class TeacherServiceImpl implements TeacherService {
 	@Autowired
-	private TeacherRepository teacherRepositoryImpl;
+	private TeacherRepository teacherRepository;
 
 	@Override
 	public Teacher addTeacher(Teacher teacher) throws BusinessServiceException {
 		try {
-			return teacherRepositoryImpl.addTeacher(teacher);
+			return teacherRepository.addTeacher(teacher);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -29,7 +29,7 @@ public class TeacherServiceImpl implements TeacherService {
 	@Override
 	public List<Teacher> getAllTeacher() throws BusinessServiceException {
 		try {
-			return teacherRepositoryImpl.getAllTeacher();
+			return teacherRepository.getAllTeacher();
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -39,7 +39,7 @@ public class TeacherServiceImpl implements TeacherService {
 	public Teacher updateTeacher(Long id, Teacher teacherDetails)
 			throws BusinessServiceException {
 		try {
-			return teacherRepositoryImpl.updateTeacher(id, teacherDetails);
+			return teacherRepository.updateTeacher(id, teacherDetails);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -48,7 +48,7 @@ public class TeacherServiceImpl implements TeacherService {
 	@Override
 	public Teacher deleteTeacher(Long id) throws BusinessServiceException {
 		try {
-			return teacherRepositoryImpl.deleteTeacher(id);
+			return teacherRepository.deleteTeacher(id);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -57,7 +57,7 @@ public class TeacherServiceImpl implements TeacherService {
 	@Override
 	public Teacher getParticularTeacher(Long id) throws BusinessServiceException {
 		try {
-			return teacherRepositoryImpl.getParticularTeacher(id);
+			return teacherRepository.getParticularTeacher(id);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}

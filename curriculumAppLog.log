@@ -316,3 +316,26 @@
 2021-09-21 14:56:58 ERROR TeacherSubjectRepositoryImpl:140 - Error while deleting the teacher subject assign!
 2021-09-21 14:57:15 INFO  TeacherSubjectRepositoryImpl:117 - Deleting the teacher subject assign!
 2021-09-21 14:57:16 INFO  TeacherSubjectRepositoryImpl:131 - Teacher subject assign is deleted successfully!
+2021-09-21 18:41:14 INFO  TimeTableRepositoryImpl:33 - Adding timetable details!
+2021-09-21 18:43:46 INFO  TimeTableRepositoryImpl:33 - Adding timetable details!
+2021-09-21 18:44:40 INFO  TimeTableRepositoryImpl:33 - Adding timetable details!
+2021-09-21 18:47:16 INFO  TimeTableRepositoryImpl:33 - Adding timetable details!
+2021-09-21 18:47:16 INFO  TimeTableRepositoryImpl:55 - Timetable details are added successfully!
+2021-09-21 18:59:50 INFO  TimeTableRepositoryImpl:34 - Adding timetable details!
+2021-09-21 18:59:51 INFO  TimeTableRepositoryImpl:58 - Timetable details are added successfully!
+2021-09-21 19:02:01 INFO  TimeTableRepositoryImpl:34 - Adding timetable details!
+2021-09-21 19:02:01 INFO  TimeTableRepositoryImpl:58 - Timetable details are added successfully!
+2021-09-21 19:04:38 INFO  TimeTableRepositoryImpl:34 - Adding timetable details!
+2021-09-21 19:04:38 ERROR TimeTableRepositoryImpl:63 - Error while adding the timetable details!
+2021-09-21 19:04:53 INFO  TimeTableRepositoryImpl:34 - Adding timetable details!
+2021-09-21 19:04:53 ERROR TimeTableRepositoryImpl:63 - Error while adding the timetable details!
+2021-09-21 19:06:36 INFO  TimeTableRepositoryImpl:34 - Adding timetable details!
+2021-09-21 19:06:37 INFO  TimeTableRepositoryImpl:58 - Timetable details are added successfully!
+2021-09-21 19:45:48 INFO  TopicRepositoryImpl:38 - Adding the topic details!
+2021-09-21 19:46:19 INFO  TopicRepositoryImpl:38 - Adding the topic details!
+2021-09-21 19:47:58 INFO  TopicRepositoryImpl:38 - Adding the topic details!
+2021-09-21 19:47:59 ERROR TopicRepositoryImpl:76 - Error while adding the topic!
+2021-09-21 19:54:23 INFO  TopicRepositoryImpl:38 - Adding the topic details!
+2021-09-21 19:54:23 ERROR TopicRepositoryImpl:76 - Error while adding the topic!
+2021-09-21 20:06:15 INFO  TopicRepositoryImpl:39 - Adding the topic details!
+2021-09-21 20:06:48 INFO  TopicRepositoryImpl:39 - Adding the topic details!

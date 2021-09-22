@@ -22,7 +22,7 @@ import com.curriculum.util.Response;
 @RequestMapping("api/headmaster")
 public class HeadMasterController {
 	@Autowired
-	private HeadMasterService headMasterServiceImpl;
+	private HeadMasterService headMasterService;
 	@PostMapping
 	public ResponseEntity<Response> addHeadMaster(@RequestBody HeadMaster headMasterDetails)
 	{
@@ -30,7 +30,7 @@ public class HeadMasterController {
 		ResponseEntity<Response> responseEntity=null;
 		HeadMaster headMaster=null;
 		try {
-			headMaster=headMasterServiceImpl.addHeadMaster(headMasterDetails);
+			headMaster=headMasterService.addHeadMaster(headMasterDetails);
 			response.setCode(200);
 			response.setMessage("Headmaster details added successfully!");
 			response.setData(headMaster);
@@ -49,7 +49,7 @@ public class HeadMasterController {
 		ResponseEntity<Response> responseEntity=null;
 		HeadMaster headMaster=null;
 		try {
-			headMaster=headMasterServiceImpl.updateHeadMaster(id,headMasterDetails);
+			headMaster=headMasterService.updateHeadMaster(id,headMasterDetails);
 			response.setCode(200);
 			response.setMessage("Head master details updated successfully!");
 			response.setData(headMaster);
@@ -68,7 +68,7 @@ public class HeadMasterController {
 		ResponseEntity<Response> responseEntity=null;
 		HeadMaster headMaster=null;
 		try {
-			headMaster=headMasterServiceImpl.deleteHeadMaster(id);
+			headMaster=headMasterService.deleteHeadMaster(id);
 			if(headMaster!=null)
 			{
 				response.setCode(200);
@@ -96,7 +96,7 @@ public class HeadMasterController {
 		ResponseEntity<Response> responseEntity=null;
 		HeadMaster headMaster=null;
 		try {
-			headMaster=headMasterServiceImpl.getHeadMaster(id);
+			headMaster=headMasterService.getHeadMaster(id);
 			response.setCode(200);
 			response.setMessage("Success!");
 			response.setData(headMaster);

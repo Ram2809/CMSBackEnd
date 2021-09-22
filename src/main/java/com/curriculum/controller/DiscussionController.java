@@ -19,16 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.curriculum.entity.Discussion;
 import com.curriculum.exception.BusinessServiceException;
-import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.service.DiscussionService;
-import com.curriculum.util.DateValidator;
 import com.curriculum.util.Response;
 
 @RestController
 @RequestMapping("api/discussion")
 public class DiscussionController {
 	@Autowired
-	private DiscussionService discussionServiceImpl;
+	private DiscussionService discussionService;
 	
 	@PostMapping
 	public ResponseEntity<Response> addDiscussion(@RequestBody Discussion discussionDetails)
@@ -37,7 +35,7 @@ public class DiscussionController {
 		ResponseEntity<Response> responseEntity=null;
 		Discussion discussion=null;
 		try {
-			discussion=discussionServiceImpl.addDiscussion(discussionDetails);
+			discussion=discussionService.addDiscussion(discussionDetails);
 			response.setCode(200);
 			response.setMessage("Discussion details added successfully!");
 			response.setData(discussion);
@@ -56,7 +54,7 @@ public class DiscussionController {
 		ResponseEntity responseEntity=null;
 		List<Discussion> discussionsList=new ArrayList<>();
 		try {
-			discussionsList=discussionServiceImpl.getDiscussionByUnitNo(unitNo);
+			discussionsList=discussionService.getDiscussionByUnitNo(unitNo);
 			if(!discussionsList.isEmpty())
 			{
 				response.setCode(200);
@@ -84,7 +82,7 @@ public class DiscussionController {
 		ResponseEntity<Response> responseEntity=null;
 		Discussion discussion=null;
 		try {
-			discussion=discussionServiceImpl.updateDiscussion(questionNo,discussionDetails);
+			discussion=discussionService.updateDiscussion(questionNo,discussionDetails);
 			response.setCode(200);
 			response.setMessage("Discussion details updated successfully!");
 			response.setData(discussion);
@@ -103,7 +101,7 @@ public class DiscussionController {
 		ResponseEntity<Response> responseEntity=null;
 		Discussion discussion=null;
 		try {
-			discussion=discussionServiceImpl.deleteDiscussion(questionNo);
+			discussion=discussionService.deleteDiscussion(questionNo);
 			if(discussion!=null) {
 				response.setCode(200);
 				response.setMessage("Discussion details deleted successfully!");
@@ -130,7 +128,7 @@ public class DiscussionController {
 		ResponseEntity<Response> responseEntity=null;
 		Discussion discussion=null;
 		try {
-			discussion=discussionServiceImpl.getParticularDiscussion(questionNo);
+			discussion=discussionService.getParticularDiscussion(questionNo);
 			response.setCode(200);
 			response.setMessage("Success!");
 			response.setData(discussion);

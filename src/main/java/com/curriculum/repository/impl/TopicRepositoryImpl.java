@@ -21,6 +21,7 @@ import com.curriculum.entity.Subject;
 import com.curriculum.entity.Topic;
 import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.DatabaseException;
+import com.curriculum.exception.NotFoundException;
 import com.curriculum.exception.SubjectNotFoundException;
 import com.curriculum.exception.UnitNotFoundException;
 import com.curriculum.repository.TopicRepository;
@@ -34,7 +35,7 @@ public class TopicRepositoryImpl implements TopicRepository{
 	private SubjectRepositoryImpl subjectRepositoryImpl;
 	private Logger logger=Logger.getLogger(TopicRepositoryImpl.class);
 	@Override
-	public Topic addTopic(Topic topicDetails) throws DatabaseException {
+	public Topic addTopic(Topic topicDetails) throws DatabaseException,NotFoundException {
 		logger.info("Adding the topic details!");
 		Session session=null;
 		Topic topicEntity=null;
@@ -71,10 +72,10 @@ public class TopicRepositoryImpl implements TopicRepository{
 				logger.info("Unit is added successfully!");
 			}
 		}
-		catch(HibernateException | SubjectNotFoundException | UnitNotFoundException | ConstraintValidationException e)
+		catch(HibernateException |  ConstraintValidationException e)
 		{
 			logger.error("Error while adding the topic!");
-			throw new DatabaseException(e.getMessage());
+			throw new DatabaseException(e.getMessage(),e);
 		}
 		return topicEntity;
 	}

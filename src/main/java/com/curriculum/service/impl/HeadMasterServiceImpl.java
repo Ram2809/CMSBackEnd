@@ -1,24 +1,22 @@
 package com.curriculum.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.curriculum.entity.HeadMaster;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.DatabaseException;
-import com.curriculum.exception.HeadMasterNotFoundException;
 import com.curriculum.repository.HeadMasterRepository;
 import com.curriculum.service.HeadMasterService;
 
 @Service
 public class HeadMasterServiceImpl implements HeadMasterService{
 	@Autowired
-	private HeadMasterRepository headMasterRepositoryImpl;
+	private HeadMasterRepository headMasterRepository;
 
 	public HeadMaster addHeadMaster(HeadMaster headMasterDetails) throws BusinessServiceException {
 		try {
-			return headMasterRepositoryImpl.addHeadMaster(headMasterDetails);
+			return headMasterRepository.addHeadMaster(headMasterDetails);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -26,7 +24,7 @@ public class HeadMasterServiceImpl implements HeadMasterService{
 
 	public HeadMaster updateHeadMaster(Long id, HeadMaster headMasterDetails) throws BusinessServiceException {
 		try {
-			return headMasterRepositoryImpl.updateHeadMaster(id, headMasterDetails);
+			return headMasterRepository.updateHeadMaster(id, headMasterDetails);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -34,7 +32,7 @@ public class HeadMasterServiceImpl implements HeadMasterService{
 
 	public HeadMaster deleteHeadMaster(Long id) throws BusinessServiceException {
 		try {
-			return headMasterRepositoryImpl.deleteHeadMaster(id);
+			return headMasterRepository.deleteHeadMaster(id);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -42,7 +40,7 @@ public class HeadMasterServiceImpl implements HeadMasterService{
 
 	public HeadMaster getHeadMaster(Long id) throws BusinessServiceException {
 		try {
-			return headMasterRepositoryImpl.getHeadMaster(id);
+			return headMasterRepository.getHeadMaster(id);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}

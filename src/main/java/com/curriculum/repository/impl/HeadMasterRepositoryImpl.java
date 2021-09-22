@@ -49,7 +49,7 @@ public class HeadMasterRepositoryImpl implements HeadMasterRepository{
 	}
 	
 	public boolean checkHeadMaster(Long id) throws HeadMasterNotFoundException {
-		Session session = sessionFactory.openSession();
+		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("FROM HeadMaster WHERE id=:headMasterId");
 		query.setParameter("headMasterId", id);
 		HeadMaster headMaster = (HeadMaster) query.uniqueResultOptional().orElse(null);

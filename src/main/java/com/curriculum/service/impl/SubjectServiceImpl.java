@@ -15,23 +15,23 @@ import com.curriculum.service.SubjectService;
 @Service
 public class SubjectServiceImpl implements SubjectService{
 	@Autowired
-	private SubjectRepository subjectRepositoryImpl;
+	private SubjectRepository subjectRepository;
 	@Override
 	public Subject addSubject(Subject subjectDetails) throws BusinessServiceException {
 		try {
-			return subjectRepositoryImpl.addSubject(subjectDetails);
+			return subjectRepository.addSubject(subjectDetails);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
 	@Override
 	public ResponseEntity<List<Subject>> getAllSubjectDetails() {
-		return subjectRepositoryImpl.getAllSubjectDetails();
+		return subjectRepository.getAllSubjectDetails();
 	}
 	@Override
 	public Subject updateSubject(String subjectCode,Subject subjectDetails) throws BusinessServiceException {
 		try {
-			return subjectRepositoryImpl.updateSubject(subjectCode,subjectDetails);
+			return subjectRepository.updateSubject(subjectCode,subjectDetails);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -39,7 +39,7 @@ public class SubjectServiceImpl implements SubjectService{
 	@Override
 	public Subject deleteSubject(String subjectCode) throws BusinessServiceException {
 		try {
-			return subjectRepositoryImpl.deleteSubject(subjectCode);
+			return subjectRepository.deleteSubject(subjectCode);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -47,7 +47,7 @@ public class SubjectServiceImpl implements SubjectService{
 	@Override
 	public Subject getParticularSubject(String subjectCode) throws BusinessServiceException {
 		try {
-			return subjectRepositoryImpl.getParticularSubject(subjectCode);
+			return subjectRepository.getParticularSubject(subjectCode);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -55,7 +55,7 @@ public class SubjectServiceImpl implements SubjectService{
 	@Override
 	public List<Subject> getSubjectByClass(Long roomNo) throws BusinessServiceException {
 		try {
-			return subjectRepositoryImpl.getSubjectByClass(roomNo);
+			return subjectRepository.getSubjectByClass(roomNo);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -63,7 +63,7 @@ public class SubjectServiceImpl implements SubjectService{
 	@Override
 	public List<String> getSubjectName(Long roomNo) throws BusinessServiceException {
 		try {
-			return subjectRepositoryImpl.getSubjectName(roomNo);
+			return subjectRepository.getSubjectName(roomNo);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -71,7 +71,7 @@ public class SubjectServiceImpl implements SubjectService{
 	@Override
 	public String getSubjectCode(Long roomNo, String name) throws BusinessServiceException {
 		try {
-			return subjectRepositoryImpl.getSubjectCode(roomNo,name);
+			return subjectRepository.getSubjectCode(roomNo,name);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}

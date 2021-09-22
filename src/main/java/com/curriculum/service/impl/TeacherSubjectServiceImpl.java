@@ -14,11 +14,11 @@ import com.curriculum.service.TeacherSubjectService;
 @Service
 public class TeacherSubjectServiceImpl implements TeacherSubjectService{
 	@Autowired
-	private TeacherSubjectRepository teacherSubjectRepositoryImpl;
+	private TeacherSubjectRepository teacherSubjectRepository;
 	@Override
 	public TeacherSubject assignTeacherSubject(TeacherSubject teacherSubjectDetails) throws BusinessServiceException {
 		try {
-			return teacherSubjectRepositoryImpl.assignTeacherSubject(teacherSubjectDetails);
+			return teacherSubjectRepository.assignTeacherSubject(teacherSubjectDetails);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -26,7 +26,7 @@ public class TeacherSubjectServiceImpl implements TeacherSubjectService{
 	@Override
 	public TeacherSubject updateTeacherSubjectAssign(Long id,TeacherSubject teacherSubjectDetails) throws BusinessServiceException {
 		try {
-			return teacherSubjectRepositoryImpl.updateTeacherSubjectAssign(id,teacherSubjectDetails);
+			return teacherSubjectRepository.updateTeacherSubjectAssign(id,teacherSubjectDetails);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -34,7 +34,7 @@ public class TeacherSubjectServiceImpl implements TeacherSubjectService{
 	@Override
 	public TeacherSubject deleteTeacherSubjectAssign(Long id) throws BusinessServiceException{
 		try {
-			return teacherSubjectRepositoryImpl.deleteTeacherSubjectAssign(id);
+			return teacherSubjectRepository.deleteTeacherSubjectAssign(id);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}

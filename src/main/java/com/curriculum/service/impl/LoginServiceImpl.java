@@ -13,11 +13,11 @@ import com.curriculum.service.LoginService;
 @Service
 public class LoginServiceImpl implements LoginService{
 	@Autowired
-	private LoginRepository loginRepositoryImpl;
+	private LoginRepository loginRepository;
 	@Override
 	public Login addLogin(Login loginDetails) throws BusinessServiceException {
 		try {
-			return loginRepositoryImpl.addLogin(loginDetails);
+			return loginRepository.addLogin(loginDetails);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -25,7 +25,7 @@ public class LoginServiceImpl implements LoginService{
 	@Override
 	public Login getLogin(Long teacherId) throws BusinessServiceException {
 		try {
-			return loginRepositoryImpl.getLogin(teacherId);
+			return loginRepository.getLogin(teacherId);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -33,7 +33,7 @@ public class LoginServiceImpl implements LoginService{
 	@Override
 	public Login updateLogin(Long teacherId, Login loginDetails) throws BusinessServiceException {
 		try {
-			return loginRepositoryImpl.updateLogin(teacherId,loginDetails);
+			return loginRepository.updateLogin(teacherId,loginDetails);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}

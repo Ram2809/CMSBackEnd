@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.curriculum.entity.Topic;
 import com.curriculum.exception.BusinessServiceException;
+import com.curriculum.exception.NotFoundException;
 import com.curriculum.exception.SubjectNotFoundException;
 import com.curriculum.service.TopicService;
 import com.curriculum.util.Response;
@@ -29,7 +30,7 @@ import com.curriculum.util.Response;
 @CrossOrigin("http://localhost:4200")
 public class TopicController {
 	@Autowired
-	private TopicService topicServiceImpl;
+	private TopicService topicService;
 	@PostMapping
 	public ResponseEntity<Response> addTopic(@RequestBody Topic topicDetails)
 	{
@@ -37,12 +38,20 @@ public class TopicController {
 		ResponseEntity responseEntity=null;
 		Topic topic=null;
 		try {
-			topic=topicServiceImpl.addTopic(topicDetails);
+			topic=topicService.addTopic(topicDetails);
 			response.setCode(200);
 			response.setMessage("Topic details added successfully!");
 			response.setData(topic);
 			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
-		} catch (BusinessServiceException e) {
+		} catch(NotFoundException e)
+		{
+			//System.out.println(e.getClass());
+			if(e instanceof SubjectNotFoundException)
+			{
+				
+			}
+		}
+		catch (BusinessServiceException  e) {
 			response.setCode(404);
 			response.setMessage(e.getMessage());
 			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
@@ -56,7 +65,7 @@ public class TopicController {
 		ResponseEntity responseEntity=null;
 		List<Topic> topicsList=new ArrayList();
 		try {
-			topicsList=topicServiceImpl.getTopicBySubjectCode(subjectCode);
+			topicsList=topicService.getTopicBySubjectCode(subjectCode);
 			if(!topicsList.isEmpty())
 			{
 				response.setCode(200);
@@ -84,7 +93,7 @@ public class TopicController {
 		ResponseEntity responseEntity=null;
 		Topic topic=null;
 		try {
-			topic=topicServiceImpl.getTopicByUnitNo(unitNo);
+			topic=topicService.getTopicByUnitNo(unitNo);
 			response.setCode(200);
 			response.setMessage("Success!");
 			response.setData(topic);
@@ -103,7 +112,7 @@ public class TopicController {
 		ResponseEntity responseEntity=null;
 		Topic topic=null;
 		try {
-			topic=topicServiceImpl.updateTopic(unitNo,topicDetails);
+			topic=topicService.updateTopic(unitNo,topicDetails);
 			response.setCode(200);
 			response.setMessage("Topic details updated successfully!");
 			response.setData(topic);
@@ -122,7 +131,7 @@ public class TopicController {
 		ResponseEntity responseEntity=null;
 		String subjectCode=null;
 		try {
-			subjectCode=topicServiceImpl.getSubjectCode(unitNo);
+			subjectCode=topicService.getSubjectCode(unitNo);
 			response.setCode(200);
 			response.setMessage("Success!");
 			response.setData(subjectCode);
@@ -141,7 +150,7 @@ public class TopicController {
 		ResponseEntity responseEntity=null;
 		Topic topic=null;
 		try {
-			topic=topicServiceImpl.deleteTopic(unitNo);
+			topic=topicService.deleteTopic(unitNo);
 			if(topic!=null)
 			{
 				response.setCode(200);

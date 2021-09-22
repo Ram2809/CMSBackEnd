@@ -59,7 +59,7 @@ public class TeacherSubjectRepositoryImpl implements TeacherSubjectRepository{
 				logger.info("Teacher assigned for course successfully!");
 			}
 		}
-		catch(HibernateException |TeacherNotFoundException| SubjectNotFoundException e)
+		catch(HibernateException | TeacherNotFoundException| SubjectNotFoundException e)
 		{
 			logger.error("Error while assigning staff for course!");
 			throw new DatabaseException(e.getMessage());

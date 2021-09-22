@@ -20,11 +20,11 @@ import com.curriculum.service.StudentService;
 public class StudentServiceImpl implements StudentService{
 	
 	@Autowired
-	private StudentRepository studentRepositoryImpl;
+	private StudentRepository studentRepository;
 	@Override
 	public Student addStudent(Student studentDetails) throws BusinessServiceException {
 		try {
-			return studentRepositoryImpl.addStudent(studentDetails);
+			return studentRepository.addStudent(studentDetails);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -32,17 +32,17 @@ public class StudentServiceImpl implements StudentService{
 	@Override
 	public ResponseEntity<List<Student>> getAllStudentDetails() {
 		// TODO Auto-generated method stub
-		return studentRepositoryImpl.getAllStudentDetails();
+		return studentRepository.getAllStudentDetails();
 	}
 	@Override
 	public ResponseEntity<String> updateStudentDetails(Long rollNo, Student studentDetails) throws StudentNotFoundException {
 		// TODO Auto-generated method stub
-		return studentRepositoryImpl.updateStudentDetails(rollNo,studentDetails);
+		return studentRepository.updateStudentDetails(rollNo,studentDetails);
 	}
 	@Override
 	public Student deleteStudent(Long rollNo) throws BusinessServiceException{
 		try {
-			return studentRepositoryImpl.deleteStudent(rollNo);
+			return studentRepository.deleteStudent(rollNo);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -50,12 +50,12 @@ public class StudentServiceImpl implements StudentService{
 	@Override
 	public ResponseEntity<Student> getParticularStudentDetails(Long rollNo) throws StudentNotFoundException {
 		// TODO Auto-generated method stub
-		return studentRepositoryImpl.getParticularStudentDetails(rollNo);
+		return studentRepository.getParticularStudentDetails(rollNo);
 	}
 	@Override
 	public List<Student> getStudentByClass(Long roomNo) throws BusinessServiceException {
 		try {
-			return studentRepositoryImpl.getStudentByClass(roomNo);
+			return studentRepository.getStudentByClass(roomNo);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}

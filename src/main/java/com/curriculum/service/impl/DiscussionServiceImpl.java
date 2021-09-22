@@ -14,11 +14,11 @@ import com.curriculum.service.DiscussionService;
 @Service
 public class DiscussionServiceImpl implements DiscussionService{
 	@Autowired
-	private DiscussionRepository discussionRepositoryImpl;
+	private DiscussionRepository discussionRepository;
 	@Override
 	public Discussion addDiscussion(Discussion discussionDetails) throws BusinessServiceException {
 		try {
-			return discussionRepositoryImpl.addDiscussion(discussionDetails);
+			return discussionRepository.addDiscussion(discussionDetails);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -26,7 +26,7 @@ public class DiscussionServiceImpl implements DiscussionService{
 	@Override
 	public List<Discussion> getDiscussionByUnitNo(String unitNo) throws BusinessServiceException {
 		try {
-			return discussionRepositoryImpl.getDiscussionByUnitNo(unitNo);
+			return discussionRepository.getDiscussionByUnitNo(unitNo);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -34,7 +34,7 @@ public class DiscussionServiceImpl implements DiscussionService{
 	@Override
 	public Discussion updateDiscussion(Long questionNo,Discussion discussionDetails) throws BusinessServiceException {
 		try {
-			return discussionRepositoryImpl.updateDiscussion(questionNo,discussionDetails);
+			return discussionRepository.updateDiscussion(questionNo,discussionDetails);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -42,7 +42,7 @@ public class DiscussionServiceImpl implements DiscussionService{
 	@Override
 	public Discussion deleteDiscussion(Long questionNo) throws BusinessServiceException {
 		try {
-			return discussionRepositoryImpl.deleteDiscussion(questionNo);
+			return discussionRepository.deleteDiscussion(questionNo);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -50,7 +50,7 @@ public class DiscussionServiceImpl implements DiscussionService{
 	@Override
 	public Discussion getParticularDiscussion(Long questionNo) throws BusinessServiceException {
 		try {
-			return discussionRepositoryImpl.getParticularDiscussion(questionNo);
+			return discussionRepository.getParticularDiscussion(questionNo);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
