@@ -339,3 +339,5 @@
 2021-09-21 19:54:23 ERROR TopicRepositoryImpl:76 - Error while adding the topic!
 2021-09-21 20:06:15 INFO  TopicRepositoryImpl:39 - Adding the topic details!
 2021-09-21 20:06:48 INFO  TopicRepositoryImpl:39 - Adding the topic details!
+2021-09-22 23:52:39 INFO  ClassRepositoryImpl:30 - Adding class details
+2021-09-22 23:52:39 INFO  ClassRepositoryImpl:44 - Class details added successfully!
