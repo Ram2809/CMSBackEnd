@@ -118,11 +118,11 @@ public class ClassController {
 			response.setCode(200);
 			response.setMessage("Success");
 			response.setData(classEntity);
-			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.OK);
+			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
 		} catch (BusinessServiceException e) {
 			response.setCode(404);
 			response.setMessage(e.getMessage());
-			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
 		}
 		return responseEntity;
 	}
@@ -137,11 +137,11 @@ public class ClassController {
 			response.setCode(200);
 			response.setMessage("Success");
 			response.setData(sectionList);
-			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.OK);
+			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
 		} catch (BusinessServiceException e) {
 			response.setCode(404);
 			response.setMessage(e.getMessage());
-			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
 		}
 		return responseEntity;
 	}
@@ -157,11 +157,11 @@ public class ClassController {
 			response.setCode(200);
 			response.setMessage("Success");
 			response.setData(roomNo);
-			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.OK);
+			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
 		} catch (BusinessServiceException e) {
 			response.setCode(404);
 			response.setMessage(e.getMessage());
-			responseEntity = new ResponseEntity<Response>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
 		}
 		return responseEntity;
 	}

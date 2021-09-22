@@ -30,7 +30,7 @@ import com.curriculum.util.Response;
 @CrossOrigin("http://localhost:4200")
 public class SubjectController {
 	@Autowired
-	private SubjectService subjectServiceImpl;
+	private SubjectService subjectService;
 
 	@PostMapping
 	public ResponseEntity<Response> addSubject(@RequestBody Subject subjectDetails) {
@@ -38,7 +38,7 @@ public class SubjectController {
 		ResponseEntity<Response> responseEntity=null;
 		Subject subject=null;
 		try {
-			subject=subjectServiceImpl.addSubject(subjectDetails);
+			subject=subjectService.addSubject(subjectDetails);
 			response.setCode(200);
 			response.setMessage("Subject details added successfully!");
 			response.setData(subject);
@@ -53,7 +53,7 @@ public class SubjectController {
 
 	@GetMapping("/getSubjectDetails")
 	public ResponseEntity<List<Subject>> getAllSubjectDetails() {
-		return subjectServiceImpl.getAllSubjectDetails();
+		return subjectService.getAllSubjectDetails();
 	}
 
 	@PutMapping("/{code}")
@@ -63,7 +63,7 @@ public class SubjectController {
 		ResponseEntity responseEntity=null;
 		Subject subject=null;
 		try {
-			subject=subjectServiceImpl.updateSubject(code,subjectDetails);
+			subject=subjectService.updateSubject(code,subjectDetails);
 			response.setCode(200);
 			response.setMessage("Subject details updated successfully!");
 			response.setData(subject);
@@ -82,7 +82,7 @@ public class SubjectController {
 		ResponseEntity responseEntity=null;
 		Subject subject=null;
 		try {
-			subject=subjectServiceImpl.deleteSubject(subjectCode);
+			subject=subjectService.deleteSubject(subjectCode);
 			if(subject!=null)
 			{
 				response.setCode(200);
@@ -111,7 +111,7 @@ public class SubjectController {
 		ResponseEntity<Response> responseEntity=null;
 		Subject subject=null;
 		try {
-			subject=subjectServiceImpl.getParticularSubject(subjectCode);
+			subject=subjectService.getParticularSubject(subjectCode);
 			if(subject!=null)
 			{
 				response.setCode(200);
@@ -139,7 +139,7 @@ public class SubjectController {
 		ResponseEntity<Response> responseEntity=null;
 		List<Subject> subjectList=new ArrayList<>();
 		try {
-			subjectList=subjectServiceImpl.getSubjectByClass(roomNo);
+			subjectList=subjectService.getSubjectByClass(roomNo);
 			if(!subjectList.isEmpty())
 			{
 				response.setCode(200);
@@ -167,7 +167,7 @@ public class SubjectController {
 		ResponseEntity responseEntity=null;
 		List<String> subjectNames=new ArrayList();
 		try {
-			subjectNames=subjectServiceImpl.getSubjectName(roomNo);
+			subjectNames=subjectService.getSubjectName(roomNo);
 			if(!subjectNames.isEmpty())
 			{
 				response.setCode(200);
@@ -195,7 +195,7 @@ public class SubjectController {
 		ResponseEntity responseEntity=null;
 		String code=null;
 		try {
-			code=subjectServiceImpl.getSubjectCode(roomNo,name);
+			code=subjectService.getSubjectCode(roomNo,name);
 			if(code!=null)
 			{
 				response.setCode(200);
