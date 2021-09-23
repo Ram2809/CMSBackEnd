@@ -433,3 +433,23 @@
 2021-09-23 16:31:28 INFO  TeacherRepositoryImpl:104 - Teacher Details updated successfully!
 2021-09-23 16:32:14 INFO  TeacherRepositoryImpl:84 - Updating the teacher details
 2021-09-23 16:32:14 INFO  TeacherRepositoryImpl:104 - Teacher Details updated successfully!
+2021-09-23 17:08:17 INFO  HeadMasterRepositoryImpl:27 - Adding the headmaster details!
+2021-09-23 17:08:17 INFO  HeadMasterRepositoryImpl:40 - Headmaster details added successfully!
+2021-09-23 17:09:31 INFO  HeadMasterRepositoryImpl:27 - Adding the headmaster details!
+2021-09-23 17:09:31 INFO  HeadMasterRepositoryImpl:40 - Headmaster details added successfully!
+2021-09-23 17:11:23 INFO  HeadMasterRepositoryImpl:27 - Adding the headmaster details!
+2021-09-23 17:11:23 INFO  HeadMasterRepositoryImpl:40 - Headmaster details added successfully!
+2021-09-23 17:19:44 INFO  HeadMasterRepositoryImpl:120 - Getting head master details!
+2021-09-23 17:20:14 INFO  HeadMasterRepositoryImpl:120 - Getting head master details!
+2021-09-23 17:20:56 INFO  HeadMasterRepositoryImpl:120 - Getting head master details!
+2021-09-23 17:20:56 INFO  HeadMasterRepositoryImpl:130 - Head master details fetched successfully!
+2021-09-23 17:21:03 INFO  HeadMasterRepositoryImpl:120 - Getting head master details!
+2021-09-23 17:21:31 INFO  HeadMasterRepositoryImpl:120 - Getting head master details!
+2021-09-23 17:21:52 INFO  HeadMasterRepositoryImpl:120 - Getting head master details!
+2021-09-23 17:34:50 INFO  HeadMasterRepositoryImpl:62 - Updating head master details!
+2021-09-23 17:34:50 ERROR HeadMasterRepositoryImpl:86 - Error while updating the head master details!
+2021-09-23 17:35:44 INFO  HeadMasterRepositoryImpl:62 - Updating head master details!
+2021-09-23 17:36:20 INFO  HeadMasterRepositoryImpl:62 - Updating head master details!
+2021-09-23 17:36:20 ERROR HeadMasterRepositoryImpl:86 - Error while updating the head master details!
+2021-09-23 17:37:02 INFO  HeadMasterRepositoryImpl:62 - Updating head master details!
+2021-09-23 17:37:02 INFO  HeadMasterRepositoryImpl:82 - Head master details updated successfully!

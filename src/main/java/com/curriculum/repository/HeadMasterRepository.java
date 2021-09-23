@@ -1,17 +1,16 @@
-//package com.curriculum.repository;
-//
-//import org.springframework.http.ResponseEntity;
-//
-//import com.curriculum.entity.HeadMaster;
-//import com.curriculum.exception.DatabaseException;
-//import com.curriculum.exception.HeadMasterNotFoundException;
-//
-//public interface HeadMasterRepository {
-//	HeadMaster addHeadMaster(HeadMaster headMasterDeteails) throws DatabaseException;
-//
-//	HeadMaster updateHeadMaster(Long id, HeadMaster headMasterDetails) throws DatabaseException;
-//
-//	HeadMaster deleteHeadMaster(Long id) throws DatabaseException;
-//
-//	HeadMaster getHeadMaster(Long id) throws DatabaseException;
-//}
+package com.curriculum.repository;
+
+import com.curriculum.dto.HeadMaster;
+import com.curriculum.entity.HeadMasterEntity;
+import com.curriculum.exception.DatabaseException;
+import com.curriculum.exception.NotFoundException;
+
+public interface HeadMasterRepository {
+	Long addHeadMaster(HeadMaster headMaster) throws DatabaseException;
+
+	HeadMasterEntity updateHeadMaster(Long id, HeadMaster headMaster) throws DatabaseException,NotFoundException;
+
+	HeadMasterEntity deleteHeadMaster(Long id) throws DatabaseException, NotFoundException;
+
+	HeadMasterEntity getHeadMaster(Long id) throws DatabaseException, NotFoundException;
+}
