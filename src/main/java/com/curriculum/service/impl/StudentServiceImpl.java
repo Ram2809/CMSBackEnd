@@ -31,7 +31,6 @@ public class StudentServiceImpl implements StudentService{
 	@Override
 	public Long addStudent(Student student) throws BusinessServiceException, NotFoundException {
 		try {
-			System.out.println(student.getClassDetail());
 			classRepository.checkClassRoom(student.getClassDetail().getRoomNo());
 			return studentRepository.addStudent(student);
 		} catch (DatabaseException e) {

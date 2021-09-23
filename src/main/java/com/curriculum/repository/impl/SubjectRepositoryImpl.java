@@ -1,77 +1,57 @@
-//package com.curriculum.repository.impl;
-//
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//import javax.transaction.Transactional;
-//
-//import org.apache.log4j.Logger;
-//import org.hibernate.HibernateException;
-//import org.hibernate.Session;
-//import org.hibernate.SessionFactory;
-//import org.hibernate.query.Query;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.http.HttpHeaders;
-//import org.springframework.http.HttpStatus;
-//import org.springframework.http.ResponseEntity;
-//import org.springframework.stereotype.Repository;
-//
-//import com.curriculum.entity.ClassEntity;
-//import com.curriculum.entity.SubjectEntity;
-//import com.curriculum.exception.ConstraintValidationException;
-//import com.curriculum.exception.DatabaseException;
-//import com.curriculum.exception.SubjectNotFoundException;
-//import com.curriculum.repository.SubjectRepository;
-//@Repository
-//@Transactional
-//public class SubjectRepositoryImpl implements SubjectRepository{
-//	@Autowired
-//	private SessionFactory sessionFactory;
-//	@Autowired
-//	private ClassRepositoryImpl classRepositoryImpl;
-//	private Logger logger=Logger.getLogger(SubjectRepositoryImpl.class);
-//	@Override
-//	public Subject addSubject(Subject subjectDetails) throws DatabaseException {
-//		logger.info("Adding subject details!");
-//		Session session=null;
-//		Subject subject=null;
-//		try
-//		{	
-//			
-//			session=sessionFactory.getCurrentSession();
-//			Query query = session.createQuery("FROM Subject WHERE code=:subjectCode");
-//			query.setParameter("subjectCode", subjectDetails.getCode());
-//			Subject subjectDetail = (Subject) query.uniqueResultOptional().orElse(null);
-//			if(subjectDetail!=null)
-//			{
-//				throw new SubjectNotFoundException("Subject already exits with"+" "+subjectDetails.getCode()+"!");
-//			}
-//			if(subjectDetails.getCode().length()>6)
-//			{
-//				throw new ConstraintValidationException("Subject code must contains only 6 characters!");
-//			}
-//			ClassEntity classDetails=new ClassEntity();
-//			classDetails.setRoomNo(subjectDetails.getClassRoom().getRoomNo());
-//			Subject subjectEntity=new Subject();
-//			subjectEntity.setCode(subjectDetails.getCode());
-//			subjectEntity.setName(subjectDetails.getName());
-//			subjectEntity.setClassRoom(classDetails);
-//			String id=(String) session.save(subjectEntity);
-//			System.out.println(id);
-//			if(!id.isEmpty())
-//			{
-//				logger.info("Subject details added successfully!");
-//				subject=subjectEntity;
-//				System.out.println(subject);
-//			}
-//		}
-//		catch(HibernateException |SubjectNotFoundException|ConstraintValidationException e)
-//		{
-//			logger.error("Error while adding subject details!");
-//			throw new DatabaseException(e.getMessage());
-//		}
-//		return subject;
-//	}
+package com.curriculum.repository.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.apache.log4j.Logger;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Repository;
+
+import com.curriculum.dto.Subject;
+import com.curriculum.entity.ClassEntity;
+import com.curriculum.entity.SubjectEntity;
+import com.curriculum.exception.ConstraintValidationException;
+import com.curriculum.exception.DatabaseException;
+import com.curriculum.exception.NotFoundException;
+import com.curriculum.exception.SubjectNotFoundException;
+import com.curriculum.repository.SubjectRepository;
+import com.curriculum.util.SubjectMapper;
+@Repository
+@Transactional
+public class SubjectRepositoryImpl implements SubjectRepository{
+	@Autowired
+	private SessionFactory sessionFactory;
+	private Logger logger=Logger.getLogger(SubjectRepositoryImpl.class);
+	@Override
+	public String addSubject(Subject subject) throws DatabaseException {
+		logger.info("Adding subject details!");
+		Session session=null;
+		String subjectCode=null;
+		try
+		{	
+			session=sessionFactory.getCurrentSession();
+			subjectCode=(String) session.save(SubjectMapper.subjectMapper(subject));
+			if(!subjectCode.isEmpty())
+			{
+				logger.info("Subject details added successfully!");
+			}
+		}
+		catch(HibernateException e)
+		{
+			logger.error("Error while adding subject details!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return subjectCode;
+	}
 //	@Override
 //	public ResponseEntity<List<Subject>> getAllSubjectDetails() {
 //		ResponseEntity<List<Subject>> response=null;
@@ -90,15 +70,15 @@
 //		}
 //		return response;
 //	}
-//	public void checkSubject(String code) throws SubjectNotFoundException {
-//		Session session = sessionFactory.openSession();
-//		Query query = session.createQuery("FROM Subject WHERE code=:subjectCode");
-//		query.setParameter("subjectCode", code);
-//		SubjectEntity subjectEntity = (SubjectEntity) query.uniqueResultOptional().orElse(null);
-//		if (subjectEntity==null) {
-//			throw new SubjectNotFoundException("Subject Not Found With"+" "+code+"!");
-//		}
-//	}
+	public void checkSubject(String code) throws SubjectNotFoundException {
+		Session session = sessionFactory.getCurrentSession();
+		Query<SubjectEntity> query = session.createQuery("FROM SubjectEntity WHERE code=:subjectCode");
+		query.setParameter("subjectCode", code);
+		SubjectEntity subjectEntity = query.uniqueResultOptional().orElse(null);
+		if (subjectEntity==null) {
+			throw new SubjectNotFoundException("Subject Not Found With"+" "+code+"!");
+		}
+	}
 //	@Override
 //	public Subject updateSubject(String subjectCode,Subject subjectDetails) throws DatabaseException {
 //		logger.info("Updating the subject details!");
@@ -155,27 +135,27 @@
 //		}
 //		return subject;
 //	}
-//	@Override
-//	public Subject getParticularSubject(String subjectCode) throws DatabaseException {
-//		logger.info("Getting subject details by code!");
-//		Session session=null;
-//		Subject subject=new Subject();
-//		try
-//		{
-//			boolean checkSubject=checkSubject(subjectCode);
-//			session=sessionFactory.getCurrentSession();
-//			Query query=session.createQuery("FROM Subject WHERE code=:subjectCode");
-//			query.setParameter("subjectCode", subjectCode);
-//			subject=(Subject) query.getSingleResult();
-//			logger.info("Subject details fetched successfully!");
-//		}
-//		catch(HibernateException | SubjectNotFoundException  e)
-//		{
-//			logger.error("Error while fetching the subject details!");
-//			throw new DatabaseException(e.getMessage());
-//		}
-//		return subject;
-//	}
+	@Override
+	public SubjectEntity getParticularSubject(String subjectCode) throws DatabaseException, NotFoundException {
+		logger.info("Getting subject details by code!");
+		Session session=null;
+		SubjectEntity subject=null;
+		try
+		{
+			checkSubject(subjectCode);
+			session=sessionFactory.getCurrentSession();
+			Query<SubjectEntity> query=session.createQuery("FROM SubjectEntity WHERE code=:subjectCode");
+			query.setParameter("subjectCode", subjectCode);
+			subject=query.uniqueResultOptional().orElse(null);
+			logger.info("Subject details fetched successfully!");
+		}
+		catch(HibernateException e)
+		{
+			logger.error("Error while fetching the subject details!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return subject;
+	}
 //	@Override
 //	public List<Subject> getSubjectByClass(Long roomNo) throws DatabaseException{
 //		logger.info("Getting subject details by class!");
@@ -238,4 +218,4 @@
 //		return code;
 //	}
 
-//}
+}

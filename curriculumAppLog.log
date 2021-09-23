@@ -486,3 +486,36 @@
 2021-09-23 22:59:06 INFO  StudentRepositoryImpl:110 - Deleting the Student details!
 2021-09-23 22:59:14 INFO  StudentRepositoryImpl:110 - Deleting the Student details!
 2021-09-23 22:59:14 INFO  StudentRepositoryImpl:123 - Student is deleted successfully!
+2021-09-23 23:07:37 INFO  StudentRepositoryImpl:161 - Getting student details by class!
+2021-09-23 23:07:37 INFO  StudentRepositoryImpl:170 - Student details fetched successfully!
+2021-09-23 23:07:43 INFO  StudentRepositoryImpl:161 - Getting student details by class!
+2021-09-23 23:07:43 INFO  StudentRepositoryImpl:170 - Student details fetched successfully!
+2021-09-23 23:09:04 INFO  StudentRepositoryImpl:161 - Getting student details by class!
+2021-09-23 23:09:04 INFO  StudentRepositoryImpl:170 - Student details fetched successfully!
+2021-09-23 23:35:29 INFO  SubjectRepositoryImpl:35 - Adding subject details!
+2021-09-23 23:35:29 INFO  SubjectRepositoryImpl:44 - Subject details added successfully!
+2021-09-23 23:40:13 INFO  SubjectRepositoryImpl:35 - Adding subject details!
+2021-09-23 23:40:13 INFO  SubjectRepositoryImpl:44 - Subject details added successfully!
+2021-09-23 23:41:14 INFO  SubjectRepositoryImpl:35 - Adding subject details!
+2021-09-23 23:41:14 INFO  SubjectRepositoryImpl:44 - Subject details added successfully!
+2021-09-23 23:41:42 INFO  SubjectRepositoryImpl:35 - Adding subject details!
+2021-09-23 23:41:42 INFO  SubjectRepositoryImpl:44 - Subject details added successfully!
+2021-09-23 23:42:07 INFO  SubjectRepositoryImpl:35 - Adding subject details!
+2021-09-23 23:42:07 INFO  SubjectRepositoryImpl:44 - Subject details added successfully!
+2021-09-23 23:43:37 INFO  SubjectRepositoryImpl:35 - Adding subject details!
+2021-09-23 23:43:37 INFO  SubjectRepositoryImpl:44 - Subject details added successfully!
+2021-09-23 23:44:11 INFO  SubjectRepositoryImpl:35 - Adding subject details!
+2021-09-23 23:44:11 INFO  SubjectRepositoryImpl:44 - Subject details added successfully!
+2021-09-23 23:45:00 INFO  SubjectRepositoryImpl:35 - Adding subject details!
+2021-09-23 23:45:00 INFO  SubjectRepositoryImpl:44 - Subject details added successfully!
+2021-09-23 23:45:41 INFO  SubjectRepositoryImpl:35 - Adding subject details!
+2021-09-23 23:45:41 INFO  SubjectRepositoryImpl:44 - Subject details added successfully!
+2021-09-23 23:47:48 INFO  SubjectRepositoryImpl:35 - Adding subject details!
+2021-09-23 23:47:48 INFO  SubjectRepositoryImpl:44 - Subject details added successfully!
+2021-09-23 23:48:16 INFO  SubjectRepositoryImpl:35 - Adding subject details!
+2021-09-23 23:48:16 INFO  SubjectRepositoryImpl:44 - Subject details added successfully!
+2021-09-23 23:57:36 INFO  SubjectRepositoryImpl:140 - Getting subject details by code!
+2021-09-23 23:57:48 INFO  SubjectRepositoryImpl:140 - Getting subject details by code!
+2021-09-23 23:57:48 INFO  SubjectRepositoryImpl:150 - Subject details fetched successfully!
+2021-09-23 23:58:10 INFO  SubjectRepositoryImpl:140 - Getting subject details by code!
+2021-09-23 23:58:10 INFO  SubjectRepositoryImpl:150 - Subject details fetched successfully!
