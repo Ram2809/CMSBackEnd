@@ -453,3 +453,36 @@
 2021-09-23 17:36:20 ERROR HeadMasterRepositoryImpl:86 - Error while updating the head master details!
 2021-09-23 17:37:02 INFO  HeadMasterRepositoryImpl:62 - Updating head master details!
 2021-09-23 17:37:02 INFO  HeadMasterRepositoryImpl:82 - Head master details updated successfully!
+2021-09-23 17:45:27 INFO  HeadMasterRepositoryImpl:92 - Deleting the head master details!
+2021-09-23 17:46:06 INFO  HeadMasterRepositoryImpl:28 - Adding the headmaster details!
+2021-09-23 17:46:06 INFO  HeadMasterRepositoryImpl:41 - Headmaster details added successfully!
+2021-09-23 17:46:23 INFO  HeadMasterRepositoryImpl:92 - Deleting the head master details!
+2021-09-23 17:46:23 INFO  HeadMasterRepositoryImpl:106 - Head master details deleted successfully!
+2021-09-23 19:16:13 INFO  ClassRepositoryImpl:32 - Adding class details
+2021-09-23 19:16:14 INFO  ClassRepositoryImpl:39 - Class details added successfully!
+2021-09-23 19:16:55 INFO  ClassRepositoryImpl:32 - Adding class details
+2021-09-23 19:16:55 INFO  ClassRepositoryImpl:39 - Class details added successfully!
+2021-09-23 19:17:39 INFO  ClassRepositoryImpl:32 - Adding class details
+2021-09-23 19:17:39 INFO  ClassRepositoryImpl:39 - Class details added successfully!
+2021-09-23 19:27:36 INFO  ClassRepositoryImpl:33 - Adding class details
+2021-09-23 19:27:36 INFO  ClassRepositoryImpl:40 - Class details added successfully!
+2021-09-23 19:37:26 INFO  ClassRepositoryImpl:33 - Adding class details
+2021-09-23 19:37:26 INFO  ClassRepositoryImpl:40 - Class details added successfully!
+2021-09-23 19:39:23 INFO  ClassRepositoryImpl:33 - Adding class details
+2021-09-23 19:39:23 INFO  ClassRepositoryImpl:40 - Class details added successfully!
+2021-09-23 22:15:21 INFO  StudentRepositoryImpl:27 - Adding student details
+2021-09-23 22:15:22 INFO  StudentRepositoryImpl:35 - Student details added successfully!
+2021-09-23 22:17:22 INFO  StudentRepositoryImpl:27 - Adding student details
+2021-09-23 22:17:22 INFO  StudentRepositoryImpl:35 - Student details added successfully!
+2021-09-23 22:24:04 INFO  StudentRepositoryImpl:27 - Adding student details
+2021-09-23 22:24:04 INFO  StudentRepositoryImpl:35 - Student details added successfully!
+2021-09-23 22:24:17 INFO  StudentRepositoryImpl:27 - Adding student details
+2021-09-23 22:24:17 INFO  StudentRepositoryImpl:35 - Student details added successfully!
+2021-09-23 22:27:44 INFO  StudentRepositoryImpl:27 - Adding student details
+2021-09-23 22:27:44 INFO  StudentRepositoryImpl:35 - Student details added successfully!
+2021-09-23 22:46:05 INFO  StudentRepositoryImpl:27 - Adding student details
+2021-09-23 22:46:05 INFO  StudentRepositoryImpl:35 - Student details added successfully!
+2021-09-23 22:58:21 INFO  StudentRepositoryImpl:110 - Deleting the Student details!
+2021-09-23 22:59:06 INFO  StudentRepositoryImpl:110 - Deleting the Student details!
+2021-09-23 22:59:14 INFO  StudentRepositoryImpl:110 - Deleting the Student details!
+2021-09-23 22:59:14 INFO  StudentRepositoryImpl:123 - Student is deleted successfully!

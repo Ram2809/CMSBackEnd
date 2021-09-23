@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -32,7 +34,7 @@ public class ClassController {
 	private ClassService classService;
 
 	@PostMapping
-	public ResponseEntity<Response> addClass(@RequestBody Class classDetail) {
+	public ResponseEntity<Response> addClass(@Valid @RequestBody Class classDetail) {
 		Response response = new Response();
 		ResponseEntity<Response> responseEntity = null;
 		Long roomNo = null;

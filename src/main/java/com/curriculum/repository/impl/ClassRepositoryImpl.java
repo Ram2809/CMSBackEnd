@@ -1,9 +1,11 @@
 package com.curriculum.repository.impl;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
+import javax.validation.ConstraintViolationException;
 
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
@@ -32,18 +34,18 @@ public class ClassRepositoryImpl implements ClassRepository {
 		Session session = null;
 		Long roomNo = 0l;
 		try {
-//			if (classDetail.getStandard() == null) {
-//				throw new ConstraintValidationException("Standard must be entered!");
-//			}
-//			if (classDetail.getSection() == null) {
-//				throw new ConstraintValidationException("Section must be entered!");
-//			}
 			session = sessionFactory.getCurrentSession();
 			roomNo = (Long) session.save(ClassMapper.mapClass(classDetail));
 			if (roomNo > 0) {
 				logger.info("Class details added successfully!");
 			}
-		} catch (HibernateException e) {// | ConstraintValidationException e) {
+		}
+			
+//		}catch(SQLIntegrityConstraintViolationException e)
+//		{
+//			logger.error(e.getMessage());
+//		}
+		catch (Exception e) {// | ConstraintValidationException e) {
 			logger.error("Error while adding the class!");
 			System.out.println(e.getMessage());
 			throw new DatabaseException(e.getMessage());
@@ -207,4 +209,5 @@ public class ClassRepositoryImpl implements ClassRepository {
 		}
 		return classRoomNo;
 	}
+
 }

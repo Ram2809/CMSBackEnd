@@ -13,11 +13,9 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 @Data
 @NoArgsConstructor
@@ -33,9 +31,9 @@ public class ClassEntity implements Serializable {
 	@Column(nullable = false)
 	@Size(max = 2, message = "Section cannot be empty and Section length not more than 2")
 	private String section;
-//	@OneToMany(mappedBy = "classEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-//	@JsonIgnore
-//	private Set<Student> student;
+	@OneToMany(mappedBy = "classEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonIgnore
+	private Set<StudentEntity> student;
 //	@OneToMany(mappedBy = "classRoom", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 //	@JsonIgnore
 //	private Set<SubjectEntity> subject;
