@@ -93,9 +93,9 @@ public class ClassRepositoryImpl implements ClassRepository {
 	public void checkClassRoom(Long id) throws ClassNotFoundException {
 		ClassEntity classEntity = null;
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("FROM ClassEntity WHERE id=:roomNo");
+		Query<ClassEntity> query = session.createQuery("FROM ClassEntity WHERE id=:roomNo");
 		query.setParameter("roomNo", id);
-		classEntity = (ClassEntity) query.uniqueResultOptional().orElse(null);
+		classEntity = query.uniqueResultOptional().orElse(null);
 		if (classEntity == null) {
 			throw new ClassNotFoundException("Class Room Not Found With" + " " + id + "!");
 		}
@@ -156,9 +156,9 @@ public class ClassRepositoryImpl implements ClassRepository {
 		try {
 			checkClassRoom(roomNo);
 			session = sessionFactory.getCurrentSession();
-			Query query = session.createQuery("FROM ClassEntity WHERE roomNo=:roomId");
+			Query<ClassEntity> query = session.createQuery("FROM ClassEntity WHERE roomNo=:roomId");
 			query.setParameter("roomId", roomNo);
-			classDetails = (ClassEntity) query.getSingleResult();
+			classDetails =query.getSingleResult();
 			logger.info("Particular class details fetched successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while fetching the particular class details!");
@@ -175,7 +175,7 @@ public class ClassRepositoryImpl implements ClassRepository {
 		try {
 			checkStandard(standard);
 			session = sessionFactory.getCurrentSession();
-			Query query = session.createQuery("SELECT c.section FROM ClassEntity c where c.standard=:standard");
+			Query<String> query = session.createQuery("SELECT c.section FROM ClassEntity c where c.standard=:standard");
 			query.setParameter("standard", standard);
 			sectionList = query.getResultList();
 			logger.info("Section details are fetched successfully!");
@@ -195,11 +195,11 @@ public class ClassRepositoryImpl implements ClassRepository {
 			checkStandard(standard);
 			checkSection(section);
 			session = sessionFactory.getCurrentSession();
-			Query query = session.createQuery(
+			Query<Long> query = session.createQuery(
 					"SELECT c.roomNo FROM ClassEntity c WHERE c.standard=:standard AND c.section=:section");
 			query.setParameter("standard", standard);
 			query.setParameter("section", section);
-			classRoomNo = (Long) query.uniqueResultOptional().orElse(null);
+			classRoomNo =  query.uniqueResultOptional().orElse(null);
 			logger.info("Classroom is fetched successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while fetching the class room!");
