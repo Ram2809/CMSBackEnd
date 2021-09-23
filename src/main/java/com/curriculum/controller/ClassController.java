@@ -1,5 +1,6 @@
 package com.curriculum.controller;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,6 @@ import com.curriculum.dto.Class;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.service.ClassService;
 import com.curriculum.util.Response;
-
 @RestController
 @RequestMapping("/api/class")
 @CrossOrigin("http://localhost:4200")
@@ -39,9 +39,9 @@ public class ClassController {
 			response.setMessage("Class details added successfully!");
 			response.setData(classEntity);
 			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
-		} catch (BusinessServiceException e) {
+		} catch (BusinessServiceException | SQLException e) {
 			response.setCode(500);
-			response.setMessage("Internal Server Error");
+			response.setMessage(e.getMessage());
 			responseEntity = new ResponseEntity<>(response, new HttpHeaders(),
 					HttpStatus.INTERNAL_SERVER_ERROR);
 		}

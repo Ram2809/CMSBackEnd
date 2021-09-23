@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name="Subject")
-public class Subject implements Serializable{
+public class SubjectEntity implements Serializable{
 	@Id
 	@Size(max=6)
 	private String code;
@@ -40,5 +40,5 @@ public class Subject implements Serializable{
 	private Set<TeacherSubject> subjects;
 	@OneToMany(mappedBy="subject",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
 	@JsonIgnore
-	private Set<Topic> topics;
+	private Set<TopicEntity> topics;
 }

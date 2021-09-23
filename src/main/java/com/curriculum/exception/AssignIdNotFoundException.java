@@ -1,6 +1,6 @@
 package com.curriculum.exception;
 
-public class AssignIdNotFoundException extends Exception{
+public class AssignIdNotFoundException extends NotFoundException{
 	public AssignIdNotFoundException(String message)
 	{
 		super(message);

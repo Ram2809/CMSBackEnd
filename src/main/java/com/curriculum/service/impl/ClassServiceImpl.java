@@ -1,5 +1,6 @@
 package com.curriculum.service.impl;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class ClassServiceImpl implements ClassService{
 	@Autowired
 	private ClassRepository classRepository;
 	@Override
-	public Class addClass(Class classDetails) throws BusinessServiceException {
+	public Class addClass(Class classDetails) throws BusinessServiceException, SQLException {
 		try {
 			return classRepository.addClass(classDetails);
 		} catch (DatabaseException e) {

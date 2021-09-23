@@ -14,10 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.curriculum.dto.Class;
 import com.curriculum.entity.ClassEntity;
-import com.curriculum.exception.DatabaseException;
 import com.curriculum.repository.ClassRepository;
 import com.curriculum.util.ClassMapper;
-
+import com.curriculum.exception.*;
+import com.curriculum.exception.ClassNotFoundException;
 @Repository
 @Transactional
 public class ClassRepositoryImpl implements ClassRepository {
@@ -31,20 +31,21 @@ public class ClassRepositoryImpl implements ClassRepository {
 		Session session = null;
 		Class classEntity = null;
 		try {
-//			if (classDetails.getStandard() == null) {
-//				throw new ConstraintValidationException("Standard must be entered!");
-//			}
-//			if (classDetails.getSection() == null) {
-//				throw new ConstraintValidationException("Section must be entered!");
-//			}
+			if (classDetail.getStandard() == null) {
+				throw new ConstraintValidationException("Standard must be entered!");
+			}
+			if (classDetail.getSection() == null) {
+				throw new ConstraintValidationException("Section must be entered!");
+			}
 			session = sessionFactory.getCurrentSession();
 			Long count = (Long) session.save(ClassMapper.mapClass(classDetail));
 			if (count > 0) {
 				classEntity = classDetail;
 				logger.info("Class details added successfully!");
 			}
-		} catch (HibernateException  e) {
+		} catch (HibernateException | ConstraintValidationException e) {
 			logger.error("Error while adding the class!");
+			System.out.println(e.getMessage());
 			throw new DatabaseException(e.getMessage());
 		}
 		return classEntity;
@@ -88,7 +89,7 @@ public class ClassRepositoryImpl implements ClassRepository {
 //		return classDetail;
 //	}
 //
-	public boolean checkClassRoom(Long id) throws ClassNotFoundException {
+	public void checkClassRoom(Long id) throws ClassNotFoundException {
 		ClassEntity classEntity = null;
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("FROM ClassEntity WHERE id=:roomNo");
@@ -97,7 +98,6 @@ public class ClassRepositoryImpl implements ClassRepository {
 		if (classEntity == null) {
 			throw new ClassNotFoundException("Class Room Not Found With" + " " + id + "!");
 		}
-		return true;
 	}
 //
 //	public boolean checkStandard(String standard) throws ClassNotFoundException {

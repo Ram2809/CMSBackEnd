@@ -1,12 +1,13 @@
 package com.curriculum.service;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.curriculum.dto.Class;
 import com.curriculum.exception.BusinessServiceException;
 
 public interface ClassService {
-	Class addClass(Class classDetails) throws BusinessServiceException;
+	Class addClass(Class classDetails) throws BusinessServiceException, SQLException;
 //
 //	List<ClassEntity> getAllClass() throws BusinessServiceException;
 //

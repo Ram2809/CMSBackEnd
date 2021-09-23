@@ -36,5 +36,5 @@ public class Discussion implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="unitNo",nullable=false)
 	@JsonBackReference
-	private Topic topic;
+	private TopicEntity topic;
 }

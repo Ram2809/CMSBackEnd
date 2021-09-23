@@ -24,13 +24,13 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-public class Topic implements Serializable{
+public class TopicEntity implements Serializable{
 	@Id
-	@Size(max=8,message="")
+	@Size(max=8,message="Unit Number not exceeds the 8 characters!")
 	private String unitNo;
 	@NotNull
 	private String unitName;
-	@Size(max=200)
+	@Size(max=200,message="Description only contains 200 characters!")
 	private String description;
 	@Temporal(TemporalType.DATE)
 	private Date beginDate;
@@ -40,7 +40,7 @@ public class Topic implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="subjectCode",nullable=false)
 	@JsonBackReference
-	private Subject subject;
+	private SubjectEntity subject;
 	@OneToMany(mappedBy="topic",cascade=CascadeType.ALL,fetch=FetchType.LAZY,orphanRemoval=true)
 	@JsonIgnore
 	private Set<Discussion> discussion;

@@ -1,12 +1,13 @@
 package com.curriculum.repository;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import com.curriculum.dto.Class;
 import com.curriculum.exception.DatabaseException;
 
 public interface ClassRepository {
-	Class addClass(Class classDetails) throws DatabaseException;
+	Class addClass(Class classDetails) throws DatabaseException, SQLException;
 
 //	List<ClassEntity> getAllClass() throws DatabaseException;
 //

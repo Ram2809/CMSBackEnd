@@ -25,8 +25,8 @@ public class TeacherSubject implements Serializable{
 	@JoinColumn(name="teacherId",nullable=false)
 	@JsonBackReference(value="teacher")
 	private Teacher teacher;
-	@ManyToOne(targetEntity=Subject.class)
+	@ManyToOne(targetEntity=SubjectEntity.class)
 	@JoinColumn(name="subjectCode",nullable=false,unique=true)
 	@JsonBackReference(value="subject")
-	private Subject subject;
+	private SubjectEntity subject;
 }

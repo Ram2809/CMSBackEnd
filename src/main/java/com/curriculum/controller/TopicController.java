@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.curriculum.entity.Topic;
+import com.curriculum.dto.Topic;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.NotFoundException;
 import com.curriculum.exception.SubjectNotFoundException;
@@ -32,143 +32,144 @@ public class TopicController {
 	@Autowired
 	private TopicService topicService;
 	@PostMapping
-	public ResponseEntity<Response> addTopic(@RequestBody Topic topicDetails)
+	public ResponseEntity<Response> addTopic(@RequestBody Topic topic)
 	{
 		Response response=new Response();
 		ResponseEntity responseEntity=null;
-		Topic topic=null;
+		String unitNo=null;
 		try {
-			topic=topicService.addTopic(topicDetails);
+			unitNo=topicService.addTopic(topic);
 			response.setCode(200);
 			response.setMessage("Topic details added successfully!");
 			response.setData(topic);
-			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
+			responseEntity=new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.OK);
 		} catch(NotFoundException e)
 		{
-			//System.out.println(e.getClass());
 			if(e instanceof SubjectNotFoundException)
 			{
-				
+				response.setCode(404);
+				response.setMessage(e.getMessage());
+				responseEntity=new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
 			}
 		}
 		catch (BusinessServiceException  e) {
-			response.setCode(404);
+			response.setCode(500);
 			response.setMessage(e.getMessage());
-			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+			responseEntity=new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
 		}
 		return responseEntity;
 	}
-	@GetMapping("subject/{subjectCode}")
-	public ResponseEntity<Response> getTopicBySubjectCode(@PathVariable("subjectCode") String subjectCode)
-	{
-		Response response=new Response();
-		ResponseEntity responseEntity=null;
-		List<Topic> topicsList=new ArrayList();
-		try {
-			topicsList=topicService.getTopicBySubjectCode(subjectCode);
-			if(!topicsList.isEmpty())
-			{
-				response.setCode(200);
-				response.setMessage("Success!");
-				response.setData(topicsList);
-				responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
-			}
-			else
-			{
-				response.setCode(404);
-				response.setMessage("No units found!");
-				responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
-			}
-		} catch (BusinessServiceException e) {
-			response.setCode(404);
-			response.setMessage(e.getMessage());
-			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
-		}
-		return responseEntity;
-	}
-	@GetMapping
-	public ResponseEntity<Response> getTopicByUnitNo(@RequestParam("unitNo") String unitNo)
-	{
-		Response response=new Response();
-		ResponseEntity responseEntity=null;
-		Topic topic=null;
-		try {
-			topic=topicService.getTopicByUnitNo(unitNo);
-			response.setCode(200);
-			response.setMessage("Success!");
-			response.setData(topic);
-			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
-		} catch (BusinessServiceException e) {
-			response.setCode(404);
-			response.setMessage(e.getMessage());
-			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
-		}
-		return responseEntity;
-	}
-	@PutMapping("/{unitNo}")
-	public ResponseEntity<Response> updateTopic(@PathVariable("unitNo") String unitNo,@RequestBody Topic topicDetails) 
-	{
-		Response response=new Response();
-		ResponseEntity responseEntity=null;
-		Topic topic=null;
-		try {
-			topic=topicService.updateTopic(unitNo,topicDetails);
-			response.setCode(200);
-			response.setMessage("Topic details updated successfully!");
-			response.setData(topic);
-			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
-		} catch (BusinessServiceException e) {
-			response.setCode(404);
-			response.setMessage(e.getMessage());
-			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
-		}
-		return responseEntity;
-	}
-	@GetMapping("/{unitNo}")
-	public ResponseEntity<Response> getSubjectCode(@PathVariable("unitNo") String unitNo)
-	{
-		Response response=new Response();
-		ResponseEntity responseEntity=null;
-		String subjectCode=null;
-		try {
-			subjectCode=topicService.getSubjectCode(unitNo);
-			response.setCode(200);
-			response.setMessage("Success!");
-			response.setData(subjectCode);
-			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
-		} catch (BusinessServiceException e) {
-			response.setCode(404);
-			response.setMessage(e.getMessage());
-			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
-		}
-		return responseEntity;
-	}
-	@DeleteMapping("/{unitNo}")
-	public ResponseEntity<Response> deleteTopic(@PathVariable("unitNo") String unitNo)
-	{
-		Response response=new Response();
-		ResponseEntity responseEntity=null;
-		Topic topic=null;
-		try {
-			topic=topicService.deleteTopic(unitNo);
-			if(topic!=null)
-			{
-				response.setCode(200);
-				response.setMessage("Topic details deleted successfully!");
-				response.setData(topic);
-				responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
-			}
-			else
-			{
-				response.setCode(500);
-				response.setMessage("Internal Server Error");
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
-			}
-		} catch (BusinessServiceException e) {
-			response.setCode(404);
-			response.setMessage(e.getMessage());
-			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
-		}
-		return responseEntity;
-	}
+//	@GetMapping("subject/{subjectCode}")
+//	public ResponseEntity<Response> getTopicBySubjectCode(@PathVariable("subjectCode") String subjectCode)
+//	{
+//		Response response=new Response();
+//		ResponseEntity responseEntity=null;
+//		List<Topic> topicsList=new ArrayList();
+//		try {
+//			topicsList=topicService.getTopicBySubjectCode(subjectCode);
+//			if(!topicsList.isEmpty())
+//			{
+//				response.setCode(200);
+//				response.setMessage("Success!");
+//				response.setData(topicsList);
+//				responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
+//			}
+//			else
+//			{
+//				response.setCode(404);
+//				response.setMessage("No units found!");
+//				responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+//			}
+//		} catch (BusinessServiceException e) {
+//			response.setCode(404);
+//			response.setMessage(e.getMessage());
+//			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+//		}
+//		return responseEntity;
+//	}
+//	@GetMapping
+//	public ResponseEntity<Response> getTopicByUnitNo(@RequestParam("unitNo") String unitNo)
+//	{
+//		Response response=new Response();
+//		ResponseEntity responseEntity=null;
+//		Topic topic=null;
+//		try {
+//			topic=topicService.getTopicByUnitNo(unitNo);
+//			response.setCode(200);
+//			response.setMessage("Success!");
+//			response.setData(topic);
+//			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
+//		} catch (BusinessServiceException e) {
+//			response.setCode(404);
+//			response.setMessage(e.getMessage());
+//			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+//		}
+//		return responseEntity;
+//	}
+//	@PutMapping("/{unitNo}")
+//	public ResponseEntity<Response> updateTopic(@PathVariable("unitNo") String unitNo,@RequestBody Topic topicDetails) 
+//	{
+//		Response response=new Response();
+//		ResponseEntity responseEntity=null;
+//		Topic topic=null;
+//		try {
+//			topic=topicService.updateTopic(unitNo,topicDetails);
+//			response.setCode(200);
+//			response.setMessage("Topic details updated successfully!");
+//			response.setData(topic);
+//			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
+//		} catch (BusinessServiceException e) {
+//			response.setCode(404);
+//			response.setMessage(e.getMessage());
+//			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+//		}
+//		return responseEntity;
+//	}
+//	@GetMapping("/{unitNo}")
+//	public ResponseEntity<Response> getSubjectCode(@PathVariable("unitNo") String unitNo)
+//	{
+//		Response response=new Response();
+//		ResponseEntity responseEntity=null;
+//		String subjectCode=null;
+//		try {
+//			subjectCode=topicService.getSubjectCode(unitNo);
+//			response.setCode(200);
+//			response.setMessage("Success!");
+//			response.setData(subjectCode);
+//			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
+//		} catch (BusinessServiceException e) {
+//			response.setCode(404);
+//			response.setMessage(e.getMessage());
+//			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+//		}
+//		return responseEntity;
+//	}
+//	@DeleteMapping("/{unitNo}")
+//	public ResponseEntity<Response> deleteTopic(@PathVariable("unitNo") String unitNo)
+//	{
+//		Response response=new Response();
+//		ResponseEntity responseEntity=null;
+//		Topic topic=null;
+//		try {
+//			topic=topicService.deleteTopic(unitNo);
+//			if(topic!=null)
+//			{
+//				response.setCode(200);
+//				response.setMessage("Topic details deleted successfully!");
+//				response.setData(topic);
+//				responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.OK);
+//			}
+//			else
+//			{
+//				response.setCode(500);
+//				response.setMessage("Internal Server Error");
+//				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
+//			}
+//		} catch (BusinessServiceException e) {
+//			response.setCode(404);
+//			response.setMessage(e.getMessage());
+//			responseEntity=new ResponseEntity<Response>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+//		}
+//		return responseEntity;
+//	}
 }
