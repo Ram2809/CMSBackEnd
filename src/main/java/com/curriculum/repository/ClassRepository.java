@@ -1,23 +1,24 @@
 package com.curriculum.repository;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import com.curriculum.dto.Class;
+import com.curriculum.entity.ClassEntity;
 import com.curriculum.exception.DatabaseException;
+import com.curriculum.exception.NotFoundException;
 
 public interface ClassRepository {
-	Class addClass(Class classDetails) throws DatabaseException, SQLException;
+	Long addClass(Class classDetail) throws DatabaseException;
 
-//	List<ClassEntity> getAllClass() throws DatabaseException;
-//
-//	ClassEntity updateClass(Long roomNo, ClassEntity classDetails) throws DatabaseException;
-//
-//	ClassEntity deleteClass(Long roomNo) throws DatabaseException;
-//
-//	ClassEntity getParticularClass(Long roomNo) throws DatabaseException;
-//
-//	List<String> getSection(String standard) throws DatabaseException;
-//
-//	Long getClassRoomNo(String standard, String section) throws DatabaseException;
+	List<ClassEntity> getAllClass() throws DatabaseException;
+
+	ClassEntity updateClass(Long roomNo, Class classDetail) throws DatabaseException, NotFoundException;
+
+	ClassEntity deleteClass(Long roomNo) throws DatabaseException, NotFoundException;
+
+	ClassEntity getParticularClass(Long roomNo) throws DatabaseException, NotFoundException;
+
+	List<String> getSection(String standard) throws DatabaseException, NotFoundException;
+
+	Long getClassRoomNo(String standard, String section) throws DatabaseException, NotFoundException;
 }

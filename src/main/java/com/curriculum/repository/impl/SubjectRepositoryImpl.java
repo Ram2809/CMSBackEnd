@@ -1,35 +1,35 @@
-package com.curriculum.repository.impl;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.transaction.Transactional;
-
-import org.apache.log4j.Logger;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
-
-import com.curriculum.entity.ClassEntity;
-import com.curriculum.entity.SubjectEntity;
-import com.curriculum.exception.ConstraintValidationException;
-import com.curriculum.exception.DatabaseException;
-import com.curriculum.exception.SubjectNotFoundException;
-import com.curriculum.repository.SubjectRepository;
-@Repository
-@Transactional
-public class SubjectRepositoryImpl implements SubjectRepository{
-	@Autowired
-	private SessionFactory sessionFactory;
+//package com.curriculum.repository.impl;
+//
+//import java.util.ArrayList;
+//import java.util.List;
+//
+//import javax.transaction.Transactional;
+//
+//import org.apache.log4j.Logger;
+//import org.hibernate.HibernateException;
+//import org.hibernate.Session;
+//import org.hibernate.SessionFactory;
+//import org.hibernate.query.Query;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.http.HttpHeaders;
+//import org.springframework.http.HttpStatus;
+//import org.springframework.http.ResponseEntity;
+//import org.springframework.stereotype.Repository;
+//
+//import com.curriculum.entity.ClassEntity;
+//import com.curriculum.entity.SubjectEntity;
+//import com.curriculum.exception.ConstraintValidationException;
+//import com.curriculum.exception.DatabaseException;
+//import com.curriculum.exception.SubjectNotFoundException;
+//import com.curriculum.repository.SubjectRepository;
+//@Repository
+//@Transactional
+//public class SubjectRepositoryImpl implements SubjectRepository{
+//	@Autowired
+//	private SessionFactory sessionFactory;
 //	@Autowired
 //	private ClassRepositoryImpl classRepositoryImpl;
-	private Logger logger=Logger.getLogger(SubjectRepositoryImpl.class);
+//	private Logger logger=Logger.getLogger(SubjectRepositoryImpl.class);
 //	@Override
 //	public Subject addSubject(Subject subjectDetails) throws DatabaseException {
 //		logger.info("Adding subject details!");
@@ -90,15 +90,15 @@ public class SubjectRepositoryImpl implements SubjectRepository{
 //		}
 //		return response;
 //	}
-	public void checkSubject(String code) throws SubjectNotFoundException {
-		Session session = sessionFactory.openSession();
-		Query query = session.createQuery("FROM Subject WHERE code=:subjectCode");
-		query.setParameter("subjectCode", code);
-		SubjectEntity subjectEntity = (SubjectEntity) query.uniqueResultOptional().orElse(null);
-		if (subjectEntity==null) {
-			throw new SubjectNotFoundException("Subject Not Found With"+" "+code+"!");
-		}
-	}
+//	public void checkSubject(String code) throws SubjectNotFoundException {
+//		Session session = sessionFactory.openSession();
+//		Query query = session.createQuery("FROM Subject WHERE code=:subjectCode");
+//		query.setParameter("subjectCode", code);
+//		SubjectEntity subjectEntity = (SubjectEntity) query.uniqueResultOptional().orElse(null);
+//		if (subjectEntity==null) {
+//			throw new SubjectNotFoundException("Subject Not Found With"+" "+code+"!");
+//		}
+//	}
 //	@Override
 //	public Subject updateSubject(String subjectCode,Subject subjectDetails) throws DatabaseException {
 //		logger.info("Updating the subject details!");
@@ -238,4 +238,4 @@ public class SubjectRepositoryImpl implements SubjectRepository{
 //		return code;
 //	}
 
-}
+//}

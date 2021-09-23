@@ -355,3 +355,41 @@
 2021-09-23 11:38:41 INFO  ClassRepositoryImpl:44 - Class details added successfully!
 2021-09-23 11:41:52 INFO  ClassRepositoryImpl:30 - Adding class details
 2021-09-23 11:41:52 ERROR ClassRepositoryImpl:47 - Error while adding the class!
+2021-09-23 12:53:01 INFO  ClassRepositoryImpl:30 - Adding class details
+2021-09-23 12:53:01 INFO  ClassRepositoryImpl:43 - Class details added successfully!
+2021-09-23 12:58:39 INFO  ClassRepositoryImpl:55 - Getting all class details!
+2021-09-23 12:58:39 INFO  ClassRepositoryImpl:62 - All class details are fetched successfully!
+2021-09-23 13:17:24 INFO  ClassRepositoryImpl:72 - Updating the class details!
+2021-09-23 13:17:25 INFO  ClassRepositoryImpl:84 - Class Details updated successfully!
+2021-09-23 13:28:50 INFO  ClassRepositoryImpl:72 - Updating the class details!
+2021-09-23 13:42:24 INFO  ClassRepositoryImpl:155 - Getting particular class details!
+2021-09-23 13:42:24 ERROR ClassRepositoryImpl:166 - Error while fetching the particular class details!
+2021-09-23 14:11:28 INFO  ClassRepositoryImpl:155 - Getting particular class details!
+2021-09-23 14:11:35 INFO  ClassRepositoryImpl:155 - Getting particular class details!
+2021-09-23 14:11:35 INFO  ClassRepositoryImpl:164 - Particular class details fetched successfully!
+2021-09-23 14:12:29 INFO  ClassRepositoryImpl:155 - Getting particular class details!
+2021-09-23 14:12:29 INFO  ClassRepositoryImpl:164 - Particular class details fetched successfully!
+2021-09-23 14:12:36 INFO  ClassRepositoryImpl:155 - Getting particular class details!
+2021-09-23 14:12:36 INFO  ClassRepositoryImpl:164 - Particular class details fetched successfully!
+2021-09-23 14:34:58 INFO  ClassRepositoryImpl:172 - Getting sections for particular standard
+2021-09-23 14:34:58 ERROR ClassRepositoryImpl:184 - Error while fetching section details
+2021-09-23 14:35:24 INFO  ClassRepositoryImpl:172 - Getting sections for particular standard
+2021-09-23 14:35:24 ERROR ClassRepositoryImpl:184 - Error while fetching section details
+2021-09-23 14:36:15 INFO  ClassRepositoryImpl:172 - Getting sections for particular standard
+2021-09-23 14:36:15 INFO  ClassRepositoryImpl:181 - Section details are fetched successfully!
+2021-09-23 14:38:48 INFO  ClassRepositoryImpl:172 - Getting sections for particular standard
+2021-09-23 14:38:48 INFO  ClassRepositoryImpl:181 - Section details are fetched successfully!
+2021-09-23 14:38:58 INFO  ClassRepositoryImpl:172 - Getting sections for particular standard
+2021-09-23 14:50:24 INFO  ClassRepositoryImpl:192 - Getting classroom
+2021-09-23 14:50:36 INFO  ClassRepositoryImpl:192 - Getting classroom
+2021-09-23 14:50:36 INFO  ClassRepositoryImpl:204 - Classroom is fetched successfully!
+2021-09-23 14:50:55 INFO  ClassRepositoryImpl:192 - Getting classroom
+2021-09-23 14:50:55 INFO  ClassRepositoryImpl:204 - Classroom is fetched successfully!
+2021-09-23 14:52:34 INFO  ClassRepositoryImpl:192 - Getting classroom
+2021-09-23 14:52:42 INFO  ClassRepositoryImpl:192 - Getting classroom
+2021-09-23 14:52:42 INFO  ClassRepositoryImpl:204 - Classroom is fetched successfully!
+2021-09-23 14:52:47 INFO  ClassRepositoryImpl:192 - Getting classroom
+2021-09-23 14:52:47 INFO  ClassRepositoryImpl:204 - Classroom is fetched successfully!
+2021-09-23 15:00:12 INFO  ClassRepositoryImpl:127 - Deleting the class!
+2021-09-23 15:00:20 INFO  ClassRepositoryImpl:127 - Deleting the class!
+2021-09-23 15:00:20 INFO  ClassRepositoryImpl:139 - Class Details deleted successfully!

@@ -1,23 +1,24 @@
 package com.curriculum.service;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import com.curriculum.dto.Class;
+import com.curriculum.entity.ClassEntity;
 import com.curriculum.exception.BusinessServiceException;
+import com.curriculum.exception.NotFoundException;
 
 public interface ClassService {
-	Class addClass(Class classDetails) throws BusinessServiceException, SQLException;
-//
-//	List<ClassEntity> getAllClass() throws BusinessServiceException;
-//
-//	ClassEntity updateClass(Long roomNo, ClassEntity classDetails) throws BusinessServiceException;
-//
-//	ClassEntity deleteClass(Long roomNo) throws BusinessServiceException;
-//
-//	ClassEntity getParticularClass(Long roomNo) throws BusinessServiceException;
-//
-//	List<String> getSection(String standard) throws BusinessServiceException;
-//
-//	Long getClassRoomNo(String standard, String section) throws BusinessServiceException;
+	Long addClass(Class classDetail) throws BusinessServiceException;
+
+	List<ClassEntity> getAllClass() throws BusinessServiceException;
+
+	ClassEntity updateClass(Long roomNo, Class classDetail) throws BusinessServiceException, NotFoundException;
+
+	ClassEntity deleteClass(Long roomNo) throws BusinessServiceException, NotFoundException;
+
+	ClassEntity getParticularClass(Long roomNo) throws BusinessServiceException, NotFoundException;
+
+	List<String> getSection(String standard) throws BusinessServiceException, NotFoundException;
+
+	Long getClassRoomNo(String standard, String section) throws BusinessServiceException, NotFoundException;
 }

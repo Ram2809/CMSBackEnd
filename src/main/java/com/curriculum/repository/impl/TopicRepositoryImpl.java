@@ -1,52 +1,52 @@
-package com.curriculum.repository.impl;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.transaction.Transactional;
-
-import org.apache.log4j.Logger;
-import org.hibernate.Criteria;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.query.Query;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
-
-import com.curriculum.entity.TopicEntity;
-import com.curriculum.dto.Topic;
-import com.curriculum.exception.ConstraintValidationException;
-import com.curriculum.exception.DatabaseException;
-import com.curriculum.exception.NotFoundException;
-import com.curriculum.exception.SubjectNotFoundException;
-import com.curriculum.exception.UnitNotFoundException;
-import com.curriculum.repository.TopicRepository;
-import com.curriculum.util.TopicMapper;
-
-@Repository
-@Transactional
-public class TopicRepositoryImpl implements TopicRepository{
-	@Autowired
-	private SessionFactory sessionFactory;
-	@Autowired
-	private SubjectRepositoryImpl subjectRepositoryImpl;
-	private Logger logger=Logger.getLogger(TopicRepositoryImpl.class);
-	@Override
-	public String addTopic(Topic topic) throws DatabaseException, NotFoundException{
-		logger.info("Adding the topic details!");
-		Session session=null;
-		String unitNo=null;
-		try
-		{
+//package com.curriculum.repository.impl;
+//
+//import java.util.ArrayList;
+//import java.util.List;
+//
+//import javax.transaction.Transactional;
+//
+//import org.apache.log4j.Logger;
+//import org.hibernate.Criteria;
+//import org.hibernate.HibernateException;
+//import org.hibernate.Session;
+//import org.hibernate.SessionFactory;
+//import org.hibernate.query.Query;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.http.HttpHeaders;
+//import org.springframework.http.HttpStatus;
+//import org.springframework.http.ResponseEntity;
+//import org.springframework.stereotype.Repository;
+//
+//import com.curriculum.entity.TopicEntity;
+//import com.curriculum.dto.Topic;
+//import com.curriculum.exception.ConstraintValidationException;
+//import com.curriculum.exception.DatabaseException;
+//import com.curriculum.exception.NotFoundException;
+//import com.curriculum.exception.SubjectNotFoundException;
+//import com.curriculum.exception.UnitNotFoundException;
+//import com.curriculum.repository.TopicRepository;
+//import com.curriculum.util.TopicMapper;
+//
+//@Repository
+//@Transactional
+//public class TopicRepositoryImpl implements TopicRepository{
+//	@Autowired
+//	private SessionFactory sessionFactory;
+//	@Autowired
+//	private SubjectRepositoryImpl subjectRepositoryImpl;
+//	private Logger logger=Logger.getLogger(TopicRepositoryImpl.class);
+//	@Override
+//	public String addTopic(Topic topic) throws DatabaseException, NotFoundException{
+//		logger.info("Adding the topic details!");
+//		Session session=null;
+//		String unitNo=null;
+//		try
+//		{
 //			if(topicDetails.getUnitNo().length()>8)
 //			{
 //				throw new ConstraintValidationException("Unit Number not exceeds the 8 characters!");
 //			}
-			session=sessionFactory.getCurrentSession();
+//			session=sessionFactory.getCurrentSession();
 			//Query query = session.createQuery("FROM Topic WHERE unitNo=:unitCode");
 //			query.setParameter("unitCode", topic.getUnitNo());
 //			TopicEntity topicEntity = (TopicEntity) query.uniqueResultOptional().orElse(null);
@@ -64,19 +64,19 @@ public class TopicRepositoryImpl implements TopicRepository{
 //			topic.setDescription(topicDetails.getDescription());
 //			topic.setEndDate(topicDetails.getEndDate());
 //			topic.setSubject(subject);
-			unitNo=(String) session.save(TopicMapper.topicMapper(topic));
-			if(!unitNo.isEmpty())
-			{
-				logger.info("Unit is added successfully!");
-			}
-		}
-		catch(HibernateException e)// |  ConstraintValidationException e)
-		{
-			logger.error("Error while adding the topic!");
-			throw new DatabaseException(e.getMessage(),e);
-		}
-		return unitNo;
-	}
+//			unitNo=(String) session.save(TopicMapper.topicMapper(topic));
+//			if(!unitNo.isEmpty())
+//			{
+//				logger.info("Unit is added successfully!");
+//			}
+//		}
+//		catch(HibernateException e)// |  ConstraintValidationException e)
+//		{
+//			logger.error("Error while adding the topic!");
+//			throw new DatabaseException(e.getMessage(),e);
+//		}
+//		return unitNo;
+//	}
 //	@Override
 //	public List<Topic> getTopicBySubjectCode(String subjectCode) throws DatabaseException{
 //		logger.info("Getting units for given subject!");
@@ -217,4 +217,4 @@ public class TopicRepositoryImpl implements TopicRepository{
 //	}
 //
 
-}
+//}
