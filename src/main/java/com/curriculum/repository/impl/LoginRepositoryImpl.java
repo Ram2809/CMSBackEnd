@@ -77,8 +77,6 @@ public class LoginRepositoryImpl implements LoginRepository{
 			query.setParameter("teacherId", teacherId);
 			count=(long) query.executeUpdate();
 			loginId=getLogin(teacherId).getLoginId();
-			System.out.println(loginId);
-			System.out.println(count);
 			if(count>0)
 			{
 				loginEntity=session.get(LoginEntity.class, loginId);
