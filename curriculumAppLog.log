@@ -519,3 +519,18 @@
 2021-09-23 23:57:48 INFO  SubjectRepositoryImpl:150 - Subject details fetched successfully!
 2021-09-23 23:58:10 INFO  SubjectRepositoryImpl:140 - Getting subject details by code!
 2021-09-23 23:58:10 INFO  SubjectRepositoryImpl:150 - Subject details fetched successfully!
+2021-09-24 10:39:58 INFO  SubjectRepositoryImpl:84 - Updating the subject details!
+2021-09-24 10:41:25 INFO  SubjectRepositoryImpl:84 - Updating the subject details!
+2021-09-24 10:41:25 INFO  SubjectRepositoryImpl:99 - Subject details updated successfully!
+2021-09-24 10:59:11 INFO  SubjectRepositoryImpl:110 - Deleting the subject details!
+2021-09-24 11:00:05 INFO  SubjectRepositoryImpl:110 - Deleting the subject details!
+2021-09-24 11:00:14 INFO  SubjectRepositoryImpl:110 - Deleting the subject details!
+2021-09-24 11:00:14 INFO  SubjectRepositoryImpl:124 - Subject is deleted successfully!
+2021-09-24 11:21:05 INFO  SubjectRepositoryImpl:182 - Getting subject names!
+2021-09-24 11:21:05 INFO  SubjectRepositoryImpl:191 - Subject Names fetched successfully!
+2021-09-24 11:21:44 INFO  SubjectRepositoryImpl:182 - Getting subject names!
+2021-09-24 11:21:44 INFO  SubjectRepositoryImpl:191 - Subject Names fetched successfully!
+2021-09-24 11:45:06 INFO  SubjectRepositoryImpl:161 - Getting subject details by class!
+2021-09-24 11:45:06 INFO  SubjectRepositoryImpl:170 - Subject details are fetched successfully!
+2021-09-24 11:45:13 INFO  SubjectRepositoryImpl:161 - Getting subject details by class!
+2021-09-24 11:45:13 INFO  SubjectRepositoryImpl:170 - Subject details are fetched successfully!

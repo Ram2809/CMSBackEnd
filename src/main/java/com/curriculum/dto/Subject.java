@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Subject {
 	@NotNull
-	@Size(max=6)
+	@Size(max = 6)
 	private String code;
 	@NotNull
 	private String name;

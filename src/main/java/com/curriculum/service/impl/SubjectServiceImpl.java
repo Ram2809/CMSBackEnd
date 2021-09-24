@@ -19,44 +19,48 @@ import com.curriculum.repository.impl.ClassRepositoryImpl;
 import com.curriculum.service.SubjectService;
 
 @Service
-public class SubjectServiceImpl implements SubjectService{
+public class SubjectServiceImpl implements SubjectService {
 	@Autowired
 	private SubjectRepository subjectRepository;
 	@Autowired
 	private ClassRepositoryImpl classRepository;
+
 	@Override
 	public String addSubject(Subject subject) throws BusinessServiceException, NotFoundException {
 		try {
 			classRepository.checkClassRoom(subject.getClassRoom().getRoomNo());
 			return subjectRepository.addSubject(subject);
-		}catch(DataIntegrityViolationException e)
-		{
+		} catch (DataIntegrityViolationException e) {
 			throw new ConstraintValidationException("Constraint Violation fails!");
-		}
-		catch (DatabaseException e) {
+		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
+
 //	@Override
 //	public ResponseEntity<List<Subject>> getAllSubjectDetails() {
 //		return subjectRepository.getAllSubjectDetails();
 //	}
-//	@Override
-//	public Subject updateSubject(String subjectCode,Subject subjectDetails) throws BusinessServiceException {
-//		try {
-//			return subjectRepository.updateSubject(subjectCode,subjectDetails);
-//		} catch (DatabaseException e) {
-//			throw new BusinessServiceException(e.getMessage());
-//		}
-//	}
-//	@Override
-//	public Subject deleteSubject(String subjectCode) throws BusinessServiceException {
-//		try {
-//			return subjectRepository.deleteSubject(subjectCode);
-//		} catch (DatabaseException e) {
-//			throw new BusinessServiceException(e.getMessage());
-//		}
-//	}
+	@Override
+	public SubjectEntity updateSubject(String subjectCode, Subject subject)
+			throws BusinessServiceException, NotFoundException {
+		try {
+			classRepository.checkClassRoom(subject.getClassRoom().getRoomNo());
+			return subjectRepository.updateSubject(subjectCode, subject);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
+	@Override
+	public SubjectEntity deleteSubject(String subjectCode) throws BusinessServiceException, NotFoundException {
+		try {
+			return subjectRepository.deleteSubject(subjectCode);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
 	@Override
 	public SubjectEntity getParticularSubject(String subjectCode) throws BusinessServiceException, NotFoundException {
 		try {
@@ -65,29 +69,35 @@ public class SubjectServiceImpl implements SubjectService{
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
-//	@Override
-//	public List<Subject> getSubjectByClass(Long roomNo) throws BusinessServiceException {
-//		try {
-//			return subjectRepository.getSubjectByClass(roomNo);
-//		} catch (DatabaseException e) {
-//			throw new BusinessServiceException(e.getMessage());
-//		}
-//	}
-//	@Override
-//	public List<String> getSubjectName(Long roomNo) throws BusinessServiceException {
-//		try {
-//			return subjectRepository.getSubjectName(roomNo);
-//		} catch (DatabaseException e) {
-//			throw new BusinessServiceException(e.getMessage());
-//		}
-//	}
-//	@Override
-//	public String getSubjectCode(Long roomNo, String name) throws BusinessServiceException {
-//		try {
-//			return subjectRepository.getSubjectCode(roomNo,name);
-//		} catch (DatabaseException e) {
-//			throw new BusinessServiceException(e.getMessage());
-//		}
-//	}
-	
+
+	@Override
+	public List<SubjectEntity> getSubjectByClass(Long roomNo) throws BusinessServiceException, NotFoundException {
+		try {
+			classRepository.checkClassRoom(roomNo);
+			return subjectRepository.getSubjectByClass(roomNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
+	@Override
+	public List<String> getSubjectName(Long roomNo) throws BusinessServiceException, NotFoundException {
+		try {
+			classRepository.checkClassRoom(roomNo);
+			return subjectRepository.getSubjectName(roomNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
+	@Override
+	public String getSubjectCode(Long roomNo, String name) throws BusinessServiceException, NotFoundException {
+		try {
+			classRepository.checkClassRoom(roomNo);
+			return subjectRepository.getSubjectCode(roomNo, name);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
 }
