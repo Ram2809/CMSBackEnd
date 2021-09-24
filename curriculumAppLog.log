@@ -626,3 +626,45 @@
 2021-09-24 16:36:12 INFO  DiscussionRepositoryImpl:84 - Updating the discussion details!
 2021-09-24 16:36:58 INFO  DiscussionRepositoryImpl:84 - Updating the discussion details!
 2021-09-24 16:36:58 INFO  DiscussionRepositoryImpl:101 - Discussion details are updated successfully!
+2021-09-24 16:55:15 INFO  DiscussionRepositoryImpl:142 - Getting discussion detail!
+2021-09-24 16:55:22 INFO  DiscussionRepositoryImpl:142 - Getting discussion detail!
+2021-09-24 16:55:22 INFO  DiscussionRepositoryImpl:152 - Discussion detail is fetched successfully!
+2021-09-24 16:55:31 INFO  DiscussionRepositoryImpl:142 - Getting discussion detail!
+2021-09-24 16:55:31 INFO  DiscussionRepositoryImpl:152 - Discussion detail is fetched successfully!
+2021-09-24 16:55:56 INFO  DiscussionRepositoryImpl:112 - Deleting the discussion details!
+2021-09-24 16:56:08 INFO  DiscussionRepositoryImpl:112 - Deleting the discussion details!
+2021-09-24 16:56:08 ERROR DiscussionRepositoryImpl:135 - Error while deleting the discussion details!
+2021-09-24 16:57:13 INFO  DiscussionRepositoryImpl:34 - Adding discussion details!
+2021-09-24 16:57:13 INFO  DiscussionRepositoryImpl:43 - Discussion details added successfully!
+2021-09-24 16:57:53 INFO  DiscussionRepositoryImpl:112 - Deleting the discussion details!
+2021-09-24 16:58:05 INFO  DiscussionRepositoryImpl:112 - Deleting the discussion details!
+2021-09-24 16:58:09 INFO  DiscussionRepositoryImpl:112 - Deleting the discussion details!
+2021-09-24 16:58:09 INFO  DiscussionRepositoryImpl:126 - Discussion is deleted successfully!
+2021-09-24 17:28:33 INFO  TeacherSubjectRepositoryImpl:32 - Assigning teacher for particular course!
+2021-09-24 17:28:33 INFO  TeacherSubjectRepositoryImpl:41 - Teacher assigned for course successfully!
+2021-09-24 17:33:52 INFO  TeacherSubjectRepositoryImpl:33 - Assigning teacher for particular course!
+2021-09-24 17:33:52 INFO  TeacherSubjectRepositoryImpl:43 - Teacher assigned for course successfully!
+2021-09-24 17:35:48 INFO  TeacherSubjectRepositoryImpl:32 - Assigning teacher for particular course!
+2021-09-24 17:35:48 ERROR TeacherSubjectRepositoryImpl:46 - Error while assigning staff for course!
+2021-09-24 17:36:41 INFO  TeacherSubjectRepositoryImpl:32 - Assigning teacher for particular course!
+2021-09-24 17:36:41 INFO  TeacherSubjectRepositoryImpl:41 - Teacher assigned for course successfully!
+2021-09-24 17:37:08 INFO  TeacherSubjectRepositoryImpl:32 - Assigning teacher for particular course!
+2021-09-24 17:37:08 ERROR TeacherSubjectRepositoryImpl:46 - Error while assigning staff for course!
+2021-09-24 17:39:19 INFO  TeacherSubjectRepositoryImpl:32 - Assigning teacher for particular course!
+2021-09-24 17:39:19 ERROR TeacherSubjectRepositoryImpl:46 - Error while assigning staff for course!
+2021-09-24 18:05:38 INFO  TeacherSubjectRepositoryImpl:57 - Updating the teacher for course!
+2021-09-24 18:06:35 INFO  TeacherSubjectRepositoryImpl:57 - Updating the teacher for course!
+2021-09-24 18:07:36 INFO  TeacherSubjectRepositoryImpl:57 - Updating the teacher for course!
+2021-09-24 18:07:48 INFO  TeacherSubjectRepositoryImpl:57 - Updating the teacher for course!
+2021-09-24 18:07:48 INFO  TeacherSubjectRepositoryImpl:74 - Staff assigned for new subject successfully!
+2021-09-24 18:08:38 INFO  TeacherSubjectRepositoryImpl:57 - Updating the teacher for course!
+2021-09-24 18:08:38 INFO  TeacherSubjectRepositoryImpl:74 - Staff assigned for new subject successfully!
+2021-09-24 18:17:20 INFO  TeacherSubjectRepositoryImpl:94 - Deleting the teacher subject assign!
+2021-09-24 18:17:28 INFO  TeacherSubjectRepositoryImpl:94 - Deleting the teacher subject assign!
+2021-09-24 18:17:28 INFO  TeacherSubjectRepositoryImpl:108 - Teacher subject assign is deleted successfully!
+2021-09-24 20:13:41 INFO  TimeTableRepositoryImpl:36 - Adding timetable details!
+2021-09-24 20:13:41 INFO  TimeTableRepositoryImpl:50 - Timetable details are added successfully!
+2021-09-24 20:15:00 INFO  TimeTableRepositoryImpl:36 - Adding timetable details!
+2021-09-24 20:15:00 INFO  TimeTableRepositoryImpl:50 - Timetable details are added successfully!
+2021-09-24 20:16:32 INFO  TimeTableRepositoryImpl:36 - Adding timetable details!
+2021-09-24 20:16:32 INFO  TimeTableRepositoryImpl:50 - Timetable details are added successfully!
