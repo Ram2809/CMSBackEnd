@@ -564,3 +564,33 @@
 2021-09-24 13:16:09 INFO  LoginRepositoryImpl:47 - Fetching login credentials
 2021-09-24 13:16:09 INFO  LoginRepositoryImpl:56 - Login Credentials Updated successfully!
 2021-09-24 13:16:09 INFO  LoginRepositoryImpl:87 - Password updated successfully!
+2021-09-24 14:04:30 INFO  TopicRepositoryImpl:40 - Adding the topic details!
+2021-09-24 14:04:30 INFO  TopicRepositoryImpl:49 - Unit is added successfully!
+2021-09-24 14:09:01 ERROR TopicController:184 - Validation fails, Check your input!
+2021-09-24 14:09:40 INFO  TopicRepositoryImpl:40 - Adding the topic details!
+2021-09-24 14:09:40 INFO  TopicRepositoryImpl:49 - Unit is added successfully!
+2021-09-24 14:11:12 INFO  TopicRepositoryImpl:40 - Adding the topic details!
+2021-09-24 14:11:12 INFO  TopicRepositoryImpl:49 - Unit is added successfully!
+2021-09-24 14:11:12 ERROR TopicServiceImpl:35 - Constraint Violation fails!
+2021-09-24 14:12:18 INFO  TopicRepositoryImpl:40 - Adding the topic details!
+2021-09-24 14:12:18 INFO  TopicRepositoryImpl:49 - Unit is added successfully!
+2021-09-24 14:12:18 ERROR TopicServiceImpl:35 - Constraint Violation fails!
+2021-09-24 14:19:30 INFO  TopicRepositoryImpl:61 - Getting units for given subject!
+2021-09-24 14:19:30 INFO  TopicRepositoryImpl:70 - Unit details are fetched successfully!
+2021-09-24 14:19:39 INFO  TopicRepositoryImpl:61 - Getting units for given subject!
+2021-09-24 14:19:39 INFO  TopicRepositoryImpl:70 - Unit details are fetched successfully!
+2021-09-24 14:28:17 INFO  TopicRepositoryImpl:90 - Getting particular topic details
+2021-09-24 14:28:27 INFO  TopicRepositoryImpl:90 - Getting particular topic details
+2021-09-24 14:28:27 INFO  TopicRepositoryImpl:100 - Topic details fetched successfully!
+2021-09-24 14:56:22 INFO  TopicRepositoryImpl:110 - Updating topic details!
+2021-09-24 15:02:34 INFO  TopicRepositoryImpl:110 - Updating topic details!
+2021-09-24 15:02:34 INFO  TopicRepositoryImpl:129 - Topic details updated successfully!
+2021-09-24 15:16:32 INFO  TopicRepositoryImpl:39 - Adding the topic details!
+2021-09-24 15:16:32 INFO  TopicRepositoryImpl:48 - Unit is added successfully!
+2021-09-24 15:16:32 ERROR TopicServiceImpl:37 - Constraint Violation fails!
+2021-09-24 15:17:32 INFO  TopicRepositoryImpl:39 - Adding the topic details!
+2021-09-24 15:17:32 INFO  TopicRepositoryImpl:48 - Unit is added successfully!
+2021-09-24 15:18:27 INFO  TopicRepositoryImpl:110 - Updating topic details!
+2021-09-24 15:18:27 INFO  TopicRepositoryImpl:129 - Topic details updated successfully!
+2021-09-24 15:31:57 INFO  TopicRepositoryImpl:110 - Updating topic details!
+2021-09-24 15:31:57 INFO  TopicRepositoryImpl:129 - Topic details updated successfully!

@@ -4,13 +4,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.curriculum.dto.Subject;
 import com.curriculum.entity.SubjectEntity;
 import com.curriculum.exception.BusinessServiceException;
-import com.curriculum.exception.ClassNotFoundException;
 import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
