@@ -34,9 +34,9 @@ public class ClassEntity implements Serializable {
 	@OneToMany(mappedBy = "classEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
 	private Set<StudentEntity> student;
-//	@OneToMany(mappedBy = "classRoom", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-//	@JsonIgnore
-//	private Set<SubjectEntity> subject;
+	@OneToMany(mappedBy = "classRoom", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonIgnore
+	private Set<SubjectEntity> subject;
 //	@OneToMany(mappedBy = "classRoom", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 //	@JsonIgnore
 //	private Set<TimeTable> timeTable;
