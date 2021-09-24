@@ -30,10 +30,23 @@ public class TimeTableServiceImpl implements TimeTableService{
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
-//	@Override
-//	public ResponseEntity<List<TimeTable>> getTimeTable(Long roomNo) {
-//		// TODO Auto-generated method stub
-//		return timeTableRepository.getTimeTable(roomNo);
-//	}
+	@Override
+	public List<TimeTableEntity> getTimeTable(Long roomNo) throws BusinessServiceException, NotFoundException {
+		try {
+			classRepository.checkClassRoom(roomNo);
+			return timeTableRepository.getTimeTable(roomNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+	@Override
+	public Integer deleteTimeTable(Long roomNo) throws BusinessServiceException,NotFoundException {
+		try {
+			classRepository.checkClassRoom(roomNo);
+			return timeTableRepository.deleteTimeTable(roomNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
 
 }

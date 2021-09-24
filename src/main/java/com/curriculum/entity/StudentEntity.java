@@ -17,10 +17,14 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sun.istack.NotNull;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @NoArgsConstructor
-@Data
+//@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "Student")
 public class StudentEntity implements Serializable {

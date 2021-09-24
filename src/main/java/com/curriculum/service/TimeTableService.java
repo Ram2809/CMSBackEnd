@@ -11,5 +11,8 @@ import com.curriculum.exception.NotFoundException;
 
 public interface TimeTableService {
 	TimeTableEntity addTimeTable(TimeTable timeTable) throws BusinessServiceException, NotFoundException;
-	//ResponseEntity<List<TimeTable>> getTimeTable(Long roomNo);
+
+	List<TimeTableEntity> getTimeTable(Long roomNo) throws BusinessServiceException, NotFoundException;
+
+	Integer deleteTimeTable(Long roomNo) throws BusinessServiceException, NotFoundException;
 }

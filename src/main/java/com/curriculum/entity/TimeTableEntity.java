@@ -3,19 +3,21 @@ package com.curriculum.entity;
 import java.io.Serializable;
 import java.util.Map;
 
+import javax.persistence.CascadeType;
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.sun.istack.NotNull;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 @Data
@@ -29,7 +31,8 @@ public class TimeTableEntity implements Serializable{
 	@NotNull
 	private String day;
 	@Column
-	@ElementCollection
+	@ElementCollection(fetch=FetchType.EAGER)
+	@CollectionTable(name="Period")
 	private Map<Integer,String> periods;
 	@ManyToOne
 	@JoinColumn(name="roomNo",nullable=false)

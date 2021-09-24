@@ -21,6 +21,7 @@ import com.curriculum.entity.ClassEntity;
 import com.curriculum.dto.TimeTable;
 import com.curriculum.entity.TimeTableEntity;
 import com.curriculum.exception.DatabaseException;
+import com.curriculum.exception.NotAllowedException;
 import com.curriculum.repository.TimeTableRepository;
 import com.curriculum.util.TimeTableMapper;
 @Repository
@@ -28,8 +29,6 @@ import com.curriculum.util.TimeTableMapper;
 public class TimeTableRepositoryImpl implements TimeTableRepository{
 	@Autowired
 	private SessionFactory sessionFactory;
-	@Autowired
-	private ClassRepositoryImpl classRepositoryImpl;
 	private Logger logger=Logger.getLogger(TimeTableRepositoryImpl.class);
 	@Override
 	public TimeTableEntity addTimeTable(TimeTable timeTable) throws DatabaseException {
@@ -38,10 +37,8 @@ public class TimeTableRepositoryImpl implements TimeTableRepository{
 		Session session=null;
 		try
 		{
-//			System.out.println(timeTableDetails.getClassRoom().getRoomNo());
-//			System.out.println(timeTableDetails.getDay());
-//			System.out.println(timeTableDetails.getPeriods());
 			session=sessionFactory.getCurrentSession();
+			checkPeriod(timeTable.getDay(),timeTable.getClassRoom().getRoomNo());
 			Long count=(Long) session.save(TimeTableMapper.timeTableMapper(timeTable));
 			if(count>0)
 			{
@@ -50,37 +47,74 @@ public class TimeTableRepositoryImpl implements TimeTableRepository{
 				logger.info("Timetable details are added successfully!");
 			}
 		}
-		catch(HibernateException e)
+		catch(HibernateException | NotAllowedException e)
 		{
 			logger.error("Error while adding the timetable details!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return timeTableEntity;
 	}
-//	@Override
-//	public ResponseEntity<List<TimeTable>> getTimeTable(Long roomNo) {
-//		// TODO Auto-generated method stub
-//		ResponseEntity<List<TimeTable>> response=null;
-//		Session session=null;
-//		List<TimeTable> timeTableList=new ArrayList<>();
-//		try
-//		{
-//			//classRepositoryImpl.checkClassRoom(roomNo);
-////			if(!RoomNoStatus)
-////			{
-////				throw new ClassNotFoundException("Class Not Found With"+" "+roomNo+"!");
-////			}
-//			session=sessionFactory.getCurrentSession();
-//			Query<TimeTable> query=session.createQuery("FROM TimeTable WHERE roomNo=:roomId");
-//			query.setParameter("roomId", roomNo);
-//			timeTableList=query.getResultList();
-//			response=new ResponseEntity<List<TimeTable>>(timeTableList,new HttpHeaders(),HttpStatus.OK);
-//		}
-//		catch(HibernateException e)//| ClassNotFoundException e)
-//		{
-//			e.printStackTrace();
-//		}
-//		return response;
-//	}
-
+	@Override
+	public List<TimeTableEntity> getTimeTable(Long roomNo) throws DatabaseException {
+		logger.info("Getting timetable details!");
+		Session session=null;
+		List<TimeTableEntity> timeTableList=new ArrayList<>();
+		try
+		{
+			session=sessionFactory.getCurrentSession();
+			Query<TimeTableEntity> query=session.createQuery("FROM TimeTableEntity WHERE roomNo=:roomId");
+			query.setParameter("roomId", roomNo);
+			timeTableList=query.getResultList();
+			System.out.println(timeTableList);
+			logger.info("Timetable details are fetched successfully!");
+		}
+		catch(HibernateException e)
+		{
+			logger.error("Error while fetching timetable details!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return timeTableList;
+	}
+	public void checkPeriod(String day,Long classRoomNo) throws NotAllowedException
+	{
+		Session session=sessionFactory.getCurrentSession();
+		Query<TimeTableEntity> query=session.createQuery("FROM TimeTableEntity t WHERE t.day=:day AND t.classRoom.roomNo=:roomNo");
+		query.setParameter("day", day);
+		query.setParameter("roomNo",classRoomNo);
+		TimeTableEntity timeTableEntity=query.uniqueResultOptional().orElse(null);
+		if(timeTableEntity!=null)
+		{
+			throw new NotAllowedException("Already assigned periods for"+" "+day+" "+"for class Room Number"+" "+classRoomNo+"!");
+		}
+	}
+	@Override
+	public Integer deleteTimeTable(Long roomNo) throws DatabaseException {
+		logger.info("Deleting timetable!");
+		Session session=null;
+		Integer noOfRowsDeleted=0;
+		try
+		{
+			session=sessionFactory.getCurrentSession();
+			Query query2=session.createQuery("SELECT t.id FROM TimeTableEntity t WHERE t.classRoom.roomNo=:roomNo");
+			query2.setParameter("roomNo", roomNo);
+			List<Long> ids=query2.getResultList();
+			System.out.println(ids);
+			for(Long id:ids)
+			{
+				Query query1=session.createSQLQuery("DELETE FROM Period p WHERE p.TimeTableEntity_id="+id);
+				System.out.println(query1.executeUpdate());
+			}
+			Query query=session.createQuery("DELETE FROM TimeTableEntity t WHERE t.classRoom.roomNo=:roomNo");
+			query.setParameter("roomNo", roomNo);
+			noOfRowsDeleted=query.executeUpdate();
+			System.out.println(noOfRowsDeleted);
+			logger.info("Timetable Deleted successfully!");
+		}
+		catch(HibernateException e)
+		{
+			logger.error("Error while deleting the timetable!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return noOfRowsDeleted;
+	}
 }
