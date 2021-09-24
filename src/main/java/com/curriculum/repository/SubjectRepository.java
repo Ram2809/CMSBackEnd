@@ -26,6 +26,5 @@ public interface SubjectRepository {
 	List<String> getSubjectName(Long roomNo) throws DatabaseException;
 
 	String getSubjectCode(Long roomNo, String name) throws DatabaseException;
-//	void checkSubject(String code) throws SubjectNotFoundException;
 
 }

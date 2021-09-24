@@ -1,12 +1,12 @@
-//package com.curriculum.service;
-//
-//import org.springframework.http.ResponseEntity;
-//
-//import com.curriculum.entity.Login;
-//import com.curriculum.exception.BusinessServiceException;
-//
-//public interface LoginService {
-//	Login addLogin(Login loginDetails) throws BusinessServiceException;
-//	Login getLogin(Long teacherId) throws BusinessServiceException;
-//	Login updateLogin(Long teacherId,Login loginDetails) throws BusinessServiceException;
-//}
+package com.curriculum.service;
+
+import com.curriculum.dto.Login;
+import com.curriculum.entity.LoginEntity;
+import com.curriculum.exception.BusinessServiceException;
+import com.curriculum.exception.NotFoundException;
+
+public interface LoginService {
+	Long addLogin(Login login) throws BusinessServiceException, NotFoundException;
+	LoginEntity getLogin(Long teacherId) throws BusinessServiceException, NotFoundException;
+	LoginEntity updateLogin(Long teacherId,Login login) throws BusinessServiceException, NotFoundException;
+}

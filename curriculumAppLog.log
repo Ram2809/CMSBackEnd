@@ -534,3 +534,33 @@
 2021-09-24 11:45:06 INFO  SubjectRepositoryImpl:170 - Subject details are fetched successfully!
 2021-09-24 11:45:13 INFO  SubjectRepositoryImpl:161 - Getting subject details by class!
 2021-09-24 11:45:13 INFO  SubjectRepositoryImpl:170 - Subject details are fetched successfully!
+2021-09-24 12:26:22 INFO  LoginRepositoryImpl:24 - Adding login credentials
+2021-09-24 12:26:22 ERROR LoginRepositoryImpl:38 - Error while adding login credentials
+2021-09-24 12:31:06 INFO  LoginRepositoryImpl:24 - Adding login credentials
+2021-09-24 12:31:07 INFO  LoginRepositoryImpl:33 - Login credentials added successfully!
+2021-09-24 12:37:24 INFO  LoginRepositoryImpl:24 - Adding login credentials
+2021-09-24 12:37:24 ERROR LoginRepositoryImpl:38 - Error while adding login credentials
+2021-09-24 12:38:11 INFO  LoginRepositoryImpl:24 - Adding login credentials
+2021-09-24 12:38:11 ERROR LoginRepositoryImpl:38 - Error while adding login credentials
+2021-09-24 12:38:18 INFO  LoginRepositoryImpl:24 - Adding login credentials
+2021-09-24 12:38:18 ERROR LoginRepositoryImpl:38 - Error while adding login credentials
+2021-09-24 12:40:10 INFO  LoginRepositoryImpl:24 - Adding login credentials
+2021-09-24 12:40:10 ERROR LoginRepositoryImpl:38 - Error while adding login credentials
+2021-09-24 12:46:36 INFO  LoginRepositoryImpl:24 - Adding login credentials
+2021-09-24 12:46:36 INFO  LoginRepositoryImpl:33 - Login credentials added successfully!
+2021-09-24 12:48:35 INFO  LoginRepositoryImpl:24 - Adding login credentials
+2021-09-24 12:48:35 ERROR LoginRepositoryImpl:38 - Error while adding login credentials
+2021-09-24 12:49:48 INFO  LoginRepositoryImpl:24 - Adding login credentials
+2021-09-24 12:49:48 INFO  LoginRepositoryImpl:33 - Login credentials added successfully!
+2021-09-24 12:50:19 INFO  LoginRepositoryImpl:24 - Adding login credentials
+2021-09-24 12:50:19 INFO  LoginRepositoryImpl:33 - Login credentials added successfully!
+2021-09-24 12:59:38 INFO  LoginRepositoryImpl:47 - Fetching login credentials
+2021-09-24 12:59:38 INFO  LoginRepositoryImpl:56 - Login Credentials Updated successfully!
+2021-09-24 13:02:01 INFO  LoginRepositoryImpl:47 - Fetching login credentials
+2021-09-24 13:02:01 INFO  LoginRepositoryImpl:56 - Login Credentials Updated successfully!
+2021-09-24 13:02:08 INFO  LoginRepositoryImpl:47 - Fetching login credentials
+2021-09-24 13:02:08 INFO  LoginRepositoryImpl:56 - Login Credentials Updated successfully!
+2021-09-24 13:16:09 INFO  LoginRepositoryImpl:67 - Updating login credentials
+2021-09-24 13:16:09 INFO  LoginRepositoryImpl:47 - Fetching login credentials
+2021-09-24 13:16:09 INFO  LoginRepositoryImpl:56 - Login Credentials Updated successfully!
+2021-09-24 13:16:09 INFO  LoginRepositoryImpl:87 - Password updated successfully!
