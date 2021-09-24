@@ -43,9 +43,7 @@ public class TopicEntity implements Serializable{
 	@JoinColumn(name="subjectCode",nullable=false)
 	@JsonBackReference
 	private SubjectEntity subject;
-//	@OneToMany(mappedBy="topic",cascade=CascadeType.ALL,fetch=FetchType.LAZY,orphanRemoval=true)
-//	@JsonIgnore
-//	private Set<Discussion> discussion;
-	
-	
+	@OneToMany(mappedBy="topic",cascade=CascadeType.ALL,fetch=FetchType.LAZY,orphanRemoval=true)
+	@JsonIgnore
+	private Set<DiscussionEntity> discussion;
 }

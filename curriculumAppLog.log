@@ -594,3 +594,35 @@
 2021-09-24 15:18:27 INFO  TopicRepositoryImpl:129 - Topic details updated successfully!
 2021-09-24 15:31:57 INFO  TopicRepositoryImpl:110 - Updating topic details!
 2021-09-24 15:31:57 INFO  TopicRepositoryImpl:129 - Topic details updated successfully!
+2021-09-24 15:33:59 INFO  TopicRepositoryImpl:171 - Getting subject by unit number!
+2021-09-24 15:34:09 INFO  TopicRepositoryImpl:171 - Getting subject by unit number!
+2021-09-24 15:34:09 INFO  TopicRepositoryImpl:181 - Subject code fetched successfully using unit number!
+2021-09-24 16:02:50 INFO  DiscussionRepositoryImpl:30 - Adding discussion details!
+2021-09-24 16:02:50 ERROR DiscussionRepositoryImpl:44 - Error while adding discussion details!
+2021-09-24 16:03:47 INFO  DiscussionRepositoryImpl:30 - Adding discussion details!
+2021-09-24 16:03:47 ERROR DiscussionRepositoryImpl:44 - Error while adding discussion details!
+2021-09-24 16:05:02 INFO  DiscussionRepositoryImpl:30 - Adding discussion details!
+2021-09-24 16:05:02 ERROR DiscussionRepositoryImpl:44 - Error while adding discussion details!
+2021-09-24 16:05:47 INFO  DiscussionRepositoryImpl:30 - Adding discussion details!
+2021-09-24 16:05:47 ERROR DiscussionRepositoryImpl:44 - Error while adding discussion details!
+2021-09-24 16:06:41 INFO  DiscussionRepositoryImpl:30 - Adding discussion details!
+2021-09-24 16:06:41 ERROR DiscussionRepositoryImpl:44 - Error while adding discussion details!
+2021-09-24 16:07:48 INFO  DiscussionRepositoryImpl:30 - Adding discussion details!
+2021-09-24 16:07:48 ERROR DiscussionRepositoryImpl:44 - Error while adding discussion details!
+2021-09-24 16:10:08 INFO  DiscussionRepositoryImpl:30 - Adding discussion details!
+2021-09-24 16:10:08 ERROR DiscussionRepositoryImpl:44 - Error while adding discussion details!
+2021-09-24 16:11:18 INFO  DiscussionRepositoryImpl:30 - Adding discussion details!
+2021-09-24 16:11:18 ERROR DiscussionRepositoryImpl:44 - Error while adding discussion details!
+2021-09-24 16:12:15 INFO  DiscussionRepositoryImpl:30 - Adding discussion details!
+2021-09-24 16:12:15 INFO  DiscussionRepositoryImpl:39 - Discussion details added successfully!
+2021-09-24 16:12:58 INFO  DiscussionRepositoryImpl:30 - Adding discussion details!
+2021-09-24 16:12:58 INFO  DiscussionRepositoryImpl:39 - Discussion details added successfully!
+2021-09-24 16:19:15 INFO  DiscussionRepositoryImpl:52 - Getting discussion details by Unit Number!
+2021-09-24 16:19:15 INFO  DiscussionRepositoryImpl:61 - Discussion details are fetched successfully!
+2021-09-24 16:20:07 INFO  TopicRepositoryImpl:39 - Adding the topic details!
+2021-09-24 16:20:07 INFO  TopicRepositoryImpl:48 - Unit is added successfully!
+2021-09-24 16:20:30 INFO  DiscussionRepositoryImpl:52 - Getting discussion details by Unit Number!
+2021-09-24 16:20:30 INFO  DiscussionRepositoryImpl:61 - Discussion details are fetched successfully!
+2021-09-24 16:36:12 INFO  DiscussionRepositoryImpl:84 - Updating the discussion details!
+2021-09-24 16:36:58 INFO  DiscussionRepositoryImpl:84 - Updating the discussion details!
+2021-09-24 16:36:58 INFO  DiscussionRepositoryImpl:101 - Discussion details are updated successfully!
