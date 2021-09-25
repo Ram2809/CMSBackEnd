@@ -1,5 +1,10 @@
 package com.curriculum.service.impl;
 
+import java.sql.SQLIntegrityConstraintViolationException;
+
+import javax.validation.ConstraintViolationException;
+
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -22,6 +27,7 @@ public class LoginServiceImpl implements LoginService {
 	private LoginRepository loginRepository;
 	@Autowired
 	private TeacherRepository teacherRepository;
+	private Logger logger = Logger.getLogger(LoginServiceImpl.class);
 
 	@Override
 	public Long addLogin(Login login) throws BusinessServiceException, NotFoundException {
@@ -29,6 +35,7 @@ public class LoginServiceImpl implements LoginService {
 			teacherRepository.checkTeacher(login.getTeacher().getId());
 			return loginRepository.addLogin(login);
 		} catch (DataIntegrityViolationException e) {
+			logger.error("Constraint Violation fails!");
 			throw new ConstraintValidationException("Constraint Violation fails!");
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
@@ -52,6 +59,9 @@ public class LoginServiceImpl implements LoginService {
 			return loginRepository.updateLogin(teacherId, login);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
+		} catch (DataIntegrityViolationException | ConstraintViolationException e) {
+			logger.error("Constraint Violation fails!");
+			throw new ConstraintValidationException("Constraint Violation fails!");
 		}
 	}
 }

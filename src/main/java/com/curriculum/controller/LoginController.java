@@ -2,9 +2,8 @@ package com.curriculum.controller;
 
 import javax.validation.Valid;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -21,42 +20,33 @@ import com.curriculum.entity.LoginEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.NotFoundException;
-import com.curriculum.exception.TeacherNotFoundException;
 import com.curriculum.service.LoginService;
 import com.curriculum.util.Response;
+import com.curriculum.util.ResponseUtil;
 
 @RestController
 @RequestMapping("api/login")
 public class LoginController {
 	@Autowired
 	private LoginService loginService;
+	private Logger logger = Logger.getLogger(LoginController.class);
 
 	@PostMapping
 	public ResponseEntity<Response> addLogin(@Valid @RequestBody Login login) {
 		ResponseEntity<Response> responseEntity = null;
-		Response response = new Response();
 		Long loginId = null;
 		try {
 			loginId = loginService.addLogin(login);
-			response.setCode(200);
-			response.setMessage("Login credentials added successfully!");
 			login.setLoginId(loginId);
 			login.setTeacher(login.getTeacher());
-			response.setData(login);
-			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
-		} catch (BusinessServiceException | NotFoundException e) {
-			if (e instanceof TeacherNotFoundException) {
-				response.setCode(404);
-				response.setMessage(e.getMessage());
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
-			} else if (e instanceof ConstraintValidationException) {
-				response.setCode(422);
-				response.setMessage(e.getMessage());
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.UNPROCESSABLE_ENTITY);
+			responseEntity = ResponseUtil.getResponse(200, "Login credentials added successfully!", login);
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			if (e instanceof ConstraintValidationException) {
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
 			} else {
-				response.setCode(500);
-				response.setMessage(e.getMessage());
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
 			}
 		}
 		return responseEntity;
@@ -65,30 +55,18 @@ public class LoginController {
 	@GetMapping("/{teacherId}")
 	public ResponseEntity<Response> getLogin(@PathVariable("teacherId") Long teacherId) {
 		ResponseEntity<Response> responseEntity = null;
-		Response response = new Response();
 		LoginEntity loginEntity = null;
 		try {
 			loginEntity = loginService.getLogin(teacherId);
 			if (loginEntity != null) {
-				response.setCode(200);
-				response.setMessage("Success");
-				response.setData(loginEntity);
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
+				responseEntity = ResponseUtil.getResponse(200, "Success!", loginEntity);
 			} else {
-				response.setCode(404);
-				response.setMessage("No User Found!");
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+				responseEntity = ResponseUtil.getResponse(404, "No User Found!");
 			}
-		} catch (BusinessServiceException | NotFoundException e) {
-			if (e instanceof TeacherNotFoundException) {
-				response.setCode(404);
-				response.setMessage(e.getMessage());
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
-			} else {
-				response.setCode(500);
-				response.setMessage(e.getMessage());
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
-			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
 		}
 		return responseEntity;
 	}
@@ -104,16 +82,14 @@ public class LoginController {
 			response.setCode(200);
 			response.setMessage("Password Changed Successfully!");
 			response.setData(loginEntity);
-			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
-		} catch (BusinessServiceException | NotFoundException e) {
-			if (e instanceof TeacherNotFoundException) {
-				response.setCode(404);
-				response.setMessage(e.getMessage());
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+			responseEntity = ResponseUtil.getResponse(200, "Password Changed Successfully!", loginEntity);
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			if (e instanceof ConstraintValidationException) {
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
 			} else {
-				response.setCode(500);
-				response.setMessage(e.getMessage());
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
 			}
 		}
 		return responseEntity;
@@ -121,11 +97,9 @@ public class LoginController {
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<Response> validationFailed(MethodArgumentNotValidException e) {
-		Response response = new Response();
+		logger.error("Validation fails, Check your input!");
 		ResponseEntity<Response> responseEntity = null;
-		response.setCode(422);
-		response.setMessage("Validation fails!");
-		responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.UNPROCESSABLE_ENTITY);
+		responseEntity = ResponseUtil.getResponse(422, "Validation fails!");
 		return responseEntity;
 	}
 }

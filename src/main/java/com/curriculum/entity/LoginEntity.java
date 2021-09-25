@@ -29,7 +29,7 @@ public class LoginEntity implements Serializable {
 	@Size(min = 8)
 	private String password;
 	@OneToOne(targetEntity = TeacherEntity.class, optional = false)
-	@JoinColumn(name = "teacher_id", nullable = false)
+	@JoinColumn(name = "teacher_id", nullable = false,unique=true)
 	@JsonBackReference
 	private TeacherEntity teacher;
 }

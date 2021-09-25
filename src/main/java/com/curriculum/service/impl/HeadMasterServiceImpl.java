@@ -21,6 +21,7 @@ public class HeadMasterServiceImpl implements HeadMasterService {
 	@Autowired
 	private HeadMasterRepository headMasterRepository;
 	private Logger logger = Logger.getLogger(HeadMasterServiceImpl.class);
+
 	public Long addHeadMaster(HeadMaster headMaster) throws BusinessServiceException, NotFoundException {
 		try {
 			return headMasterRepository.addHeadMaster(headMaster);
@@ -38,7 +39,7 @@ public class HeadMasterServiceImpl implements HeadMasterService {
 			return headMasterRepository.updateHeadMaster(id, headMaster);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
-		}catch (DataIntegrityViolationException | ConstraintViolationException e) {
+		} catch (DataIntegrityViolationException | ConstraintViolationException e) {
 			logger.error("Constraint Violation fails!");
 			throw new ConstraintValidationException("Constraint Violation fails!");
 		}
