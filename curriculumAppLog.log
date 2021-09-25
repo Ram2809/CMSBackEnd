@@ -922,3 +922,77 @@
 2021-09-25 16:35:17 INFO  HeadMasterRepositoryImpl:85 - Deleting the head master details!
 2021-09-25 16:35:23 INFO  HeadMasterRepositoryImpl:85 - Deleting the head master details!
 2021-09-25 16:35:23 INFO  HeadMasterRepositoryImpl:97 - Head master details deleted successfully!
+2021-09-25 16:47:31 INFO  LoginRepositoryImpl:28 - Adding login credentials
+2021-09-25 16:47:31 INFO  LoginRepositoryImpl:35 - Login credentials added successfully!
+2021-09-25 16:47:44 INFO  LoginRepositoryImpl:28 - Adding login credentials
+2021-09-25 16:47:44 ERROR LoginRepositoryImpl:38 - Error while adding login credentials
+2021-09-25 16:48:08 ERROR LoginController:100 - Validation fails, Check your input!
+2021-09-25 16:48:17 INFO  LoginRepositoryImpl:28 - Adding login credentials
+2021-09-25 16:48:17 INFO  LoginRepositoryImpl:35 - Login credentials added successfully!
+2021-09-25 16:48:51 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-09-25 16:48:51 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-09-25 16:49:35 ERROR LoginController:100 - Validation fails, Check your input!
+2021-09-25 16:49:49 ERROR LoginController:100 - Validation fails, Check your input!
+2021-09-25 16:50:46 INFO  LoginRepositoryImpl:64 - Updating login credentials
+2021-09-25 16:50:46 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-09-25 16:50:46 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-09-25 16:50:46 INFO  LoginRepositoryImpl:81 - Password updated successfully!
+2021-09-25 16:51:41 INFO  LoginRepositoryImpl:64 - Updating login credentials
+2021-09-25 16:54:23 INFO  LoginRepositoryImpl:64 - Updating login credentials
+2021-09-25 16:54:23 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-09-25 16:54:23 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-09-25 16:54:23 INFO  LoginRepositoryImpl:81 - Password updated successfully!
+2021-09-25 16:54:49 ERROR LoginController:100 - Validation fails, Check your input!
+2021-09-25 16:54:54 ERROR LoginController:100 - Validation fails, Check your input!
+2021-09-25 16:55:01 INFO  LoginRepositoryImpl:64 - Updating login credentials
+2021-09-25 16:55:01 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-09-25 16:55:01 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-09-25 16:55:01 INFO  LoginRepositoryImpl:81 - Password updated successfully!
+2021-09-25 17:04:16 INFO  StudentRepositoryImpl:34 - Adding student details
+2021-09-25 17:04:16 INFO  StudentRepositoryImpl:41 - Student details added successfully!
+2021-09-25 17:05:26 INFO  StudentRepositoryImpl:34 - Adding student details
+2021-09-25 17:05:26 INFO  StudentRepositoryImpl:41 - Student details added successfully!
+2021-09-25 17:07:02 ERROR StudentController:123 - Validation fails, Check your input!
+2021-09-25 17:07:15 ERROR StudentController:123 - Validation fails, Check your input!
+2021-09-25 17:07:24 ERROR StudentController:123 - Validation fails, Check your input!
+2021-09-25 17:07:48 INFO  StudentRepositoryImpl:34 - Adding student details
+2021-09-25 17:07:48 INFO  StudentRepositoryImpl:41 - Student details added successfully!
+2021-09-25 17:08:33 INFO  StudentRepositoryImpl:157 - Getting student details by class!
+2021-09-25 17:08:33 INFO  StudentRepositoryImpl:165 - Student details fetched successfully!
+2021-09-25 17:08:45 INFO  StudentRepositoryImpl:157 - Getting student details by class!
+2021-09-25 17:08:45 INFO  StudentRepositoryImpl:165 - Student details fetched successfully!
+2021-09-25 17:09:17 INFO  StudentRepositoryImpl:111 - Deleting the Student details!
+2021-09-25 17:09:30 INFO  StudentRepositoryImpl:111 - Deleting the Student details!
+2021-09-25 17:09:36 INFO  StudentRepositoryImpl:111 - Deleting the Student details!
+2021-09-25 17:09:37 INFO  StudentRepositoryImpl:123 - Student is deleted successfully!
+2021-09-25 17:31:08 ERROR SubjectController:188 - Validation fails, Check your input!
+2021-09-25 17:31:19 ERROR SubjectController:188 - Validation fails, Check your input!
+2021-09-25 17:31:34 INFO  SubjectRepositoryImpl:34 - Adding subject details!
+2021-09-25 17:31:34 INFO  SubjectRepositoryImpl:41 - Subject details added successfully!
+2021-09-25 17:33:12 INFO  SubjectRepositoryImpl:130 - Getting subject details by code!
+2021-09-25 17:33:12 INFO  SubjectRepositoryImpl:139 - Subject details fetched successfully!
+2021-09-25 17:33:19 INFO  SubjectRepositoryImpl:130 - Getting subject details by code!
+2021-09-25 17:33:51 INFO  SubjectRepositoryImpl:149 - Getting subject details by class!
+2021-09-25 17:33:51 INFO  SubjectRepositoryImpl:157 - Subject details are fetched successfully!
+2021-09-25 17:33:59 INFO  SubjectRepositoryImpl:149 - Getting subject details by class!
+2021-09-25 17:33:59 INFO  SubjectRepositoryImpl:157 - Subject details are fetched successfully!
+2021-09-25 17:34:32 INFO  SubjectRepositoryImpl:167 - Getting subject names!
+2021-09-25 17:34:32 INFO  SubjectRepositoryImpl:175 - Subject Names fetched successfully!
+2021-09-25 17:34:43 INFO  SubjectRepositoryImpl:167 - Getting subject names!
+2021-09-25 17:34:43 INFO  SubjectRepositoryImpl:175 - Subject Names fetched successfully!
+2021-09-25 17:42:43 INFO  SubjectRepositoryImpl:81 - Updating the subject details!
+2021-09-25 17:42:57 INFO  SubjectRepositoryImpl:81 - Updating the subject details!
+2021-09-25 17:43:05 INFO  SubjectRepositoryImpl:81 - Updating the subject details!
+2021-09-25 17:43:05 INFO  SubjectRepositoryImpl:95 - Subject details updated successfully!
+2021-09-25 17:44:33 INFO  SubjectRepositoryImpl:81 - Updating the subject details!
+2021-09-25 17:44:33 INFO  SubjectRepositoryImpl:95 - Subject details updated successfully!
+2021-09-25 17:44:33 ERROR SubjectServiceImpl:55 - Constraint Violation fails!
+2021-09-25 17:45:06 INFO  SubjectRepositoryImpl:81 - Updating the subject details!
+2021-09-25 17:45:06 INFO  SubjectRepositoryImpl:95 - Subject details updated successfully!
+2021-09-25 17:45:13 INFO  SubjectRepositoryImpl:81 - Updating the subject details!
+2021-09-25 17:45:13 INFO  SubjectRepositoryImpl:95 - Subject details updated successfully!
+2021-09-25 17:45:23 INFO  SubjectRepositoryImpl:81 - Updating the subject details!
+2021-09-25 17:45:23 INFO  SubjectRepositoryImpl:95 - Subject details updated successfully!
+2021-09-25 17:45:34 INFO  SubjectRepositoryImpl:81 - Updating the subject details!
+2021-09-25 17:45:42 INFO  SubjectRepositoryImpl:81 - Updating the subject details!
+2021-09-25 17:45:42 INFO  SubjectRepositoryImpl:95 - Subject details updated successfully!
