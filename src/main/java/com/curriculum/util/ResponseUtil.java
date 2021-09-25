@@ -13,7 +13,19 @@ public class ResponseUtil {
 			response.setMessage(message);
 			response.setData(data);
 			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
-		} 
+		} else if (code == 404) {
+			response.setCode(code);
+			response.setMessage(message);
+			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+		} else if (code == 422) {
+			response.setCode(code);
+			response.setMessage(message);
+			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.UNPROCESSABLE_ENTITY);
+		} else {
+			response.setCode(500);
+			response.setMessage(message);
+			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
 		return responseEntity;
 	}
 

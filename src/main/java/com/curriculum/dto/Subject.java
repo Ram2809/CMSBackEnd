@@ -17,6 +17,6 @@ public class Subject {
 	@NotNull
 	private String name;
 	private Class classRoom;
-	private Set<TeacherSubject> subjects;
+	private Set<TeacherAssign> subjects;
 	private Set<Topic> topics;
 }

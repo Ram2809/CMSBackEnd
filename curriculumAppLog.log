@@ -996,3 +996,69 @@
 2021-09-25 17:45:34 INFO  SubjectRepositoryImpl:81 - Updating the subject details!
 2021-09-25 17:45:42 INFO  SubjectRepositoryImpl:81 - Updating the subject details!
 2021-09-25 17:45:42 INFO  SubjectRepositoryImpl:95 - Subject details updated successfully!
+2021-09-25 18:14:30 ERROR TeacherController:136 - Validation fails, Check your input!
+2021-09-25 18:14:45 ERROR TeacherController:136 - Validation fails, Check your input!
+2021-09-25 18:15:03 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-09-25 18:15:03 INFO  TeacherRepositoryImpl:39 - Teacher details added successfully!
+2021-09-25 18:15:25 ERROR TeacherController:136 - Validation fails, Check your input!
+2021-09-25 18:17:01 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-09-25 18:17:01 INFO  TeacherRepositoryImpl:39 - Teacher details added successfully!
+2021-09-25 18:17:42 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-09-25 18:17:42 INFO  TeacherRepositoryImpl:39 - Teacher details added successfully!
+2021-09-25 18:17:42 ERROR TeacherServiceImpl:31 - Constraint Violation fails!
+2021-09-25 18:18:28 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-09-25 18:18:28 INFO  TeacherRepositoryImpl:39 - Teacher details added successfully!
+2021-09-25 18:18:28 ERROR TeacherServiceImpl:31 - Constraint Violation fails!
+2021-09-25 18:18:44 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-09-25 18:18:44 INFO  TeacherRepositoryImpl:39 - Teacher details added successfully!
+2021-09-25 18:19:08 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-25 18:19:08 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-25 18:19:37 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-25 18:19:45 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-25 18:19:45 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-25 18:20:37 INFO  TeacherRepositoryImpl:78 - Updating the teacher details
+2021-09-25 18:20:37 INFO  TeacherRepositoryImpl:97 - Teacher Details updated successfully!
+2021-09-25 18:20:37 ERROR TeacherServiceImpl:55 - Constraint Violation fails!
+2021-09-25 18:21:00 INFO  TeacherRepositoryImpl:78 - Updating the teacher details
+2021-09-25 18:21:00 INFO  TeacherRepositoryImpl:97 - Teacher Details updated successfully!
+2021-09-25 18:21:00 ERROR TeacherServiceImpl:55 - Constraint Violation fails!
+2021-09-25 18:21:22 INFO  TeacherRepositoryImpl:78 - Updating the teacher details
+2021-09-25 18:21:22 INFO  TeacherRepositoryImpl:97 - Teacher Details updated successfully!
+2021-09-25 18:21:22 ERROR TeacherServiceImpl:55 - Constraint Violation fails!
+2021-09-25 18:21:38 INFO  TeacherRepositoryImpl:78 - Updating the teacher details
+2021-09-25 18:21:38 INFO  TeacherRepositoryImpl:97 - Teacher Details updated successfully!
+2021-09-25 18:21:38 ERROR TeacherServiceImpl:55 - Constraint Violation fails!
+2021-09-25 18:21:57 INFO  TeacherRepositoryImpl:78 - Updating the teacher details
+2021-09-25 18:21:57 INFO  TeacherRepositoryImpl:97 - Teacher Details updated successfully!
+2021-09-25 18:21:57 ERROR TeacherServiceImpl:55 - Constraint Violation fails!
+2021-09-25 18:22:31 INFO  TeacherRepositoryImpl:78 - Updating the teacher details
+2021-09-25 18:22:31 INFO  TeacherRepositoryImpl:97 - Teacher Details updated successfully!
+2021-09-25 18:22:31 ERROR TeacherServiceImpl:55 - Constraint Violation fails!
+2021-09-25 18:22:36 INFO  TeacherRepositoryImpl:78 - Updating the teacher details
+2021-09-25 18:22:37 INFO  TeacherRepositoryImpl:97 - Teacher Details updated successfully!
+2021-09-25 18:23:12 INFO  TeacherRepositoryImpl:78 - Updating the teacher details
+2021-09-25 18:23:12 INFO  TeacherRepositoryImpl:97 - Teacher Details updated successfully!
+2021-09-25 18:23:38 INFO  TeacherRepositoryImpl:107 - Deleting the teacher
+2021-09-25 18:23:45 INFO  TeacherRepositoryImpl:107 - Deleting the teacher
+2021-09-25 18:23:45 INFO  TeacherRepositoryImpl:119 - Teacher Deleted Successfully!
+2021-09-25 18:24:38 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-25 18:24:51 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-25 18:24:51 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-25 18:25:05 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-25 18:25:05 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-25 18:59:55 INFO  TeacherAssignRepositoryImpl:32 - Assigning teacher for particular course!
+2021-09-25 18:59:55 INFO  TeacherAssignRepositoryImpl:39 - Teacher assigned for course successfully!
+2021-09-25 19:01:20 INFO  TeacherAssignRepositoryImpl:32 - Assigning teacher for particular course!
+2021-09-25 19:01:20 INFO  TeacherAssignRepositoryImpl:39 - Teacher assigned for course successfully!
+2021-09-25 19:02:25 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-09-25 19:02:25 INFO  TeacherRepositoryImpl:39 - Teacher details added successfully!
+2021-09-25 19:05:53 ERROR TeacherController:136 - Validation fails, Check your input!
+2021-09-25 19:06:09 ERROR TeacherController:136 - Validation fails, Check your input!
+2021-09-25 19:06:42 ERROR TeacherController:136 - Validation fails, Check your input!
+2021-09-25 19:07:44 INFO  TeacherAssignRepositoryImpl:32 - Assigning teacher for particular course!
+2021-09-25 19:07:44 INFO  TeacherAssignRepositoryImpl:39 - Teacher assigned for course successfully!
+2021-09-25 19:14:05 INFO  TeacherAssignRepositoryImpl:51 - Updating the teacher for course!
+2021-09-25 19:14:05 INFO  TeacherAssignRepositoryImpl:67 - Staff assigned for new subject successfully!
+2021-09-25 19:14:24 INFO  TeacherAssignRepositoryImpl:87 - Deleting the teacher subject assign!
+2021-09-25 19:14:24 INFO  TeacherAssignRepositoryImpl:99 - Teacher subject assign is deleted successfully!
+2021-09-25 19:14:42 INFO  TeacherAssignRepositoryImpl:87 - Deleting the teacher subject assign!

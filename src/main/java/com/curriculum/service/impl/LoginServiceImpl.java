@@ -1,7 +1,5 @@
 package com.curriculum.service.impl;
 
-import java.sql.SQLIntegrityConstraintViolationException;
-
 import javax.validation.ConstraintViolationException;
 
 import org.apache.log4j.Logger;
@@ -15,10 +13,8 @@ import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
-import com.curriculum.exception.TeacherNotFoundException;
 import com.curriculum.repository.LoginRepository;
 import com.curriculum.repository.TeacherRepository;
-import com.curriculum.repository.impl.TeacherRepositoryImpl;
 import com.curriculum.service.LoginService;
 
 @Service

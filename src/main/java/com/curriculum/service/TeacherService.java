@@ -8,7 +8,7 @@ import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.NotFoundException;
 
 public interface TeacherService {
-	Long addTeacher(Teacher teacher) throws BusinessServiceException;
+	Long addTeacher(Teacher teacher) throws BusinessServiceException, NotFoundException;
 
 	List<TeacherEntity> getAllTeacher() throws BusinessServiceException;
 

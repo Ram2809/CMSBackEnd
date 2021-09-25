@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class TeacherSubject {
+public class TeacherAssign {
 	private Long id;
 	private Teacher teacher;
 	private Subject subject;

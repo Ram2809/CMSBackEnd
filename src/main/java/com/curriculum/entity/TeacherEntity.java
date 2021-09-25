@@ -14,6 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -48,13 +49,14 @@ public class TeacherEntity implements Serializable {
 	@Column(unique = true)
 	private String email;
 	@NotNull
+	@Digits(integer=10,fraction=0)
 	@Column(unique = true)
 	private Long contactNo;
 	@NotNull
 	private String address;
 	@OneToMany(mappedBy = "teacher", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
-	private Set<TeacherSubjectEntity> teachers;
+	private Set<TeacherAssignEntity> teachers;
 	@OneToOne(mappedBy = "teacher", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
 	private LoginEntity login;

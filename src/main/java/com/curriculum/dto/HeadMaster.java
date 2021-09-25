@@ -2,6 +2,8 @@ package com.curriculum.dto;
 
 import java.util.Date;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -19,6 +21,7 @@ public class HeadMaster {
 	@NotNull
 	private String lastName;
 	@NotNull
+	@Temporal(TemporalType.DATE)
 	private Date dateOfBirth;
 	@NotNull
 	private String gender;
