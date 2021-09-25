@@ -35,16 +35,9 @@ public class TopicEntity implements Serializable {
 	private String unitName;
 	@Size(max = 200, message = "Description only contains 200 characters!")
 	private String description;
-	@Temporal(TemporalType.DATE)
-	private Date beginDate;
-	private String status;
-	@Temporal(TemporalType.DATE)
-	private Date endDate;
 	@ManyToOne
-	@JoinColumn(name = "subjectCode", nullable = false)
-	@JsonBackReference
+	@JoinColumn(name = "subjectCode")
 	private SubjectEntity subject;
-	@OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-	@JsonIgnore
+	@OneToMany(mappedBy = "topic")
 	private Set<DiscussionEntity> discussion;
 }

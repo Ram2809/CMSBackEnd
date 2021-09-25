@@ -16,14 +16,10 @@ import com.curriculum.dto.TeacherAssign;
 import com.curriculum.entity.TeacherAssignEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;
-import com.curriculum.exception.SubjectNotFoundException;
-import com.curriculum.exception.TeacherNotFoundException;
-import com.curriculum.exception.AssignIdNotFoundException;
 import com.curriculum.exception.NotFoundException;
 import com.curriculum.service.TeacherAssignService;
 import com.curriculum.util.Response;
 import com.curriculum.util.ResponseUtil;
-
 @RestController
 @RequestMapping("api/teacherassign")
 public class TeacherAssignController {
@@ -83,7 +79,7 @@ public class TeacherAssignController {
 			} else {
 				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", teacherSubjectAssign);
 			}
-		}  catch (BusinessServiceException e) {
+		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
 		} catch (NotFoundException e) {
 			responseEntity = ResponseUtil.getResponse(404, e.getMessage());

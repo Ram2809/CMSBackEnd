@@ -1,5 +1,7 @@
 package com.curriculum.dto;
 
+import java.util.Set;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,5 +10,6 @@ import lombok.NoArgsConstructor;
 public class TeacherAssign {
 	private Long id;
 	private Teacher teacher;
-	private Subject subject;
+	private SubjectAssign subjectAssign;
+	private Set<TeacherAssign> teacherAssign;
 }

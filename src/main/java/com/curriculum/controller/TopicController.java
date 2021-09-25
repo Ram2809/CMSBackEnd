@@ -27,10 +27,10 @@ import com.curriculum.dto.Topic;
 import com.curriculum.entity.TopicEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.NotFoundException;
-import com.curriculum.exception.SubjectNotFoundException;
-import com.curriculum.exception.UnitNotFoundException;
 import com.curriculum.service.TopicService;
 import com.curriculum.util.Response;
+import com.curriculum.exception.SubjectNotFoundException;
+import com.curriculum.exception.UnitNotFoundException;
 
 @RestController
 @RequestMapping("api/topic")
@@ -43,7 +43,7 @@ public class TopicController {
 	@PostMapping
 	public ResponseEntity<Response> addTopic(@Valid @RequestBody Topic topic) {
 		Response response = new Response();
-		ResponseEntity responseEntity = null;
+		ResponseEntity<Response> responseEntity = null;
 		String unitNo = null;
 		try {
 			unitNo = topicService.addTopic(topic);
@@ -52,7 +52,7 @@ public class TopicController {
 			response.setData(topic);
 			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
 		} catch (NotFoundException e) {
-			if (e instanceof SubjectNotFoundException) {
+			if (e instanceof NotFoundException) {
 				response.setCode(404);
 				response.setMessage(e.getMessage());
 				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
@@ -72,7 +72,7 @@ public class TopicController {
 	@GetMapping("subject/{subjectCode}")
 	public ResponseEntity<Response> getTopicBySubjectCode(@PathVariable("subjectCode") String subjectCode) {
 		Response response = new Response();
-		ResponseEntity responseEntity = null;
+		ResponseEntity<Response> responseEntity = null;
 		List<TopicEntity> topicsList = new ArrayList();
 		try {
 			topicsList = topicService.getTopicBySubjectCode(subjectCode);
@@ -103,7 +103,7 @@ public class TopicController {
 	@GetMapping
 	public ResponseEntity<Response> getTopicByUnitNo(@RequestParam("unitNo") String unitNo) {
 		Response response = new Response();
-		ResponseEntity responseEntity = null;
+		ResponseEntity<Response> responseEntity = null;
 		TopicEntity topicEntity = null;
 		try {
 			topicEntity = topicService.getTopicByUnitNo(unitNo);
@@ -128,7 +128,7 @@ public class TopicController {
 	@PutMapping("/{unitNo}")
 	public ResponseEntity<Response> updateTopic(@PathVariable("unitNo") String unitNo, @RequestBody Topic topic) {
 		Response response = new Response();
-		ResponseEntity responseEntity = null;
+		ResponseEntity<Response> responseEntity = null;
 		TopicEntity topicEntity = null;
 		try {
 			topicEntity = topicService.updateTopic(unitNo, topic);
@@ -157,7 +157,7 @@ public class TopicController {
 	@GetMapping("/{unitNo}")
 	public ResponseEntity<Response> getSubjectCode(@PathVariable("unitNo") String unitNo) {
 		Response response = new Response();
-		ResponseEntity responseEntity = null;
+		ResponseEntity<Response> responseEntity = null;
 		String subjectCode = null;
 		try {
 			subjectCode = topicService.getSubjectCode(unitNo);
@@ -182,7 +182,7 @@ public class TopicController {
 	@DeleteMapping("/{unitNo}")
 	public ResponseEntity<Response> deleteTopic(@PathVariable("unitNo") String unitNo) {
 		Response response = new Response();
-		ResponseEntity responseEntity = null;
+		ResponseEntity<Response> responseEntity = null;
 		TopicEntity topicEntity = null;
 		try {
 			topicEntity = topicService.deleteTopic(unitNo);

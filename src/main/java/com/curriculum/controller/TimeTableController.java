@@ -27,6 +27,7 @@ import com.curriculum.exception.NotFoundException;
 import com.curriculum.exception.ClassNotFoundException;
 import com.curriculum.service.TimeTableService;
 import com.curriculum.util.Response;
+import com.curriculum.util.ResponseUtil;
 
 @RestController
 @RequestMapping("api/timetable")
@@ -68,53 +69,32 @@ public class TimeTableController {
 		try {
 			timeTableList = timeTableService.getTimeTable(roomNo);
 			if (!timeTableList.isEmpty()) {
-				response.setCode(200);
-				response.setMessage("Timetable List fetched successfully!");
-				response.setData(timeTableList);
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
+				responseEntity = ResponseUtil.getResponse(200, "Timetable fetched successfully!", timeTableList);
 			} else {
-				response.setCode(404);
-				response.setMessage("No Timetable Found!");
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+				responseEntity = ResponseUtil.getResponse(404, "No Timetable Found!");
 			}
-		} catch (BusinessServiceException | NotFoundException e) {
-			if (e instanceof ClassNotFoundException) {
-				response.setCode(404);
-				response.setMessage(e.getMessage());
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
-			} else {
-				response.setCode(500);
-				response.setMessage(e.getMessage());
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
-			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
 		}
 		return responseEntity;
 	}
 
 	@DeleteMapping("/{roomNo}")
 	public ResponseEntity<Response> deleteTimeTable(@PathVariable("roomNo") Long roomNo) {
-		Response response = new Response();
 		ResponseEntity<Response> responseEntity = null;
 		Integer count = 0;
 		try {
 			count = timeTableService.deleteTimeTable(roomNo);
 			System.out.println(count);
 			if (count > 0) {
-				response.setCode(200);
-				response.setMessage("Timetable details deleted successfully!");
-				response.setData(roomNo);
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
+				responseEntity = ResponseUtil.getResponse(200, "Timetable details deleted successfully!", count);
 			}
-		} catch (BusinessServiceException | NotFoundException e) {
-			if (e instanceof ClassNotFoundException) {
-				response.setCode(404);
-				response.setMessage(e.getMessage());
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
-			} else {
-				response.setCode(500);
-				response.setMessage(e.getMessage());
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
-			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
 		}
 		return responseEntity;
 	}

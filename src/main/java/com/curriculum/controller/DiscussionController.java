@@ -7,8 +7,6 @@ import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,8 +25,6 @@ import com.curriculum.entity.DiscussionEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.NotFoundException;
-import com.curriculum.exception.UnitNotFoundException;
-import com.curriculum.exception.QuestionNotFoundException;
 import com.curriculum.service.DiscussionService;
 import com.curriculum.util.Response;
 import com.curriculum.util.ResponseUtil;
@@ -42,7 +38,6 @@ public class DiscussionController {
 
 	@PostMapping
 	public ResponseEntity<Response> addDiscussion(@Valid @RequestBody Discussion discussion) {
-		Response response = new Response();
 		ResponseEntity<Response> responseEntity = null;
 		Long questionNo = null;
 		try {
@@ -103,7 +98,6 @@ public class DiscussionController {
 
 	@DeleteMapping("/{questionNo}")
 	public ResponseEntity<Response> deleteDiscussion(@PathVariable("questionNo") Long questionNo) {
-		Response response = new Response();
 		ResponseEntity<Response> responseEntity = null;
 		DiscussionEntity discussionEntity = null;
 		try {

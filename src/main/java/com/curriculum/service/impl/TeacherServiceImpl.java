@@ -22,7 +22,8 @@ import com.curriculum.service.TeacherService;
 public class TeacherServiceImpl implements TeacherService {
 	@Autowired
 	private TeacherRepository teacherRepository;
-	private Logger logger=Logger.getLogger(TeacherServiceImpl.class);
+	private Logger logger = Logger.getLogger(TeacherServiceImpl.class);
+
 	@Override
 	public Long addTeacher(Teacher teacher) throws BusinessServiceException, NotFoundException {
 		try {
@@ -51,7 +52,7 @@ public class TeacherServiceImpl implements TeacherService {
 			return teacherRepository.updateTeacher(id, teacherDetails);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
-		}catch (DataIntegrityViolationException | ConstraintViolationException e) {
+		} catch (DataIntegrityViolationException | ConstraintViolationException e) {
 			logger.error("Constraint Violation fails!");
 			throw new ConstraintValidationException("Constraint Violation fails!");
 		}

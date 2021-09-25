@@ -54,10 +54,12 @@ public class TeacherEntity implements Serializable {
 	private Long contactNo;
 	@NotNull
 	private String address;
-	@OneToMany(mappedBy = "teacher", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-	@JsonIgnore
-	private Set<TeacherAssignEntity> teachers;
-	@OneToOne(mappedBy = "teacher", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-	@JsonIgnore
+	@OneToMany(mappedBy = "teacher")
+	//@JsonIgnore
+	private Set<TeacherAssignEntity> teacherAssign;
+	@OneToMany(mappedBy="teacher")
+	private Set<DiscussionEntity> discussions;
+	@OneToOne(mappedBy = "teacher")
+	//@JsonIgnore
 	private LoginEntity login;
 }

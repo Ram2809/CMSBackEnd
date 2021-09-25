@@ -97,7 +97,7 @@ public class ClassRepositoryImpl implements ClassRepository {
 	public void checkStandard(String standard) throws NotFoundException {
 		ClassEntity classEntity = null;
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("FROM ClassEntity WHERE standard=:standard");
+		Query<ClassEntity> query = session.createQuery("FROM ClassEntity WHERE standard=:standard");
 		query.setParameter("standard", standard);
 		List<ClassEntity> classList = query.list();
 		if (classList.isEmpty()) {
@@ -108,7 +108,7 @@ public class ClassRepositoryImpl implements ClassRepository {
 	public void checkSection(String section) throws NotFoundException {
 		ClassEntity classEntity = null;
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("FROM ClassEntity WHERE section=:section");
+		Query<ClassEntity> query = session.createQuery("FROM ClassEntity WHERE section=:section");
 		query.setParameter("section", section);
 		List<ClassEntity> classList = query.getResultList();
 		if (classList.isEmpty()) {

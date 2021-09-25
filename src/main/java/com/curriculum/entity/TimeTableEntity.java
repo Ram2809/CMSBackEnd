@@ -36,6 +36,6 @@ public class TimeTableEntity implements Serializable {
 	private Map<Integer, String> periods;
 	@ManyToOne
 	@JoinColumn(name = "roomNo", nullable = false)
-	@JsonBackReference
+	//@JsonBackReference
 	private ClassEntity classRoom;
 }

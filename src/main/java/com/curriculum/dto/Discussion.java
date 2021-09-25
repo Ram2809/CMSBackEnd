@@ -20,4 +20,5 @@ public class Discussion {
 	@Temporal(TemporalType.DATE)
 	private Date date;
 	private Topic topic;
+	private Teacher teacher;
 }

@@ -13,9 +13,9 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.curriculum.dto.Topic;
 import com.curriculum.entity.SubjectEntity;
 import com.curriculum.entity.TopicEntity;
-import com.curriculum.dto.Topic;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
 import com.curriculum.exception.UnitNotFoundException;
@@ -107,9 +107,6 @@ public class TopicRepositoryImpl implements TopicRepository {
 			TopicEntity updatedTopicEntity = session.load(TopicEntity.class, unitNo);
 			updatedTopicEntity.setUnitName(topicDetail.getUnitName());
 			updatedTopicEntity.setDescription(topicDetail.getDescription());
-			updatedTopicEntity.setBeginDate(topicDetail.getBeginDate());
-			updatedTopicEntity.setStatus(topicDetail.getStatus());
-			updatedTopicEntity.setEndDate(topicDetail.getEndDate());
 			SubjectEntity subjectEntity = new SubjectEntity();
 			subjectEntity.setCode(topic.getSubject().getCode());
 			updatedTopicEntity.setSubject(subjectEntity);

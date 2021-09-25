@@ -34,7 +34,10 @@ public class DiscussionEntity implements Serializable {
 	@Column(nullable = false)
 	private Date date;
 	@ManyToOne
-	@JoinColumn(name = "unitNo", nullable = false)
-	@JsonBackReference
+	@JoinColumn(name = "unitNo")
 	private TopicEntity topic;
+	@ManyToOne
+	@JoinColumn(name="teacherId")
+	private TeacherEntity teacher;
+	
 }

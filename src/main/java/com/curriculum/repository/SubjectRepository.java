@@ -10,8 +10,8 @@ import com.curriculum.exception.NotFoundException;
 public interface SubjectRepository {
 	String addSubject(Subject subject) throws DatabaseException;
 
-//	ResponseEntity<List<Subject>> getAllSubjectDetails();
-//
+	//ResponseEntity<List<Subject>> getAllSubjectDetails();
+
 	SubjectEntity updateSubject(String subjectCode, Subject subject) throws DatabaseException, NotFoundException;
 
 	SubjectEntity deleteSubject(String subjectCode) throws DatabaseException, NotFoundException;
@@ -25,5 +25,4 @@ public interface SubjectRepository {
 	String getSubjectCode(Long roomNo, String name) throws DatabaseException;
 
 	void checkSubject(String code) throws NotFoundException;
-
 }

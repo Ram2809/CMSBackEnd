@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.curriculum.dto.Subject;
-import com.curriculum.entity.ClassEntity;
 import com.curriculum.entity.SubjectEntity;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
@@ -88,9 +87,6 @@ public class SubjectRepositoryImpl implements SubjectRepository {
 			session.find(SubjectEntity.class, subjectCode);
 			SubjectEntity updatedSubjectEntity = session.load(SubjectEntity.class, subjectCode);
 			updatedSubjectEntity.setName(subjectDetail.getName());
-			ClassEntity classEntity = new ClassEntity();
-			classEntity.setRoomNo(subjectDetail.getClassRoom().getRoomNo());
-			updatedSubjectEntity.setClassRoom(classEntity);
 			subjectEntity = (SubjectEntity) session.merge(updatedSubjectEntity);
 			logger.info("Subject details updated successfully!");
 		} catch (HibernateException e) {
@@ -196,5 +192,4 @@ public class SubjectRepositoryImpl implements SubjectRepository {
 		}
 		return code;
 	}
-
 }

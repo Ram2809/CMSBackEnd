@@ -15,13 +15,13 @@ import org.springframework.stereotype.Repository;
 
 import com.curriculum.dto.Discussion;
 import com.curriculum.entity.DiscussionEntity;
+import com.curriculum.entity.TeacherEntity;
 import com.curriculum.entity.TopicEntity;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
 import com.curriculum.exception.QuestionNotFoundException;
 import com.curriculum.repository.DiscussionRepository;
 import com.curriculum.util.DiscussionMapper;
-
 @Repository
 @Transactional
 public class DiscussionRepositoryImpl implements DiscussionRepository {
@@ -93,6 +93,9 @@ public class DiscussionRepositoryImpl implements DiscussionRepository {
 			TopicEntity topicEntity = new TopicEntity();
 			topicEntity.setUnitNo(discussionDetail.getTopic().getUnitNo());
 			updatedDiscussionEntity.setTopic(topicEntity);
+			TeacherEntity teacherEntity=new TeacherEntity();
+			teacherEntity.setId(discussionDetail.getTeacher().getId());
+			updatedDiscussionEntity.setTeacher(teacherEntity);
 			discussionEntity = (DiscussionEntity) session.merge(updatedDiscussionEntity);
 			logger.info("Discussion details are updated successfully!");
 		} catch (HibernateException e) {

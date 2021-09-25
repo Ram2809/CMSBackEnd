@@ -11,10 +11,11 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.sun.istack.NotNull;
+
 
 import lombok.Data;
 import lombok.Getter;
@@ -46,8 +47,8 @@ public class StudentEntity implements Serializable {
 	@NotNull
 	private String address;
 	@ManyToOne
-	@JoinColumn(name = "roomNo", nullable = false)
-	@JsonBackReference
+	@JoinColumn(name = "roomNo")
+	//@JsonBackReference
 	private ClassEntity classEntity;
 
 }

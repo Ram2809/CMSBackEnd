@@ -10,9 +10,6 @@ public class TopicMapper {
 		topicEntity.setUnitNo(topic.getUnitNo());
 		topicEntity.setUnitName(topic.getUnitName());
 		topicEntity.setDescription(topic.getDescription());
-		topicEntity.setBeginDate(topic.getBeginDate());
-		topicEntity.setStatus(topic.getStatus());
-		topicEntity.setEndDate(topic.getEndDate());
 		SubjectEntity subjectEntity = new SubjectEntity();
 		subjectEntity.setCode(topic.getSubject().getCode());
 		topicEntity.setSubject(subjectEntity);

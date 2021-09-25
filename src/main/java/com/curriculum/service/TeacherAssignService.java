@@ -1,7 +1,5 @@
 package com.curriculum.service;
 
-import org.springframework.http.ResponseEntity;
-
 import com.curriculum.dto.TeacherAssign;
 import com.curriculum.entity.TeacherAssignEntity;
 import com.curriculum.exception.BusinessServiceException;

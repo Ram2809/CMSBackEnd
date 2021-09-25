@@ -1,10 +1,5 @@
 package com.curriculum.dto;
 
-import java.util.Date;
-import java.util.Set;
-
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -21,11 +16,6 @@ public class Topic {
 	@NotNull
 	@Size(max = 200, message = "Description only contains 200 characters!")
 	private String description;
-	@Temporal(TemporalType.DATE)
-	private Date beginDate;
-	private String status;
-	@Temporal(TemporalType.DATE)
-	private Date endDate;
 	private Subject subject;
-	private Set<Discussion> discussion;
+	//private Set<Discussion> discussion;
 }

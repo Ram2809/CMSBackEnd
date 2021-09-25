@@ -16,6 +16,7 @@ import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
 import com.curriculum.repository.DiscussionRepository;
+import com.curriculum.repository.TeacherRepository;
 import com.curriculum.repository.TopicRepository;
 import com.curriculum.service.DiscussionService;
 
@@ -25,12 +26,15 @@ public class DiscussionServiceImpl implements DiscussionService {
 	private DiscussionRepository discussionRepository;
 	@Autowired
 	private TopicRepository topicRepository;
+	@Autowired
+	private TeacherRepository teacherRepository;
 	private Logger logger = Logger.getLogger(DiscussionServiceImpl.class);
 
 	@Override
 	public Long addDiscussion(Discussion discussion) throws BusinessServiceException, NotFoundException {
 		try {
 			topicRepository.checkTopic(discussion.getTopic().getUnitNo());
+			teacherRepository.checkTeacher(discussion.getTeacher().getId());
 			return discussionRepository.addDiscussion(discussion);
 		} catch (DataIntegrityViolationException e) {
 			logger.error("Constraint Violation fails!");

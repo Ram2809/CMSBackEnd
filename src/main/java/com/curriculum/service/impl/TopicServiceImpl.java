@@ -8,17 +8,14 @@ import org.springframework.dao.DataIntegrityViolationException;
 import javax.validation.ConstraintViolationException;
 import org.springframework.stereotype.Service;
 
-import com.curriculum.controller.TopicController;
 import com.curriculum.dto.Topic;
 import com.curriculum.entity.TopicEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
-import com.curriculum.exception.SubjectNotFoundException;
 import com.curriculum.repository.SubjectRepository;
 import com.curriculum.repository.TopicRepository;
-import com.curriculum.repository.impl.SubjectRepositoryImpl;
 import com.curriculum.service.TopicService;
 
 @Service
