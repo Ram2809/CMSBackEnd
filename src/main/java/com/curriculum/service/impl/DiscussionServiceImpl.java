@@ -2,12 +2,17 @@ package com.curriculum.service.impl;
 
 import java.util.List;
 
+import javax.validation.ConstraintViolationException;
+
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.curriculum.dto.Discussion;
 import com.curriculum.entity.DiscussionEntity;
 import com.curriculum.exception.BusinessServiceException;
+import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
 import com.curriculum.repository.DiscussionRepository;
@@ -20,12 +25,16 @@ public class DiscussionServiceImpl implements DiscussionService {
 	private DiscussionRepository discussionRepository;
 	@Autowired
 	private TopicRepository topicRepository;
+	private Logger logger = Logger.getLogger(DiscussionServiceImpl.class);
 
 	@Override
 	public Long addDiscussion(Discussion discussion) throws BusinessServiceException, NotFoundException {
 		try {
 			topicRepository.checkTopic(discussion.getTopic().getUnitNo());
 			return discussionRepository.addDiscussion(discussion);
+		} catch (DataIntegrityViolationException e) {
+			logger.error("Constraint Violation fails!");
+			throw new ConstraintValidationException("Constraint Violation fails!");
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -50,6 +59,9 @@ public class DiscussionServiceImpl implements DiscussionService {
 			return discussionRepository.updateDiscussion(questionNo, discussion);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
+		} catch (DataIntegrityViolationException | ConstraintViolationException e) {
+			logger.error("Constraint Violation fails!");
+			throw new ConstraintValidationException("Constraint Violation fails!");
 		}
 	}
 
