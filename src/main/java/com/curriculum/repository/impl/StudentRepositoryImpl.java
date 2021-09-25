@@ -39,7 +39,6 @@ public class StudentRepositoryImpl implements StudentRepository {
 			rollNo = (Long) session.save(StudentMapper.studentMapper(student));
 			if (rollNo > 0) {
 				logger.info("Student details added successfully!");
-				System.out.println(student);
 			}
 		} catch (HibernateException e) {
 			logger.error("Error while adding student details!");
