@@ -2,12 +2,17 @@ package com.curriculum.service.impl;
 
 import java.util.List;
 
+import javax.validation.ConstraintViolationException;
+
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.curriculum.dto.Class;
 import com.curriculum.entity.ClassEntity;
 import com.curriculum.exception.BusinessServiceException;
+import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
 import com.curriculum.repository.ClassRepository;
@@ -17,14 +22,18 @@ import com.curriculum.service.ClassService;
 public class ClassServiceImpl implements ClassService {
 	@Autowired
 	private ClassRepository classRepository;
+	private Logger logger = Logger.getLogger(ClassServiceImpl.class);
 
-	@Override
-	public Long addClass(Class classDetail) throws BusinessServiceException {
+	public Long addClass(Class classDetail) throws BusinessServiceException, NotFoundException {
 		try {
 			return classRepository.addClass(classDetail);
+		} catch (DataIntegrityViolationException e) {
+			logger.error("Constraint Violation fails!");
+			throw new ConstraintValidationException("Constraint Violation fails!");
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
+
 	}
 
 	@Override
@@ -42,6 +51,9 @@ public class ClassServiceImpl implements ClassService {
 			return classRepository.updateClass(roomNo, classDetail);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
+		} catch (DataIntegrityViolationException | ConstraintViolationException e) {
+			logger.error("Constraint Violation fails!");
+			throw new ConstraintValidationException("Constraint Violation fails!");
 		}
 	}
 

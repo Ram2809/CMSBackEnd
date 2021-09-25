@@ -3,11 +3,16 @@ package com.curriculum.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,9 +33,10 @@ import com.curriculum.util.Response;
 public class TimeTableController {
 	@Autowired
 	private TimeTableService timeTableService;
+	private Logger logger = Logger.getLogger(TimeTableController.class);
 
 	@PostMapping
-	public ResponseEntity<Response> addTimeTable(@RequestBody TimeTable timeTable) {
+	public ResponseEntity<Response> addTimeTable(@Valid @RequestBody TimeTable timeTable) {
 		Response response = new Response();
 		ResponseEntity<Response> responseEntity = null;
 		TimeTableEntity timeTableEntity = null;
@@ -41,9 +47,15 @@ public class TimeTableController {
 			response.setData(timeTable);
 			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
 		} catch (BusinessServiceException | NotFoundException e) {
-			response.setCode(404);
-			response.setMessage(e.getMessage());
-			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+			if (e instanceof ClassNotFoundException) {
+				response.setCode(404);
+				response.setMessage(e.getMessage());
+				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+			} else {
+				response.setCode(500);
+				response.setMessage(e.getMessage());
+				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
+			}
 		}
 		return responseEntity;
 	}
@@ -106,4 +118,6 @@ public class TimeTableController {
 		}
 		return responseEntity;
 	}
+
+	
 }

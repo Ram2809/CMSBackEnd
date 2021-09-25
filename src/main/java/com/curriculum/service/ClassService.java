@@ -8,7 +8,7 @@ import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.NotFoundException;
 
 public interface ClassService {
-	Long addClass(Class classDetail) throws BusinessServiceException;
+	Long addClass(Class classDetail) throws BusinessServiceException, NotFoundException;
 
 	List<ClassEntity> getAllClass() throws BusinessServiceException;
 

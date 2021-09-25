@@ -3,6 +3,7 @@ package com.curriculum.dto;
 import java.util.Set;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,8 +14,10 @@ public class Class {
 	@NotNull
 	private Long roomNo;
 	@NotNull
+	@Size(max = 3, message = "Standard cannot be empty and Standard not more than 3")
 	private String standard;
 	@NotNull
+	@Size(max = 2, message = "Section cannot be empty and Section length not more than 2")
 	private String section;
 	private Set<Student> student;
 	private Set<Subject> subject;

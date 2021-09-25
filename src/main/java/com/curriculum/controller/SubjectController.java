@@ -3,6 +3,8 @@ package com.curriculum.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -35,7 +37,7 @@ public class SubjectController {
 	private SubjectService subjectService;
 
 	@PostMapping
-	public ResponseEntity<Response> addSubject(@RequestBody Subject subject) {
+	public ResponseEntity<Response> addSubject(@Valid @RequestBody Subject subject) {
 		Response response = new Response();
 		ResponseEntity<Response> responseEntity = null;
 		String subjectCode = null;

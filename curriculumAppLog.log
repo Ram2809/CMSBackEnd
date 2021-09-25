@@ -813,3 +813,52 @@
 2021-09-25 10:38:38 INFO  TimeTableRepositoryImpl:109 - Timetable Deleted successfully!
 2021-09-25 10:38:47 INFO  TimeTableRepositoryImpl:59 - Getting timetable details!
 2021-09-25 10:38:47 INFO  TimeTableRepositoryImpl:69 - Timetable details are fetched successfully!
+2021-09-25 15:20:21 ERROR ClassController:232 - Validation fails, Check your input!
+2021-09-25 15:22:14 ERROR ClassController:232 - Validation fails, Check your input!
+2021-09-25 15:23:28 ERROR ClassController:232 - Validation fails, Check your input!
+2021-09-25 15:23:57 ERROR ClassController:232 - Validation fails, Check your input!
+2021-09-25 15:24:04 INFO  ClassRepositoryImpl:30 - Adding class details
+2021-09-25 15:24:04 INFO  ClassRepositoryImpl:37 - Class details added successfully!
+2021-09-25 15:43:58 INFO  ClassRepositoryImpl:30 - Adding class details
+2021-09-25 15:43:58 INFO  ClassRepositoryImpl:37 - Class details added successfully!
+2021-09-25 15:45:16 INFO  ClassRepositoryImpl:30 - Adding class details
+2021-09-25 15:45:16 INFO  ClassRepositoryImpl:37 - Class details added successfully!
+2021-09-25 15:45:16 ERROR ClassServiceImpl:28 - Constraint Violation fails!
+2021-09-25 15:46:32 INFO  ClassRepositoryImpl:49 - Getting all class details!
+2021-09-25 15:46:32 INFO  ClassRepositoryImpl:56 - All class details are fetched successfully!
+2021-09-25 15:46:52 INFO  ClassRepositoryImpl:146 - Getting particular class details!
+2021-09-25 15:46:52 INFO  ClassRepositoryImpl:155 - Particular class details fetched successfully!
+2021-09-25 15:46:58 INFO  ClassRepositoryImpl:146 - Getting particular class details!
+2021-09-25 15:47:19 INFO  ClassRepositoryImpl:165 - Getting sections for particular standard
+2021-09-25 15:47:29 INFO  ClassRepositoryImpl:165 - Getting sections for particular standard
+2021-09-25 15:47:29 INFO  ClassRepositoryImpl:174 - Section details are fetched successfully!
+2021-09-25 15:47:52 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-25 15:47:52 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-25 15:47:58 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-25 15:47:58 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-25 15:48:07 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-25 15:48:07 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-25 15:48:13 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-25 15:49:00 ERROR ClassController:170 - Validation fails, Check your input!
+2021-09-25 15:49:24 ERROR ClassController:170 - Validation fails, Check your input!
+2021-09-25 15:49:56 INFO  ClassRepositoryImpl:66 - Updating the class details!
+2021-09-25 15:49:56 INFO  ClassRepositoryImpl:78 - Class Details updated successfully!
+2021-09-25 15:50:36 INFO  ClassRepositoryImpl:66 - Updating the class details!
+2021-09-25 15:50:36 INFO  ClassRepositoryImpl:78 - Class Details updated successfully!
+2021-09-25 15:51:26 INFO  ClassRepositoryImpl:66 - Updating the class details!
+2021-09-25 15:51:26 INFO  ClassRepositoryImpl:78 - Class Details updated successfully!
+2021-09-25 15:51:26 ERROR ClassServiceImpl:53 - Constraint Violation fails!
+2021-09-25 15:52:29 INFO  ClassRepositoryImpl:66 - Updating the class details!
+2021-09-25 15:52:29 INFO  ClassRepositoryImpl:78 - Class Details updated successfully!
+2021-09-25 15:52:29 ERROR ClassServiceImpl:53 - Constraint Violation fails!
+2021-09-25 15:52:44 INFO  ClassRepositoryImpl:66 - Updating the class details!
+2021-09-25 15:52:44 INFO  ClassRepositoryImpl:78 - Class Details updated successfully!
+2021-09-25 15:54:09 INFO  ClassRepositoryImpl:66 - Updating the class details!
+2021-09-25 15:54:09 INFO  ClassRepositoryImpl:78 - Class Details updated successfully!
+2021-09-25 15:54:09 ERROR ClassServiceImpl:55 - Constraint Violation fails!
+2021-09-25 15:54:25 INFO  ClassRepositoryImpl:66 - Updating the class details!
+2021-09-25 15:54:31 INFO  ClassRepositoryImpl:66 - Updating the class details!
+2021-09-25 15:54:31 INFO  ClassRepositoryImpl:78 - Class Details updated successfully!
+2021-09-25 15:54:45 INFO  ClassRepositoryImpl:121 - Deleting the class!
+2021-09-25 15:54:51 INFO  ClassRepositoryImpl:121 - Deleting the class!
+2021-09-25 15:54:51 INFO  ClassRepositoryImpl:133 - Class Details deleted successfully!
