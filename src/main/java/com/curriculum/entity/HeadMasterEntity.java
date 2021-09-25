@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
@@ -38,7 +39,8 @@ public class HeadMasterEntity {
 	@Column(unique = true)
 	private String email;
 	@NotNull
-	@Column(unique = true, length = 10)
+	@Digits(integer=10,fraction=0)
+	@Column(unique = true)
 	private Long contactNo;
 	@NotNull
 	private String address;

@@ -8,7 +8,7 @@ import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.NotFoundException;
 
 public interface HeadMasterService {
-	Long addHeadMaster(HeadMaster headMaster) throws BusinessServiceException;
+	Long addHeadMaster(HeadMaster headMaster) throws BusinessServiceException, NotFoundException;
 
 	HeadMasterEntity updateHeadMaster(Long id, HeadMaster headMaster)
 			throws BusinessServiceException, NotFoundException;

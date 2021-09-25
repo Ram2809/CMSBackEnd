@@ -52,7 +52,11 @@ public class DiscussionController {
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			if (e instanceof ConstraintValidationException) {
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			}
 		}
 		return responseEntity;
 	}

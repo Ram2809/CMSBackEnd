@@ -862,3 +862,63 @@
 2021-09-25 15:54:45 INFO  ClassRepositoryImpl:121 - Deleting the class!
 2021-09-25 15:54:51 INFO  ClassRepositoryImpl:121 - Deleting the class!
 2021-09-25 15:54:51 INFO  ClassRepositoryImpl:133 - Class Details deleted successfully!
+2021-09-25 16:09:42 ERROR DiscussionController:133 - Validation fails, Check your input!
+2021-09-25 16:09:58 ERROR DiscussionController:133 - Validation fails, Check your input!
+2021-09-25 16:10:35 INFO  DiscussionRepositoryImpl:34 - Adding discussion details!
+2021-09-25 16:10:35 INFO  DiscussionRepositoryImpl:41 - Discussion details added successfully!
+2021-09-25 16:11:43 INFO  DiscussionRepositoryImpl:52 - Getting discussion details by Unit Number!
+2021-09-25 16:11:43 INFO  DiscussionRepositoryImpl:60 - Discussion details are fetched successfully!
+2021-09-25 16:11:49 INFO  DiscussionRepositoryImpl:52 - Getting discussion details by Unit Number!
+2021-09-25 16:11:49 INFO  DiscussionRepositoryImpl:60 - Discussion details are fetched successfully!
+2021-09-25 16:11:59 INFO  DiscussionRepositoryImpl:52 - Getting discussion details by Unit Number!
+2021-09-25 16:11:59 INFO  DiscussionRepositoryImpl:60 - Discussion details are fetched successfully!
+2021-09-25 16:12:23 INFO  DiscussionRepositoryImpl:81 - Updating the discussion details!
+2021-09-25 16:12:45 INFO  DiscussionRepositoryImpl:81 - Updating the discussion details!
+2021-09-25 16:12:56 INFO  DiscussionRepositoryImpl:81 - Updating the discussion details!
+2021-09-25 16:12:56 INFO  DiscussionRepositoryImpl:97 - Discussion details are updated successfully!
+2021-09-25 16:12:56 ERROR DiscussionServiceImpl:63 - Constraint Violation fails!
+2021-09-25 16:13:51 INFO  DiscussionRepositoryImpl:81 - Updating the discussion details!
+2021-09-25 16:13:51 INFO  DiscussionRepositoryImpl:97 - Discussion details are updated successfully!
+2021-09-25 16:13:51 ERROR DiscussionServiceImpl:63 - Constraint Violation fails!
+2021-09-25 16:14:08 INFO  DiscussionRepositoryImpl:81 - Updating the discussion details!
+2021-09-25 16:14:08 INFO  DiscussionRepositoryImpl:97 - Discussion details are updated successfully!
+2021-09-25 16:14:08 ERROR DiscussionServiceImpl:63 - Constraint Violation fails!
+2021-09-25 16:14:32 INFO  DiscussionRepositoryImpl:81 - Updating the discussion details!
+2021-09-25 16:14:32 INFO  DiscussionRepositoryImpl:97 - Discussion details are updated successfully!
+2021-09-25 16:14:32 ERROR DiscussionServiceImpl:63 - Constraint Violation fails!
+2021-09-25 16:14:40 INFO  DiscussionRepositoryImpl:81 - Updating the discussion details!
+2021-09-25 16:14:40 INFO  DiscussionRepositoryImpl:97 - Discussion details are updated successfully!
+2021-09-25 16:15:26 INFO  DiscussionRepositoryImpl:132 - Getting discussion detail!
+2021-09-25 16:15:26 INFO  DiscussionRepositoryImpl:141 - Discussion detail is fetched successfully!
+2021-09-25 16:15:31 INFO  DiscussionRepositoryImpl:132 - Getting discussion detail!
+2021-09-25 16:15:52 INFO  DiscussionRepositoryImpl:107 - Deleting the discussion details!
+2021-09-25 16:15:57 INFO  DiscussionRepositoryImpl:107 - Deleting the discussion details!
+2021-09-25 16:15:57 INFO  DiscussionRepositoryImpl:119 - Discussion is deleted successfully!
+2021-09-25 16:32:55 INFO  HeadMasterRepositoryImpl:29 - Adding the headmaster details!
+2021-09-25 16:32:55 INFO  HeadMasterRepositoryImpl:36 - Headmaster details added successfully!
+2021-09-25 16:32:55 ERROR HeadMasterServiceImpl:28 - Constraint Violation fails!
+2021-09-25 16:33:09 ERROR HeadMasterController:121 - Validation fails, Check your input!
+2021-09-25 16:33:23 ERROR HeadMasterController:121 - Validation fails, Check your input!
+2021-09-25 16:33:32 ERROR HeadMasterController:121 - Validation fails, Check your input!
+2021-09-25 16:33:42 INFO  HeadMasterRepositoryImpl:29 - Adding the headmaster details!
+2021-09-25 16:33:42 INFO  HeadMasterRepositoryImpl:36 - Headmaster details added successfully!
+2021-09-25 16:33:59 INFO  HeadMasterRepositoryImpl:109 - Getting head master details!
+2021-09-25 16:33:59 INFO  HeadMasterRepositoryImpl:118 - Head master details fetched successfully!
+2021-09-25 16:34:05 INFO  HeadMasterRepositoryImpl:109 - Getting head master details!
+2021-09-25 16:34:05 INFO  HeadMasterRepositoryImpl:118 - Head master details fetched successfully!
+2021-09-25 16:34:11 INFO  HeadMasterRepositoryImpl:109 - Getting head master details!
+2021-09-25 16:34:19 INFO  HeadMasterRepositoryImpl:57 - Updating head master details!
+2021-09-25 16:34:38 INFO  HeadMasterRepositoryImpl:57 - Updating head master details!
+2021-09-25 16:34:38 INFO  HeadMasterRepositoryImpl:76 - Head master details updated successfully!
+2021-09-25 16:34:38 ERROR HeadMasterServiceImpl:42 - Constraint Violation fails!
+2021-09-25 16:34:49 INFO  HeadMasterRepositoryImpl:57 - Updating head master details!
+2021-09-25 16:34:49 INFO  HeadMasterRepositoryImpl:76 - Head master details updated successfully!
+2021-09-25 16:34:49 ERROR HeadMasterServiceImpl:42 - Constraint Violation fails!
+2021-09-25 16:34:57 INFO  HeadMasterRepositoryImpl:57 - Updating head master details!
+2021-09-25 16:34:57 INFO  HeadMasterRepositoryImpl:76 - Head master details updated successfully!
+2021-09-25 16:34:57 ERROR HeadMasterServiceImpl:42 - Constraint Violation fails!
+2021-09-25 16:35:06 INFO  HeadMasterRepositoryImpl:57 - Updating head master details!
+2021-09-25 16:35:06 INFO  HeadMasterRepositoryImpl:76 - Head master details updated successfully!
+2021-09-25 16:35:17 INFO  HeadMasterRepositoryImpl:85 - Deleting the head master details!
+2021-09-25 16:35:23 INFO  HeadMasterRepositoryImpl:85 - Deleting the head master details!
+2021-09-25 16:35:23 INFO  HeadMasterRepositoryImpl:97 - Head master details deleted successfully!
