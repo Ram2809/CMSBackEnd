@@ -8,7 +8,7 @@ import com.curriculum.exception.NotFoundException;
 public interface HeadMasterRepository {
 	Long addHeadMaster(HeadMaster headMaster) throws DatabaseException;
 
-	HeadMasterEntity updateHeadMaster(Long id, HeadMaster headMaster) throws DatabaseException,NotFoundException;
+	HeadMasterEntity updateHeadMaster(Long id, HeadMaster headMaster) throws DatabaseException, NotFoundException;
 
 	HeadMasterEntity deleteHeadMaster(Long id) throws DatabaseException, NotFoundException;
 

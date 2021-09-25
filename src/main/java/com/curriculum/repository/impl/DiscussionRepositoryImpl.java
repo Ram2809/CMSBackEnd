@@ -1,6 +1,5 @@
 package com.curriculum.repository.impl;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,134 +24,122 @@ import com.curriculum.util.DiscussionMapper;
 
 @Repository
 @Transactional
-public class DiscussionRepositoryImpl implements DiscussionRepository{
+public class DiscussionRepositoryImpl implements DiscussionRepository {
 	@Autowired
 	private SessionFactory sessionFactory;
-	private Logger logger=Logger.getLogger(DiscussionRepositoryImpl.class);
+	private Logger logger = Logger.getLogger(DiscussionRepositoryImpl.class);
+
 	@Override
-	public Long addDiscussion(Discussion discussion) throws DatabaseException{
+	public Long addDiscussion(Discussion discussion) throws DatabaseException {
 		logger.info("Adding discussion details!");
-		Session session=null;
-		Long questionNo=null;
-		try
-		{
-			session=sessionFactory.getCurrentSession();
-			questionNo=(Long) session.save(DiscussionMapper.discussionMapper(discussion));
-			if(questionNo>0)
-			{
+		Session session = null;
+		Long questionNo = null;
+		try {
+			session = sessionFactory.getCurrentSession();
+			questionNo = (Long) session.save(DiscussionMapper.discussionMapper(discussion));
+			if (questionNo > 0) {
 				logger.info("Discussion details added successfully!");
 			}
-		}
-		catch(HibernateException e)
-		{
+		} catch (HibernateException e) {
 			logger.error("Error while adding discussion details!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return questionNo;
 	}
+
 	@Override
 	public List<DiscussionEntity> getDiscussionByUnitNo(String unitNo) throws DatabaseException {
 		logger.info("Getting discussion details by Unit Number!");
-		Session session=null;
-		List<DiscussionEntity> discussionList=new ArrayList<>();
-		try
-		{
-			session=sessionFactory.getCurrentSession();
-			Query<DiscussionEntity> query=session.createQuery("FROM DiscussionEntity d WHERE d.topic.unitNo=:unitId");
+		Session session = null;
+		List<DiscussionEntity> discussionList = new ArrayList<>();
+		try {
+			session = sessionFactory.getCurrentSession();
+			Query<DiscussionEntity> query = session.createQuery("FROM DiscussionEntity d WHERE d.topic.unitNo=:unitId");
 			query.setParameter("unitId", unitNo);
-			discussionList=query.list();
+			discussionList = query.list();
 			logger.info("Discussion details are fetched successfully!");
-		}
-		catch(HibernateException e)
-		{
+		} catch (HibernateException e) {
 			logger.error("Error while fetching the discussion details!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return discussionList;
 	}
+
 	public void checkQuestion(Long questionNo) throws QuestionNotFoundException {
 		Session session = sessionFactory.getCurrentSession();
 		Query<DiscussionEntity> query = session.createQuery("FROM DiscussionEntity WHERE questionNo=:questionId");
 		query.setParameter("questionId", questionNo);
 		DiscussionEntity discussionEntity = query.uniqueResultOptional().orElse(null);
-		if (discussionEntity==null) {
-			throw new QuestionNotFoundException("Question Not Found With"+" "+questionNo+"!");
+		if (discussionEntity == null) {
+			throw new QuestionNotFoundException("Question Not Found With" + " " + questionNo + "!");
 		}
 	}
+
 	@Override
-	public DiscussionEntity updateDiscussion(Long questionNo,Discussion discussion) throws DatabaseException, NotFoundException {
+	public DiscussionEntity updateDiscussion(Long questionNo, Discussion discussion)
+			throws DatabaseException, NotFoundException {
 		logger.info("Updating the discussion details!");
-		Session session=null;
-		DiscussionEntity discussionEntity=null;
-		try
-		{
+		Session session = null;
+		DiscussionEntity discussionEntity = null;
+		try {
 			checkQuestion(questionNo);
-			session=sessionFactory.getCurrentSession();
-			DiscussionEntity discussionDetail=DiscussionMapper.discussionMapper(discussion);
+			session = sessionFactory.getCurrentSession();
+			DiscussionEntity discussionDetail = DiscussionMapper.discussionMapper(discussion);
 			session.find(DiscussionEntity.class, questionNo);
-			DiscussionEntity updatedDiscussionEntity=session.load(DiscussionEntity.class, questionNo);
+			DiscussionEntity updatedDiscussionEntity = session.load(DiscussionEntity.class, questionNo);
 			updatedDiscussionEntity.setQuestion(discussionDetail.getQuestion());
 			updatedDiscussionEntity.setAnswer(discussionDetail.getAnswer());
 			updatedDiscussionEntity.setDate(discussionDetail.getDate());
-			TopicEntity topicEntity=new TopicEntity();
+			TopicEntity topicEntity = new TopicEntity();
 			topicEntity.setUnitNo(discussionDetail.getTopic().getUnitNo());
 			updatedDiscussionEntity.setTopic(topicEntity);
-			discussionEntity=(DiscussionEntity) session.merge(updatedDiscussionEntity);
+			discussionEntity = (DiscussionEntity) session.merge(updatedDiscussionEntity);
 			logger.info("Discussion details are updated successfully!");
-		}
-		catch(HibernateException e)
-		{
+		} catch (HibernateException e) {
 			logger.error("Error while updating the discussion details!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return discussionEntity;
 	}
+
 	@Override
 	public DiscussionEntity deleteDiscussion(Long questionNo) throws DatabaseException, NotFoundException {
 		logger.info("Deleting the discussion details!");
-		Session session=null;
-		DiscussionEntity discussionEntity=null;
-		try
-		{
+		Session session = null;
+		DiscussionEntity discussionEntity = null;
+		try {
 			checkQuestion(questionNo);
-			session=sessionFactory.getCurrentSession();
+			session = sessionFactory.getCurrentSession();
 			session.find(DiscussionEntity.class, questionNo);
-			DiscussionEntity discussionDetail=session.load(DiscussionEntity.class, questionNo);
+			DiscussionEntity discussionDetail = session.load(DiscussionEntity.class, questionNo);
 			session.delete(discussionDetail);
-			DiscussionEntity deletedDiscussionEntity=session.get(DiscussionEntity.class, questionNo);
-			if(deletedDiscussionEntity==null)
-			{
-				discussionEntity=discussionDetail;
+			DiscussionEntity deletedDiscussionEntity = session.get(DiscussionEntity.class, questionNo);
+			if (deletedDiscussionEntity == null) {
+				discussionEntity = discussionDetail;
 				logger.info("Discussion is deleted successfully!");
-			}
-			else
-			{
+			} else {
 				logger.error("Error while deleting the discussion details!");
 			}
-		}
-		catch(HibernateException e)
-		{
+		} catch (HibernateException e) {
 			logger.error("Error while deleting the discussion details!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return discussionEntity;
 	}
+
 	@Override
 	public DiscussionEntity getParticularDiscussion(Long questionNo) throws DatabaseException, NotFoundException {
 		logger.info("Getting discussion detail!");
-		DiscussionEntity discussionEntity=null;
-		Session session=null;
-		try
-		{
+		DiscussionEntity discussionEntity = null;
+		Session session = null;
+		try {
 			checkQuestion(questionNo);
-			session=sessionFactory.getCurrentSession();
-			Query<DiscussionEntity> query=session.createQuery("FROM DiscussionEntity where questionNo=:questionId");
-			query.setParameter("questionId",questionNo);
-			discussionEntity=query.uniqueResultOptional().orElse(null);
+			session = sessionFactory.getCurrentSession();
+			Query<DiscussionEntity> query = session.createQuery("FROM DiscussionEntity where questionNo=:questionId");
+			query.setParameter("questionId", questionNo);
+			discussionEntity = query.uniqueResultOptional().orElse(null);
 			logger.info("Discussion detail is fetched successfully!");
-		}
-		catch(HibernateException e)
-		{
+		} catch (HibernateException e) {
 			logger.error("Error while fetching the discussion details!");
 			throw new DatabaseException(e.getMessage());
 		}

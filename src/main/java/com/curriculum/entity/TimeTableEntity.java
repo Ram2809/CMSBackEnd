@@ -20,22 +20,23 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name="Timetable")
-public class TimeTableEntity implements Serializable{
+@Table(name = "Timetable")
+public class TimeTableEntity implements Serializable {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotNull
 	private String day;
 	@Column
-	@ElementCollection(fetch=FetchType.EAGER)
-	@CollectionTable(name="Period")
-	private Map<Integer,String> periods;
+	@ElementCollection(fetch = FetchType.EAGER)
+	@CollectionTable(name = "Period")
+	private Map<Integer, String> periods;
 	@ManyToOne
-	@JoinColumn(name="roomNo",nullable=false)
+	@JoinColumn(name = "roomNo", nullable = false)
 	@JsonBackReference
 	private ClassEntity classRoom;
 }

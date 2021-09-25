@@ -10,6 +10,8 @@ import com.curriculum.exception.DatabaseException;
 
 public interface TimeTableRepository {
 	TimeTableEntity addTimeTable(TimeTable timeTable) throws DatabaseException;
+
 	List<TimeTableEntity> getTimeTable(Long roomNo) throws DatabaseException;
+
 	Integer deleteTimeTable(Long roomNo) throws DatabaseException;
 }

@@ -20,16 +20,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 @Entity
-@Table(name="Login")
-public class LoginEntity implements Serializable{
+@Table(name = "Login")
+public class LoginEntity implements Serializable {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long loginId;
-	@Column(nullable=false)
-	@Size(min=8)
+	@Column(nullable = false)
+	@Size(min = 8)
 	private String password;
-	@OneToOne(targetEntity=TeacherEntity.class,optional=false)
-	@JoinColumn(name="teacher_id",nullable=false)
+	@OneToOne(targetEntity = TeacherEntity.class, optional = false)
+	@JoinColumn(name = "teacher_id", nullable = false)
 	@JsonBackReference
-	private TeacherEntity teacher; 
+	private TeacherEntity teacher;
 }

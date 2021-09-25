@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curriculum.dto.TimeTable;
-import com.curriculum.entity.TeacherEntity;
 import com.curriculum.entity.TimeTableEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.NotFoundException;
+import com.curriculum.exception.ClassNotFoundException;
 import com.curriculum.service.TimeTableService;
 import com.curriculum.util.Response;
 
@@ -28,28 +28,28 @@ import com.curriculum.util.Response;
 public class TimeTableController {
 	@Autowired
 	private TimeTableService timeTableService;
+
 	@PostMapping
-	public ResponseEntity<Response> addTimeTable(@RequestBody TimeTable timeTable)
-	{
-		Response response=new Response();
-		ResponseEntity<Response> responseEntity=null;
-		TimeTableEntity timeTableEntity=null;
+	public ResponseEntity<Response> addTimeTable(@RequestBody TimeTable timeTable) {
+		Response response = new Response();
+		ResponseEntity<Response> responseEntity = null;
+		TimeTableEntity timeTableEntity = null;
 		try {
-			timeTableEntity=timeTableService.addTimeTable(timeTable);
+			timeTableEntity = timeTableService.addTimeTable(timeTable);
 			response.setCode(200);
 			response.setMessage("Time table details added successfully!");
 			response.setData(timeTable);
-			responseEntity=new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.OK);
+			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
 		} catch (BusinessServiceException | NotFoundException e) {
 			response.setCode(404);
 			response.setMessage(e.getMessage());
-			responseEntity=new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
 		}
 		return responseEntity;
 	}
+
 	@GetMapping("/{roomNo}")
-	public ResponseEntity<Response> getTimeTable(@PathVariable("roomNo") Long roomNo)
-	{
+	public ResponseEntity<Response> getTimeTable(@PathVariable("roomNo") Long roomNo) {
 		ResponseEntity<Response> responseEntity = null;
 		Response response = new Response();
 		List<TimeTableEntity> timeTableList = new ArrayList<>();
@@ -65,7 +65,7 @@ public class TimeTableController {
 				response.setMessage("No Timetable Found!");
 				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
 			}
-		} catch (BusinessServiceException |NotFoundException e) {
+		} catch (BusinessServiceException | NotFoundException e) {
 			if (e instanceof ClassNotFoundException) {
 				response.setCode(404);
 				response.setMessage(e.getMessage());
@@ -78,31 +78,22 @@ public class TimeTableController {
 		}
 		return responseEntity;
 	}
+
 	@DeleteMapping("/{roomNo}")
-	public ResponseEntity<Response> deleteTimeTable(@PathVariable("roomNo") Long roomNo)
-	{
-		Response response=new Response();
-		ResponseEntity<Response> responseEntity=null;
-		Integer count=0;
+	public ResponseEntity<Response> deleteTimeTable(@PathVariable("roomNo") Long roomNo) {
+		Response response = new Response();
+		ResponseEntity<Response> responseEntity = null;
+		Integer count = 0;
 		try {
-			count=timeTableService.deleteTimeTable(roomNo);
+			count = timeTableService.deleteTimeTable(roomNo);
 			System.out.println(count);
-			if(count==1)
-			{
+			if (count > 0) {
 				response.setCode(200);
 				response.setMessage("Timetable details deleted successfully!");
 				response.setData(roomNo);
-				responseEntity=new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.OK);
+				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
 			}
-			else
-			{
-				response.setCode(500);
-				response.setMessage("Internal Server Error");
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
-			}
-		}
-		catch(BusinessServiceException | NotFoundException e)
-		{
+		} catch (BusinessServiceException | NotFoundException e) {
 			if (e instanceof ClassNotFoundException) {
 				response.setCode(404);
 				response.setMessage(e.getMessage());

@@ -16,7 +16,7 @@ public interface TopicService {
 
 	TopicEntity updateTopic(String unitNo, Topic topic) throws BusinessServiceException, NotFoundException;
 
-	String getSubjectCode(String unitNo) throws BusinessServiceException,NotFoundException;
+	String getSubjectCode(String unitNo) throws BusinessServiceException, NotFoundException;
 
-	TopicEntity deleteTopic(String unitNo) throws BusinessServiceException,NotFoundException;
+	TopicEntity deleteTopic(String unitNo) throws BusinessServiceException, NotFoundException;
 }

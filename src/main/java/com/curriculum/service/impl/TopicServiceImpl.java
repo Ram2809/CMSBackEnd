@@ -16,6 +16,7 @@ import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
 import com.curriculum.exception.SubjectNotFoundException;
+import com.curriculum.repository.SubjectRepository;
 import com.curriculum.repository.TopicRepository;
 import com.curriculum.repository.impl.SubjectRepositoryImpl;
 import com.curriculum.service.TopicService;
@@ -25,7 +26,7 @@ public class TopicServiceImpl implements TopicService {
 	@Autowired
 	private TopicRepository topicRepositoryImpl;
 	@Autowired
-	private SubjectRepositoryImpl subjectRepository;
+	private SubjectRepository subjectRepository;
 	private Logger logger = Logger.getLogger(TopicServiceImpl.class);
 
 	@Override
@@ -33,15 +34,17 @@ public class TopicServiceImpl implements TopicService {
 		try {
 			subjectRepository.checkSubject(topic.getSubject().getCode());
 			return topicRepositoryImpl.addTopic(topic);
-		} catch (DataIntegrityViolationException |ConstraintViolationException e) {
+		} catch (DataIntegrityViolationException | ConstraintViolationException e) {
 			logger.error("Constraint Violation fails!");
 			throw new ConstraintValidationException("Constraint Violation fails!");
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
+
 	@Override
-	public List<TopicEntity> getTopicBySubjectCode(String subjectCode) throws BusinessServiceException, NotFoundException {
+	public List<TopicEntity> getTopicBySubjectCode(String subjectCode)
+			throws BusinessServiceException, NotFoundException {
 		try {
 			subjectRepository.checkSubject(subjectCode);
 			return topicRepositoryImpl.getTopicBySubjectCode(subjectCode);
@@ -49,6 +52,7 @@ public class TopicServiceImpl implements TopicService {
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
+
 	@Override
 	public TopicEntity getTopicByUnitNo(String unitNo) throws BusinessServiceException, NotFoundException {
 		try {
@@ -57,26 +61,28 @@ public class TopicServiceImpl implements TopicService {
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
+
 	@Override
-	public TopicEntity updateTopic(String unitNo, Topic topic) throws BusinessServiceException,NotFoundException {
+	public TopicEntity updateTopic(String unitNo, Topic topic) throws BusinessServiceException, NotFoundException {
 		try {
 			subjectRepository.checkSubject(topic.getSubject().getCode());
-			return topicRepositoryImpl.updateTopic(unitNo,topic);
+			return topicRepositoryImpl.updateTopic(unitNo, topic);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
 
 	@Override
-	public TopicEntity deleteTopic(String unitNo) throws BusinessServiceException,NotFoundException { 
+	public TopicEntity deleteTopic(String unitNo) throws BusinessServiceException, NotFoundException {
 		try {
 			return topicRepositoryImpl.deleteTopic(unitNo);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
+
 	@Override
-	public String getSubjectCode(String unitNo) throws BusinessServiceException,NotFoundException {
+	public String getSubjectCode(String unitNo) throws BusinessServiceException, NotFoundException {
 		try {
 			return topicRepositoryImpl.getSubjectCode(unitNo);
 		} catch (DatabaseException e) {

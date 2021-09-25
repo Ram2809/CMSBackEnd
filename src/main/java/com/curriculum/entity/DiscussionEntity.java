@@ -21,20 +21,20 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name="Discussion")
-public class DiscussionEntity implements Serializable{
+@Table(name = "Discussion")
+public class DiscussionEntity implements Serializable {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long questionNo;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String question;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String answer;
 	@Temporal(TemporalType.DATE)
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private Date date;
 	@ManyToOne
-	@JoinColumn(name="unitNo",nullable=false)
+	@JoinColumn(name = "unitNo", nullable = false)
 	@JsonBackReference
 	private TopicEntity topic;
 }

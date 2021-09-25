@@ -7,6 +7,8 @@ import com.curriculum.exception.NotFoundException;
 
 public interface LoginService {
 	Long addLogin(Login login) throws BusinessServiceException, NotFoundException;
+
 	LoginEntity getLogin(Long teacherId) throws BusinessServiceException, NotFoundException;
-	LoginEntity updateLogin(Long teacherId,Login login) throws BusinessServiceException, NotFoundException;
+
+	LoginEntity updateLogin(Long teacherId, Login login) throws BusinessServiceException, NotFoundException;
 }

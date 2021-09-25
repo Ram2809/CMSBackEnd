@@ -12,27 +12,29 @@ import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
 import com.curriculum.exception.TeacherNotFoundException;
 import com.curriculum.repository.LoginRepository;
+import com.curriculum.repository.TeacherRepository;
 import com.curriculum.repository.impl.TeacherRepositoryImpl;
 import com.curriculum.service.LoginService;
 
 @Service
-public class LoginServiceImpl implements LoginService{
+public class LoginServiceImpl implements LoginService {
 	@Autowired
 	private LoginRepository loginRepository;
 	@Autowired
-	private TeacherRepositoryImpl teacherRepository;
+	private TeacherRepository teacherRepository;
+
 	@Override
 	public Long addLogin(Login login) throws BusinessServiceException, NotFoundException {
 		try {
 			teacherRepository.checkTeacher(login.getTeacher().getId());
 			return loginRepository.addLogin(login);
-		}catch (DataIntegrityViolationException e) {
+		} catch (DataIntegrityViolationException e) {
 			throw new ConstraintValidationException("Constraint Violation fails!");
-		}
-		catch (DatabaseException e) {
+		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
+
 	@Override
 	public LoginEntity getLogin(Long teacherId) throws BusinessServiceException, NotFoundException {
 		try {
@@ -42,11 +44,12 @@ public class LoginServiceImpl implements LoginService{
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
+
 	@Override
 	public LoginEntity updateLogin(Long teacherId, Login login) throws BusinessServiceException, NotFoundException {
 		try {
 			teacherRepository.checkTeacher(teacherId);
-			return loginRepository.updateLogin(teacherId,login);
+			return loginRepository.updateLogin(teacherId, login);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}

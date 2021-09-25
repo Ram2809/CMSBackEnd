@@ -12,6 +12,7 @@ import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
+import com.curriculum.repository.ClassRepository;
 import com.curriculum.repository.SubjectRepository;
 import com.curriculum.repository.impl.ClassRepositoryImpl;
 import com.curriculum.service.SubjectService;
@@ -21,7 +22,7 @@ public class SubjectServiceImpl implements SubjectService {
 	@Autowired
 	private SubjectRepository subjectRepository;
 	@Autowired
-	private ClassRepositoryImpl classRepository;
+	private ClassRepository classRepository;
 
 	@Override
 	public String addSubject(Subject subject) throws BusinessServiceException, NotFoundException {

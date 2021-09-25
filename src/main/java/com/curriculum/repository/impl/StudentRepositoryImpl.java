@@ -27,7 +27,8 @@ public class StudentRepositoryImpl implements StudentRepository {
 	private ClassRepositoryImpl classRepositoryImpl;
 	@Autowired
 	private SessionFactory sessionFactory;
-	private Logger logger=Logger.getLogger(StudentRepositoryImpl.class);
+	private Logger logger = Logger.getLogger(StudentRepositoryImpl.class);
+
 	@Override
 	public Long addStudent(Student student) throws DatabaseException {
 		logger.info("Adding student details");
@@ -35,16 +36,15 @@ public class StudentRepositoryImpl implements StudentRepository {
 		Long rollNo = null;
 		try {
 			session = sessionFactory.getCurrentSession();
-			rollNo=(Long) session.save(StudentMapper.studentMapper(student));
-			if(rollNo>0)
-			{
+			rollNo = (Long) session.save(StudentMapper.studentMapper(student));
+			if (rollNo > 0) {
 				logger.info("Student details added successfully!");
 				System.out.println(student);
 			}
-		} catch (HibernateException e){
+		} catch (HibernateException e) {
 			logger.error("Error while adding student details!");
 			throw new DatabaseException(e.getMessage());
-		} 
+		}
 		return rollNo;
 	}
 
@@ -70,8 +70,8 @@ public class StudentRepositoryImpl implements StudentRepository {
 		Query<StudentEntity> query = session.createQuery("FROM StudentEntity WHERE rollNo=:regNo");
 		query.setParameter("regNo", rollNo);
 		StudentEntity student = query.uniqueResultOptional().orElse(null);
-		if (student==null) {
-			throw new StudentNotFoundException("Student Not Found With"+" "+rollNo+"!");
+		if (student == null) {
+			throw new StudentNotFoundException("Student Not Found With" + " " + rollNo + "!");
 		}
 	}
 
@@ -108,24 +108,21 @@ public class StudentRepositoryImpl implements StudentRepository {
 //	}
 
 	@Override
-	public StudentEntity deleteStudent(Long rollNo) throws DatabaseException, NotFoundException  {
+	public StudentEntity deleteStudent(Long rollNo) throws DatabaseException, NotFoundException {
 		logger.info("Deleting the Student details!");
 		Session session = null;
-		StudentEntity studentDetail=null;
+		StudentEntity studentDetail = null;
 		try {
 			checkStudent(rollNo);
 			session = sessionFactory.getCurrentSession();
 			session.find(StudentEntity.class, rollNo);
 			StudentEntity studentEntity = session.load(StudentEntity.class, rollNo);
 			session.delete(studentEntity);
-			StudentEntity student=session.get(StudentEntity.class, rollNo);
-			if(student==null)
-			{
-				studentDetail=studentEntity;
+			StudentEntity student = session.get(StudentEntity.class, rollNo);
+			if (student == null) {
+				studentDetail = studentEntity;
 				logger.info("Student is deleted successfully!");
-			}
-			else
-			{
+			} else {
 				logger.error("Error while deleting the student!");
 			}
 		} catch (HibernateException e) {
@@ -159,18 +156,15 @@ public class StudentRepositoryImpl implements StudentRepository {
 	@Override
 	public List<StudentEntity> getStudentByClass(Long roomNo) throws DatabaseException {
 		logger.info("Getting student details by class!");
-		Session session=null;
-		List<StudentEntity> studentsList=null;
-		try
-		{
-			session=sessionFactory.getCurrentSession();
-			Query<StudentEntity> query=session.createQuery("FROM StudentEntity WHERE roomNo=:roomId");
+		Session session = null;
+		List<StudentEntity> studentsList = null;
+		try {
+			session = sessionFactory.getCurrentSession();
+			Query<StudentEntity> query = session.createQuery("FROM StudentEntity WHERE roomNo=:roomId");
 			query.setParameter("roomId", roomNo);
-			studentsList=query.list();
+			studentsList = query.list();
 			logger.info("Student details fetched successfully!");
-		}
-		catch(HibernateException e)
-		{
+		} catch (HibernateException e) {
 			logger.error("Error while fetching the student details!");
 			throw new DatabaseException(e.getMessage());
 		}

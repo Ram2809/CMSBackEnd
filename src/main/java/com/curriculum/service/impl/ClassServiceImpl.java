@@ -20,18 +20,11 @@ public class ClassServiceImpl implements ClassService {
 
 	@Override
 	public Long addClass(Class classDetail) throws BusinessServiceException {
-		Long id=0l;
 		try {
-			id=classRepository.addClass(classDetail);
-		} 
-		catch (DatabaseException e) {
+			return classRepository.addClass(classDetail);
+		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
-		catch(Exception e)
-		{
-			System.out.println(e.getMessage());
-		}
-		return id;
 	}
 
 	@Override

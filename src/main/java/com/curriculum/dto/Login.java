@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class Login {
 	private Long loginId;
 	@NotNull
-	@Size(min=8)
+	@Size(min = 8)
 	private String password;
 	private Teacher teacher;
 }

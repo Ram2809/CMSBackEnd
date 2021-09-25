@@ -33,12 +33,12 @@ public class HeadMasterEntity {
 	private String qualification;
 	@NotNull
 	private String major;
-	@Email(message="Enter the valid email!")
+	@Email(message = "Enter the valid email!")
 	@NotNull
 	@Column(unique = true)
 	private String email;
 	@NotNull
-	@Column(unique = true,length=10)
+	@Column(unique = true, length = 10)
 	private Long contactNo;
 	@NotNull
 	private String address;

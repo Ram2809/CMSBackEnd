@@ -17,4 +17,6 @@ public interface TeacherRepository {
 	TeacherEntity deleteTeacher(Long id) throws DatabaseException, NotFoundException;
 
 	TeacherEntity getParticularTeacher(Long id) throws DatabaseException, NotFoundException;
+
+	void checkTeacher(Long id) throws NotFoundException;
 }

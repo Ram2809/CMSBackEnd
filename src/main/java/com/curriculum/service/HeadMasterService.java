@@ -10,9 +10,10 @@ import com.curriculum.exception.NotFoundException;
 public interface HeadMasterService {
 	Long addHeadMaster(HeadMaster headMaster) throws BusinessServiceException;
 
-	HeadMasterEntity updateHeadMaster(Long id, HeadMaster headMaster) throws BusinessServiceException,NotFoundException;
+	HeadMasterEntity updateHeadMaster(Long id, HeadMaster headMaster)
+			throws BusinessServiceException, NotFoundException;
 
 	HeadMasterEntity deleteHeadMaster(Long id) throws BusinessServiceException, NotFoundException;
 
-	HeadMasterEntity getHeadMaster(Long id) throws BusinessServiceException,NotFoundException;
+	HeadMasterEntity getHeadMaster(Long id) throws BusinessServiceException, NotFoundException;
 }

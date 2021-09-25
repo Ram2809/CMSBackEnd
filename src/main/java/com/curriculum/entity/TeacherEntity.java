@@ -22,11 +22,12 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name="Teacher")
-public class TeacherEntity implements Serializable{
+@Table(name = "Teacher")
+public class TeacherEntity implements Serializable {
 	@Id
 	private Long id;
 	@NotNull
@@ -42,19 +43,19 @@ public class TeacherEntity implements Serializable{
 	private String qualification;
 	@NotNull
 	private String major;
-	@Email(message="Enter the valid email id!")
+	@Email(message = "Enter the valid email id!")
 	@NotNull
-	@Column(unique=true)
+	@Column(unique = true)
 	private String email;
 	@NotNull
-	@Column(unique=true)
+	@Column(unique = true)
 	private Long contactNo;
 	@NotNull
 	private String address;
-	@OneToMany(mappedBy="teacher",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
+	@OneToMany(mappedBy = "teacher", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
 	private Set<TeacherSubjectEntity> teachers;
-	@OneToOne(mappedBy="teacher",fetch=FetchType.LAZY,cascade=CascadeType.ALL,orphanRemoval=true)
+	@OneToOne(mappedBy = "teacher", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
 	private LoginEntity login;
 }

@@ -30,112 +30,102 @@ import com.curriculum.util.Response;
 public class LoginController {
 	@Autowired
 	private LoginService loginService;
+
 	@PostMapping
-	public ResponseEntity<Response> addLogin(@Valid @RequestBody Login login)
-	{
-		ResponseEntity<Response> responseEntity=null;
-		Response response=new Response();
-		Long loginId=null;
+	public ResponseEntity<Response> addLogin(@Valid @RequestBody Login login) {
+		ResponseEntity<Response> responseEntity = null;
+		Response response = new Response();
+		Long loginId = null;
 		try {
-			loginId=loginService.addLogin(login);
+			loginId = loginService.addLogin(login);
 			response.setCode(200);
 			response.setMessage("Login credentials added successfully!");
 			login.setLoginId(loginId);
 			login.setTeacher(login.getTeacher());
 			response.setData(login);
-			responseEntity=new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.OK);
+			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
 		} catch (BusinessServiceException | NotFoundException e) {
-			if(e instanceof TeacherNotFoundException)
-			{
+			if (e instanceof TeacherNotFoundException) {
 				response.setCode(404);
 				response.setMessage(e.getMessage());
-				responseEntity=new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
-			}
-			else if(e instanceof ConstraintValidationException)
-			{
+				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+			} else if (e instanceof ConstraintValidationException) {
 				response.setCode(422);
 				response.setMessage(e.getMessage());
-				responseEntity=new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.UNPROCESSABLE_ENTITY);
-			}
-			else {
+				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.UNPROCESSABLE_ENTITY);
+			} else {
 				response.setCode(500);
 				response.setMessage(e.getMessage());
-				responseEntity=new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.INTERNAL_SERVER_ERROR);
+				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 		}
 		return responseEntity;
 	}
+
 	@GetMapping("/{teacherId}")
-	public ResponseEntity<Response> getLogin(@PathVariable("teacherId") Long teacherId)
-	{
-		ResponseEntity<Response> responseEntity=null;
-		Response response=new Response();
-		LoginEntity loginEntity=null;
+	public ResponseEntity<Response> getLogin(@PathVariable("teacherId") Long teacherId) {
+		ResponseEntity<Response> responseEntity = null;
+		Response response = new Response();
+		LoginEntity loginEntity = null;
 		try {
-			loginEntity=loginService.getLogin(teacherId);
-			if(loginEntity!=null)
-			{
+			loginEntity = loginService.getLogin(teacherId);
+			if (loginEntity != null) {
 				response.setCode(200);
 				response.setMessage("Success");
 				response.setData(loginEntity);
-				responseEntity=new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.OK);
-			}else {
+				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
+			} else {
 				response.setCode(404);
 				response.setMessage("No User Found!");
-				responseEntity=new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
+				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
 			}
 		} catch (BusinessServiceException | NotFoundException e) {
-			if(e instanceof TeacherNotFoundException)
-			{
+			if (e instanceof TeacherNotFoundException) {
 				response.setCode(404);
 				response.setMessage(e.getMessage());
-				responseEntity=new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
-			}
-			else
-			{
+				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+			} else {
 				response.setCode(500);
 				response.setMessage(e.getMessage());
-				responseEntity=new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.INTERNAL_SERVER_ERROR);
+				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 		}
 		return responseEntity;
 	}
+
 	@PutMapping("/{teacherId}")
-	public ResponseEntity<Response> updateLogin(@PathVariable("teacherId") Long teacherId,@Valid @RequestBody Login login)
-	{
-		ResponseEntity<Response> responseEntity=null;
-		Response response=new Response();
-		LoginEntity loginEntity=null;
+	public ResponseEntity<Response> updateLogin(@PathVariable("teacherId") Long teacherId,
+			@Valid @RequestBody Login login) {
+		ResponseEntity<Response> responseEntity = null;
+		Response response = new Response();
+		LoginEntity loginEntity = null;
 		try {
-			loginEntity=loginService.updateLogin(teacherId, login);
+			loginEntity = loginService.updateLogin(teacherId, login);
 			response.setCode(200);
 			response.setMessage("Password Changed Successfully!");
 			response.setData(loginEntity);
-			responseEntity=new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.OK);
+			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
 		} catch (BusinessServiceException | NotFoundException e) {
-			if(e instanceof TeacherNotFoundException)
-			{
+			if (e instanceof TeacherNotFoundException) {
 				response.setCode(404);
 				response.setMessage(e.getMessage());
-				responseEntity=new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.NOT_FOUND);
-			}
-			else
-			{
+				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
+			} else {
 				response.setCode(500);
 				response.setMessage(e.getMessage());
-				responseEntity=new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.INTERNAL_SERVER_ERROR);
+				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 		}
 		return responseEntity;
 	}
+
 	@ExceptionHandler(MethodArgumentNotValidException.class)
-	public ResponseEntity<Response> validationFailed(MethodArgumentNotValidException e)
-	{
-		Response response=new Response();
-		ResponseEntity<Response> responseEntity=null;
+	public ResponseEntity<Response> validationFailed(MethodArgumentNotValidException e) {
+		Response response = new Response();
+		ResponseEntity<Response> responseEntity = null;
 		response.setCode(422);
 		response.setMessage("Validation fails!");
-		responseEntity=new ResponseEntity<>(response,new HttpHeaders(),HttpStatus.UNPROCESSABLE_ENTITY);
+		responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.UNPROCESSABLE_ENTITY);
 		return responseEntity;
 	}
 }

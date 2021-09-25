@@ -34,14 +34,11 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 		Long staffId = 0l;
 		try {
 			session = sessionFactory.getCurrentSession();
-//			if (teacher.getMajor() == null) {
-//				throw new ConstraintValidationException("Major must be entered!");
-//			}
 			staffId = (Long) session.save(TeacherMapper.teacherMapper(teacher));
 			if (staffId > 0) {
 				logger.info("Teacher details added successfully!");
 			}
-		} catch (HibernateException e) {// | ConstraintValidationException e) {
+		} catch (HibernateException e) {
 			logger.error("Error while adding the teacher!");
 			throw new DatabaseException(e.getMessage());
 		}

@@ -41,7 +41,7 @@ public class StudentEntity implements Serializable {
 	@Size(max = 7)
 	private String gender;
 	@NotNull
-	@Digits(integer=10,fraction=0)
+	@Digits(integer = 10, fraction = 0)
 	private Long contactNo;
 	@NotNull
 	private String address;

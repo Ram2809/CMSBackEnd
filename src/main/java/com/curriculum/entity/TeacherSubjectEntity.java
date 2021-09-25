@@ -13,20 +13,21 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name="TeacherAssign")
-public class TeacherSubjectEntity implements Serializable{
+@Table(name = "TeacherAssign")
+public class TeacherSubjectEntity implements Serializable {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@ManyToOne(targetEntity=TeacherEntity.class)
-	@JoinColumn(name="teacherId",nullable=false)
-	@JsonBackReference(value="teacher")
+	@ManyToOne(targetEntity = TeacherEntity.class)
+	@JoinColumn(name = "teacherId", nullable = false)
+	@JsonBackReference(value = "teacher")
 	private TeacherEntity teacher;
-	@ManyToOne(targetEntity=SubjectEntity.class)
-	@JoinColumn(name="subjectCode",nullable=false,unique=true)
-	@JsonBackReference(value="subject")
+	@ManyToOne(targetEntity = SubjectEntity.class)
+	@JoinColumn(name = "subjectCode", nullable = false, unique = true)
+	@JsonBackReference(value = "subject")
 	private SubjectEntity subject;
 }

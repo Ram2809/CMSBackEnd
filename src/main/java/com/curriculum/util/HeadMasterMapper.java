@@ -4,9 +4,8 @@ import com.curriculum.dto.HeadMaster;
 import com.curriculum.entity.HeadMasterEntity;
 
 public class HeadMasterMapper {
-	public static HeadMasterEntity headMasterMapper(HeadMaster headMaster)
-	{
-		HeadMasterEntity headMasterEntity=new HeadMasterEntity();
+	public static HeadMasterEntity headMasterMapper(HeadMaster headMaster) {
+		HeadMasterEntity headMasterEntity = new HeadMasterEntity();
 		headMasterEntity.setId(headMaster.getId());
 		headMasterEntity.setFirstName(headMaster.getFirstName());
 		headMasterEntity.setLastName(headMaster.getLastName());

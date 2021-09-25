@@ -1,7 +1,6 @@
 package com.curriculum.repository.impl;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -12,106 +11,97 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
-import com.curriculum.entity.ClassEntity;
 import com.curriculum.dto.TimeTable;
 import com.curriculum.entity.TimeTableEntity;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotAllowedException;
 import com.curriculum.repository.TimeTableRepository;
 import com.curriculum.util.TimeTableMapper;
+
 @Repository
 @Transactional
-public class TimeTableRepositoryImpl implements TimeTableRepository{
+public class TimeTableRepositoryImpl implements TimeTableRepository {
 	@Autowired
 	private SessionFactory sessionFactory;
-	private Logger logger=Logger.getLogger(TimeTableRepositoryImpl.class);
+	private Logger logger = Logger.getLogger(TimeTableRepositoryImpl.class);
+
 	@Override
 	public TimeTableEntity addTimeTable(TimeTable timeTable) throws DatabaseException {
 		logger.info("Adding timetable details!");
-		TimeTableEntity timeTableEntity=null;
-		Session session=null;
-		try
-		{
-			session=sessionFactory.getCurrentSession();
-			checkPeriod(timeTable.getDay(),timeTable.getClassRoom().getRoomNo());
-			Long count=(Long) session.save(TimeTableMapper.timeTableMapper(timeTable));
-			if(count>0)
-			{
-				timeTableEntity=TimeTableMapper.timeTableMapper(timeTable);
+		TimeTableEntity timeTableEntity = null;
+		Session session = null;
+		try {
+			session = sessionFactory.getCurrentSession();
+			checkPeriod(timeTable.getDay(), timeTable.getClassRoom().getRoomNo());
+			Long count = (Long) session.save(TimeTableMapper.timeTableMapper(timeTable));
+			if (count > 0) {
+				timeTableEntity = TimeTableMapper.timeTableMapper(timeTable);
 				System.out.println(timeTableEntity);
 				logger.info("Timetable details are added successfully!");
 			}
-		}
-		catch(HibernateException | NotAllowedException e)
-		{
+		} catch (HibernateException | NotAllowedException e) {
 			logger.error("Error while adding the timetable details!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return timeTableEntity;
 	}
+
 	@Override
 	public List<TimeTableEntity> getTimeTable(Long roomNo) throws DatabaseException {
 		logger.info("Getting timetable details!");
-		Session session=null;
-		List<TimeTableEntity> timeTableList=new ArrayList<>();
-		try
-		{
-			session=sessionFactory.getCurrentSession();
-			Query<TimeTableEntity> query=session.createQuery("FROM TimeTableEntity WHERE roomNo=:roomId");
+		Session session = null;
+		List<TimeTableEntity> timeTableList = new ArrayList<>();
+		try {
+			session = sessionFactory.getCurrentSession();
+			Query<TimeTableEntity> query = session.createQuery("FROM TimeTableEntity WHERE roomNo=:roomId");
 			query.setParameter("roomId", roomNo);
-			timeTableList=query.getResultList();
+			timeTableList = query.getResultList();
 			System.out.println(timeTableList);
 			logger.info("Timetable details are fetched successfully!");
-		}
-		catch(HibernateException e)
-		{
+		} catch (HibernateException e) {
 			logger.error("Error while fetching timetable details!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return timeTableList;
 	}
-	public void checkPeriod(String day,Long classRoomNo) throws NotAllowedException
-	{
-		Session session=sessionFactory.getCurrentSession();
-		Query<TimeTableEntity> query=session.createQuery("FROM TimeTableEntity t WHERE t.day=:day AND t.classRoom.roomNo=:roomNo");
+
+	public void checkPeriod(String day, Long classRoomNo) throws NotAllowedException {
+		Session session = sessionFactory.getCurrentSession();
+		Query<TimeTableEntity> query = session
+				.createQuery("FROM TimeTableEntity t WHERE t.day=:day AND t.classRoom.roomNo=:roomNo");
 		query.setParameter("day", day);
-		query.setParameter("roomNo",classRoomNo);
-		TimeTableEntity timeTableEntity=query.uniqueResultOptional().orElse(null);
-		if(timeTableEntity!=null)
-		{
-			throw new NotAllowedException("Already assigned periods for"+" "+day+" "+"for class Room Number"+" "+classRoomNo+"!");
+		query.setParameter("roomNo", classRoomNo);
+		TimeTableEntity timeTableEntity = query.uniqueResultOptional().orElse(null);
+		if (timeTableEntity != null) {
+			throw new NotAllowedException("Already assigned periods for" + " " + day + " " + "for class Room Number"
+					+ " " + classRoomNo + "!");
 		}
 	}
+
 	@Override
 	public Integer deleteTimeTable(Long roomNo) throws DatabaseException {
 		logger.info("Deleting timetable!");
-		Session session=null;
-		Integer noOfRowsDeleted=0;
-		try
-		{
-			session=sessionFactory.getCurrentSession();
-			Query query2=session.createQuery("SELECT t.id FROM TimeTableEntity t WHERE t.classRoom.roomNo=:roomNo");
-			query2.setParameter("roomNo", roomNo);
-			List<Long> ids=query2.getResultList();
-			System.out.println(ids);
-			for(Long id:ids)
-			{
-				Query query1=session.createSQLQuery("DELETE FROM Period p WHERE p.TimeTableEntity_id="+id);
-				System.out.println(query1.executeUpdate());
+		Session session = null;
+		Integer noOfRowsDeleted = 0;
+		try {
+			session = sessionFactory.getCurrentSession();
+			Query<Long> selectQuery = session
+					.createQuery("SELECT t.id FROM TimeTableEntity t WHERE t.classRoom.roomNo=:roomNo");
+			selectQuery.setParameter("roomNo", roomNo);
+			List<Long> timeTableIds = selectQuery.getResultList();
+			for (Long id : timeTableIds) {
+				Query<Integer> deletePeriodQuery = session
+						.createSQLQuery("DELETE FROM Period p WHERE p.TimeTableEntity_id=" + id);
+				deletePeriodQuery.executeUpdate();
 			}
-			Query query=session.createQuery("DELETE FROM TimeTableEntity t WHERE t.classRoom.roomNo=:roomNo");
-			query.setParameter("roomNo", roomNo);
-			noOfRowsDeleted=query.executeUpdate();
-			System.out.println(noOfRowsDeleted);
+			Query<Integer> deleteTimeTablequery = session
+					.createQuery("DELETE FROM TimeTableEntity t WHERE t.classRoom.roomNo=:roomNo");
+			deleteTimeTablequery.setParameter("roomNo", roomNo);
+			noOfRowsDeleted = deleteTimeTablequery.executeUpdate();
 			logger.info("Timetable Deleted successfully!");
-		}
-		catch(HibernateException e)
-		{
+		} catch (HibernateException e) {
 			logger.error("Error while deleting the timetable!");
 			throw new DatabaseException(e.getMessage());
 		}

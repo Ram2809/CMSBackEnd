@@ -22,17 +22,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name="Topic")
-public class TopicEntity implements Serializable{
+@Table(name = "Topic")
+public class TopicEntity implements Serializable {
 	@Id
-	@Size(max=8,message="Unit Number not exceeds the 8 characters!")
+	@Size(max = 8, message = "Unit Number not exceeds the 8 characters!")
 	private String unitNo;
 	@NotNull
 	private String unitName;
-	@Size(max=200,message="Description only contains 200 characters!")
+	@Size(max = 200, message = "Description only contains 200 characters!")
 	private String description;
 	@Temporal(TemporalType.DATE)
 	private Date beginDate;
@@ -40,10 +41,10 @@ public class TopicEntity implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date endDate;
 	@ManyToOne
-	@JoinColumn(name="subjectCode",nullable=false)
+	@JoinColumn(name = "subjectCode", nullable = false)
 	@JsonBackReference
 	private SubjectEntity subject;
-	@OneToMany(mappedBy="topic",cascade=CascadeType.ALL,fetch=FetchType.LAZY,orphanRemoval=true)
+	@OneToMany(mappedBy = "topic", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
 	@JsonIgnore
 	private Set<DiscussionEntity> discussion;
 }

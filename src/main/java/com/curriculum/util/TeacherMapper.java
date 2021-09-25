@@ -4,9 +4,8 @@ import com.curriculum.dto.Teacher;
 import com.curriculum.entity.TeacherEntity;
 
 public class TeacherMapper {
-	public static TeacherEntity teacherMapper(Teacher teacher)
-	{
-		TeacherEntity teacherEntity=new TeacherEntity();
+	public static TeacherEntity teacherMapper(Teacher teacher) {
+		TeacherEntity teacherEntity = new TeacherEntity();
 		teacherEntity.setId(teacher.getId());
 		teacherEntity.setFirstName(teacher.getFirstName());
 		teacherEntity.setLastName(teacher.getLastName());

@@ -12,7 +12,8 @@ public interface DiscussionRepository {
 
 	List<DiscussionEntity> getDiscussionByUnitNo(String unitNo) throws DatabaseException;
 
-	DiscussionEntity updateDiscussion(Long questionNo, Discussion discussion) throws DatabaseException, NotFoundException;
+	DiscussionEntity updateDiscussion(Long questionNo, Discussion discussion)
+			throws DatabaseException, NotFoundException;
 
 	DiscussionEntity deleteDiscussion(Long questionNo) throws DatabaseException, NotFoundException;
 

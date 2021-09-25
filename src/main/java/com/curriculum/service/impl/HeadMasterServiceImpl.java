@@ -12,7 +12,7 @@ import com.curriculum.repository.HeadMasterRepository;
 import com.curriculum.service.HeadMasterService;
 
 @Service
-public class HeadMasterServiceImpl implements HeadMasterService{
+public class HeadMasterServiceImpl implements HeadMasterService {
 	@Autowired
 	private HeadMasterRepository headMasterRepository;
 
@@ -24,7 +24,8 @@ public class HeadMasterServiceImpl implements HeadMasterService{
 		}
 	}
 
-	public HeadMasterEntity updateHeadMaster(Long id, HeadMaster headMaster) throws BusinessServiceException,NotFoundException {
+	public HeadMasterEntity updateHeadMaster(Long id, HeadMaster headMaster)
+			throws BusinessServiceException, NotFoundException {
 		try {
 			return headMasterRepository.updateHeadMaster(id, headMaster);
 		} catch (DatabaseException e) {

@@ -6,18 +6,14 @@ import com.curriculum.entity.TeacherEntity;
 import com.curriculum.entity.TeacherSubjectEntity;
 
 public class TeacherSubjectMapper {
-	public static TeacherSubjectEntity teacherSubjectMapper(TeacherSubject teacherSubject)
-	{
-		TeacherSubjectEntity teacherSubjectEntity=new TeacherSubjectEntity();
-		TeacherEntity teacherEntity=new TeacherEntity();
+	public static TeacherSubjectEntity teacherSubjectMapper(TeacherSubject teacherSubject) {
+		TeacherSubjectEntity teacherSubjectEntity = new TeacherSubjectEntity();
+		TeacherEntity teacherEntity = new TeacherEntity();
 		teacherEntity.setId(teacherSubject.getTeacher().getId());
-		System.out.println(teacherEntity);
 		teacherSubjectEntity.setTeacher(teacherEntity);
-		SubjectEntity subjectEntity=new SubjectEntity();
+		SubjectEntity subjectEntity = new SubjectEntity();
 		subjectEntity.setCode(teacherSubject.getSubject().getCode());
-		System.out.println(subjectEntity);
 		teacherSubjectEntity.setSubject(subjectEntity);
-		System.out.println(teacherSubjectEntity);
 		return teacherSubjectEntity;
 	}
 }

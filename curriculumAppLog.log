@@ -791,3 +791,25 @@
 2021-09-25 00:07:30 INFO  TimeTableRepositoryImpl:69 - Timetable details are fetched successfully!
 2021-09-25 00:07:38 INFO  TimeTableRepositoryImpl:92 - Deleting timetable!
 2021-09-25 00:07:38 INFO  TimeTableRepositoryImpl:111 - Timetable Deleted successfully!
+2021-09-25 10:32:45 INFO  TimeTableRepositoryImpl:35 - Adding timetable details!
+2021-09-25 10:32:45 INFO  TimeTableRepositoryImpl:47 - Timetable details are added successfully!
+2021-09-25 10:32:56 INFO  TimeTableRepositoryImpl:35 - Adding timetable details!
+2021-09-25 10:32:56 ERROR TimeTableRepositoryImpl:52 - Error while adding the timetable details!
+2021-09-25 10:34:04 INFO  TimeTableRepositoryImpl:35 - Adding timetable details!
+2021-09-25 10:34:04 INFO  TimeTableRepositoryImpl:47 - Timetable details are added successfully!
+2021-09-25 10:34:44 INFO  TimeTableRepositoryImpl:59 - Getting timetable details!
+2021-09-25 10:34:44 INFO  TimeTableRepositoryImpl:69 - Timetable details are fetched successfully!
+2021-09-25 10:37:08 INFO  TimeTableRepositoryImpl:92 - Deleting timetable!
+2021-09-25 10:37:08 INFO  TimeTableRepositoryImpl:109 - Timetable Deleted successfully!
+2021-09-25 10:38:04 INFO  TimeTableRepositoryImpl:35 - Adding timetable details!
+2021-09-25 10:38:04 INFO  TimeTableRepositoryImpl:47 - Timetable details are added successfully!
+2021-09-25 10:38:13 INFO  TimeTableRepositoryImpl:35 - Adding timetable details!
+2021-09-25 10:38:13 INFO  TimeTableRepositoryImpl:47 - Timetable details are added successfully!
+2021-09-25 10:38:22 INFO  TimeTableRepositoryImpl:59 - Getting timetable details!
+2021-09-25 10:38:22 INFO  TimeTableRepositoryImpl:69 - Timetable details are fetched successfully!
+2021-09-25 10:38:29 INFO  TimeTableRepositoryImpl:59 - Getting timetable details!
+2021-09-25 10:38:29 INFO  TimeTableRepositoryImpl:69 - Timetable details are fetched successfully!
+2021-09-25 10:38:38 INFO  TimeTableRepositoryImpl:92 - Deleting timetable!
+2021-09-25 10:38:38 INFO  TimeTableRepositoryImpl:109 - Timetable Deleted successfully!
+2021-09-25 10:38:47 INFO  TimeTableRepositoryImpl:59 - Getting timetable details!
+2021-09-25 10:38:47 INFO  TimeTableRepositoryImpl:69 - Timetable details are fetched successfully!

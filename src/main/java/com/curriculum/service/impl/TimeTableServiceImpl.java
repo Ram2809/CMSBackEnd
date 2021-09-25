@@ -3,24 +3,22 @@ package com.curriculum.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.curriculum.dto.TimeTable;
 import com.curriculum.entity.TimeTableEntity;
 import com.curriculum.exception.BusinessServiceException;
-import com.curriculum.exception.ClassNotFoundException;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
+import com.curriculum.repository.ClassRepository;
 import com.curriculum.repository.TimeTableRepository;
-import com.curriculum.repository.impl.ClassRepositoryImpl;
 import com.curriculum.service.TimeTableService;
 @Service
 public class TimeTableServiceImpl implements TimeTableService{
 	@Autowired
 	private TimeTableRepository timeTableRepository;
 	@Autowired
-	private ClassRepositoryImpl classRepository;
+	private ClassRepository classRepository;
 	@Override
 	public TimeTableEntity addTimeTable(TimeTable timeTable) throws BusinessServiceException, NotFoundException {
 		try {

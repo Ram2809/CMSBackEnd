@@ -21,7 +21,6 @@ import com.curriculum.dto.Teacher;
 import com.curriculum.entity.TeacherEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.NotFoundException;
-import com.curriculum.exception.TeacherNotFoundException;
 import com.curriculum.service.TeacherService;
 import com.curriculum.util.Response;
 

@@ -13,12 +13,12 @@ import com.curriculum.exception.StudentNotFoundException;
 
 public interface StudentRepository {
 	Long addStudent(Student student) throws DatabaseException;
-//
+
 //	ResponseEntity<List<Student>> getAllStudentDetails();
 //
 //	ResponseEntity<String> updateStudentDetails(Long rollNo, Student studentDetails) throws StudentNotFoundException;
-//
-	StudentEntity deleteStudent(Long rollNo) throws DatabaseException,NotFoundException;
+
+	StudentEntity deleteStudent(Long rollNo) throws DatabaseException, NotFoundException;
 
 //	ResponseEntity<Student> getParticularStudentDetails(Long rollNo) throws StudentNotFoundException;
 

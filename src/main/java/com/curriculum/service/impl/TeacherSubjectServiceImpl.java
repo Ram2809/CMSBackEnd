@@ -11,18 +11,22 @@ import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
 import com.curriculum.exception.SubjectNotFoundException;
 import com.curriculum.exception.TeacherNotFoundException;
+import com.curriculum.repository.SubjectRepository;
+import com.curriculum.repository.TeacherRepository;
 import com.curriculum.repository.TeacherSubjectRepository;
 import com.curriculum.repository.impl.SubjectRepositoryImpl;
 import com.curriculum.repository.impl.TeacherRepositoryImpl;
 import com.curriculum.service.TeacherSubjectService;
+
 @Service
-public class TeacherSubjectServiceImpl implements TeacherSubjectService{
+public class TeacherSubjectServiceImpl implements TeacherSubjectService {
 	@Autowired
 	private TeacherSubjectRepository teacherSubjectRepository;
 	@Autowired
-	private TeacherRepositoryImpl teacherRepository;
+	private TeacherRepository teacherRepository;
 	@Autowired
-	private SubjectRepositoryImpl subjectRepository;
+	private SubjectRepository subjectRepository;
+
 	@Override
 	public Long assignTeacherSubject(TeacherSubject teacherSubject) throws BusinessServiceException, NotFoundException {
 		try {
@@ -33,18 +37,21 @@ public class TeacherSubjectServiceImpl implements TeacherSubjectService{
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
+
 	@Override
-	public TeacherSubjectEntity updateTeacherSubjectAssign(Long id,TeacherSubject teacherSubject) throws BusinessServiceException, NotFoundException {
+	public TeacherSubjectEntity updateTeacherSubjectAssign(Long id, TeacherSubject teacherSubject)
+			throws BusinessServiceException, NotFoundException {
 		try {
 			teacherRepository.checkTeacher(teacherSubject.getTeacher().getId());
 			subjectRepository.checkSubject(teacherSubject.getSubject().getCode());
-			return teacherSubjectRepository.updateTeacherSubjectAssign(id,teacherSubject);
+			return teacherSubjectRepository.updateTeacherSubjectAssign(id, teacherSubject);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
+
 	@Override
-	public TeacherSubjectEntity deleteTeacherSubjectAssign(Long id) throws BusinessServiceException, NotFoundException{
+	public TeacherSubjectEntity deleteTeacherSubjectAssign(Long id) throws BusinessServiceException, NotFoundException {
 		try {
 			return teacherSubjectRepository.deleteTeacherSubjectAssign(id);
 		} catch (DatabaseException e) {

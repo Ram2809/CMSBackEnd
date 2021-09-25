@@ -1,12 +1,9 @@
 package com.curriculum.repository.impl;
 
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
-import javax.validation.ConstraintViolationException;
-
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -39,13 +36,7 @@ public class ClassRepositoryImpl implements ClassRepository {
 			if (roomNo > 0) {
 				logger.info("Class details added successfully!");
 			}
-		}
-			
-//		}catch(SQLIntegrityConstraintViolationException e)
-//		{
-//			logger.error(e.getMessage());
-//		}
-		catch (Exception e) {// | ConstraintValidationException e) {
+		} catch (Exception e) {
 			logger.error("Error while adding the class!");
 			System.out.println(e.getMessage());
 			throw new DatabaseException(e.getMessage());
@@ -160,7 +151,7 @@ public class ClassRepositoryImpl implements ClassRepository {
 			session = sessionFactory.getCurrentSession();
 			Query<ClassEntity> query = session.createQuery("FROM ClassEntity WHERE roomNo=:roomId");
 			query.setParameter("roomId", roomNo);
-			classDetails =query.getSingleResult();
+			classDetails = query.getSingleResult();
 			logger.info("Particular class details fetched successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while fetching the particular class details!");
@@ -201,7 +192,7 @@ public class ClassRepositoryImpl implements ClassRepository {
 					"SELECT c.roomNo FROM ClassEntity c WHERE c.standard=:standard AND c.section=:section");
 			query.setParameter("standard", standard);
 			query.setParameter("section", section);
-			classRoomNo =  query.uniqueResultOptional().orElse(null);
+			classRoomNo = query.uniqueResultOptional().orElse(null);
 			logger.info("Classroom is fetched successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while fetching the class room!");

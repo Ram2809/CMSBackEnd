@@ -25,7 +25,7 @@ public class Student {
 	@NotNull
 	private String gender;
 	@NotNull
-	@Digits(integer=10, fraction = 0)
+	@Digits(integer = 10, fraction = 0)
 	private Long contactNo;
 	@NotNull
 	private String address;

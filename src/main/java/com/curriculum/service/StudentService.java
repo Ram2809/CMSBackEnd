@@ -18,5 +18,5 @@ public interface StudentService {
 //
 //	ResponseEntity<Student> getParticularStudentDetails(Long rollNo) throws StudentNotFoundException;
 
-	List<StudentEntity> getStudentByClass(Long roomNo) throws BusinessServiceException,NotFoundException;
+	List<StudentEntity> getStudentByClass(Long roomNo) throws BusinessServiceException, NotFoundException;
 }
