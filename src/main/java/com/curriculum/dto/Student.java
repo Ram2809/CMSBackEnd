@@ -17,7 +17,6 @@ public class Student {
 	private Long rollNo;
 	@NotNull
 	private String firstName;
-	@NotNull
 	private String lastName;
 	@NotNull
 	@Temporal(TemporalType.DATE)

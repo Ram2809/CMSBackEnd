@@ -22,7 +22,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @NoArgsConstructor
-//@Data
 @Getter
 @Setter
 @Entity
@@ -32,7 +31,6 @@ public class StudentEntity implements Serializable {
 	private Long rollNo;
 	@NotNull
 	private String firstName;
-	@NotNull
 	private String lastName;
 	@NotNull
 	@Temporal(TemporalType.DATE)

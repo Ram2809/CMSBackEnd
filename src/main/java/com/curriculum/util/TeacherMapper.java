@@ -15,7 +15,6 @@ public class TeacherMapper {
 		teacherEntity.setMajor(teacher.getMajor());
 		teacherEntity.setEmail(teacher.getEmail());
 		teacherEntity.setContactNo(teacher.getContactNo());
-		teacherEntity.setAddress(teacher.getAddress());
 		return teacherEntity;
 	}
 }

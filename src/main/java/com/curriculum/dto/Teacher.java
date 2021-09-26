@@ -40,9 +40,6 @@ public class Teacher {
 	@NotNull
 	@Digits(integer = 10, fraction = 0)
 	private Long contactNo;
-	@NotNull
-	@NotBlank
-	private String address;
 	private Set<TeacherAssign> teachers;
 	private Login login;
 }
