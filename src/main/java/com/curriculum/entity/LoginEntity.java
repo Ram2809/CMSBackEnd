@@ -13,6 +13,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -30,6 +32,6 @@ public class LoginEntity implements Serializable {
 	private String password;
 	@OneToOne(targetEntity = TeacherEntity.class)
 	@JoinColumn(name = "teacher_id", nullable = false,unique=true)
-	//@JsonBackReference
+	@JsonIgnore
 	private TeacherEntity teacher;
 }

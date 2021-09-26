@@ -87,7 +87,6 @@ public class TimeTableController {
 		Integer count = 0;
 		try {
 			count = timeTableService.deleteTimeTable(roomNo);
-			System.out.println(count);
 			if (count > 0) {
 				responseEntity = ResponseUtil.getResponse(200, "Timetable details deleted successfully!", count);
 			}

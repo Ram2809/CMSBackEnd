@@ -4,14 +4,18 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-@Data
+import lombok.Setter;
+
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity
 @Table(name="Subject")
@@ -21,8 +25,8 @@ public class SubjectEntity {
 	private String code;
 	@Column(nullable = false)
 	private String name;
-	@OneToMany(mappedBy="subjectEntity")
+	@OneToMany(mappedBy="subjectEntity",fetch=FetchType.EAGER)
 	private Set<SubjectAssignEntity> subjects;
-	@OneToMany(mappedBy="subject")
+	@OneToMany(mappedBy="subject",fetch=FetchType.EAGER)
 	private Set<TopicEntity> topics;
 }

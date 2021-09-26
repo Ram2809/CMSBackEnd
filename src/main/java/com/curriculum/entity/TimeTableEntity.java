@@ -17,6 +17,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -35,7 +37,7 @@ public class TimeTableEntity implements Serializable {
 	@CollectionTable(name = "Period")
 	private Map<Integer, String> periods;
 	@ManyToOne
-	@JoinColumn(name = "roomNo", nullable = false)
-	//@JsonBackReference
+	@JoinColumn(name = "roomNo")
+	@JsonIgnore
 	private ClassEntity classRoom;
 }

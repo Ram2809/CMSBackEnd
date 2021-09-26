@@ -3,6 +3,7 @@ package com.curriculum.entity;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,9 +13,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity
 @Table(name="SubjectAssign")
@@ -28,6 +32,6 @@ public class SubjectAssignEntity {
 	@ManyToOne
 	@JoinColumn(name="subjectCode")
 	private SubjectEntity subjectEntity;
-	@OneToMany(mappedBy="subjectAssign")
+	@OneToMany(mappedBy="subjectAssign",fetch=FetchType.EAGER)
 	private Set<TeacherAssignEntity> teacherAssign;
 }

@@ -21,9 +21,12 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity
 @Table(name = "Topic")
@@ -37,7 +40,8 @@ public class TopicEntity implements Serializable {
 	private String description;
 	@ManyToOne
 	@JoinColumn(name = "subjectCode")
+	@JsonIgnore
 	private SubjectEntity subject;
-	@OneToMany(mappedBy = "topic")
+	@OneToMany(mappedBy = "topic",fetch=FetchType.EAGER)
 	private Set<DiscussionEntity> discussion;
 }

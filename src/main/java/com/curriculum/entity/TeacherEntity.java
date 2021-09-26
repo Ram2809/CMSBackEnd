@@ -22,9 +22,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity
 @Table(name = "Teacher")
@@ -54,12 +57,10 @@ public class TeacherEntity implements Serializable {
 	private Long contactNo;
 	@NotNull
 	private String address;
-	@OneToMany(mappedBy = "teacher")
-	//@JsonIgnore
+	@OneToMany(mappedBy = "teacher",fetch=FetchType.EAGER)
 	private Set<TeacherAssignEntity> teacherAssign;
-	@OneToMany(mappedBy="teacher")
+	@OneToMany(mappedBy="teacher",fetch=FetchType.EAGER)
 	private Set<DiscussionEntity> discussions;
-	@OneToOne(mappedBy = "teacher")
-	//@JsonIgnore
+	@OneToOne(mappedBy = "teacher",fetch=FetchType.EAGER)
 	private LoginEntity login;
 }

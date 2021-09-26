@@ -1,6 +1,8 @@
 package com.curriculum.entity;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,11 +12,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Data
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity
 @Table(name = "TeacherAssign")
@@ -24,8 +29,10 @@ public class TeacherAssignEntity implements Serializable {
 	private Long id;
 	@ManyToOne
 	@JoinColumn(name = "teacherId")
+	@JsonIgnore
 	private TeacherEntity teacher;
 	@ManyToOne
 	@JoinColumn(name = "subjectCode",unique = true)
+	@JsonIgnore
 	private SubjectAssignEntity subjectAssign;
 }
