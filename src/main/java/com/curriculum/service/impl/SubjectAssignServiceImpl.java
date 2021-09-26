@@ -13,13 +13,14 @@ import com.curriculum.repository.SubjectRepository;
 import com.curriculum.service.SubjectAssignService;
 
 @Service
-public class SubjectAssignServiceImpl implements SubjectAssignService{
+public class SubjectAssignServiceImpl implements SubjectAssignService {
 	@Autowired
 	private SubjectAssignRepository subjectAssignRepository;
 	@Autowired
 	private SubjectRepository subjectRepository;
-	@Autowired 
+	@Autowired
 	private ClassRepository classRepository;
+
 	@Override
 	public Long addSubjectAssign(SubjectAssign subjectAssign) throws BusinessServiceException, NotFoundException {
 		try {

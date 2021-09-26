@@ -18,15 +18,15 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name="Subject")
+@Table(name = "Subject")
 public class SubjectEntity {
 	@Id
 	@Size(max = 6)
 	private String code;
 	@Column(nullable = false)
 	private String name;
-	@OneToMany(mappedBy="subjectEntity",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "subjectEntity", fetch = FetchType.EAGER)
 	private Set<SubjectAssignEntity> subjects;
-	@OneToMany(mappedBy="subject",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "subject", fetch = FetchType.EAGER)
 	private Set<TopicEntity> topics;
 }

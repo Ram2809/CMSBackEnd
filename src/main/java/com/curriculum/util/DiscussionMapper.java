@@ -15,7 +15,7 @@ public class DiscussionMapper {
 		TopicEntity topicEntity = new TopicEntity();
 		topicEntity.setUnitNo(discussion.getTopic().getUnitNo());
 		discussionEntity.setTopic(topicEntity);
-		TeacherEntity teacherEntity=new TeacherEntity();
+		TeacherEntity teacherEntity = new TeacherEntity();
 		teacherEntity.setId(discussion.getTeacher().getId());
 		discussionEntity.setTeacher(teacherEntity);
 		return discussionEntity;

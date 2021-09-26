@@ -21,17 +21,17 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name="SubjectAssign")
+@Table(name = "SubjectAssign")
 public class SubjectAssignEntity {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@ManyToOne
-	@JoinColumn(name="roomNo")
+	@JoinColumn(name = "roomNo")
 	private ClassEntity classEntity;
 	@ManyToOne
-	@JoinColumn(name="subjectCode")
+	@JoinColumn(name = "subjectCode")
 	private SubjectEntity subjectEntity;
-	@OneToMany(mappedBy="subjectAssign",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "subjectAssign", fetch = FetchType.EAGER)
 	private Set<TeacherAssignEntity> teacherAssign;
 }

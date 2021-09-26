@@ -108,7 +108,7 @@ public class StudentController {
 			if (!studentsList.isEmpty()) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", studentsList);
 			} else {
-				responseEntity =ResponseUtil.getResponse(404, "No Student Found!");
+				responseEntity = ResponseUtil.getResponse(404, "No Student Found!");
 			}
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());

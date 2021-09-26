@@ -21,13 +21,14 @@ import com.curriculum.service.StudentService;
 
 @Service
 @Transactional
-public class StudentServiceImpl implements StudentService{
-	
+public class StudentServiceImpl implements StudentService {
+
 	@Autowired
 	private StudentRepository studentRepository;
 	@Autowired
 	private ClassRepository classRepository;
-	private Logger logger=Logger.getLogger(StudentServiceImpl.class);
+	private Logger logger = Logger.getLogger(StudentServiceImpl.class);
+
 	@Override
 	public Long addStudent(Student student) throws BusinessServiceException, NotFoundException {
 		try {
@@ -40,6 +41,7 @@ public class StudentServiceImpl implements StudentService{
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
+
 //	@Override
 //	public ResponseEntity<List<Student>> getAllStudentDetails() {
 //		// TODO Auto-generated method stub
@@ -51,13 +53,14 @@ public class StudentServiceImpl implements StudentService{
 //		return studentRepository.updateStudentDetails(rollNo,studentDetails);
 //	}
 	@Override
-	public StudentEntity deleteStudent(Long rollNo) throws BusinessServiceException, NotFoundException{
+	public StudentEntity deleteStudent(Long rollNo) throws BusinessServiceException, NotFoundException {
 		try {
 			return studentRepository.deleteStudent(rollNo);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
+
 //	@Override
 //	public ResponseEntity<Student> getParticularStudentDetails(Long rollNo) throws StudentNotFoundException {
 //		// TODO Auto-generated method stub

@@ -17,5 +17,5 @@ public class Topic {
 	@Size(max = 200, message = "Description only contains 200 characters!")
 	private String description;
 	private Subject subject;
-	//private Set<Discussion> discussion;
+	// private Set<Discussion> discussion;
 }

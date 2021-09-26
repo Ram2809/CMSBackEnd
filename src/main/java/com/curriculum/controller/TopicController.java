@@ -48,7 +48,7 @@ public class TopicController {
 		String unitNo = null;
 		try {
 			unitNo = topicService.addTopic(topic);
-			responseEntity = ResponseUtil.getResponse(200,"Topic details added successfully!" , topic);
+			responseEntity = ResponseUtil.getResponse(200, "Topic details added successfully!", topic);
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
 		} catch (NotFoundException e) {

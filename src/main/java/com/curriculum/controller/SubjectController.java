@@ -1,6 +1,5 @@
 package com.curriculum.controller;
 
-
 import java.util.ArrayList;
 import java.util.List;
 

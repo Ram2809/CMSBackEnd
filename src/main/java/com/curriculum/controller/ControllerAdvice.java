@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import com.curriculum.util.Response;
 
 public class ControllerAdvice {
-	private Logger logger=Logger.getLogger(ControllerAdvice.class);
+	private Logger logger = Logger.getLogger(ControllerAdvice.class);
+
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<Response> validationFailed(MethodArgumentNotValidException e) {
 		logger.error("Validation fails, Check your input!");

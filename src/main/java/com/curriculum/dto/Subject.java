@@ -10,6 +10,7 @@ import com.curriculum.entity.TopicEntity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
 @NoArgsConstructor
 public class Subject {

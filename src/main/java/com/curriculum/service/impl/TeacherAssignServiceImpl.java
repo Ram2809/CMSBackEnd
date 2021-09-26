@@ -18,7 +18,6 @@ import com.curriculum.repository.TeacherAssignRepository;
 import com.curriculum.repository.TeacherRepository;
 import com.curriculum.service.TeacherAssignService;
 
-
 @Service
 public class TeacherAssignServiceImpl implements TeacherAssignService {
 	@Autowired
@@ -33,7 +32,7 @@ public class TeacherAssignServiceImpl implements TeacherAssignService {
 	public Long assignTeacherSubject(TeacherAssign teacherAssign) throws BusinessServiceException, NotFoundException {
 		try {
 			teacherRepository.checkTeacher(teacherAssign.getTeacher().getId());
-			//subjectAssignRepository.checkSubject(teacherAssign.getSubjectAssign().getId());
+			// subjectAssignRepository.checkSubject(teacherAssign.getSubjectAssign().getId());
 			return teacherAssignRepository.assignTeacherSubject(teacherAssign);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
@@ -48,7 +47,7 @@ public class TeacherAssignServiceImpl implements TeacherAssignService {
 			throws BusinessServiceException, NotFoundException {
 		try {
 			teacherRepository.checkTeacher(teacherAssign.getTeacher().getId());
-			//subjectRepository.checkSubject(teacherAssign.getSubject().getCode());
+			// subjectRepository.checkSubject(teacherAssign.getSubject().getCode());
 			return teacherAssignRepository.updateTeacherSubjectAssign(id, teacherAssign);
 		} catch (DataIntegrityViolationException | ConstraintViolationException e) {
 			logger.error("Constraint Violation fails!");

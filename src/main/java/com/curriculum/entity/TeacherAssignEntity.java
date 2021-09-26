@@ -32,7 +32,7 @@ public class TeacherAssignEntity implements Serializable {
 	@JsonIgnore
 	private TeacherEntity teacher;
 	@ManyToOne
-	@JoinColumn(name = "subjectCode",unique = true)
+	@JoinColumn(name = "subjectCode", unique = true)
 	@JsonIgnore
 	private SubjectAssignEntity subjectAssign;
 }

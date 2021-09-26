@@ -66,7 +66,7 @@ public class TopicServiceImpl implements TopicService {
 			return topicRepositoryImpl.updateTopic(unitNo, topic);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
-		}catch (DataIntegrityViolationException | ConstraintViolationException e) {
+		} catch (DataIntegrityViolationException | ConstraintViolationException e) {
 			logger.error("Constraint Violation fails!");
 			throw new ConstraintValidationException("Constraint Violation fails!");
 		}

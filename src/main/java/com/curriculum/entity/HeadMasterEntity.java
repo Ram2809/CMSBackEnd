@@ -39,7 +39,7 @@ public class HeadMasterEntity {
 	@Column(unique = true)
 	private String email;
 	@NotNull
-	@Digits(integer=10,fraction=0)
+	@Digits(integer = 10, fraction = 0)
 	@Column(unique = true)
 	private Long contactNo;
 	@NotNull

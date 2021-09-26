@@ -44,8 +44,8 @@ public class DiscussionEntity implements Serializable {
 	@JsonIgnore
 	private TopicEntity topic;
 	@ManyToOne
-	@JoinColumn(name="teacherId")
+	@JoinColumn(name = "teacherId")
 	@JsonIgnore
 	private TeacherEntity teacher;
-	
+
 }

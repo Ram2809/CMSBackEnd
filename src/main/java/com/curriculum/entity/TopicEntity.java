@@ -42,6 +42,6 @@ public class TopicEntity implements Serializable {
 	@JoinColumn(name = "subjectCode")
 	@JsonIgnore
 	private SubjectEntity subject;
-	@OneToMany(mappedBy = "topic",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "topic", fetch = FetchType.EAGER)
 	private Set<DiscussionEntity> discussion;
 }

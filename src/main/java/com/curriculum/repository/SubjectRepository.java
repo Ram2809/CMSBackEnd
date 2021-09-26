@@ -10,7 +10,7 @@ import com.curriculum.exception.NotFoundException;
 public interface SubjectRepository {
 	String addSubject(Subject subject) throws DatabaseException;
 
-	//ResponseEntity<List<Subject>> getAllSubjectDetails();
+	// ResponseEntity<List<Subject>> getAllSubjectDetails();
 
 	SubjectEntity updateSubject(String subjectCode, Subject subject) throws DatabaseException, NotFoundException;
 

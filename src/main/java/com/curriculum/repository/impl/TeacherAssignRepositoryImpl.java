@@ -17,6 +17,7 @@ import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
 import com.curriculum.repository.TeacherAssignRepository;
 import com.curriculum.util.TeacherAssignMapper;
+
 @Repository
 @Transactional
 public class TeacherAssignRepositoryImpl implements TeacherAssignRepository {

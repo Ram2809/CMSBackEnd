@@ -33,14 +33,14 @@ public class ClassEntity implements Serializable {
 	@Column(nullable = false)
 	@Size(max = 2, message = "Section cannot be empty and Section length not more than 2")
 	private String section;
-	@OneToMany(mappedBy = "classEntity",fetch=FetchType.EAGER)
-	//@JsonIgnore
+	@OneToMany(mappedBy = "classEntity", fetch = FetchType.EAGER)
+	// @JsonIgnore
 	private Set<StudentEntity> student;
-	@OneToMany(mappedBy = "classEntity",fetch=FetchType.EAGER)
-	//@JsonIgnore
+	@OneToMany(mappedBy = "classEntity", fetch = FetchType.EAGER)
+	// @JsonIgnore
 	private Set<SubjectAssignEntity> subjectAssign;
-	@OneToMany(mappedBy = "classRoom",fetch=FetchType.EAGER)
-	//@JsonIgnore
+	@OneToMany(mappedBy = "classRoom", fetch = FetchType.EAGER)
+	// @JsonIgnore
 	private Set<TimeTableEntity> timeTable;
 
 	public ClassEntity(Long roomNo, String standard, String section) {

@@ -35,13 +35,14 @@ public class SubjectAssignController {
 		try {
 			id = subjectAssignService.addSubjectAssign(subjectAssign);
 			if (id > 0) {
-				responseEntity = ResponseUtil.getResponse(200, "Subject assigned for class  successfully!", subjectAssign);
+				responseEntity = ResponseUtil.getResponse(200, "Subject assigned for class  successfully!",
+						subjectAssign);
 			} else {
 				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
 			}
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
-		}catch (NotFoundException e) {
+		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
 				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
 			} else {

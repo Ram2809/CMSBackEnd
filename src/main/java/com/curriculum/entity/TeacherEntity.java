@@ -52,15 +52,15 @@ public class TeacherEntity implements Serializable {
 	@Column(unique = true)
 	private String email;
 	@NotNull
-	@Digits(integer=10,fraction=0)
+	@Digits(integer = 10, fraction = 0)
 	@Column(unique = true)
 	private Long contactNo;
 	@NotNull
 	private String address;
-	@OneToMany(mappedBy = "teacher",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "teacher", fetch = FetchType.EAGER)
 	private Set<TeacherAssignEntity> teacherAssign;
-	@OneToMany(mappedBy="teacher",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "teacher", fetch = FetchType.EAGER)
 	private Set<DiscussionEntity> discussions;
-	@OneToOne(mappedBy = "teacher",fetch=FetchType.EAGER)
+	@OneToOne(mappedBy = "teacher", fetch = FetchType.EAGER)
 	private LoginEntity login;
 }

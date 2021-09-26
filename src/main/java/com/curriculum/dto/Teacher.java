@@ -38,7 +38,7 @@ public class Teacher {
 	@Email
 	private String email;
 	@NotNull
-	@Digits(integer=10,fraction=0)
+	@Digits(integer = 10, fraction = 0)
 	private Long contactNo;
 	@NotNull
 	@NotBlank

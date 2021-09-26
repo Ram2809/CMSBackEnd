@@ -1,6 +1,5 @@
 package com.curriculum.service.impl;
 
-
 import java.util.List;
 
 import javax.validation.ConstraintViolationException;
@@ -26,7 +25,8 @@ public class SubjectServiceImpl implements SubjectService {
 	private SubjectRepository subjectRepository;
 	@Autowired
 	private ClassRepository classRepository;
-	private Logger logger=Logger.getLogger(SubjectServiceImpl.class);
+	private Logger logger = Logger.getLogger(SubjectServiceImpl.class);
+
 	@Override
 	public String addSubject(Subject subject) throws BusinessServiceException, NotFoundException {
 		try {
@@ -46,7 +46,7 @@ public class SubjectServiceImpl implements SubjectService {
 			return subjectRepository.updateSubject(subjectCode, subject);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
-		}catch (DataIntegrityViolationException | ConstraintViolationException e) {
+		} catch (DataIntegrityViolationException | ConstraintViolationException e) {
 			logger.error("Constraint Violation fails!");
 			throw new ConstraintValidationException("Constraint Violation fails!");
 		}

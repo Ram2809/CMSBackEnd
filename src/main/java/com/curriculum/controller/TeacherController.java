@@ -31,14 +31,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-
 @RestController
 @RequestMapping("/api/teacher")
 @CrossOrigin("http://localhost:4200")
 public class TeacherController {
 	@Autowired
 	private TeacherService teacherService;
-	private Logger logger=Logger.getLogger(TeacherController.class);
+	private Logger logger = Logger.getLogger(TeacherController.class);
+
 	@PostMapping
 	public ResponseEntity<Response> addTeacher(@Valid @RequestBody Teacher teacher) {
 		ResponseEntity<Response> responseEntity = null;
@@ -74,9 +74,9 @@ public class TeacherController {
 			} else {
 				responseEntity = ResponseUtil.getResponse(404, "No Teacher Found!", teachersList);
 			}
-		}  catch (BusinessServiceException e) {
+		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
-		} 
+		}
 		return responseEntity;
 	}
 
@@ -108,7 +108,7 @@ public class TeacherController {
 			if (teacherEntity != null) {
 				responseEntity = ResponseUtil.getResponse(200, "Teacher Details Deleted Successfully!", teacherEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!",teacherEntity);
+				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", teacherEntity);
 			}
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
@@ -132,6 +132,7 @@ public class TeacherController {
 		}
 		return responseEntity;
 	}
+
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<Response> validationFailed(MethodArgumentNotValidException e) {
 		logger.error("Validation fails, Check your input!");

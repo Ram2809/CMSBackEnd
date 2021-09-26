@@ -13,12 +13,14 @@ import com.curriculum.exception.NotFoundException;
 import com.curriculum.repository.ClassRepository;
 import com.curriculum.repository.TimeTableRepository;
 import com.curriculum.service.TimeTableService;
+
 @Service
-public class TimeTableServiceImpl implements TimeTableService{
+public class TimeTableServiceImpl implements TimeTableService {
 	@Autowired
 	private TimeTableRepository timeTableRepository;
 	@Autowired
 	private ClassRepository classRepository;
+
 	@Override
 	public TimeTableEntity addTimeTable(TimeTable timeTable) throws BusinessServiceException, NotFoundException {
 		try {
@@ -28,6 +30,7 @@ public class TimeTableServiceImpl implements TimeTableService{
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
+
 	@Override
 	public List<TimeTableEntity> getTimeTable(Long roomNo) throws BusinessServiceException, NotFoundException {
 		try {
@@ -37,8 +40,9 @@ public class TimeTableServiceImpl implements TimeTableService{
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
+
 	@Override
-	public Integer deleteTimeTable(Long roomNo) throws BusinessServiceException,NotFoundException {
+	public Integer deleteTimeTable(Long roomNo) throws BusinessServiceException, NotFoundException {
 		try {
 			classRepository.checkClassRoom(roomNo);
 			return timeTableRepository.deleteTimeTable(roomNo);
