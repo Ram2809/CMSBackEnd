@@ -36,7 +36,7 @@ public class ClassEntity implements Serializable {
 	@OneToMany(mappedBy = "classEntity", fetch = FetchType.EAGER)
 	 @JsonIgnore
 	private Set<StudentEntity> student;
-	@OneToMany(mappedBy = "classEntity", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "classDetail", fetch = FetchType.EAGER)
 	@JsonIgnore
 	private Set<SubjectAssignEntity> subjectAssign;
 	@OneToMany(mappedBy = "classRoom", fetch = FetchType.EAGER)

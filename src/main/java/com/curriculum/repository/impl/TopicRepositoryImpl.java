@@ -107,6 +107,7 @@ public class TopicRepositoryImpl implements TopicRepository {
 			TopicEntity updatedTopicEntity = session.load(TopicEntity.class, unitNo);
 			updatedTopicEntity.setUnitName(topicDetail.getUnitName());
 			updatedTopicEntity.setDescription(topicDetail.getDescription());
+			updatedTopicEntity.setMonth(topicDetail.getMonth());
 			SubjectEntity subjectEntity = new SubjectEntity();
 			subjectEntity.setCode(topic.getSubject().getCode());
 			updatedTopicEntity.setSubject(subjectEntity);

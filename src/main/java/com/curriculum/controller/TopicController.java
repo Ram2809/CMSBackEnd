@@ -70,7 +70,7 @@ public class TopicController {
 			if (!topicsList.isEmpty()) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", topicsList);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No units found!");
+				responseEntity = ResponseUtil.getResponse(404, "No units found!",topicsList);
 			}
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());

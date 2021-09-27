@@ -10,6 +10,7 @@ public class TopicMapper {
 		topicEntity.setUnitNo(topic.getUnitNo());
 		topicEntity.setUnitName(topic.getUnitName());
 		topicEntity.setDescription(topic.getDescription());
+		topicEntity.setMonth(topic.getMonth());
 		SubjectEntity subjectEntity = new SubjectEntity();
 		subjectEntity.setCode(topic.getSubject().getCode());
 		topicEntity.setSubject(subjectEntity);

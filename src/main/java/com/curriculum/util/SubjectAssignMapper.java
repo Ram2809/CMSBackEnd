@@ -10,10 +10,10 @@ public class SubjectAssignMapper {
 		SubjectAssignEntity subjectAssignEntity = new SubjectAssignEntity();
 		ClassEntity classEntity = new ClassEntity();
 		classEntity.setRoomNo(subjectAssign.getClassDetail().getRoomNo());
-		subjectAssignEntity.setClassEntity(classEntity);
+		subjectAssignEntity.setClassDetail(classEntity);
 		SubjectEntity subjectEntity = new SubjectEntity();
 		subjectEntity.setCode(subjectAssign.getSubject().getCode());
-		subjectAssignEntity.setSubjectEntity(subjectEntity);
+		subjectAssignEntity.setSubject(subjectEntity);
 		return subjectAssignEntity;
 	}
 }

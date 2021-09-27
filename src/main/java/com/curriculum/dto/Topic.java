@@ -1,5 +1,7 @@
 package com.curriculum.dto;
 
+import java.util.Set;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -16,6 +18,7 @@ public class Topic {
 	@NotNull
 	@Size(max = 200, message = "Description only contains 200 characters!")
 	private String description;
+	private String month;
 	private Subject subject;
-	// private Set<Discussion> discussion;
+	private Set<Discussion> discussion;
 }

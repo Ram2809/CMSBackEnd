@@ -31,11 +31,10 @@ public class SubjectAssignEntity {
 	private Long id;
 	@ManyToOne
 	@JoinColumn(name = "roomNo")
-	@JsonIgnore
-	private ClassEntity classEntity;
-	@ManyToOne(cascade=CascadeType.ALL)
+	private ClassEntity classDetail;
+	@ManyToOne
 	@JoinColumn(name = "subjectCode")
-	private SubjectEntity subjectEntity;
+	private SubjectEntity subject;
 	@OneToMany(mappedBy = "subjectAssign", fetch = FetchType.EAGER)
 	private Set<TeacherAssignEntity> teacherAssign;
 }

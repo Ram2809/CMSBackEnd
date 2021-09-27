@@ -14,7 +14,6 @@ import org.springframework.stereotype.Repository;
 
 import com.curriculum.dto.SubjectAssign;
 import com.curriculum.entity.SubjectAssignEntity;
-import com.curriculum.entity.SubjectEntity;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.repository.SubjectAssignRepository;
 import com.curriculum.util.SubjectAssignMapper;
@@ -45,7 +44,7 @@ public class SubjectAssignRepositoryImpl implements SubjectAssignRepository {
 		try
 		{
 			session=sessionFactory.getCurrentSession();
-			Query query=session.createQuery("FROM SubjectAssignEntity s WHERE s.classEntity.roomNo=:roomNo");
+			Query query=session.createQuery("FROM SubjectAssignEntity s WHERE s.classDetail.roomNo=:roomNo");
 			query.setParameter("roomNo", roomNo);
 			subjectList=query.getResultList();
 		}
