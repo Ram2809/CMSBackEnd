@@ -1,17 +1,24 @@
 package com.curriculum.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curriculum.dto.SubjectAssign;
+import com.curriculum.entity.SubjectAssignEntity;
+import com.curriculum.entity.SubjectEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.NotFoundException;
@@ -48,6 +55,24 @@ public class SubjectAssignController {
 			} else {
 				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
 			}
+		}
+		return responseEntity;
+	}
+	@GetMapping("/{roomNo}")
+	public ResponseEntity<Response> getSubjects(@PathVariable("roomNo") Long roomNo) {
+		ResponseEntity<Response> responseEntity = null;
+		List<SubjectAssignEntity> subjectList = new ArrayList<>();
+		try {
+			subjectList = subjectAssignService.getSubjects(roomNo);
+			if (!subjectList.isEmpty()) {
+				responseEntity = ResponseUtil.getResponse(200, "Success!", subjectList);
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, "No subject name found!");
+			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
 		}
 		return responseEntity;
 	}

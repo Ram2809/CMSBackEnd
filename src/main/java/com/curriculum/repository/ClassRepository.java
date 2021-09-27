@@ -18,7 +18,7 @@ public interface ClassRepository {
 
 	ClassEntity getParticularClass(Long roomNo) throws DatabaseException, NotFoundException;
 
-	List<String> getSection(String standard) throws DatabaseException, NotFoundException;
+	List<ClassEntity> getClassList(String standard) throws DatabaseException, NotFoundException;
 
 	Long getClassRoomNo(String standard, String section) throws DatabaseException, NotFoundException;
 

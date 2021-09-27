@@ -18,7 +18,7 @@ public interface ClassService {
 
 	ClassEntity getParticularClass(Long roomNo) throws BusinessServiceException, NotFoundException;
 
-	List<String> getSection(String standard) throws BusinessServiceException, NotFoundException;
+	List<ClassEntity> getClassList(String standard) throws BusinessServiceException, NotFoundException;
 
 	Long getClassRoomNo(String standard, String section) throws BusinessServiceException, NotFoundException;
 }

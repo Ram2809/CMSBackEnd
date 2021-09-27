@@ -19,6 +19,7 @@ import com.curriculum.service.LoginService;
 
 @Service
 public class LoginServiceImpl implements LoginService {
+	private final String errorMessage="Constraint Violation fails!";
 	@Autowired
 	private LoginRepository loginRepository;
 	@Autowired
@@ -31,8 +32,8 @@ public class LoginServiceImpl implements LoginService {
 			teacherRepository.checkTeacher(login.getTeacher().getId());
 			return loginRepository.addLogin(login);
 		} catch (DataIntegrityViolationException e) {
-			logger.error("Constraint Violation fails!");
-			throw new ConstraintValidationException("Constraint Violation fails!");
+			logger.error(errorMessage);
+			throw new ConstraintValidationException(errorMessage);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -56,8 +57,8 @@ public class LoginServiceImpl implements LoginService {
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		} catch (DataIntegrityViolationException | ConstraintViolationException e) {
-			logger.error("Constraint Violation fails!");
-			throw new ConstraintValidationException("Constraint Violation fails!");
+			logger.error(errorMessage);
+			throw new ConstraintValidationException(errorMessage);
 		}
 	}
 }

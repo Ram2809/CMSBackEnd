@@ -1,9 +1,13 @@
 package com.curriculum.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.curriculum.dto.SubjectAssign;
+import com.curriculum.entity.SubjectAssignEntity;
+import com.curriculum.entity.SubjectEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
@@ -27,6 +31,16 @@ public class SubjectAssignServiceImpl implements SubjectAssignService {
 			subjectRepository.checkSubject(subjectAssign.getSubject().getCode());
 			classRepository.checkClassRoom(subjectAssign.getClassDetail().getRoomNo());
 			return subjectAssignRepository.addSubjectAssign(subjectAssign);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
+	@Override
+	public List<SubjectAssignEntity> getSubjects(Long roomNo) throws NotFoundException, BusinessServiceException {
+		classRepository.checkClassRoom(roomNo);
+		try {
+			return subjectAssignRepository.getSubjects(roomNo);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}

@@ -76,9 +76,9 @@ public class ClassServiceImpl implements ClassService {
 	}
 
 	@Override
-	public List<String> getSection(String standard) throws BusinessServiceException, NotFoundException {
+	public List<ClassEntity> getClassList(String standard) throws BusinessServiceException, NotFoundException {
 		try {
-			return classRepository.getSection(standard);
+			return classRepository.getClassList(standard);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}

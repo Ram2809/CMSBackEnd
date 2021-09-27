@@ -2,6 +2,7 @@ package com.curriculum.entity;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 import lombok.Getter;
@@ -28,8 +31,9 @@ public class SubjectAssignEntity {
 	private Long id;
 	@ManyToOne
 	@JoinColumn(name = "roomNo")
+	@JsonIgnore
 	private ClassEntity classEntity;
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "subjectCode")
 	private SubjectEntity subjectEntity;
 	@OneToMany(mappedBy = "subjectAssign", fetch = FetchType.EAGER)

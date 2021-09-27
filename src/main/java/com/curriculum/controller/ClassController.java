@@ -129,13 +129,13 @@ public class ClassController {
 	}
 
 	@GetMapping("/standard/{standard}")
-	public ResponseEntity<Response> getSection(@PathVariable("standard") String standard) {
+	public ResponseEntity<Response> getClassList(@PathVariable("standard") String standard) {
 		ResponseEntity<Response> responseEntity = null;
-		List<String> sectionList = null;
+		List<ClassEntity> classList = null;
 		try {
-			sectionList = classService.getSection(standard);
-			if (!sectionList.isEmpty()) {
-				responseEntity = ResponseUtil.getResponse(200, "Success!", sectionList);
+			classList = classService.getClassList(standard);
+			if (!classList.isEmpty()) {
+				responseEntity = ResponseUtil.getResponse(200, "Success!", classList);
 			} else {
 				responseEntity = ResponseUtil.getResponse(404, "No section found for given standard!");
 			}

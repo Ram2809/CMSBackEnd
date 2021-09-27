@@ -161,22 +161,22 @@ public class ClassRepositoryImpl implements ClassRepository {
 	}
 
 	@Override
-	public List<String> getSection(String standard) throws DatabaseException, NotFoundException {
-		logger.info("Getting sections for particular standard");
+	public List<ClassEntity> getClassList(String standard) throws DatabaseException, NotFoundException {
+		logger.info("Getting class rooms for particular standard");
 		Session session = null;
-		List<String> sectionList = null;
+		List<ClassEntity> classList = null;
 		try {
 			checkStandard(standard);
 			session = sessionFactory.getCurrentSession();
-			Query<String> query = session.createQuery("SELECT c.section FROM ClassEntity c where c.standard=:standard");
+			Query<ClassEntity> query = session.createQuery("FROM ClassEntity c where c.standard=:standard");
 			query.setParameter("standard", standard);
-			sectionList = query.getResultList();
-			logger.info("Section details are fetched successfully!");
+			classList = query.getResultList();
+			logger.info("class details are fetched successfully!");
 		} catch (HibernateException e) {
-			logger.error("Error while fetching section details");
+			logger.error("Error while fetching class details");
 			throw new DatabaseException(e.getMessage());
 		}
-		return sectionList;
+		return classList;
 	}
 
 	@Override

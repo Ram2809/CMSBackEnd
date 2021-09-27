@@ -1825,3 +1825,64 @@
 2021-09-27 00:10:33 ERROR AddressRepositoryImpl:38 - Error while adding address!
 2021-09-27 00:12:17 INFO  AddressRepositoryImpl:24 - Adding address details!
 2021-09-27 00:12:17 INFO  AddressRepositoryImpl:33 - Address added successfully!
+2021-09-27 09:59:50 INFO  ClassRepositoryImpl:30 - Adding class details
+2021-09-27 09:59:50 INFO  ClassRepositoryImpl:37 - Class details added successfully!
+2021-09-27 09:59:58 INFO  ClassRepositoryImpl:49 - Getting all class details!
+2021-09-27 09:59:59 INFO  ClassRepositoryImpl:56 - All class details are fetched successfully!
+2021-09-27 10:00:06 INFO  ClassRepositoryImpl:146 - Getting particular class details!
+2021-09-27 10:00:06 INFO  ClassRepositoryImpl:155 - Particular class details fetched successfully!
+2021-09-27 10:00:13 INFO  ClassRepositoryImpl:66 - Updating the class details!
+2021-09-27 10:00:13 INFO  ClassRepositoryImpl:78 - Class Details updated successfully!
+2021-09-27 10:00:14 INFO  ClassRepositoryImpl:49 - Getting all class details!
+2021-09-27 10:00:15 INFO  ClassRepositoryImpl:56 - All class details are fetched successfully!
+2021-09-27 10:01:08 INFO  ClassRepositoryImpl:165 - Getting sections for particular standard
+2021-09-27 10:01:08 INFO  ClassRepositoryImpl:174 - Section details are fetched successfully!
+2021-09-27 10:01:11 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-27 10:01:11 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-27 10:01:12 INFO  StudentRepositoryImpl:34 - Adding student details
+2021-09-27 10:01:12 INFO  StudentRepositoryImpl:41 - Student details added successfully!
+2021-09-27 10:01:29 INFO  ClassRepositoryImpl:165 - Getting sections for particular standard
+2021-09-27 10:01:29 INFO  ClassRepositoryImpl:174 - Section details are fetched successfully!
+2021-09-27 10:01:31 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-27 10:01:31 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-27 10:01:31 INFO  StudentRepositoryImpl:157 - Getting student details by class!
+2021-09-27 10:01:31 INFO  StudentRepositoryImpl:165 - Student details fetched successfully!
+2021-09-27 10:02:43 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-09-27 10:02:43 INFO  TeacherRepositoryImpl:39 - Teacher details added successfully!
+2021-09-27 10:03:40 INFO  AddressRepositoryImpl:24 - Adding address details!
+2021-09-27 10:03:40 INFO  AddressRepositoryImpl:33 - Address added successfully!
+2021-09-27 10:42:16 INFO  LoginRepositoryImpl:28 - Adding login credentials
+2021-09-27 10:42:16 INFO  LoginRepositoryImpl:35 - Login credentials added successfully!
+2021-09-27 10:43:50 INFO  LoginRepositoryImpl:28 - Adding login credentials
+2021-09-27 10:43:50 ERROR LoginRepositoryImpl:38 - Error while adding login credentials
+2021-09-27 10:44:31 INFO  LoginRepositoryImpl:28 - Adding login credentials
+2021-09-27 10:44:31 ERROR LoginRepositoryImpl:38 - Error while adding login credentials
+2021-09-27 11:44:12 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-27 11:44:13 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-27 11:46:01 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-27 11:46:01 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-27 11:46:11 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-27 11:48:48 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-27 11:48:48 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-27 11:49:20 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-27 11:49:20 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-27 11:49:24 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-27 11:49:24 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-27 11:51:08 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-27 11:51:08 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-27 11:51:10 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-27 11:51:10 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-27 11:51:10 INFO  StudentRepositoryImpl:157 - Getting student details by class!
+2021-09-27 11:51:10 INFO  StudentRepositoryImpl:165 - Student details fetched successfully!
+2021-09-27 12:11:20 INFO  SubjectRepositoryImpl:33 - Adding subject details!
+2021-09-27 12:11:20 INFO  SubjectRepositoryImpl:40 - Subject details added successfully!
+2021-09-27 12:11:20 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-27 12:11:20 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-27 12:19:14 INFO  SubjectRepositoryImpl:33 - Adding subject details!
+2021-09-27 12:19:14 INFO  SubjectRepositoryImpl:40 - Subject details added successfully!
+2021-09-27 12:19:17 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-27 12:19:17 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-27 12:28:29 INFO  SubjectRepositoryImpl:33 - Adding subject details!
+2021-09-27 12:28:29 INFO  SubjectRepositoryImpl:40 - Subject details added successfully!
+2021-09-27 12:28:33 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-27 12:28:33 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!

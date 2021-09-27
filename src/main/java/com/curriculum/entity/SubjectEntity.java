@@ -10,6 +10,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,6 +28,7 @@ public class SubjectEntity {
 	@Column(nullable = false)
 	private String name;
 	@OneToMany(mappedBy = "subjectEntity", fetch = FetchType.EAGER)
+	@JsonIgnore
 	private Set<SubjectAssignEntity> subjects;
 	@OneToMany(mappedBy = "subject", fetch = FetchType.EAGER)
 	private Set<TopicEntity> topics;
