@@ -2527,3 +2527,1879 @@
 2021-09-27 23:50:23 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
 2021-09-27 23:55:48 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
 2021-09-27 23:55:48 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 10:11:28 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 10:11:29 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 10:29:25 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 10:29:25 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 10:29:27 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 10:29:27 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 10:31:25 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 10:31:25 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 10:31:27 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 10:31:27 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 10:38:28 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 10:38:28 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 10:38:30 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 10:38:30 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 10:40:00 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 10:40:00 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 10:40:02 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 10:40:02 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 10:40:34 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 10:40:34 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 10:40:35 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 10:40:35 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 10:41:06 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 10:41:06 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 10:41:07 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 10:41:07 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 10:41:44 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 10:41:44 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 10:41:45 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 10:41:46 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 10:43:30 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 10:43:30 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 10:43:33 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 10:43:33 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 10:57:31 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 10:57:31 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 10:57:33 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 10:57:33 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 10:58:03 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 10:58:03 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 10:58:04 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 10:58:04 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 10:58:30 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 10:58:30 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 10:58:31 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 10:58:31 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 10:59:15 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 10:59:15 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 10:59:16 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 10:59:16 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 11:05:24 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 11:05:24 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 11:05:25 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 11:05:25 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 11:05:46 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 11:05:46 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 11:05:48 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 11:05:48 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 11:08:39 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 11:08:39 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 11:08:40 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 11:08:40 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 11:09:34 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 11:09:34 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 11:09:35 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 11:09:35 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 11:12:23 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 11:12:23 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 11:12:25 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 11:12:26 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 11:13:00 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 11:13:00 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 11:13:01 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 11:13:01 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 11:13:50 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 11:13:50 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 11:13:52 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 11:13:52 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 11:14:31 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 11:14:31 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 11:14:33 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 11:14:33 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 11:38:42 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 11:38:42 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 11:38:43 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 11:38:44 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 11:42:15 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 11:42:15 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 11:42:16 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 11:42:17 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 11:44:28 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 11:44:28 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 11:44:29 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 11:44:29 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 11:44:52 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 11:45:53 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 11:45:53 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 11:45:54 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 11:45:54 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 11:46:07 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 11:51:12 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 11:51:12 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 11:51:13 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 11:51:13 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 11:58:46 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 11:58:46 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 11:58:47 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 11:58:47 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 12:05:07 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 12:05:07 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 12:05:09 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 12:05:09 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 12:42:55 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 12:42:55 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 12:42:56 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 12:42:56 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 12:46:05 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 12:47:53 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 12:47:53 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 12:47:54 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 12:47:54 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 12:48:05 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 12:49:57 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 12:49:57 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 12:50:00 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 12:50:01 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 12:50:01 INFO  StudentRepositoryImpl:34 - Adding student details
+2021-09-28 12:50:01 INFO  StudentRepositoryImpl:41 - Student details added successfully!
+2021-09-28 12:52:01 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 12:52:01 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 12:52:02 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 12:52:02 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 12:52:10 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 12:56:54 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 12:56:54 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 12:56:55 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 12:56:55 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 12:57:01 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 12:59:42 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 13:02:17 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 13:02:17 INFO  TimeTableRepositoryImpl:42 - Timetable details are added successfully!
+2021-09-28 13:03:28 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 13:03:29 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 13:03:30 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 13:03:30 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 13:03:44 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 13:05:03 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 13:06:53 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 13:06:53 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 13:06:54 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 13:06:55 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 13:07:03 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 13:10:08 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 13:10:08 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 13:10:09 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 13:10:09 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 13:10:19 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 13:10:19 INFO  TimeTableRepositoryImpl:42 - Timetable details are added successfully!
+2021-09-28 13:14:06 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 13:14:06 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 13:14:07 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 13:14:07 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 13:15:16 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 13:15:16 INFO  TimeTableRepositoryImpl:42 - Timetable details are added successfully!
+2021-09-28 13:22:24 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 13:22:24 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 13:22:25 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 13:22:25 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 13:22:41 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 13:22:41 INFO  TimeTableRepositoryImpl:42 - Timetable details are added successfully!
+2021-09-28 13:26:02 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 13:26:02 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 13:26:04 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 13:26:04 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 13:26:10 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 13:26:10 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 13:26:11 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 13:26:11 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 13:27:28 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 13:27:28 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 13:27:29 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 13:27:29 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 13:27:45 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 13:27:45 INFO  TimeTableRepositoryImpl:42 - Timetable details are added successfully!
+2021-09-28 13:33:36 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 13:33:36 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 13:33:39 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 13:33:39 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 13:34:20 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 13:34:20 ERROR TimeTableRepositoryImpl:45 - Error while adding the timetable details!
+2021-09-28 13:57:50 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 13:57:50 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 13:57:51 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 13:57:51 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 13:57:59 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 13:57:59 ERROR TimeTableRepositoryImpl:45 - Error while adding the timetable details!
+2021-09-28 13:58:55 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 13:58:55 ERROR TimeTableRepositoryImpl:46 - Error while adding the timetable details!
+2021-09-28 13:59:29 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 13:59:29 INFO  TimeTableRepositoryImpl:42 - Timetable details are added successfully!
+2021-09-28 14:23:29 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 14:23:29 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 14:23:30 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 14:23:30 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 14:23:54 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 14:23:54 ERROR TimeTableRepositoryImpl:46 - Error while adding the timetable details!
+2021-09-28 14:26:45 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 14:26:45 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 14:26:48 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 14:26:48 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 14:59:11 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 14:59:11 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 14:59:13 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 14:59:13 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 15:00:46 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 15:00:46 ERROR TimeTableRepositoryImpl:46 - Error while adding the timetable details!
+2021-09-28 15:03:23 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 15:03:23 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 15:03:25 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 15:03:25 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 15:03:38 INFO  TimeTableRepositoryImpl:32 - Adding timetable details!
+2021-09-28 15:03:38 INFO  TimeTableRepositoryImpl:42 - Timetable details are added successfully!
+2021-09-28 15:36:29 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 15:36:45 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 15:36:45 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 15:37:03 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 15:37:03 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 15:39:45 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 15:39:45 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 15:40:18 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 15:40:18 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 15:40:25 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 15:40:25 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 15:41:06 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 15:41:06 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 15:43:09 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-09-28 15:43:09 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-09-28 15:43:27 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-09-28 15:43:27 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-09-28 15:43:45 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-09-28 15:43:45 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-09-28 15:43:55 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-09-28 15:43:55 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-09-28 15:45:51 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 15:45:51 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 15:48:30 INFO  TeacherAssignRepositoryImpl:32 - Assigning teacher for particular course!
+2021-09-28 15:48:30 INFO  TeacherAssignRepositoryImpl:39 - Teacher assigned for course successfully!
+2021-09-28 15:48:48 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 15:48:48 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 16:29:19 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 16:29:19 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 16:31:09 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 16:31:09 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 16:31:11 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 16:31:11 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 16:31:56 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:31:56 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:34:50 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-09-28 16:34:50 INFO  TeacherRepositoryImpl:39 - Teacher details added successfully!
+2021-09-28 16:35:52 INFO  AddressRepositoryImpl:24 - Adding address details!
+2021-09-28 16:35:52 INFO  AddressRepositoryImpl:33 - Address added successfully!
+2021-09-28 16:36:18 INFO  LoginRepositoryImpl:28 - Adding login credentials
+2021-09-28 16:36:18 INFO  LoginRepositoryImpl:35 - Login credentials added successfully!
+2021-09-28 16:42:36 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:42:36 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:42:40 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 16:42:40 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 16:42:41 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 16:42:41 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 16:43:58 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:43:58 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:44:15 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:44:15 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:44:22 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:44:22 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:44:34 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:44:34 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:44:39 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:44:39 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:44:47 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:44:47 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:47:28 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:47:28 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:47:31 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 16:47:31 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 16:47:33 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 16:47:33 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 16:49:33 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:49:33 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:49:37 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:49:37 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:49:47 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:49:47 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:50:24 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:50:24 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:50:39 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:50:39 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:51:56 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:51:56 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:52:03 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:52:03 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:52:05 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:52:05 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:52:11 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:52:11 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:52:16 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:52:16 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:53:29 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:53:29 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:53:34 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:53:34 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:53:41 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:53:41 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:53:50 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:53:50 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:53:55 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:53:55 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:54:04 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:54:04 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:54:14 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:54:14 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:54:16 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:54:16 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:54:23 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 16:54:23 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 16:54:24 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 16:54:24 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 16:55:18 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:55:18 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:55:21 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:55:21 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:55:29 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:55:29 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:55:33 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:55:33 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:55:39 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:55:39 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:55:41 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:55:41 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:55:47 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:55:47 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:55:52 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:55:52 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:56:02 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:56:02 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:56:48 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:56:48 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:56:52 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:56:52 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:56:55 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:56:55 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:56:59 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:56:59 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:57:02 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:57:02 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:57:04 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:57:04 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:57:06 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:57:06 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:57:10 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:57:10 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:57:11 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:57:11 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:57:13 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 16:57:13 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 16:57:14 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 16:57:14 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 16:57:43 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:57:43 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:58:05 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:58:05 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:58:25 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:58:25 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:58:35 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:58:35 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:58:36 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:58:36 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:58:43 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 16:58:43 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 16:58:44 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 16:58:44 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 16:58:57 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:58:57 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 16:59:04 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 16:59:04 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:01:01 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:01:01 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:01:05 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:01:05 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:01:08 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:01:08 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:01:09 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:01:09 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:01:11 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 17:01:11 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 17:01:12 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 17:01:12 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 17:05:59 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:05:59 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:09:15 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:09:15 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:09:40 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:09:40 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:09:49 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:09:49 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:10:38 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:10:38 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:10:56 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:10:56 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:11:02 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:11:02 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:11:22 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:11:22 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:11:23 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:11:23 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:11:53 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:11:53 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:12:25 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:12:25 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:12:32 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:12:32 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:12:37 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:12:37 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:12:39 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:12:39 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:12:44 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:12:44 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:12:55 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:12:55 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:13:05 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:13:05 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:13:10 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:13:10 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:13:14 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:13:14 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:13:45 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:13:45 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:13:48 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 17:13:49 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 17:13:50 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 17:13:50 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 17:15:59 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 17:15:59 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 17:26:29 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 17:26:29 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 17:26:31 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 17:26:31 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 17:26:36 INFO  TeacherAssignRepositoryImpl:32 - Assigning teacher for particular course!
+2021-09-28 17:26:36 INFO  TeacherAssignRepositoryImpl:39 - Teacher assigned for course successfully!
+2021-09-28 17:27:11 INFO  TeacherAssignRepositoryImpl:32 - Assigning teacher for particular course!
+2021-09-28 17:27:11 ERROR TeacherAssignRepositoryImpl:42 - Error while assigning staff for course!
+2021-09-28 17:27:29 INFO  TeacherAssignRepositoryImpl:32 - Assigning teacher for particular course!
+2021-09-28 17:27:29 INFO  TeacherAssignRepositoryImpl:39 - Teacher assigned for course successfully!
+2021-09-28 17:50:53 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 17:50:53 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 17:51:32 INFO  TeacherAssignRepositoryImpl:32 - Assigning teacher for particular course!
+2021-09-28 17:51:32 ERROR TeacherAssignRepositoryImpl:42 - Error while assigning staff for course!
+2021-09-28 17:51:56 INFO  TeacherAssignRepositoryImpl:32 - Assigning teacher for particular course!
+2021-09-28 17:51:56 ERROR TeacherAssignRepositoryImpl:42 - Error while assigning staff for course!
+2021-09-28 17:55:13 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-09-28 17:55:13 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-09-28 17:55:18 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-09-28 17:55:18 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-09-28 18:18:55 INFO  TeacherAssignRepositoryImpl:119 - Getting teacher assign details!
+2021-09-28 18:18:56 INFO  TeacherAssignRepositoryImpl:128 - Teacher assign details fetched successfully!
+2021-09-28 18:29:49 INFO  TeacherAssignRepositoryImpl:139 - Getting teacher assign details!
+2021-09-28 18:29:49 INFO  TeacherAssignRepositoryImpl:148 - Teacher assign details fetched successfully!
+2021-09-28 18:30:11 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 18:30:11 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 18:46:29 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 18:46:29 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:16:27 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:16:28 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:16:30 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:16:30 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:19:58 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:19:58 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:20:00 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:20:00 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:21:06 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:21:06 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:21:08 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:21:08 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:24:46 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:24:46 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:24:48 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:24:48 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:25:11 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:25:11 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:25:13 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:25:13 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:25:55 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:25:55 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:25:57 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:25:58 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:28:02 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:28:02 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:28:05 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:28:05 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:28:12 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:28:12 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:28:15 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:28:15 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:28:36 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:28:36 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:28:38 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:28:39 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:29:11 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:29:11 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:29:14 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:29:14 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:29:42 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:29:42 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:29:44 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:29:44 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:30:38 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:30:38 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:30:40 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:30:40 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:31:36 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:31:36 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:31:39 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:31:39 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:32:52 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:32:52 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:32:54 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:32:54 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:33:06 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:33:06 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:33:08 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:33:08 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:42:13 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:42:13 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:43:05 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:43:05 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:43:07 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:43:07 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:44:33 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:44:33 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:44:35 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:44:35 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:45:29 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:45:29 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:45:41 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:45:41 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:45:46 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:45:46 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:46:54 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:46:54 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:46:56 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:46:56 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:47:41 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:47:41 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:47:43 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:47:43 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:47:51 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:47:57 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:47:57 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:47:59 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:47:59 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:48:25 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:48:25 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:48:27 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:48:27 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:48:30 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:48:30 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:48:43 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:48:43 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:48:45 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:48:45 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:48:47 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:48:47 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:50:26 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:50:26 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:50:29 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:50:29 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:50:49 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:50:49 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:50:51 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:50:51 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:51:19 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:51:19 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:51:22 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:51:22 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:52:34 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:52:34 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:52:35 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:52:36 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:53:07 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:53:07 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:53:09 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 19:53:09 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 19:53:12 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:55:05 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:56:04 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:56:41 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:57:01 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:57:13 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:57:13 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:57:17 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:57:17 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 19:57:19 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:57:54 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:58:44 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 19:59:57 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 20:04:03 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 20:04:03 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 20:04:05 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 20:04:06 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 20:05:06 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 20:05:06 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 20:05:08 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 20:05:08 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 20:06:04 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 20:06:04 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 20:06:06 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 20:06:06 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 20:07:50 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 20:07:50 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 20:07:53 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 20:07:53 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 20:17:52 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 20:17:52 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 20:17:55 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 20:17:55 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 20:20:25 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 20:20:25 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 20:20:27 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 20:20:27 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 20:21:27 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 20:21:27 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 20:21:29 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 20:21:29 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 20:26:47 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 20:26:47 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 20:26:49 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 20:26:49 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 20:27:30 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 20:27:30 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 20:27:32 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 20:27:32 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 20:27:51 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 20:27:51 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 20:27:52 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 20:27:53 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 20:41:41 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 20:41:41 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 20:41:43 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 20:41:43 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 20:50:25 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 20:50:25 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 20:50:27 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 20:50:27 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 20:59:44 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 20:59:44 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 20:59:46 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 20:59:46 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:03:07 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:03:07 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:03:09 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:03:09 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:07:30 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:07:30 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:07:32 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:07:32 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:10:30 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:10:30 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:10:32 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:10:32 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:14:35 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:14:35 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:14:37 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:14:37 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:16:40 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:16:40 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:16:43 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:16:43 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:17:08 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:17:08 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:17:10 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:17:10 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:21:44 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:21:44 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:21:46 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:21:46 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:21:54 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:21:55 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:21:59 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:21:59 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:22:04 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:22:04 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:23:33 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:23:33 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:23:34 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:23:34 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:23:35 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:23:35 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:23:54 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:23:54 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:23:55 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:23:55 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:23:57 INFO  TeacherAssignRepositoryImpl:139 - Getting teacher assign details!
+2021-09-28 21:24:06 INFO  TeacherAssignRepositoryImpl:139 - Getting teacher assign details!
+2021-09-28 21:26:59 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:27:00 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:27:01 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:27:01 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:27:04 INFO  TeacherAssignRepositoryImpl:139 - Getting teacher assign details!
+2021-09-28 21:27:04 INFO  TeacherAssignRepositoryImpl:148 - Teacher assign details fetched successfully!
+2021-09-28 21:32:53 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:32:53 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:32:54 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:32:54 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:33:02 INFO  TeacherAssignRepositoryImpl:139 - Getting teacher assign details!
+2021-09-28 21:33:02 INFO  TeacherAssignRepositoryImpl:148 - Teacher assign details fetched successfully!
+2021-09-28 21:33:02 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 21:33:02 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 21:35:11 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:35:11 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:35:14 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:35:14 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:35:28 INFO  TeacherAssignRepositoryImpl:139 - Getting teacher assign details!
+2021-09-28 21:35:28 INFO  TeacherAssignRepositoryImpl:148 - Teacher assign details fetched successfully!
+2021-09-28 21:35:28 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 21:35:28 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 21:36:40 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:36:40 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:36:42 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:36:42 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:36:45 INFO  TeacherAssignRepositoryImpl:139 - Getting teacher assign details!
+2021-09-28 21:36:45 INFO  TeacherAssignRepositoryImpl:148 - Teacher assign details fetched successfully!
+2021-09-28 21:36:45 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 21:36:45 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 21:41:40 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:41:40 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:41:42 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:41:42 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:41:45 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:41:45 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:41:46 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:41:46 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:41:56 INFO  TeacherAssignRepositoryImpl:139 - Getting teacher assign details!
+2021-09-28 21:41:56 INFO  TeacherAssignRepositoryImpl:148 - Teacher assign details fetched successfully!
+2021-09-28 21:41:56 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 21:41:56 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 21:43:04 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:43:04 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:43:05 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:43:05 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:43:08 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:43:08 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:43:29 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:43:29 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:43:31 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:43:31 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:43:33 INFO  TeacherAssignRepositoryImpl:139 - Getting teacher assign details!
+2021-09-28 21:43:33 INFO  TeacherAssignRepositoryImpl:148 - Teacher assign details fetched successfully!
+2021-09-28 21:43:33 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 21:43:33 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 21:43:40 INFO  TeacherAssignRepositoryImpl:139 - Getting teacher assign details!
+2021-09-28 21:43:40 INFO  TeacherAssignRepositoryImpl:148 - Teacher assign details fetched successfully!
+2021-09-28 21:43:40 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 21:43:40 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 21:43:43 INFO  TeacherAssignRepositoryImpl:139 - Getting teacher assign details!
+2021-09-28 21:43:43 INFO  TeacherAssignRepositoryImpl:148 - Teacher assign details fetched successfully!
+2021-09-28 21:43:44 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 21:43:44 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 21:48:12 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:48:12 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:48:13 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:48:13 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:48:16 INFO  TeacherAssignRepositoryImpl:139 - Getting teacher assign details!
+2021-09-28 21:48:16 INFO  TeacherAssignRepositoryImpl:148 - Teacher assign details fetched successfully!
+2021-09-28 21:48:16 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 21:48:16 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 21:49:42 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:49:42 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:49:43 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:49:43 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:49:47 INFO  TeacherAssignRepositoryImpl:139 - Getting teacher assign details!
+2021-09-28 21:49:47 INFO  TeacherAssignRepositoryImpl:148 - Teacher assign details fetched successfully!
+2021-09-28 21:49:47 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 21:49:47 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 21:49:50 INFO  TeacherAssignRepositoryImpl:139 - Getting teacher assign details!
+2021-09-28 21:49:50 INFO  TeacherAssignRepositoryImpl:148 - Teacher assign details fetched successfully!
+2021-09-28 21:49:50 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 21:49:50 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 21:49:53 INFO  TeacherAssignRepositoryImpl:139 - Getting teacher assign details!
+2021-09-28 21:49:53 INFO  TeacherAssignRepositoryImpl:148 - Teacher assign details fetched successfully!
+2021-09-28 21:49:53 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 21:49:53 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 21:50:20 INFO  SubjectRepositoryImpl:33 - Adding subject details!
+2021-09-28 21:50:20 INFO  SubjectRepositoryImpl:40 - Subject details added successfully!
+2021-09-28 21:50:21 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:50:21 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:50:35 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:50:35 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:50:36 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:50:36 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:50:39 INFO  TeacherAssignRepositoryImpl:139 - Getting teacher assign details!
+2021-09-28 21:50:52 INFO  TeacherAssignRepositoryImpl:139 - Getting teacher assign details!
+2021-09-28 21:50:52 INFO  TeacherAssignRepositoryImpl:148 - Teacher assign details fetched successfully!
+2021-09-28 21:50:52 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 21:50:52 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 21:51:06 INFO  TeacherRepositoryImpl:50 - Getting all teacher details
+2021-09-28 21:51:06 INFO  TeacherRepositoryImpl:57 - Teacher list is fetched successfully!
+2021-09-28 21:51:09 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:51:09 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:51:10 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:51:10 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:51:18 INFO  TeacherAssignRepositoryImpl:32 - Assigning teacher for particular course!
+2021-09-28 21:51:18 INFO  TeacherAssignRepositoryImpl:39 - Teacher assigned for course successfully!
+2021-09-28 21:51:46 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 21:51:46 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 21:51:47 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-09-28 21:51:47 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-09-28 21:51:50 INFO  TeacherAssignRepositoryImpl:139 - Getting teacher assign details!
+2021-09-28 21:51:50 INFO  TeacherAssignRepositoryImpl:148 - Teacher assign details fetched successfully!
+2021-09-28 21:51:50 INFO  TeacherRepositoryImpl:133 - Getting teacher detail
+2021-09-28 21:51:50 INFO  TeacherRepositoryImpl:142 - Teacher details fetched succesfully!
+2021-09-28 22:04:07 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:04:07 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:04:20 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:04:20 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:04:24 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:04:24 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:34:11 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:34:11 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:40:50 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:40:50 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:41:11 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:41:11 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:41:20 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:41:20 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:41:27 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:41:27 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:41:29 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:41:29 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:41:30 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:41:30 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:41:36 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:41:36 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:42:12 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:42:12 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:43:07 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:43:07 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:43:13 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:43:13 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:43:41 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:43:41 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:43:47 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:43:47 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:43:52 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:43:52 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:43:54 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:43:54 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:43:59 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:43:59 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:44:11 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:44:11 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:44:34 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:44:34 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:44:39 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:44:39 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:44:41 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:44:41 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:44:46 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:44:46 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:44:55 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:44:55 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:45:09 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:45:09 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:45:16 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:45:16 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:45:18 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:45:18 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:45:21 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:45:21 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:45:26 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:45:26 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:45:36 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:45:36 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:45:37 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:45:37 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:56:13 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:56:13 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:56:39 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:56:39 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:56:45 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:56:45 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:56:45 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:56:45 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:56:45 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 22:56:45 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 22:56:55 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:56:55 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:56:55 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:56:55 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:56:55 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 22:56:55 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 22:57:20 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:57:20 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:57:20 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:57:20 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:57:20 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 22:57:20 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 22:57:26 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:57:26 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:57:26 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:57:26 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:57:26 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 22:57:26 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 22:58:26 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:58:26 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:58:26 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:58:26 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:58:26 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 22:58:26 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 22:58:37 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:58:37 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:58:37 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:58:37 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:58:37 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 22:58:37 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 22:58:45 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:58:45 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:58:45 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:58:45 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:58:45 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 22:58:45 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 22:58:52 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:58:52 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:58:52 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:58:52 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:58:52 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 22:58:52 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 22:59:38 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:59:38 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:59:38 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:59:38 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:59:38 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 22:59:38 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 22:59:43 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 22:59:43 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 22:59:43 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:59:43 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 22:59:43 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 22:59:43 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:00:12 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:00:12 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:00:12 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:00:12 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:00:12 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:00:12 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:00:26 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:00:26 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:00:26 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:00:26 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:00:26 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:00:26 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:00:28 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:00:28 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:00:28 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:00:28 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:00:28 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:00:28 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:00:44 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:00:44 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:00:44 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:00:44 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:00:44 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:00:44 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:01:23 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:01:23 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:01:23 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:01:23 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:01:23 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:01:23 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:01:36 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:01:36 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:01:36 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:01:36 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:01:36 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:01:36 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:01:43 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:01:43 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:01:43 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:01:43 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:01:43 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:01:43 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:01:45 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:01:45 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:01:45 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:01:45 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:01:45 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:01:45 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:01:47 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:01:47 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:01:47 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:01:47 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:01:47 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:01:47 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:01:49 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:01:49 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:01:50 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:01:50 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:01:50 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:01:50 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:01:55 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:01:55 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:01:55 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:01:55 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:01:55 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:01:55 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:04 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:02:04 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:02:04 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:04 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:04 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:04 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:07 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:02:07 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:02:08 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:08 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:08 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:08 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:10 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:02:10 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:02:10 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:10 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:10 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:10 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:11 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:02:11 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:02:11 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:12 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:12 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:12 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:13 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:02:13 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:02:13 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:13 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:13 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:13 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:21 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:02:21 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:02:21 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:21 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:21 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:21 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:26 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:02:26 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:02:26 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:26 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:26 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:26 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:49 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:02:49 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:02:49 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:49 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:49 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:49 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:53 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:02:53 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:02:53 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:53 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:53 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:53 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:54 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:02:54 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:02:54 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:54 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:54 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:54 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:56 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:02:56 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:02:56 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:56 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:02:56 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:02:56 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:03:03 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:03:03 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:03:03 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:03:03 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:03:03 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:03:03 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:04:22 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:04:22 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:04:22 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:04:22 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:04:22 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:04:22 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:04:23 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:04:23 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:04:23 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:04:23 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:04:23 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:04:23 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:04:25 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:04:25 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:04:26 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:04:26 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:04:26 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:04:26 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:04:40 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:04:40 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:04:40 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:04:40 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:04:40 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:04:40 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:07:24 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:07:24 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:07:24 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:07:24 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:07:52 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 23:07:52 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 23:09:08 INFO  TopicRepositoryImpl:34 - Adding the topic details!
+2021-09-28 23:09:08 INFO  TopicRepositoryImpl:41 - Unit is added successfully!
+2021-09-28 23:09:14 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-09-28 23:09:14 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-09-28 23:10:21 INFO  TopicRepositoryImpl:34 - Adding the topic details!
+2021-09-28 23:10:21 INFO  TopicRepositoryImpl:41 - Unit is added successfully!
+2021-09-28 23:10:49 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:10:49 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:10:49 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:10:49 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:11:21 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:11:21 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:11:21 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:11:21 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:11:31 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:11:31 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:11:31 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:11:31 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:11:54 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:11:54 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:11:54 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:11:54 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:12:01 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:12:01 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:12:02 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:12:02 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:12:06 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:12:06 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:12:06 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:12:06 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:12:08 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:12:08 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:12:08 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:12:08 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:12:26 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:12:26 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:12:26 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:12:26 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:12:48 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:12:48 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:12:48 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:12:48 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:12:50 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:12:50 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:12:50 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:12:50 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:12:57 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:12:57 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:12:57 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:12:57 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:12:58 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:12:58 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:12:58 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:12:58 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:13:34 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:13:34 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:13:34 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:13:34 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:13:37 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:13:37 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:13:37 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:13:37 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:13:48 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:13:48 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:13:48 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:13:48 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:13:52 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:13:52 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:13:52 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:13:52 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:13:53 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:13:53 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:13:53 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:13:53 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:14:25 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:14:25 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:14:25 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:14:25 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:14:28 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:14:28 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:14:28 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:14:28 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:14:37 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:14:37 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:14:37 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:14:37 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:14:43 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:14:43 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:14:43 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:14:43 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:14:45 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:14:45 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:14:45 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:14:45 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:15:05 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:15:05 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:15:05 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:15:05 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:15:08 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:15:08 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:15:08 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:15:08 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:15:12 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:15:12 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:15:12 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:15:12 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:15:15 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:15:15 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:15:15 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:15:15 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:15:26 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:15:26 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:15:26 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:15:26 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:15:37 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:15:37 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:15:37 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:15:37 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:16:43 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:16:43 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:16:43 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:16:43 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:17:22 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:17:22 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:17:22 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:17:22 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:18:08 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:18:08 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:18:08 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:18:08 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:18:41 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:18:41 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:18:41 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:18:41 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:18:57 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:18:57 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:18:57 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:18:57 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:18:59 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:18:59 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:19:00 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:19:00 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:19:01 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:19:01 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:19:01 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:19:01 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:19:08 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:19:08 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:19:08 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:19:08 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:19:49 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:19:49 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:19:49 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:19:49 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:20:11 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:20:11 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:20:12 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:20:12 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:20:21 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:20:21 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:20:21 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:20:21 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:20:33 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:20:33 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:20:34 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:20:34 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:20:55 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:20:55 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:20:55 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:20:55 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:21:06 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:21:06 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:21:06 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:21:06 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:21:07 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:21:07 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:21:07 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:21:07 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:21:12 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:21:12 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:21:12 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:21:12 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:21:17 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:21:17 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:21:17 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:21:17 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:21:23 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:21:23 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:21:23 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:21:23 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:21:30 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:21:30 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:21:30 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:21:30 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:21:32 INFO  TopicRepositoryImpl:52 - Getting units for given subject!
+2021-09-28 23:21:33 INFO  TopicRepositoryImpl:60 - Unit details are fetched successfully!
+2021-09-28 23:26:13 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:26:13 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:26:14 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:26:14 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:26:18 INFO  TopicRepositoryImpl:52 - Getting units for given subject!
+2021-09-28 23:26:18 INFO  TopicRepositoryImpl:60 - Unit details are fetched successfully!
+2021-09-28 23:28:51 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:28:51 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:28:51 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:28:51 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:29:27 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:29:27 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:29:27 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:29:27 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:29:55 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:29:55 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:29:55 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:29:55 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:30:17 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:30:17 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:30:17 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:30:17 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:31:56 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:31:56 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:31:56 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:31:56 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:32:02 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:32:02 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:32:07 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:32:07 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:32:24 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:32:24 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:32:24 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:32:24 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:32:49 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:32:49 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:32:49 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:32:49 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:32:53 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:32:53 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:32:53 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:32:53 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:33:05 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:33:05 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:33:06 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:33:06 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:33:13 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:33:13 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:33:13 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:33:13 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:33:30 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:33:30 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:33:30 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:33:30 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:33:34 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:33:34 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:33:34 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:33:34 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:33:39 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:33:39 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:33:40 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:33:40 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:33:42 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:33:42 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:33:42 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:33:42 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:33:46 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:33:46 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:33:46 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:33:46 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:33:47 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:33:47 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:33:47 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:33:47 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:34:04 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:34:04 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:34:04 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:34:04 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:34:06 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:34:06 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:34:06 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:34:06 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:34:09 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:34:09 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:34:09 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:34:10 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:34:50 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:34:50 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:34:51 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:34:51 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:35:01 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:35:01 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:35:01 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:35:02 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:35:06 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:35:06 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:35:06 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:35:07 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:35:27 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:35:27 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:35:27 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:35:27 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:35:47 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:35:47 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:35:47 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:35:47 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:39:05 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:39:05 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:39:05 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:39:05 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:39:15 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:39:15 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:39:15 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:39:16 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:39:17 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:39:17 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:39:17 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:39:17 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:39:22 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:39:22 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:39:22 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:39:22 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:39:31 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:39:31 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:39:31 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:39:31 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:39:41 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:39:41 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:39:41 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:39:42 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:39:51 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:39:51 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:39:51 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:39:51 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:39:56 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:39:56 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:39:56 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:39:56 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:40:00 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:40:00 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:40:00 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:40:00 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:40:20 INFO  TopicRepositoryImpl:52 - Getting units for given subject!
+2021-09-28 23:40:20 INFO  TopicRepositoryImpl:60 - Unit details are fetched successfully!
+2021-09-28 23:40:36 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:40:36 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:40:36 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:40:36 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:40:50 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:40:50 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:40:50 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:40:50 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:40:54 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:40:54 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:40:54 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:40:54 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:40:57 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:40:57 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:40:57 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:40:57 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:41:09 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:41:09 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:41:09 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:41:09 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:41:13 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:41:13 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:41:13 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:41:13 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:41:15 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:41:15 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:41:15 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:41:15 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:41:16 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:41:16 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:41:16 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:41:16 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:41:33 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:41:33 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:41:33 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:41:33 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:41:35 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:41:35 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:41:35 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:41:35 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:41:57 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:41:57 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:41:57 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:41:57 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:42:06 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:42:06 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:42:06 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:42:07 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:42:13 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:42:13 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:42:13 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:42:13 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:42:19 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:42:19 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:42:19 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:42:19 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:42:24 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:42:24 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:42:24 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:42:24 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:42:27 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:42:27 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:42:27 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:42:27 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:42:32 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:42:32 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:42:32 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:42:32 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:43:15 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:43:15 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:43:15 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:43:15 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:43:29 INFO  TopicRepositoryImpl:52 - Getting units for given subject!
+2021-09-28 23:43:29 INFO  TopicRepositoryImpl:60 - Unit details are fetched successfully!
+2021-09-28 23:45:07 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:45:07 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:45:07 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:45:07 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:45:13 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:45:13 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:45:14 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:45:14 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:45:37 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:45:37 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:45:37 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:45:37 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:45:42 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:45:42 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:45:42 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:45:42 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:46:02 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:46:02 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:46:03 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:46:03 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:46:44 INFO  TopicRepositoryImpl:52 - Getting units for given subject!
+2021-09-28 23:46:44 INFO  TopicRepositoryImpl:60 - Unit details are fetched successfully!
+2021-09-28 23:47:22 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:47:22 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:47:22 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:47:22 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:47:34 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:47:34 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:47:34 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:47:34 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:47:43 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:47:43 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:47:43 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:47:43 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:48:20 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:48:20 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:48:20 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:48:20 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:48:24 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:48:24 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:48:24 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:48:24 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:48:39 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:48:39 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:48:39 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:48:39 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:49:20 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:49:20 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:49:20 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:49:20 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:49:25 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:49:25 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:49:25 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:49:25 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:49:54 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:49:54 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:49:54 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:49:54 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:49:57 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:49:57 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:49:57 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:49:57 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:50:20 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:50:20 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:50:20 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:50:20 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:50:29 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:50:29 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:50:29 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:50:29 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:50:31 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:50:31 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:50:31 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:50:31 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:50:33 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:50:33 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:50:34 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:50:34 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:50:35 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:50:35 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:50:35 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:50:35 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:51:14 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:51:14 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:51:15 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:51:15 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:51:40 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:51:40 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:51:40 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:51:40 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:51:43 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:51:43 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:51:43 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:51:43 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:51:51 INFO  TopicRepositoryImpl:52 - Getting units for given subject!
+2021-09-28 23:51:51 INFO  TopicRepositoryImpl:60 - Unit details are fetched successfully!
+2021-09-28 23:53:26 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:53:26 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:53:26 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:53:26 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:53:30 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:53:30 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:53:30 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:53:30 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:53:37 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:53:37 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:53:37 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:53:37 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:54:40 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:54:40 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:54:40 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:54:41 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:55:00 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:55:00 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:55:00 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:55:00 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:56:02 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:56:02 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:56:02 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:56:02 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:59:14 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:59:14 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:59:14 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:59:14 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:59:16 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:59:16 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:59:16 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:59:17 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-28 23:59:24 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-28 23:59:24 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-28 23:59:24 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-28 23:59:24 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:02:14 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:02:14 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:02:14 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:02:14 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:02:22 INFO  TopicRepositoryImpl:52 - Getting units for given subject!
+2021-09-29 00:02:22 INFO  TopicRepositoryImpl:60 - Unit details are fetched successfully!
+2021-09-29 00:03:15 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:03:15 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:03:15 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:03:15 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:03:19 INFO  TopicRepositoryImpl:52 - Getting units for given subject!
+2021-09-29 00:03:19 INFO  TopicRepositoryImpl:60 - Unit details are fetched successfully!
+2021-09-29 00:03:48 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:03:48 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:03:48 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:03:48 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:04:15 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:04:15 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:04:15 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:04:15 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:04:18 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:04:18 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:04:18 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:04:18 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:04:34 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:04:34 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:04:34 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:04:34 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:04:51 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:04:51 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:04:51 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:04:51 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:05:14 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:05:14 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:05:14 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:05:14 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:05:32 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:05:32 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:05:32 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:05:32 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:05:39 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:05:39 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:05:40 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:05:40 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:06:10 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:06:10 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:06:10 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:06:10 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:06:17 INFO  TopicRepositoryImpl:52 - Getting units for given subject!
+2021-09-29 00:06:17 INFO  TopicRepositoryImpl:60 - Unit details are fetched successfully!
+2021-09-29 00:06:51 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:06:51 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:06:51 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:06:51 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:07:04 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:07:04 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:07:04 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:07:04 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:07:31 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:07:31 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:07:31 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:07:31 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:07:57 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:07:57 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:07:57 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:07:57 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:09:12 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:09:12 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:09:12 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:09:12 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:09:16 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:09:16 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:09:16 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:09:16 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:09:30 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:09:30 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:09:30 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:09:30 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:09:37 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:09:37 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:09:37 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:09:37 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:10:01 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:10:01 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:10:01 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:10:01 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:10:20 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:10:20 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:10:20 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:10:20 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:10:32 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:10:32 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:10:32 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:10:32 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:11:30 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:11:30 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:11:30 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:11:30 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:11:37 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:11:37 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:11:37 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:11:37 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:11:54 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:11:54 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:11:54 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:11:54 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:12:23 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:12:23 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:12:23 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:12:23 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:12:29 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:12:29 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:12:29 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:12:29 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:12:45 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:12:45 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:12:45 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:12:45 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:12:51 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:12:51 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:12:51 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:12:51 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:12:59 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:12:59 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:12:59 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:12:59 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:13:41 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:13:41 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:13:41 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:13:41 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:13:49 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:13:49 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:13:49 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:13:49 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:13:55 INFO  TopicRepositoryImpl:52 - Getting units for given subject!
+2021-09-29 00:13:55 INFO  TopicRepositoryImpl:60 - Unit details are fetched successfully!
+2021-09-29 00:15:35 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:15:35 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:15:35 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:15:35 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:15:48 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:15:48 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:15:48 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:15:48 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:15:55 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:15:55 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:15:56 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:15:56 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:16:01 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:16:01 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:16:01 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:16:01 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:16:08 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:16:08 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:16:08 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:16:08 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:16:20 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:16:20 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:16:20 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:16:20 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:16:25 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:16:25 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:16:25 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:16:25 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:16:27 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:16:27 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:16:27 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:16:27 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:16:31 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:16:31 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:16:31 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:16:31 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:16:37 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:16:37 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:16:37 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:16:37 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:16:48 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:16:48 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:16:48 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:16:48 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:17:08 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:17:08 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:17:09 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:17:09 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:17:40 INFO  TopicRepositoryImpl:52 - Getting units for given subject!
+2021-09-29 00:17:40 INFO  TopicRepositoryImpl:60 - Unit details are fetched successfully!
+2021-09-29 00:18:00 ERROR TeacherController:138 - Validation fails, Check your input!
+2021-09-29 00:20:23 ERROR TeacherController:138 - Validation fails, Check your input!
+2021-09-29 00:21:49 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-09-29 00:21:49 ERROR TeacherRepositoryImpl:42 - Error while adding the teacher!
+2021-09-29 00:25:20 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-09-29 00:25:20 ERROR TeacherRepositoryImpl:42 - Error while adding the teacher!
+2021-09-29 00:30:15 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-09-29 00:30:15 ERROR TeacherRepositoryImpl:42 - Error while adding the teacher!
+2021-09-29 00:31:26 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-09-29 00:31:26 ERROR TeacherRepositoryImpl:42 - Error while adding the teacher!
+2021-09-29 00:33:28 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-09-29 00:33:28 ERROR TeacherRepositoryImpl:42 - Error while adding the teacher!
+2021-09-29 00:35:55 INFO  DiscussionRepositoryImpl:35 - Adding discussion details!
+2021-09-29 00:35:55 INFO  DiscussionRepositoryImpl:42 - Discussion details added successfully!
+2021-09-29 00:36:41 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-09-29 00:36:41 ERROR TeacherRepositoryImpl:42 - Error while adding the teacher!
+2021-09-29 00:38:53 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-09-29 00:38:53 ERROR TeacherRepositoryImpl:42 - Error while adding the teacher!
+2021-09-29 00:41:34 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-09-29 00:41:34 ERROR TeacherRepositoryImpl:42 - Error while adding the teacher!
+2021-09-29 00:44:26 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-09-29 00:44:27 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-09-29 00:44:27 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-09-29 00:44:27 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-09-29 00:44:30 INFO  TopicRepositoryImpl:52 - Getting units for given subject!
+2021-09-29 00:44:31 INFO  TopicRepositoryImpl:60 - Unit details are fetched successfully!
+2021-09-29 00:46:03 INFO  DiscussionRepositoryImpl:35 - Adding discussion details!
+2021-09-29 00:46:03 INFO  DiscussionRepositoryImpl:42 - Discussion details added successfully!

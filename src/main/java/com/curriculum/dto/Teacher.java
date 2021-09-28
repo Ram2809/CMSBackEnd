@@ -16,28 +16,16 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Teacher {
-	@NotNull
 	private Long id;
-	@NotNull
-	@NotBlank
 	private String firstName;
 	private String lastName;
-	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date dateOfBirth;
-	@NotNull
-	@NotBlank
 	private String gender;
-	@NotNull
-	@NotBlank
 	private String qualification;
-	@NotNull
-	@NotBlank
 	private String major;
-	@NotNull
 	@Email
 	private String email;
-	@NotNull
 	@Digits(integer = 10, fraction = 0)
 	private Long contactNo;
 	private Set<TeacherAssign> teachers;

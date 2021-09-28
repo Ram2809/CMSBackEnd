@@ -26,9 +26,9 @@ public class SubjectEntity {
 	@Id
 	@Size(max = 6)
 	private String code;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String name;
-	@OneToMany(mappedBy = "subject", fetch = FetchType.EAGER,cascade=CascadeType.ALL,orphanRemoval=true)
+	@OneToMany(mappedBy = "subject", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
 	private Set<SubjectAssignEntity> subjects;
 	@OneToMany(mappedBy = "subject", fetch = FetchType.EAGER)

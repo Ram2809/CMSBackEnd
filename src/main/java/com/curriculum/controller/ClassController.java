@@ -57,7 +57,7 @@ public class ClassController {
 	@GetMapping // @JsonIgnore
 	public ResponseEntity<Response> getAllClass() {
 		ResponseEntity<Response> responseEntity = null;
-		List<ClassEntity> classList = new ArrayList<ClassEntity>();
+		List<ClassEntity> classList = new ArrayList<>();
 		try {
 			classList = classService.getAllClass();
 			if (!classList.isEmpty()) {

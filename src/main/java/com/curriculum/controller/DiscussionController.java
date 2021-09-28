@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,6 +32,7 @@ import com.curriculum.util.ResponseUtil;
 
 @RestController
 @RequestMapping("api/discussion")
+@CrossOrigin("http://localhost:4200")
 public class DiscussionController {
 	@Autowired
 	private DiscussionService discussionService;
@@ -41,6 +43,7 @@ public class DiscussionController {
 		ResponseEntity<Response> responseEntity = null;
 		Long questionNo = null;
 		try {
+			System.out.println(discussion.getTeacher().getId());
 			questionNo = discussionService.addDiscussion(discussion);
 			discussion.setQuestionNo(questionNo);
 			responseEntity = ResponseUtil.getResponse(200, "Discussion details added successfully!", discussion);

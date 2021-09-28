@@ -37,8 +37,8 @@ public class SubjectAssignServiceImpl implements SubjectAssignService {
 			return subjectAssignRepository.addSubjectAssign(subjectAssign);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
-		}catch (DataIntegrityViolationException | ConstraintViolationException e) {
-			//logger.error("Constraint Violation fails!");
+		} catch (DataIntegrityViolationException | ConstraintViolationException e) {
+			// logger.error("Constraint Violation fails!");
 			throw new ConstraintValidationException("Constraint Violation fails!");
 		}
 	}
@@ -48,6 +48,26 @@ public class SubjectAssignServiceImpl implements SubjectAssignService {
 		classRepository.checkClassRoom(roomNo);
 		try {
 			return subjectAssignRepository.getSubjects(roomNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
+	@Override
+	public Long getAssignId(Long roomNo, String subjectCode) throws BusinessServiceException, NotFoundException {
+		subjectRepository.checkSubject(subjectCode);
+		classRepository.checkClassRoom(roomNo);
+		try {
+			return subjectAssignRepository.getAssignId(roomNo, subjectCode);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
+	@Override
+	public String getSubjectCode(Long id) throws BusinessServiceException, NotFoundException {
+		try {
+			return subjectAssignRepository.getSubjectCode(id);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}

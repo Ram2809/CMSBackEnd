@@ -58,9 +58,12 @@ public class TeacherEntity implements Serializable {
 	@OneToMany(mappedBy = "teacher", fetch = FetchType.EAGER)
 	private Set<TeacherAssignEntity> teacherAssign;
 	@OneToMany(mappedBy = "teacher", fetch = FetchType.EAGER)
+	@JsonIgnore
 	private Set<DiscussionEntity> discussions;
 	@OneToOne(mappedBy = "teacher", fetch = FetchType.EAGER)
+	@JsonIgnore
 	private LoginEntity login;
-	@OneToOne(mappedBy="teacherEntity")
+	@OneToOne(mappedBy = "teacherEntity")
+	@JsonIgnore
 	private AddressEntity address;
 }

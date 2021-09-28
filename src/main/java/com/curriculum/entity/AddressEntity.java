@@ -14,28 +14,29 @@ import com.curriculum.dto.Teacher;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name="Address")
+@Table(name = "Address")
 public class AddressEntity {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String addressLine;
 	private String city;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String district;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String state;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String country;
-	@Column(length=6)
+	@Column(length = 6)
 	private Long pinConde;
-	@OneToOne(targetEntity=TeacherEntity.class)
-	@JoinColumn(name="teacherId",unique=true)
+	@OneToOne(targetEntity = TeacherEntity.class)
+	@JoinColumn(name = "teacherId", unique = true)
 	private TeacherEntity teacherEntity;
-	
+
 }

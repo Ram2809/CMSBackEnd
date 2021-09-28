@@ -19,7 +19,7 @@ import com.curriculum.service.LoginService;
 
 @Service
 public class LoginServiceImpl implements LoginService {
-	private final String errorMessage="Constraint Violation fails!";
+	private final String errorMessage = "Constraint Violation fails!";
 	@Autowired
 	private LoginRepository loginRepository;
 	@Autowired

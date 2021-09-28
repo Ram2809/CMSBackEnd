@@ -1,5 +1,8 @@
 package com.curriculum.repository.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.apache.log4j.Logger;
@@ -110,5 +113,43 @@ public class TeacherAssignRepositoryImpl implements TeacherAssignRepository {
 			throws DatabaseException, NotFoundException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Long> getSubjectAssignIds(Long staffId) throws DatabaseException {
+		logger.info("Getting teacher assign details!");
+		Session session = null;
+		List<Long> subjectAssignIdList = new ArrayList<>();
+		try {
+			session = sessionFactory.getCurrentSession();
+			Query<Long> query = session
+					.createQuery("SELECT t.subjectAssign.id FROM TeacherAssignEntity t WHERE t.teacher.id=:id");
+			query.setParameter("id", staffId);
+			subjectAssignIdList = query.list();
+			logger.info("Teacher assign details fetched successfully!");
+		} catch (HibernateException e) {
+			logger.error("Error while fetching teacher assign details!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return subjectAssignIdList;
+	}
+
+	@Override
+	public Long getTeacherId(Long id) throws DatabaseException {
+		logger.info("Getting teacher assign details!");
+		Session session = null;
+		Long teacherId = null;
+		try {
+			session = sessionFactory.getCurrentSession();
+			Query<Long> query = session
+					.createQuery("SELECT t.teacher.id FROM TeacherAssignEntity t WHERE t.subjectAssign.id=:id");
+			query.setParameter("id", id);
+			teacherId = query.getSingleResult();
+			logger.info("Teacher assign details fetched successfully!");
+		} catch (HibernateException e) {
+			logger.error("Error while fetching teacher assign details!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return teacherId;
 	}
 }

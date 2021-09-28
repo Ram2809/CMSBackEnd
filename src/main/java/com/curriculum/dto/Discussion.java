@@ -13,9 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Discussion {
 	private Long questionNo;
-	@NotNull
 	private String question;
-	@NotNull
 	private String answer;
 	@Temporal(TemporalType.DATE)
 	private Date date;

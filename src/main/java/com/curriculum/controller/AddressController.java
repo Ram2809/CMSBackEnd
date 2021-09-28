@@ -20,6 +20,7 @@ import com.curriculum.exception.NotFoundException;
 import com.curriculum.service.AddressService;
 import com.curriculum.util.Response;
 import com.curriculum.util.ResponseUtil;
+
 @RestController
 @RequestMapping("api/address")
 @CrossOrigin("*")
@@ -36,7 +37,7 @@ public class AddressController {
 			addressId = addressService.addAddress(address);
 			if (addressId > 0) {
 				address.setId(addressId);
-				responseEntity = ResponseUtil.getResponse(200, "Address Details Added Successfully!",address);
+				responseEntity = ResponseUtil.getResponse(200, "Address Details Added Successfully!", address);
 			} else {
 				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
 			}
@@ -51,6 +52,7 @@ public class AddressController {
 		}
 		return responseEntity;
 	}
+
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<Response> validationFailed(MethodArgumentNotValidException e) {
 		logger.error("Validation fails, Check your input!");

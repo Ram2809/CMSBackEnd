@@ -14,7 +14,8 @@ public class TimeTableMapper {
 		Map<Integer, String> periodsMap = timeTable.getPeriods();
 		timeTableEntity.setPeriods(periodsMap);
 		ClassEntity classEntity = new ClassEntity();
-		classEntity.setRoomNo(timeTable.getClassRoom().getRoomNo());
+		System.out.println(timeTable.getClassDetail().getRoomNo());
+		classEntity.setRoomNo(timeTable.getClassDetail().getRoomNo());
 		timeTableEntity.setClassRoom(classEntity);
 		return timeTableEntity;
 	}

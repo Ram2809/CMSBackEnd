@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curriculum.dto.SubjectAssign;
@@ -58,6 +59,7 @@ public class SubjectAssignController {
 		}
 		return responseEntity;
 	}
+
 	@GetMapping("/{roomNo}")
 	public ResponseEntity<Response> getSubjects(@PathVariable("roomNo") Long roomNo) {
 		ResponseEntity<Response> responseEntity = null;
@@ -68,6 +70,45 @@ public class SubjectAssignController {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", subjectList);
 			} else {
 				responseEntity = ResponseUtil.getResponse(404, "No subject name found!");
+			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+		}
+		return responseEntity;
+	}
+
+	@GetMapping("/{roomNo}/{code}")
+	public ResponseEntity<Response> getAssignId(@PathVariable("roomNo") Long roomNo,
+			@PathVariable("code") String subjectCode) {
+		ResponseEntity<Response> responseEntity = null;
+		Long assignId = null;
+		try {
+			assignId = subjectAssignService.getAssignId(roomNo, subjectCode);
+			if (assignId != 0) {
+				responseEntity = ResponseUtil.getResponse(200, "Success!", assignId);
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!");
+			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+		}
+		return responseEntity;
+	}
+
+	@GetMapping
+	public ResponseEntity<Response> getSubjectCode(@RequestParam("id") Long id) {
+		ResponseEntity<Response> responseEntity = null;
+		String subjectCode = null;
+		try {
+			subjectCode = subjectAssignService.getSubjectCode(id);
+			if (subjectCode != null) {
+				responseEntity = ResponseUtil.getResponse(200, "Success!", subjectCode);
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!", subjectCode);
 			}
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());

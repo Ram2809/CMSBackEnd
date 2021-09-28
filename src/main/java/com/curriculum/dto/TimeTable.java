@@ -14,5 +14,5 @@ public class TimeTable {
 	@NotNull
 	private String day;
 	private Map<Integer, String> periods;
-	private Class classRoom;
+	private Class classDetail;
 }

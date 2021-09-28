@@ -1,5 +1,7 @@
 package com.curriculum.service;
 
+import java.util.List;
+
 import com.curriculum.dto.TeacherAssign;
 import com.curriculum.entity.TeacherAssignEntity;
 import com.curriculum.exception.BusinessServiceException;
@@ -12,4 +14,8 @@ public interface TeacherAssignService {
 			throws BusinessServiceException, NotFoundException;
 
 	TeacherAssignEntity deleteTeacherSubjectAssign(Long id) throws BusinessServiceException, NotFoundException;
+
+	List<Long> getSubjectAssignIds(Long staffId) throws BusinessServiceException, NotFoundException;
+
+	Long getTeacherId(Long id) throws BusinessServiceException;
 }

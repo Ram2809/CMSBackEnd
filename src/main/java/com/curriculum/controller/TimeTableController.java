@@ -10,9 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,6 +30,7 @@ import com.curriculum.util.ResponseUtil;
 
 @RestController
 @RequestMapping("api/timetable")
+@CrossOrigin("http://localhost:4200")
 public class TimeTableController {
 	@Autowired
 	private TimeTableService timeTableService;
@@ -64,7 +64,6 @@ public class TimeTableController {
 	@GetMapping("/{roomNo}")
 	public ResponseEntity<Response> getTimeTable(@PathVariable("roomNo") Long roomNo) {
 		ResponseEntity<Response> responseEntity = null;
-		Response response = new Response();
 		List<TimeTableEntity> timeTableList = new ArrayList<>();
 		try {
 			timeTableList = timeTableService.getTimeTable(roomNo);

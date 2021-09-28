@@ -15,12 +15,13 @@ import com.curriculum.repository.TeacherRepository;
 import com.curriculum.service.AddressService;
 
 @Service
-public class AddressServiceImpl implements AddressService{
+public class AddressServiceImpl implements AddressService {
 	@Autowired
 	private AddressRepository addressRepository;
 	@Autowired
 	private TeacherRepository teacherRepository;
-	private Logger logger=Logger.getLogger(AddressServiceImpl.class);
+	private Logger logger = Logger.getLogger(AddressServiceImpl.class);
+
 	@Override
 	public Long addAddress(Address address) throws BusinessServiceException, NotFoundException {
 		try {

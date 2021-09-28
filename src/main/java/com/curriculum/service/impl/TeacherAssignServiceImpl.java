@@ -1,5 +1,7 @@
 package com.curriculum.service.impl;
 
+import java.util.List;
+
 import javax.validation.ConstraintViolationException;
 
 import org.apache.log4j.Logger;
@@ -61,6 +63,25 @@ public class TeacherAssignServiceImpl implements TeacherAssignService {
 	public TeacherAssignEntity deleteTeacherSubjectAssign(Long id) throws BusinessServiceException, NotFoundException {
 		try {
 			return teacherAssignRepository.deleteTeacherSubjectAssign(id);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
+	@Override
+	public List<Long> getSubjectAssignIds(Long staffId) throws BusinessServiceException, NotFoundException {
+		teacherRepository.checkTeacher(staffId);
+		try {
+			return teacherAssignRepository.getSubjectAssignIds(staffId);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
+	@Override
+	public Long getTeacherId(Long id) throws BusinessServiceException {
+		try {
+			return teacherAssignRepository.getTeacherId(id);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}

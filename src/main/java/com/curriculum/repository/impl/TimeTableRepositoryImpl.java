@@ -34,7 +34,7 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 		Session session = null;
 		try {
 			session = sessionFactory.getCurrentSession();
-			checkPeriod(timeTable.getDay(), timeTable.getClassRoom().getRoomNo());
+			checkPeriod(timeTable.getDay(), timeTable.getClassDetail().getRoomNo());
 			Long count = (Long) session.save(TimeTableMapper.timeTableMapper(timeTable));
 			if (count > 0) {
 				timeTableEntity = TimeTableMapper.timeTableMapper(timeTable);
@@ -42,6 +42,7 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 				logger.info("Timetable details are added successfully!");
 			}
 		} catch (HibernateException | NotAllowedException e) {
+			// e.printStackTrace();
 			logger.error("Error while adding the timetable details!");
 			throw new DatabaseException(e.getMessage());
 		}
