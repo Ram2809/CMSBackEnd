@@ -72,6 +72,7 @@ public class HeadMasterRepositoryImpl implements HeadMasterRepository {
 			headMasterEntity.setEmail(headMasterDetail.getEmail());
 			headMasterEntity.setContactNo(headMasterDetail.getContactNo());
 			headMasterEntity.setAddress(headMasterDetail.getAddress());
+			headMasterEntity.setPassword(headMasterDetail.getPassword());
 			updatedHeadMasterEntity = (HeadMasterEntity) session.merge(headMasterEntity);
 			logger.info("Head master details updated successfully!");
 		} catch (HibernateException e) {

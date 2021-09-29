@@ -4,8 +4,6 @@ import java.util.Date;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -19,4 +17,5 @@ public class Discussion {
 	private Date date;
 	private Topic topic;
 	private Teacher teacher;
+	private Class classDetail;
 }

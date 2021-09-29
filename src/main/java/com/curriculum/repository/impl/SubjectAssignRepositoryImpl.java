@@ -74,15 +74,16 @@ public class SubjectAssignRepositoryImpl implements SubjectAssignRepository {
 	}
 
 	@Override
-	public String getSubjectCode(Long id) throws DatabaseException, NotFoundException {
+	public String getSubjectCode(Long id,Long roomNo) throws DatabaseException, NotFoundException {
 		Session session = null;
 		String subjectCode = "";
 		try {
 			checkAssignId(id);
 			session = sessionFactory.getCurrentSession();
 			Query<String> query = session
-					.createQuery("SELECT s.subject.code FROM SubjectAssignEntity s WHERE s.id=:id");
+					.createQuery("SELECT s.subject.code FROM SubjectAssignEntity s WHERE s.id=:id AND s.classDetail.roomNo=:roomNo");
 			query.setParameter("id", id);
+			query.setParameter("roomNo", roomNo);
 			subjectCode = query.uniqueResult();
 		} catch (HibernateException e) {
 			throw new DatabaseException(e.getMessage());
@@ -98,6 +99,24 @@ public class SubjectAssignRepositoryImpl implements SubjectAssignRepository {
 		if (subjectAssignEntity == null) {
 			throw new AssignIdNotFoundException("Assign id is not found");
 		}
+	}
+
+	@Override
+	public Long getRoomNo(Long id) throws DatabaseException, NotFoundException {
+		Session session=null;
+		Long roomNo=0l;
+		try {
+			checkAssignId(id);
+			session=sessionFactory.getCurrentSession();
+			Query<Long> query=session.createQuery("SELECT s.classDetail.roomNo FROM SubjectAssignEntity s WHERE s.id=:id");
+			query.setParameter("id", id);
+			roomNo=query.uniqueResult();
+		}
+		catch(HibernateException e)
+		{
+			throw new DatabaseException(e.getMessage());
+		}
+		return roomNo;
 	}
 
 }

@@ -2,6 +2,7 @@ package com.curriculum.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,6 +11,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.curriculum.dto.Teacher;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,9 +36,10 @@ public class AddressEntity {
 	@Column(nullable = false)
 	private String country;
 	@Column(length = 6)
-	private Long pinConde;
-	@OneToOne(targetEntity = TeacherEntity.class)
+	private Long pinCode;
+	@OneToOne(targetEntity = TeacherEntity.class,fetch=FetchType.EAGER)
 	@JoinColumn(name = "teacherId", unique = true)
+	@JsonIgnore
 	private TeacherEntity teacherEntity;
 
 }

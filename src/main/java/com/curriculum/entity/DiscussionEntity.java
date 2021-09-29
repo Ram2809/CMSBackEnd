@@ -47,5 +47,8 @@ public class DiscussionEntity implements Serializable {
 	@JoinColumn(name = "teacherId")
 	@JsonIgnore
 	private TeacherEntity teacher;
+	@ManyToOne
+	@JoinColumn(name="roomNo")
+	private ClassEntity classDetail;
 
 }

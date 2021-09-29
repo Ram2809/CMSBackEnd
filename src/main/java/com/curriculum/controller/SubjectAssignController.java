@@ -99,16 +99,34 @@ public class SubjectAssignController {
 		return responseEntity;
 	}
 
-	@GetMapping
-	public ResponseEntity<Response> getSubjectCode(@RequestParam("id") Long id) {
+	@GetMapping("/subject/{id}/{roomNo}")
+	public ResponseEntity<Response> getSubjectCode(@PathVariable("id") Long id,@PathVariable("roomNo") Long roomNo) {
 		ResponseEntity<Response> responseEntity = null;
 		String subjectCode = null;
 		try {
-			subjectCode = subjectAssignService.getSubjectCode(id);
+			subjectCode = subjectAssignService.getSubjectCode(id,roomNo);
 			if (subjectCode != null) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", subjectCode);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!", subjectCode);
+				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!"+" "+id+"!", subjectCode);
+			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+		}
+		return responseEntity;
+	}
+	@GetMapping("/subject/{id}")
+	public ResponseEntity<Response> getRoomNo(@PathVariable("id") Long id) {
+		ResponseEntity<Response> responseEntity = null;
+		Long roomNo = null;
+		try {
+			roomNo = subjectAssignService.getRoomNo(id);
+			if (roomNo != 0) {
+				responseEntity = ResponseUtil.getResponse(200, "Success!", roomNo);
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!"+" "+id+"!", roomNo);
 			}
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());

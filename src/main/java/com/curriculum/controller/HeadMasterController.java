@@ -8,6 +8,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +31,7 @@ import com.curriculum.util.ResponseUtil;
 
 @RestController
 @RequestMapping("api/headmaster")
+@CrossOrigin("http://localhost:4200")
 public class HeadMasterController {
 	@Autowired
 	private HeadMasterService headMasterService;

@@ -49,14 +49,16 @@ public class DiscussionRepositoryImpl implements DiscussionRepository {
 	}
 
 	@Override
-	public List<DiscussionEntity> getDiscussionByUnitNo(String unitNo) throws DatabaseException {
+	public List<DiscussionEntity> getDiscussionByUnitNo(String unitNo,Long roomNo,Long staffId) throws DatabaseException {
 		logger.info("Getting discussion details by Unit Number!");
 		Session session = null;
 		List<DiscussionEntity> discussionList = new ArrayList<>();
 		try {
 			session = sessionFactory.getCurrentSession();
-			Query<DiscussionEntity> query = session.createQuery("FROM DiscussionEntity d WHERE d.topic.unitNo=:unitId");
+			Query<DiscussionEntity> query = session.createQuery("FROM DiscussionEntity d WHERE d.topic.unitNo=:unitId AND d.classDetail.roomNo=:roomNo AND d.teacher.id=:teacherId");
 			query.setParameter("unitId", unitNo);
+			query.setParameter("roomNo", roomNo);
+			query.setParameter("teacherId", staffId);
 			discussionList = query.list();
 			logger.info("Discussion details are fetched successfully!");
 		} catch (HibernateException e) {
@@ -85,18 +87,21 @@ public class DiscussionRepositoryImpl implements DiscussionRepository {
 		try {
 			checkQuestion(questionNo);
 			session = sessionFactory.getCurrentSession();
-			DiscussionEntity discussionDetail = DiscussionMapper.discussionMapper(discussion);
+			DiscussionEntity discussionDetail = new DiscussionEntity();
+			discussionDetail.setQuestion(discussion.getQuestion());
+			discussionDetail.setAnswer(discussion.getAnswer());
+			discussionDetail.setDate(discussion.getDate());
 			session.find(DiscussionEntity.class, questionNo);
 			DiscussionEntity updatedDiscussionEntity = session.load(DiscussionEntity.class, questionNo);
 			updatedDiscussionEntity.setQuestion(discussionDetail.getQuestion());
 			updatedDiscussionEntity.setAnswer(discussionDetail.getAnswer());
 			updatedDiscussionEntity.setDate(discussionDetail.getDate());
-			TopicEntity topicEntity = new TopicEntity();
-			topicEntity.setUnitNo(discussionDetail.getTopic().getUnitNo());
-			updatedDiscussionEntity.setTopic(topicEntity);
-			TeacherEntity teacherEntity = new TeacherEntity();
-			teacherEntity.setId(discussionDetail.getTeacher().getId());
-			updatedDiscussionEntity.setTeacher(teacherEntity);
+//			TopicEntity topicEntity = new TopicEntity();
+//			topicEntity.setUnitNo(discussionDetail.getTopic().getUnitNo());
+//			updatedDiscussionEntity.setTopic(topicEntity);
+//			TeacherEntity teacherEntity = new TeacherEntity();
+//			teacherEntity.setId(discussionDetail.getTeacher().getId());
+//			updatedDiscussionEntity.setTeacher(teacherEntity);
 			discussionEntity = (DiscussionEntity) session.merge(updatedDiscussionEntity);
 			logger.info("Discussion details are updated successfully!");
 		} catch (HibernateException e) {
@@ -148,6 +153,25 @@ public class DiscussionRepositoryImpl implements DiscussionRepository {
 			throw new DatabaseException(e.getMessage());
 		}
 		return discussionEntity;
+	}
+
+	@Override
+	public List<DiscussionEntity> getDiscussionByRoomNo(String unitNo, Long roomNo) throws DatabaseException {
+		logger.info("Getting discussion details by Unit Number!");
+		Session session = null;
+		List<DiscussionEntity> discussionList = new ArrayList<>();
+		try {
+			session = sessionFactory.getCurrentSession();
+			Query<DiscussionEntity> query = session.createQuery("FROM DiscussionEntity d WHERE d.topic.unitNo=:unitId AND d.classDetail.roomNo=:roomNo");
+			query.setParameter("unitId", unitNo);
+			query.setParameter("roomNo", roomNo);
+			discussionList = query.list();
+			logger.info("Discussion details are fetched successfully!");
+		} catch (HibernateException e) {
+			logger.error("Error while fetching the discussion details!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return discussionList;
 	}
 
 }

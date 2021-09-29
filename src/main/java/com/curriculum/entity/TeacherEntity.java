@@ -60,10 +60,10 @@ public class TeacherEntity implements Serializable {
 	@OneToMany(mappedBy = "teacher", fetch = FetchType.EAGER)
 	@JsonIgnore
 	private Set<DiscussionEntity> discussions;
-	@OneToOne(mappedBy = "teacher", fetch = FetchType.EAGER)
+	@OneToOne(mappedBy = "teacher", fetch = FetchType.EAGER,cascade=CascadeType.ALL,orphanRemoval=true)
 	@JsonIgnore
 	private LoginEntity login;
-	@OneToOne(mappedBy = "teacherEntity")
-	@JsonIgnore
+	@OneToOne(mappedBy = "teacherEntity",cascade=CascadeType.ALL,orphanRemoval=true)
+	//@JsonIgnore
 	private AddressEntity address;
 }

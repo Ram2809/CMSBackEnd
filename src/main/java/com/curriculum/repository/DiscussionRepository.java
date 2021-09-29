@@ -10,7 +10,9 @@ import com.curriculum.exception.NotFoundException;
 public interface DiscussionRepository {
 	Long addDiscussion(Discussion discussion) throws DatabaseException;
 
-	List<DiscussionEntity> getDiscussionByUnitNo(String unitNo) throws DatabaseException;
+	List<DiscussionEntity> getDiscussionByUnitNo(String unitNo, Long roomNo, Long staffId) throws DatabaseException;
+
+	List<DiscussionEntity> getDiscussionByRoomNo(String unitNo, Long roomNo) throws DatabaseException;
 
 	DiscussionEntity updateDiscussion(Long questionNo, Discussion discussion)
 			throws DatabaseException, NotFoundException;

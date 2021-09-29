@@ -11,6 +11,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -44,4 +46,6 @@ public class HeadMasterEntity {
 	private Long contactNo;
 	@NotNull
 	private String address;
+	@Size(max=8)
+	private String password;
 }

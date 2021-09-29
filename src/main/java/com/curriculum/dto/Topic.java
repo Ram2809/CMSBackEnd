@@ -16,7 +16,6 @@ public class Topic {
 	@NotNull
 	private String unitName;
 	@NotNull
-	@Size(max = 200, message = "Description only contains 200 characters!")
 	private String description;
 	private String month;
 	private Subject subject;

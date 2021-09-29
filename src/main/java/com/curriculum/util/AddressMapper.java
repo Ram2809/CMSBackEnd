@@ -13,7 +13,7 @@ public class AddressMapper {
 		addressEntity.setDistrict(address.getDistrict());
 		addressEntity.setState(address.getState());
 		addressEntity.setCountry(address.getCountry());
-		addressEntity.setPinConde(address.getPinCode());
+		addressEntity.setPinCode(address.getPinCode());
 		TeacherEntity teacherEntity = new TeacherEntity();
 		teacherEntity.setId(address.getTeacher().getId());
 		addressEntity.setTeacherEntity(teacherEntity);

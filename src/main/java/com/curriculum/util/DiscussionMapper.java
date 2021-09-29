@@ -1,6 +1,7 @@
 package com.curriculum.util;
 
 import com.curriculum.dto.Discussion;
+import com.curriculum.entity.ClassEntity;
 import com.curriculum.entity.DiscussionEntity;
 import com.curriculum.entity.TeacherEntity;
 import com.curriculum.entity.TopicEntity;
@@ -18,7 +19,9 @@ public class DiscussionMapper {
 		TeacherEntity teacherEntity = new TeacherEntity();
 		teacherEntity.setId(discussion.getTeacher().getId());
 		discussionEntity.setTeacher(teacherEntity);
-		System.out.println(discussionEntity);
+		ClassEntity classEntity=new ClassEntity();
+		classEntity.setRoomNo(discussion.getClassDetail().getRoomNo());
+		discussionEntity.setClassDetail(classEntity);
 		return discussionEntity;
 	}
 }

@@ -22,4 +22,6 @@ public class Class {
 	private Set<Student> student;
 	private Set<Subject> subject;
 	private Set<TimeTable> timeTable;
+	private Set<Discussion> discussion;
+	
 }

@@ -14,11 +14,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.curriculum.dto.TimeTable;
+import com.curriculum.entity.ClassEntity;
+import com.curriculum.entity.SubjectEntity;
 import com.curriculum.entity.TimeTableEntity;
+import com.curriculum.entity.TopicEntity;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotAllowedException;
 import com.curriculum.repository.TimeTableRepository;
 import com.curriculum.util.TimeTableMapper;
+import com.curriculum.util.TopicMapper;
 
 @Repository
 @Transactional
@@ -42,7 +46,6 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 				logger.info("Timetable details are added successfully!");
 			}
 		} catch (HibernateException | NotAllowedException e) {
-			// e.printStackTrace();
 			logger.error("Error while adding the timetable details!");
 			throw new DatabaseException(e.getMessage());
 		}
@@ -107,5 +110,50 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 			throw new DatabaseException(e.getMessage());
 		}
 		return noOfRowsDeleted;
+	}
+
+	@Override
+	public Long getTimeTableId(Long roomNo, String day) throws DatabaseException {
+		logger.info("Getting timetable id!");
+		Session session = null;
+		Long timeTableId = 0l;
+		try {
+			session = sessionFactory.getCurrentSession();
+			Query<Long> query = session
+					.createQuery("SELECT t.id FROM TimeTableEntity t WHERE t.classRoom.roomNo=:roomId AND t.day=:day");
+			query.setParameter("roomId", roomNo);
+			query.setParameter("day", day);
+			timeTableId = query.uniqueResult();
+			System.out.println(timeTableId);
+			logger.info("Timetable id fetched successfully!");
+		} catch (HibernateException e) {
+			logger.error("Error while fetching timetable details!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return timeTableId;
+	}
+
+	@Override
+	public TimeTableEntity updateTimetable(Long id, TimeTable timetable) throws DatabaseException {
+		logger.info("Updating timetable details!");
+		Session session = null;
+		TimeTableEntity timetableEntity = null;
+		try {
+			session = sessionFactory.getCurrentSession();
+			TimeTableEntity timetableDetail = TimeTableMapper.timeTableMapper(timetable);
+			session.find(TimeTableEntity.class, id);
+			TimeTableEntity updatedTimetableEntity = session.load(TimeTableEntity.class,id);
+			updatedTimetableEntity.setDay(timetableDetail.getDay());
+			updatedTimetableEntity.setPeriods(timetableDetail.getPeriods());
+			ClassEntity classEntity=new ClassEntity();
+			classEntity.setRoomNo(timetable.getClassDetail().getRoomNo());
+			updatedTimetableEntity.setClassRoom(classEntity);
+			timetableEntity = (TimeTableEntity) session.merge(updatedTimetableEntity);
+			logger.info("Timetable details updated successfully!");
+		} catch (HibernateException e) {
+			logger.error("Error while updating the timetable details!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return timetableEntity;
 	}
 }

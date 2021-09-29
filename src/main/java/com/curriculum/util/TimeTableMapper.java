@@ -13,6 +13,7 @@ public class TimeTableMapper {
 		timeTableEntity.setDay(timeTable.getDay());
 		Map<Integer, String> periodsMap = timeTable.getPeriods();
 		timeTableEntity.setPeriods(periodsMap);
+		System.out.println(timeTable);
 		ClassEntity classEntity = new ClassEntity();
 		System.out.println(timeTable.getClassDetail().getRoomNo());
 		classEntity.setRoomNo(timeTable.getClassDetail().getRoomNo());

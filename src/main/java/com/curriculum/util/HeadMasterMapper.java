@@ -16,6 +16,7 @@ public class HeadMasterMapper {
 		headMasterEntity.setEmail(headMaster.getEmail());
 		headMasterEntity.setContactNo(headMaster.getContactNo());
 		headMasterEntity.setAddress(headMaster.getAddress());
+		headMasterEntity.setPassword(headMaster.getPassword());
 		return headMasterEntity;
 	}
 }

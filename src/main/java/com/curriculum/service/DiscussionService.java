@@ -10,7 +10,11 @@ import com.curriculum.exception.NotFoundException;
 public interface DiscussionService {
 	Long addDiscussion(Discussion discussion) throws BusinessServiceException, NotFoundException;
 
-	List<DiscussionEntity> getDiscussionByUnitNo(String unitNo) throws BusinessServiceException, NotFoundException;
+	List<DiscussionEntity> getDiscussionByUnitNo(String unitNo, Long roomNo, Long staffId)
+			throws BusinessServiceException, NotFoundException;
+
+	List<DiscussionEntity> getDiscussionByRoomNo(String unitNo, Long roomNo)
+			throws BusinessServiceException, NotFoundException;
 
 	DiscussionEntity updateDiscussion(Long questionNo, Discussion discussion)
 			throws BusinessServiceException, NotFoundException;

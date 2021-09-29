@@ -65,12 +65,22 @@ public class SubjectAssignServiceImpl implements SubjectAssignService {
 	}
 
 	@Override
-	public String getSubjectCode(Long id) throws BusinessServiceException, NotFoundException {
+	public String getSubjectCode(Long id,Long roomNo) throws BusinessServiceException, NotFoundException {
 		try {
-			return subjectAssignRepository.getSubjectCode(id);
+			classRepository.checkClassRoom(roomNo);
+			return subjectAssignRepository.getSubjectCode(id,roomNo);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
+	}
+
+	@Override
+	public Long getRoomNo(Long id) throws NotFoundException, BusinessServiceException {
+		try {
+			return subjectAssignRepository.getRoomNo(id);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		} 
 	}
 
 }

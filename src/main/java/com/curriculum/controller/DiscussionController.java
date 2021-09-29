@@ -59,12 +59,30 @@ public class DiscussionController {
 		return responseEntity;
 	}
 
-	@GetMapping("/{unitNo}")
-	public ResponseEntity<Response> getDiscussionByUnitNo(@PathVariable("unitNo") String unitNo) {
+	@GetMapping("/{unitNo}/{roomNo}/{staffId}")
+	public ResponseEntity<Response> getDiscussionByUnitNo(@PathVariable("unitNo") String unitNo,@PathVariable("roomNo") Long roomNo,@PathVariable("staffId") Long staffId) {
 		ResponseEntity responseEntity = null;
 		List<DiscussionEntity> discussionsList = new ArrayList<>();
 		try {
-			discussionsList = discussionService.getDiscussionByUnitNo(unitNo);
+			discussionsList = discussionService.getDiscussionByUnitNo(unitNo,roomNo,staffId);
+			if (!discussionsList.isEmpty()) {
+				responseEntity = ResponseUtil.getResponse(200, "Success!", discussionsList);
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, "No discussion found!");
+			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+		}
+		return responseEntity;
+	}
+	@GetMapping("/{unitNo}/{roomNo}")
+	public ResponseEntity<Response> getDiscussionByRoomNo(@PathVariable("unitNo") String unitNo,@PathVariable("roomNo") Long roomNo) {
+		ResponseEntity responseEntity = null;
+		List<DiscussionEntity> discussionsList = new ArrayList<>();
+		try {
+			discussionsList = discussionService.getDiscussionByRoomNo(unitNo,roomNo);
 			if (!discussionsList.isEmpty()) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", discussionsList);
 			} else {

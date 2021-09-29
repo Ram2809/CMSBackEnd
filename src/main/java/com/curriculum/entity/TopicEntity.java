@@ -36,7 +36,6 @@ public class TopicEntity implements Serializable {
 	private String unitNo;
 	@NotNull
 	private String unitName;
-	@Size(max = 200, message = "Description only contains 200 characters!")
 	private String description;
 	private String month;
 	@ManyToOne

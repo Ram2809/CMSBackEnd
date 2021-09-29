@@ -16,7 +16,9 @@ public interface SubjectAssignRepository {
 
 	Long getAssignId(Long roomNo, String subjectCode) throws DatabaseException;
 
-	String getSubjectCode(Long id) throws DatabaseException, NotFoundException;
+	String getSubjectCode(Long id,Long roomNo) throws DatabaseException, NotFoundException;
 
 	void checkAssignId(Long id) throws AssignIdNotFoundException;
+
+	Long getRoomNo(Long id) throws DatabaseException, NotFoundException;
 }
