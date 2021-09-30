@@ -15,7 +15,7 @@ public interface TimeTableRepository {
 
 	Integer deleteTimeTable(Long roomNo) throws DatabaseException;
 
-	Long getTimeTableId(Long roomNo, String day) throws DatabaseException;
+	TimeTableEntity getTimeTableId(Long roomNo, String day) throws DatabaseException;
 
 	TimeTableEntity updateTimetable(Long id, TimeTable timetable) throws DatabaseException;
 }

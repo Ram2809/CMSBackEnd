@@ -57,7 +57,7 @@ public class TimeTableServiceImpl implements TimeTableService {
 		}
 	}
 	@Override
-	public Long getTimeTableId(Long roomNo,String day) throws BusinessServiceException, NotFoundException {
+	public TimeTableEntity getTimeTableId(Long roomNo,String day) throws BusinessServiceException, NotFoundException {
 		try {
 			classRepository.checkClassRoom(roomNo);
 			return timeTableRepository.getTimeTableId(roomNo,day);

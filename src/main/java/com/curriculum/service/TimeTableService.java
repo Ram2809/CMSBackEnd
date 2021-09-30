@@ -16,7 +16,7 @@ public interface TimeTableService {
 
 	Integer deleteTimeTable(Long roomNo) throws BusinessServiceException, NotFoundException;
 
-	Long getTimeTableId(Long roomNo, String day) throws BusinessServiceException, NotFoundException;
+	TimeTableEntity getTimeTableId(Long roomNo, String day) throws BusinessServiceException, NotFoundException;
 	
 	TimeTableEntity updateTimetable(Long id,TimeTable timetable) throws BusinessServiceException, NotFoundException;
 }

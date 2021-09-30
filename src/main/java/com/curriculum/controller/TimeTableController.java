@@ -1,3 +1,4 @@
+
 package com.curriculum.controller;
 
 import java.util.ArrayList;
@@ -100,11 +101,11 @@ public class TimeTableController {
 	@GetMapping("/{roomNo}/{day}")
 	public ResponseEntity<Response> getTimeTableId(@PathVariable("roomNo") Long roomNo,@PathVariable("day") String day) {
 		ResponseEntity<Response> responseEntity = null;
-		Long timeTableId = null;
+		TimeTableEntity timeTableEntity = null;
 		try {
-			timeTableId = timeTableService.getTimeTableId(roomNo,day);
-			if (timeTableId>0) {
-				responseEntity = ResponseUtil.getResponse(200, "Timetable id fetched successfully!", timeTableId);
+			timeTableEntity = timeTableService.getTimeTableId(roomNo,day);
+			if (timeTableEntity!=null) {
+				responseEntity = ResponseUtil.getResponse(200, "Timetable id fetched successfully!", timeTableEntity);
 			} else {
 				responseEntity = ResponseUtil.getResponse(404, "No Timetable id Found!");
 			}

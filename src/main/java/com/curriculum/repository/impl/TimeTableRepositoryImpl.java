@@ -113,24 +113,24 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 	}
 
 	@Override
-	public Long getTimeTableId(Long roomNo, String day) throws DatabaseException {
+	public TimeTableEntity getTimeTableId(Long roomNo, String day) throws DatabaseException {
 		logger.info("Getting timetable id!");
 		Session session = null;
-		Long timeTableId = 0l;
+		TimeTableEntity timeTableEntity = null;
 		try {
 			session = sessionFactory.getCurrentSession();
-			Query<Long> query = session
-					.createQuery("SELECT t.id FROM TimeTableEntity t WHERE t.classRoom.roomNo=:roomId AND t.day=:day");
+			Query<TimeTableEntity> query = session
+					.createQuery("FROM TimeTableEntity t WHERE t.classRoom.roomNo=:roomId AND t.day=:day");
 			query.setParameter("roomId", roomNo);
 			query.setParameter("day", day);
-			timeTableId = query.uniqueResult();
-			System.out.println(timeTableId);
+			timeTableEntity = query.uniqueResultOptional().orElse(null);
+			System.out.println(timeTableEntity);
 			logger.info("Timetable id fetched successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while fetching timetable details!");
 			throw new DatabaseException(e.getMessage());
 		}
-		return timeTableId;
+		return timeTableEntity;
 	}
 
 	@Override
