@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class HeadMaster {
-	@NotNull
 	private Long id;
 	@NotNull
 	private String firstName;
@@ -38,6 +37,6 @@ public class HeadMaster {
 	private Long contactNo;
 	@NotNull
 	private String address;
-	@Size(max=8)
+	@Size(min=8)
 	private String password;
 }

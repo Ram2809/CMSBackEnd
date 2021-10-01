@@ -51,6 +51,15 @@ public class HeadMasterRepositoryImpl implements HeadMasterRepository {
 			throw new HeadMasterNotFoundException("Head master not found with" + " " + id + "!");
 		}
 	}
+	public void checkHeadMaster(String email) throws HeadMasterNotFoundException {
+		Session session = sessionFactory.getCurrentSession();
+		Query<HeadMasterEntity> query = session.createQuery("FROM HeadMasterEntity WHERE email=:email");
+		query.setParameter("email", email);
+		HeadMasterEntity headMaster = query.uniqueResultOptional().orElse(null);
+		if (headMaster == null) {
+			throw new HeadMasterNotFoundException("Head master not found with" + " " + email + "!");
+		}
+	}
 
 	public HeadMasterEntity updateHeadMaster(Long id, HeadMaster headMaster)
 			throws DatabaseException, NotFoundException {
@@ -106,15 +115,15 @@ public class HeadMasterRepositoryImpl implements HeadMasterRepository {
 		return headMaster;
 	}
 
-	public HeadMasterEntity getHeadMaster(Long id) throws DatabaseException, NotFoundException {
+	public HeadMasterEntity getHeadMaster(String email) throws DatabaseException, NotFoundException {
 		logger.info("Getting head master details!");
 		Session session = null;
 		HeadMasterEntity headMaster = null;
 		try {
-			checkHeadMaster(id);
+			checkHeadMaster(email);
 			session = sessionFactory.getCurrentSession();
-			Query<HeadMasterEntity> query = session.createQuery("FROM HeadMasterEntity WHERE id=:headMasterId");
-			query.setParameter("headMasterId", id);
+			Query<HeadMasterEntity> query = session.createQuery("FROM HeadMasterEntity WHERE email=:email");
+			query.setParameter("email", email);
 			headMaster = query.uniqueResultOptional().orElse(null);
 			logger.info("Head master details fetched successfully!");
 		} catch (HibernateException e) {

@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -22,6 +24,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "HeadMaster")
 public class HeadMasterEntity {
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	@NotNull
 	private String firstName;
@@ -46,6 +49,6 @@ public class HeadMasterEntity {
 	private Long contactNo;
 	@NotNull
 	private String address;
-	@Size(max=8)
+	@Size(min=8)
 	private String password;
 }

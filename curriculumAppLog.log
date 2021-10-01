@@ -9237,3 +9237,55 @@
 2021-09-30 23:37:21 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
 2021-09-30 23:37:21 INFO  TimeTableRepositoryImpl:117 - Getting timetable id!
 2021-09-30 23:37:21 INFO  TimeTableRepositoryImpl:128 - Timetable id fetched successfully!
+2021-10-01 10:48:52 ERROR HeadMasterController:123 - Validation fails, Check your input!
+2021-10-01 10:50:56 INFO  HeadMasterRepositoryImpl:29 - Adding the headmaster details!
+2021-10-01 10:50:56 INFO  HeadMasterRepositoryImpl:36 - Headmaster details added successfully!
+2021-10-01 10:52:50 INFO  HeadMasterRepositoryImpl:29 - Adding the headmaster details!
+2021-10-01 10:52:50 INFO  HeadMasterRepositoryImpl:36 - Headmaster details added successfully!
+2021-10-01 10:59:32 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 10:59:32 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 10:59:47 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 11:43:07 INFO  HeadMasterRepositoryImpl:29 - Adding the headmaster details!
+2021-10-01 11:43:07 INFO  HeadMasterRepositoryImpl:36 - Headmaster details added successfully!
+2021-10-01 11:55:17 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 11:55:17 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 11:55:41 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 11:57:18 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 11:57:18 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 11:57:37 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 11:57:37 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 11:57:40 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 11:57:40 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 11:58:34 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 11:58:34 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 11:59:38 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 11:59:38 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 12:00:58 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 12:01:18 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 12:01:18 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 12:29:52 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 12:29:52 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 12:49:07 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 12:49:07 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 12:54:06 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 12:54:06 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 12:59:11 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 12:59:11 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 12:59:11 INFO  HeadMasterRepositoryImpl:66 - Updating head master details!
+2021-10-01 12:59:11 INFO  HeadMasterRepositoryImpl:86 - Head master details updated successfully!
+2021-10-01 13:00:49 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 13:00:49 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 13:00:49 INFO  HeadMasterRepositoryImpl:66 - Updating head master details!
+2021-10-01 13:00:49 INFO  HeadMasterRepositoryImpl:86 - Head master details updated successfully!
+2021-10-01 13:02:19 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 13:02:19 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 13:02:19 INFO  HeadMasterRepositoryImpl:66 - Updating head master details!
+2021-10-01 13:02:19 INFO  HeadMasterRepositoryImpl:86 - Head master details updated successfully!
+2021-10-01 13:06:16 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 13:06:16 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 13:06:31 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 13:06:31 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 13:06:31 INFO  HeadMasterRepositoryImpl:66 - Updating head master details!
+2021-10-01 13:06:31 INFO  HeadMasterRepositoryImpl:86 - Head master details updated successfully!
+2021-10-01 13:06:47 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 13:06:47 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!

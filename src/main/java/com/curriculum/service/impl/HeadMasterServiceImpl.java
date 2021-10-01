@@ -53,9 +53,9 @@ public class HeadMasterServiceImpl implements HeadMasterService {
 		}
 	}
 
-	public HeadMasterEntity getHeadMaster(Long id) throws BusinessServiceException, NotFoundException {
+	public HeadMasterEntity getHeadMaster(String email) throws BusinessServiceException, NotFoundException {
 		try {
-			return headMasterRepository.getHeadMaster(id);
+			return headMasterRepository.getHeadMaster(email);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}

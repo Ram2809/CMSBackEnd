@@ -102,13 +102,13 @@ public class HeadMasterController {
 		return responseEntity;
 	}
 
-	@GetMapping("/{id}")
-	public ResponseEntity<Response> getHeadMaster(@PathVariable("id") Long id) {
+	@GetMapping("/{email}")
+	public ResponseEntity<Response> getHeadMaster(@PathVariable("email") String email) {
 		Response response = new Response();
 		ResponseEntity<Response> responseEntity = null;
 		HeadMasterEntity headMasterEntity = null;
 		try {
-			headMasterEntity = headMasterService.getHeadMaster(id);
+			headMasterEntity = headMasterService.getHeadMaster(email);
 			responseEntity = ResponseUtil.getResponse(200, "Success!", headMasterEntity);
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());

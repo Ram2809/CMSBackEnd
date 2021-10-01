@@ -15,5 +15,5 @@ public interface HeadMasterService {
 
 	HeadMasterEntity deleteHeadMaster(Long id) throws BusinessServiceException, NotFoundException;
 
-	HeadMasterEntity getHeadMaster(Long id) throws BusinessServiceException, NotFoundException;
+	HeadMasterEntity getHeadMaster(String email) throws BusinessServiceException, NotFoundException;
 }

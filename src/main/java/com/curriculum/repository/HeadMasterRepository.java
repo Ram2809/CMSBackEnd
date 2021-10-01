@@ -12,5 +12,5 @@ public interface HeadMasterRepository {
 
 	HeadMasterEntity deleteHeadMaster(Long id) throws DatabaseException, NotFoundException;
 
-	HeadMasterEntity getHeadMaster(Long id) throws DatabaseException, NotFoundException;
+	HeadMasterEntity getHeadMaster(String email) throws DatabaseException, NotFoundException;
 }
