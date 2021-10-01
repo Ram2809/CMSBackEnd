@@ -72,6 +72,16 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 			throw new TeacherNotFoundException("Teacher Not Found With" + " " + id + "!");
 		}
 	}
+	public void checkTeacher(String email) throws TeacherNotFoundException {
+		TeacherEntity teacherEntity = null;
+		Session session = sessionFactory.getCurrentSession();
+		Query<TeacherEntity> query = session.createQuery("FROM TeacherEntity WHERE email=:email");
+		query.setParameter("email", email);
+		teacherEntity = query.uniqueResultOptional().orElse(null);
+		if (teacherEntity == null) {
+			throw new TeacherNotFoundException("Teacher Not Found With" + " " + email + "!");
+		}
+	}
 
 	@Override
 	public TeacherEntity updateTeacher(Long id, Teacher teacher) throws DatabaseException, NotFoundException {
@@ -138,7 +148,26 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 			session = sessionFactory.getCurrentSession();
 			Query<TeacherEntity> query = session.createQuery("FROM TeacherEntity WHERE id=:teacherId");
 			query.setParameter("teacherId", id);
-			teacherEntity = query.getSingleResult();
+			teacherEntity = query.uniqueResultOptional().orElse(null);
+			logger.info("Teacher details fetched succesfully!");
+		} catch (HibernateException e) {
+			logger.error("Error while fecthing teacher detail!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return teacherEntity;
+	}
+
+	@Override
+	public TeacherEntity getTeacherByEmail(String email) throws DatabaseException, NotFoundException {
+		logger.info("Getting teacher detail");
+		Session session = null;
+		TeacherEntity teacherEntity = null;
+		try {
+			checkTeacher(email);
+			session = sessionFactory.getCurrentSession();
+			Query<TeacherEntity> query = session.createQuery("FROM TeacherEntity WHERE email=:email");
+			query.setParameter("email", email);
+			teacherEntity = query.uniqueResultOptional().orElse(null);
 			logger.info("Teacher details fetched succesfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while fecthing teacher detail!");

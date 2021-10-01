@@ -16,7 +16,7 @@ public class AddressMapper {
 		addressEntity.setPinCode(address.getPinCode());
 		TeacherEntity teacherEntity = new TeacherEntity();
 		teacherEntity.setId(address.getTeacher().getId());
-		addressEntity.setTeacherEntity(teacherEntity);
+		addressEntity.setTeacher(teacherEntity);
 		return addressEntity;
 	}
 }

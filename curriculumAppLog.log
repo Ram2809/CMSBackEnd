@@ -9289,3 +9289,280 @@
 2021-10-01 13:06:31 INFO  HeadMasterRepositoryImpl:86 - Head master details updated successfully!
 2021-10-01 13:06:47 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
 2021-10-01 13:06:47 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 14:11:35 INFO  HeadMasterRepositoryImpl:29 - Adding the headmaster details!
+2021-10-01 14:11:35 INFO  HeadMasterRepositoryImpl:36 - Headmaster details added successfully!
+2021-10-01 14:12:04 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 14:12:04 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 14:12:13 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 14:12:13 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 14:12:44 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 14:12:44 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 14:13:03 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 14:13:03 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 14:13:03 INFO  HeadMasterRepositoryImpl:66 - Updating head master details!
+2021-10-01 14:13:03 INFO  HeadMasterRepositoryImpl:86 - Head master details updated successfully!
+2021-10-01 14:13:22 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 14:13:22 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 14:13:34 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 14:13:34 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 14:13:38 INFO  ClassRepositoryImpl:49 - Getting all class details!
+2021-10-01 14:13:38 INFO  ClassRepositoryImpl:56 - All class details are fetched successfully!
+2021-10-01 14:18:03 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 14:18:03 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 14:20:44 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 14:20:44 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 14:20:49 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 14:20:49 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 14:20:59 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 14:20:59 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 14:28:11 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 14:28:11 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 14:28:21 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 14:28:21 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 14:29:25 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 14:29:25 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:12:44 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:12:44 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:32:21 INFO  HeadMasterRepositoryImpl:66 - Updating head master details!
+2021-10-01 15:32:21 INFO  HeadMasterRepositoryImpl:86 - Head master details updated successfully!
+2021-10-01 15:33:01 INFO  HeadMasterRepositoryImpl:66 - Updating head master details!
+2021-10-01 15:33:01 INFO  HeadMasterRepositoryImpl:86 - Head master details updated successfully!
+2021-10-01 15:33:22 INFO  HeadMasterRepositoryImpl:66 - Updating head master details!
+2021-10-01 15:33:22 INFO  HeadMasterRepositoryImpl:86 - Head master details updated successfully!
+2021-10-01 15:38:01 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:38:01 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:38:11 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:38:11 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:38:23 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:38:23 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:38:25 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:38:25 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:38:32 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:38:32 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:40:44 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:40:44 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:40:54 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:40:54 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:40:56 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:40:56 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:40:56 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:40:56 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:41:03 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:41:03 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:41:03 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:41:03 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:41:28 INFO  HeadMasterRepositoryImpl:66 - Updating head master details!
+2021-10-01 15:41:28 INFO  HeadMasterRepositoryImpl:86 - Head master details updated successfully!
+2021-10-01 15:41:34 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:41:34 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:42:07 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:42:07 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:42:37 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:42:37 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:42:58 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:42:58 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:43:04 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:43:04 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:43:10 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:43:10 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:43:14 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:43:14 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:43:19 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:43:19 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:43:25 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:43:25 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:43:51 INFO  HeadMasterRepositoryImpl:66 - Updating head master details!
+2021-10-01 15:43:51 INFO  HeadMasterRepositoryImpl:86 - Head master details updated successfully!
+2021-10-01 15:43:53 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:43:53 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:43:54 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:43:54 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:43:58 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:43:58 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:44:12 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:44:12 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:44:14 INFO  HeadMasterRepositoryImpl:66 - Updating head master details!
+2021-10-01 15:44:14 INFO  HeadMasterRepositoryImpl:86 - Head master details updated successfully!
+2021-10-01 15:44:15 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:44:15 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 15:44:16 INFO  HeadMasterRepositoryImpl:119 - Getting head master details!
+2021-10-01 15:44:16 INFO  HeadMasterRepositoryImpl:128 - Head master details fetched successfully!
+2021-10-01 16:00:05 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-10-01 16:00:05 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-10-01 16:00:05 INFO  ClassRepositoryImpl:146 - Getting particular class details!
+2021-10-01 16:00:05 INFO  ClassRepositoryImpl:155 - Particular class details fetched successfully!
+2021-10-01 16:00:08 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-10-01 16:00:08 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-10-01 16:00:08 INFO  StudentRepositoryImpl:157 - Getting student details by class!
+2021-10-01 16:00:08 INFO  StudentRepositoryImpl:165 - Student details fetched successfully!
+2021-10-01 16:00:24 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-10-01 16:00:24 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-10-01 16:00:24 INFO  ClassRepositoryImpl:146 - Getting particular class details!
+2021-10-01 16:00:24 INFO  ClassRepositoryImpl:155 - Particular class details fetched successfully!
+2021-10-01 16:00:36 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-10-01 16:00:36 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-10-01 16:00:36 INFO  ClassRepositoryImpl:146 - Getting particular class details!
+2021-10-01 16:00:37 INFO  ClassRepositoryImpl:155 - Particular class details fetched successfully!
+2021-10-01 16:00:51 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-10-01 16:00:51 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-10-01 16:00:51 INFO  ClassRepositoryImpl:146 - Getting particular class details!
+2021-10-01 16:00:52 INFO  ClassRepositoryImpl:155 - Particular class details fetched successfully!
+2021-10-01 16:01:00 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-10-01 16:01:00 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-10-01 16:01:00 INFO  ClassRepositoryImpl:146 - Getting particular class details!
+2021-10-01 16:01:00 INFO  ClassRepositoryImpl:155 - Particular class details fetched successfully!
+2021-10-01 16:01:09 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-10-01 16:01:09 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-10-01 16:01:09 INFO  ClassRepositoryImpl:146 - Getting particular class details!
+2021-10-01 16:01:09 INFO  ClassRepositoryImpl:155 - Particular class details fetched successfully!
+2021-10-01 16:01:20 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-10-01 16:01:20 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-10-01 16:01:20 INFO  ClassRepositoryImpl:146 - Getting particular class details!
+2021-10-01 16:01:20 INFO  ClassRepositoryImpl:155 - Particular class details fetched successfully!
+2021-10-01 16:01:31 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-10-01 16:01:31 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-10-01 16:01:31 INFO  ClassRepositoryImpl:146 - Getting particular class details!
+2021-10-01 16:01:31 INFO  ClassRepositoryImpl:155 - Particular class details fetched successfully!
+2021-10-01 16:01:46 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-10-01 16:01:46 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-10-01 16:01:47 INFO  ClassRepositoryImpl:146 - Getting particular class details!
+2021-10-01 16:01:47 INFO  ClassRepositoryImpl:155 - Particular class details fetched successfully!
+2021-10-01 16:01:55 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-10-01 16:01:55 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-10-01 16:01:56 INFO  TeacherAssignRepositoryImpl:120 - Getting teacher assign details!
+2021-10-01 16:01:56 INFO  TeacherAssignRepositoryImpl:129 - Teacher assign details fetched successfully!
+2021-10-01 16:01:56 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-10-01 16:01:57 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-10-01 16:01:57 INFO  SubjectRepositoryImpl:126 - Getting subject details by code!
+2021-10-01 16:01:57 INFO  SubjectRepositoryImpl:135 - Subject details fetched successfully!
+2021-10-01 16:01:59 INFO  TopicRepositoryImpl:52 - Getting units for given subject!
+2021-10-01 16:02:00 INFO  TopicRepositoryImpl:60 - Unit details are fetched successfully!
+2021-10-01 16:25:57 INFO  TeacherRepositoryImpl:162 - Getting teacher detail
+2021-10-01 16:25:57 INFO  TeacherRepositoryImpl:171 - Teacher details fetched succesfully!
+2021-10-01 16:26:28 INFO  TeacherRepositoryImpl:162 - Getting teacher detail
+2021-10-01 16:26:38 INFO  TeacherRepositoryImpl:162 - Getting teacher detail
+2021-10-01 16:26:38 INFO  TeacherRepositoryImpl:171 - Teacher details fetched succesfully!
+2021-10-01 16:36:52 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-10-01 16:36:53 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-10-01 16:44:17 INFO  TeacherRepositoryImpl:162 - Getting teacher detail
+2021-10-01 16:44:17 INFO  TeacherRepositoryImpl:171 - Teacher details fetched succesfully!
+2021-10-01 16:44:18 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-10-01 16:44:18 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-10-01 16:46:55 INFO  TeacherRepositoryImpl:162 - Getting teacher detail
+2021-10-01 16:48:52 INFO  TeacherRepositoryImpl:162 - Getting teacher detail
+2021-10-01 16:48:52 INFO  TeacherRepositoryImpl:171 - Teacher details fetched succesfully!
+2021-10-01 16:48:52 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-10-01 16:48:52 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-10-01 16:50:03 INFO  TeacherRepositoryImpl:162 - Getting teacher detail
+2021-10-01 16:50:03 INFO  TeacherRepositoryImpl:171 - Teacher details fetched succesfully!
+2021-10-01 16:50:03 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-10-01 16:50:03 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-10-01 16:51:43 INFO  TeacherRepositoryImpl:162 - Getting teacher detail
+2021-10-01 16:51:43 INFO  TeacherRepositoryImpl:171 - Teacher details fetched succesfully!
+2021-10-01 16:51:43 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-10-01 16:51:43 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-10-01 17:10:16 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-10-01 17:10:16 INFO  TeacherRepositoryImpl:39 - Teacher details added successfully!
+2021-10-01 17:16:21 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-10-01 17:16:21 INFO  TeacherRepositoryImpl:39 - Teacher details added successfully!
+2021-10-01 17:24:24 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-10-01 17:24:24 INFO  TeacherRepositoryImpl:39 - Teacher details added successfully!
+2021-10-01 17:37:36 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-10-01 17:37:36 INFO  TeacherRepositoryImpl:39 - Teacher details added successfully!
+2021-10-01 17:39:08 INFO  AddressRepositoryImpl:26 - Adding address details!
+2021-10-01 17:39:08 INFO  AddressRepositoryImpl:33 - Address added successfully!
+2021-10-01 17:51:06 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-10-01 17:51:06 INFO  TeacherRepositoryImpl:39 - Teacher details added successfully!
+2021-10-01 17:51:48 INFO  AddressRepositoryImpl:26 - Adding address details!
+2021-10-01 17:51:48 INFO  AddressRepositoryImpl:33 - Address added successfully!
+2021-10-01 17:56:00 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-10-01 17:56:01 INFO  TeacherRepositoryImpl:39 - Teacher details added successfully!
+2021-10-01 17:56:42 INFO  AddressRepositoryImpl:26 - Adding address details!
+2021-10-01 17:56:42 INFO  AddressRepositoryImpl:33 - Address added successfully!
+2021-10-01 17:57:12 INFO  LoginRepositoryImpl:28 - Adding login credentials
+2021-10-01 17:57:12 INFO  LoginRepositoryImpl:35 - Login credentials added successfully!
+2021-10-01 17:59:49 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-10-01 17:59:49 INFO  TeacherRepositoryImpl:39 - Teacher details added successfully!
+2021-10-01 18:00:39 INFO  AddressRepositoryImpl:26 - Adding address details!
+2021-10-01 18:00:39 INFO  AddressRepositoryImpl:33 - Address added successfully!
+2021-10-01 18:00:59 INFO  LoginRepositoryImpl:28 - Adding login credentials
+2021-10-01 18:00:59 INFO  LoginRepositoryImpl:35 - Login credentials added successfully!
+2021-10-01 18:06:49 INFO  TeacherRepositoryImpl:32 - Adding teacher
+2021-10-01 18:06:49 INFO  TeacherRepositoryImpl:39 - Teacher details added successfully!
+2021-10-01 18:07:33 INFO  AddressRepositoryImpl:26 - Adding address details!
+2021-10-01 18:07:33 INFO  AddressRepositoryImpl:33 - Address added successfully!
+2021-10-01 18:09:03 INFO  LoginRepositoryImpl:28 - Adding login credentials
+2021-10-01 18:09:03 INFO  LoginRepositoryImpl:35 - Login credentials added successfully!
+2021-10-01 18:13:35 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-10-01 18:13:35 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-10-01 18:13:49 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-10-01 18:13:49 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-10-01 18:13:49 INFO  TimeTableRepositoryImpl:57 - Getting timetable details!
+2021-10-01 18:13:49 INFO  TimeTableRepositoryImpl:66 - Timetable details are fetched successfully!
+2021-10-01 18:15:34 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-10-01 18:15:34 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-10-01 18:15:36 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-10-01 18:15:36 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-10-01 18:15:40 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-10-01 18:15:40 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-10-01 18:15:42 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-10-01 18:15:42 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-10-01 18:19:16 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-10-01 18:19:16 INFO  ClassRepositoryImpl:174 - class details are fetched successfully!
+2021-10-01 18:19:18 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-10-01 18:19:18 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-10-01 18:19:18 INFO  TimeTableRepositoryImpl:57 - Getting timetable details!
+2021-10-01 18:19:18 INFO  TimeTableRepositoryImpl:66 - Timetable details are fetched successfully!
+2021-10-01 18:20:39 INFO  ClassRepositoryImpl:184 - Getting classroom
+2021-10-01 18:20:39 INFO  ClassRepositoryImpl:196 - Classroom is fetched successfully!
+2021-10-01 18:20:39 INFO  TimeTableRepositoryImpl:89 - Deleting timetable!
+2021-10-01 18:20:39 INFO  TimeTableRepositoryImpl:107 - Timetable Deleted successfully!
+2021-10-01 18:25:09 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-10-01 18:25:11 INFO  ClassRepositoryImpl:165 - Getting class rooms for particular standard
+2021-10-01 18:37:15 INFO  LoginRepositoryImpl:64 - Updating login credentials
+2021-10-01 18:37:15 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-10-01 18:37:15 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-10-01 18:37:15 INFO  LoginRepositoryImpl:81 - Password updated successfully!
+2021-10-01 18:48:18 INFO  TeacherRepositoryImpl:162 - Getting teacher detail
+2021-10-01 18:48:18 INFO  TeacherRepositoryImpl:171 - Teacher details fetched succesfully!
+2021-10-01 18:48:18 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-10-01 18:48:18 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-10-01 18:55:27 INFO  TeacherRepositoryImpl:162 - Getting teacher detail
+2021-10-01 18:55:27 INFO  TeacherRepositoryImpl:171 - Teacher details fetched succesfully!
+2021-10-01 18:55:27 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-10-01 18:55:28 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-10-01 18:55:54 INFO  TeacherRepositoryImpl:162 - Getting teacher detail
+2021-10-01 18:55:54 INFO  TeacherRepositoryImpl:171 - Teacher details fetched succesfully!
+2021-10-01 18:55:54 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-10-01 18:55:54 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-10-01 18:55:54 INFO  LoginRepositoryImpl:64 - Updating login credentials
+2021-10-01 18:55:54 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-10-01 18:55:54 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-10-01 18:55:54 INFO  LoginRepositoryImpl:81 - Password updated successfully!
+2021-10-01 19:05:45 INFO  TeacherRepositoryImpl:162 - Getting teacher detail
+2021-10-01 19:05:45 INFO  TeacherRepositoryImpl:171 - Teacher details fetched succesfully!
+2021-10-01 19:05:45 INFO  LoginRepositoryImpl:46 - Fetching login credentials
+2021-10-01 19:05:45 INFO  LoginRepositoryImpl:54 - Login Credentials Updated successfully!
+2021-10-01 19:09:17 INFO  TeacherRepositoryImpl:143 - Getting teacher detail
+2021-10-01 19:09:17 INFO  TeacherRepositoryImpl:152 - Teacher details fetched succesfully!
+2021-10-01 19:09:45 INFO  TeacherRepositoryImpl:143 - Getting teacher detail
+2021-10-01 19:09:45 INFO  TeacherRepositoryImpl:152 - Teacher details fetched succesfully!
+2021-10-01 19:09:48 INFO  TeacherRepositoryImpl:143 - Getting teacher detail
+2021-10-01 19:09:48 INFO  TeacherRepositoryImpl:152 - Teacher details fetched succesfully!
+2021-10-01 19:10:05 INFO  TeacherRepositoryImpl:143 - Getting teacher detail
+2021-10-01 19:10:05 INFO  TeacherRepositoryImpl:152 - Teacher details fetched succesfully!
+2021-10-01 19:10:11 INFO  TeacherRepositoryImpl:143 - Getting teacher detail
+2021-10-01 19:10:11 INFO  TeacherRepositoryImpl:152 - Teacher details fetched succesfully!
+2021-10-01 19:10:26 INFO  TeacherRepositoryImpl:143 - Getting teacher detail
+2021-10-01 19:10:26 INFO  TeacherRepositoryImpl:152 - Teacher details fetched succesfully!
+2021-10-01 19:10:37 INFO  TeacherRepositoryImpl:143 - Getting teacher detail
+2021-10-01 19:10:37 INFO  TeacherRepositoryImpl:152 - Teacher details fetched succesfully!
+2021-10-01 19:23:07 INFO  AddressRepositoryImpl:46 - Getting address details...
+2021-10-01 19:24:04 INFO  AddressRepositoryImpl:46 - Getting address details...
+2021-10-01 19:24:04 INFO  AddressRepositoryImpl:54 - Address details fetched successfully!
+2021-10-01 19:37:39 INFO  AddressRepositoryImpl:68 - Updating the address details...
+2021-10-01 19:54:58 INFO  AddressRepositoryImpl:68 - Updating the address details...
+2021-10-01 19:54:58 ERROR AddressRepositoryImpl:88 - Error while updating the address!
+2021-10-01 19:55:28 INFO  AddressRepositoryImpl:68 - Updating the address details...
+2021-10-01 19:55:28 INFO  AddressRepositoryImpl:86 - Address Details updated successfully!
+2021-10-01 19:55:28 ERROR AddressServiceImpl:54 - Constraint Violation fails!

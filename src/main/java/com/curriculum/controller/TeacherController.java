@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curriculum.dto.Teacher;
@@ -124,6 +125,20 @@ public class TeacherController {
 		TeacherEntity teacherEntity = null;
 		try {
 			teacherEntity = teacherService.getParticularTeacher(id);
+			responseEntity = ResponseUtil.getResponse(200, "Success!", teacherEntity);
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+		}
+		return responseEntity;
+	}
+	@GetMapping("/email/{email}")
+	public ResponseEntity<Response> getTeacherByEmail(@PathVariable("email") String email) {
+		ResponseEntity<Response> responseEntity = null;
+		TeacherEntity teacherEntity = null;
+		try {
+			teacherEntity = teacherService.getTeacherByEmail(email);
 			responseEntity = ResponseUtil.getResponse(200, "Success!", teacherEntity);
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());

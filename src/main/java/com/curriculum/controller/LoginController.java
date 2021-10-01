@@ -81,9 +81,6 @@ public class LoginController {
 		LoginEntity loginEntity = null;
 		try {
 			loginEntity = loginService.updateLogin(teacherId, login);
-			response.setCode(200);
-			response.setMessage("Password Changed Successfully!");
-			response.setData(loginEntity);
 			responseEntity = ResponseUtil.getResponse(200, "Password Changed Successfully!", loginEntity);
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());

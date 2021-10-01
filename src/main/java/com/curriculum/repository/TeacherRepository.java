@@ -19,4 +19,8 @@ public interface TeacherRepository {
 	TeacherEntity getParticularTeacher(Long id) throws DatabaseException, NotFoundException;
 
 	void checkTeacher(Long id) throws NotFoundException;
+
+	void checkTeacher(String email) throws NotFoundException;
+
+	TeacherEntity getTeacherByEmail(String email) throws DatabaseException, NotFoundException;
 }

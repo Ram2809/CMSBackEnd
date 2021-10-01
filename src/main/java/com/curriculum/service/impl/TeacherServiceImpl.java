@@ -76,4 +76,13 @@ public class TeacherServiceImpl implements TeacherService {
 		}
 	}
 
+	@Override
+	public TeacherEntity getTeacherByEmail(String email) throws BusinessServiceException, NotFoundException {
+		try {
+			return teacherRepository.getTeacherByEmail(email);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
 }

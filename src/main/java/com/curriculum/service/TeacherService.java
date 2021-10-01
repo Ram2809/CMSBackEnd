@@ -17,4 +17,6 @@ public interface TeacherService {
 	TeacherEntity deleteTeacher(Long id) throws BusinessServiceException, NotFoundException;
 
 	TeacherEntity getParticularTeacher(Long id) throws BusinessServiceException, NotFoundException;
+
+	TeacherEntity getTeacherByEmail(String email) throws BusinessServiceException, NotFoundException;
 }

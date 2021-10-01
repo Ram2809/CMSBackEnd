@@ -8,12 +8,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curriculum.dto.Address;
+import com.curriculum.dto.Teacher;
+import com.curriculum.entity.AddressEntity;
+import com.curriculum.entity.TeacherEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.NotFoundException;
@@ -41,6 +47,38 @@ public class AddressController {
 			} else {
 				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
 			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			if (e instanceof ConstraintValidationException) {
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			}
+		}
+		return responseEntity;
+	}
+	@GetMapping("/{staffId}")
+	public ResponseEntity<Response> getAddress(@PathVariable("staffId") Long id) {
+		ResponseEntity<Response> responseEntity = null;
+		AddressEntity addressEntity = null;
+		try {
+			addressEntity = addressService.getAddress(id);
+			responseEntity = ResponseUtil.getResponse(200, "Success!", addressEntity);
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+		}
+		return responseEntity;
+	}
+	@PutMapping("/{id}")
+	public ResponseEntity<Response> updateAddress(@PathVariable("id") Long id, @RequestBody Address address) {
+		ResponseEntity<Response> responseEntity = null;
+		AddressEntity addressEntity = null;
+		try {
+			addressEntity = addressService.updateAddress(id, address);
+			responseEntity = ResponseUtil.getResponse(200, "Teacher Details Updated Successfully!", addressEntity);
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
 		} catch (NotFoundException e) {

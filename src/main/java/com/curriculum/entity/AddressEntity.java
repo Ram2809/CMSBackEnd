@@ -40,6 +40,6 @@ public class AddressEntity {
 	@OneToOne(targetEntity = TeacherEntity.class,fetch=FetchType.EAGER)
 	@JoinColumn(name = "teacherId", unique = true)
 	@JsonIgnore
-	private TeacherEntity teacherEntity;
+	private TeacherEntity teacher;
 
 }
