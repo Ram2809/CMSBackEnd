@@ -17,6 +17,10 @@ public interface TimeTableService {
 	Integer deleteTimeTable(Long roomNo) throws BusinessServiceException, NotFoundException;
 
 	TimeTableEntity getTimeTableId(Long roomNo, String day) throws BusinessServiceException, NotFoundException;
-	
-	TimeTableEntity updateTimetable(Long id,TimeTable timetable) throws BusinessServiceException, NotFoundException;
+
+	TimeTableEntity updateTimetable(Long id, TimeTable timetable) throws BusinessServiceException, NotFoundException;
+
+	Long updatePeriod(Integer period, String subject, Long id) throws BusinessServiceException;
+
+	String getPeriod(Integer period, Long id) throws BusinessServiceException;
 }

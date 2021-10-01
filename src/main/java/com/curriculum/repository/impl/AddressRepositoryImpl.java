@@ -70,18 +70,14 @@ public class AddressRepositoryImpl implements AddressRepository {
 		Session session = null;
 		try {
 			session = sessionFactory.getCurrentSession();
-			AddressEntity addressDetail = AddressMapper.mapAddress(address);
 			session.find(AddressEntity.class, id);
 			AddressEntity updatedAddressEntity = session.load(AddressEntity.class, id);
-			updatedAddressEntity.setAddressLine(addressDetail.getAddressLine());
-			updatedAddressEntity.setCity(addressDetail.getCity());
-			updatedAddressEntity.setDistrict(addressDetail.getDistrict());
-			updatedAddressEntity.setState(addressDetail.getState());
-			updatedAddressEntity.setCountry(addressDetail.getCountry());
-			updatedAddressEntity.setPinCode(addressDetail.getPinCode());
-			TeacherEntity teacherEntity=new TeacherEntity();
-			teacherEntity.setId(id);
-			updatedAddressEntity.setTeacher(teacherEntity);
+			updatedAddressEntity.setAddressLine(address.getAddressLine());
+			updatedAddressEntity.setCity(address.getCity());
+			updatedAddressEntity.setDistrict(address.getDistrict());
+			updatedAddressEntity.setState(address.getState());
+			updatedAddressEntity.setCountry(address.getCountry());
+			updatedAddressEntity.setPinCode(address.getPinCode());
 			addressEntity = (AddressEntity) session.merge(updatedAddressEntity);
 			logger.info("Address Details updated successfully!");
 		} catch (HibernateException e) {

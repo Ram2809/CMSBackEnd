@@ -142,10 +142,10 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 			session = sessionFactory.getCurrentSession();
 			TimeTableEntity timetableDetail = TimeTableMapper.timeTableMapper(timetable);
 			session.find(TimeTableEntity.class, id);
-			TimeTableEntity updatedTimetableEntity = session.load(TimeTableEntity.class,id);
+			TimeTableEntity updatedTimetableEntity = session.load(TimeTableEntity.class, id);
 			updatedTimetableEntity.setDay(timetableDetail.getDay());
 			updatedTimetableEntity.setPeriods(timetableDetail.getPeriods());
-			ClassEntity classEntity=new ClassEntity();
+			ClassEntity classEntity = new ClassEntity();
 			classEntity.setRoomNo(timetable.getClassDetail().getRoomNo());
 			updatedTimetableEntity.setClassRoom(classEntity);
 			timetableEntity = (TimeTableEntity) session.merge(updatedTimetableEntity);
@@ -155,5 +155,47 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 			throw new DatabaseException(e.getMessage());
 		}
 		return timetableEntity;
+	}
+
+	@Override
+	public Long updatePeriod(Integer period, String subject, Long id) throws DatabaseException {
+		logger.info("Updating period details..");
+		Session session = null;
+		Long count = 0l;
+		try {
+			session = sessionFactory.getCurrentSession();
+			String sqlQuery = "UPDATE Period SET periods=? WHERE TimeTableEntity_id=? AND periods_KEY=?";
+			Query query = session.createSQLQuery(sqlQuery);
+			query.setParameter(1, subject);
+			query.setParameter(2, id);
+			query.setParameter(3, period);
+			count = (long) query.executeUpdate();
+			logger.info("Period updated successfully!");
+		} catch (HibernateException e) {
+			logger.error("Error while updating the period details!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return count;
+	}
+
+	@Override
+	public String getPeriod(Integer period, Long id) throws DatabaseException {
+		logger.info("Getting period details..");
+		Session session = null;
+		String subjectName = "";
+		try {
+			session = sessionFactory.getCurrentSession();
+			String sqlQuery = "SELECT periods FROM Period WHERE TimeTableEntity_id=? AND periods_KEY=?";
+			Query query = session.createSQLQuery(sqlQuery);
+			query.setParameter(1, id);
+			query.setParameter(2, period);
+			subjectName = (String) query.getSingleResult();
+			logger.info("Subject name fetched successfully!");
+		} catch (HibernateException e) {
+			logger.error("Error while getting the period details!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return subjectName;
+
 	}
 }

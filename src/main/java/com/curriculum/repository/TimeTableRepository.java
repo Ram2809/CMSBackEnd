@@ -18,4 +18,8 @@ public interface TimeTableRepository {
 	TimeTableEntity getTimeTableId(Long roomNo, String day) throws DatabaseException;
 
 	TimeTableEntity updateTimetable(Long id, TimeTable timetable) throws DatabaseException;
+
+	Long updatePeriod(Integer period, String subject, Long id) throws DatabaseException;
+
+	String getPeriod(Integer period, Long id) throws DatabaseException;
 }

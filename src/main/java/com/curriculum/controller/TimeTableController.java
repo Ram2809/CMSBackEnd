@@ -136,5 +136,45 @@ public class TimeTableController {
 		}
 		return responseEntity;
 	}
+	@PutMapping("/{period}/{subject}/{id}")
+	public ResponseEntity<Response> updatePeriod(@PathVariable("period") Integer period,@PathVariable("subject") String subject,@PathVariable("id") Long id,@RequestBody TimeTable timeTable)
+	{
+		ResponseEntity<Response> responseEntity=null;
+		Long count = null;
+		try {
+			count = timeTableService.updatePeriod(period,subject,id);
+			if (count>0) {
+				responseEntity = ResponseUtil.getResponse(200, "Timetable updated successfully!", count);
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, "No Timetable Found!");
+			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} 
+//		catch (NotFoundException e) {
+//			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+//		}
+		return responseEntity;
+	}
+	@GetMapping("period/{period}/{id}")
+	public ResponseEntity<Response> getPeriod(@PathVariable("period") Integer period,@PathVariable("id") Long id)
+	{
+		ResponseEntity<Response> responseEntity=null;
+		String subjectName = null;
+		try {
+			subjectName = timeTableService.getPeriod(period,id);
+			if (subjectName!=null) {
+				responseEntity = ResponseUtil.getResponse(200, "Timetable updated successfully!",subjectName);
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, "No Timetable Found!");
+			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} 
+//		catch (NotFoundException e) {
+//			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+//		}
+		return responseEntity;
+	}
 
 }

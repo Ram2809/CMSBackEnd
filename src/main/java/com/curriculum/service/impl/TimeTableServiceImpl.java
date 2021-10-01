@@ -78,4 +78,22 @@ public class TimeTableServiceImpl implements TimeTableService {
 		}
 	}
 
+	@Override
+	public Long updatePeriod(Integer period, String subject, Long id) throws BusinessServiceException {
+		try {
+			return timeTableRepository.updatePeriod(period,subject,id);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
+	@Override
+	public String getPeriod(Integer period, Long id) throws BusinessServiceException {
+		try {
+			return timeTableRepository.getPeriod(period,id);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
 }

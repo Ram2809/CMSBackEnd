@@ -63,7 +63,7 @@ public class TeacherEntity implements Serializable {
 	@OneToOne(mappedBy = "teacher", fetch = FetchType.EAGER,cascade=CascadeType.ALL,orphanRemoval=true)
 	@JsonIgnore
 	private LoginEntity login;
-	@OneToOne(mappedBy = "teacher",cascade=CascadeType.ALL,orphanRemoval=true)
+	@OneToOne(mappedBy = "teacher")
 	//@JsonIgnore
 	private AddressEntity address;
 }
