@@ -46,19 +46,13 @@ public class TimeTableController {
 		try {
 			timeTableEntity = timeTableService.addTimeTable(timeTable);
 			response.setCode(200);
-			response.setMessage("Time table details added successfully!");
+			response.setMessage("");
 			response.setData(timeTable);
-			responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.OK);
-		} catch (BusinessServiceException | NotFoundException e) {
-			if (e instanceof ClassNotFoundException) {
-				response.setCode(404);
-				response.setMessage(e.getMessage());
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.NOT_FOUND);
-			} else {
-				response.setCode(500);
-				response.setMessage(e.getMessage());
-				responseEntity = new ResponseEntity<>(response, new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR);
-			}
+			responseEntity = ResponseUtil.getResponse(200, "Time table details added successfully!", timeTable);
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
 		}
 		return responseEntity;
 	}
@@ -150,10 +144,9 @@ public class TimeTableController {
 			}
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
-		} 
-//		catch (NotFoundException e) {
-//			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
-//		}
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+		}
 		return responseEntity;
 	}
 	@GetMapping("period/{period}/{id}")
@@ -164,16 +157,15 @@ public class TimeTableController {
 		try {
 			subjectName = timeTableService.getPeriod(period,id);
 			if (subjectName!=null) {
-				responseEntity = ResponseUtil.getResponse(200, "Timetable updated successfully!",subjectName);
+				responseEntity = ResponseUtil.getResponse(200, "Period fetched successfully!",subjectName);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No Timetable Found!");
+				responseEntity = ResponseUtil.getResponse(404, "No Period Found!");
 			}
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
-		} 
-//		catch (NotFoundException e) {
-//			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
-//		}
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+		}
 		return responseEntity;
 	}
 

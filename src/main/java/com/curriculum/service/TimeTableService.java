@@ -20,7 +20,7 @@ public interface TimeTableService {
 
 	TimeTableEntity updateTimetable(Long id, TimeTable timetable) throws BusinessServiceException, NotFoundException;
 
-	Long updatePeriod(Integer period, String subject, Long id) throws BusinessServiceException;
+	Long updatePeriod(Integer period, String subject, Long id) throws BusinessServiceException, NotFoundException;
 
-	String getPeriod(Integer period, Long id) throws BusinessServiceException;
+	String getPeriod(Integer period, Long id) throws BusinessServiceException, NotFoundException;
 }

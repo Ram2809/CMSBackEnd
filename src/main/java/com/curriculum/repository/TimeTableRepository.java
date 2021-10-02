@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import com.curriculum.dto.TimeTable;
 import com.curriculum.entity.TimeTableEntity;
 import com.curriculum.exception.DatabaseException;
+import com.curriculum.exception.NotFoundException;
 
 public interface TimeTableRepository {
 	TimeTableEntity addTimeTable(TimeTable timeTable) throws DatabaseException;
@@ -17,9 +18,11 @@ public interface TimeTableRepository {
 
 	TimeTableEntity getTimeTableId(Long roomNo, String day) throws DatabaseException;
 
-	TimeTableEntity updateTimetable(Long id, TimeTable timetable) throws DatabaseException;
+	TimeTableEntity updateTimetable(Long id, TimeTable timetable) throws DatabaseException, NotFoundException;
 
-	Long updatePeriod(Integer period, String subject, Long id) throws DatabaseException;
+	Long updatePeriod(Integer period, String subject, Long id) throws DatabaseException, NotFoundException;
 
-	String getPeriod(Integer period, Long id) throws DatabaseException;
+	String getPeriod(Integer period, Long id) throws DatabaseException, NotFoundException;
+
+	void checkTimetableId(Long id) throws NotFoundException;
 }
