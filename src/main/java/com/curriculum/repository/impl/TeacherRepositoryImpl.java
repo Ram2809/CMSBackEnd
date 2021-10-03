@@ -53,7 +53,7 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 		try {
 			session = sessionFactory.getCurrentSession();
 			Query<TeacherEntity> query = session.createQuery("FROM TeacherEntity t");
-			teacherList = query.list();
+			teacherList = query.getResultList();
 			logger.info("Teacher list is fetched successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while fetching the teacher list");
