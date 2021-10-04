@@ -15742,3 +15742,11 @@
 2021-10-05 00:05:01 INFO  TeacherAssignRepositoryImpl:115 - Teacher assign details fetched successfully!
 2021-10-05 00:05:01 INFO  TeacherRepositoryImpl:143 - Getting teacher detail
 2021-10-05 00:05:01 INFO  TeacherRepositoryImpl:152 - Teacher details fetched succesfully!
+2021-10-05 00:16:58 INFO  ClassRepositoryImpl:30 - Adding class details
+2021-10-05 00:16:58 INFO  ClassRepositoryImpl:38 - Class details added successfully!
+2021-10-05 00:18:37 INFO  ClassRepositoryImpl:30 - Adding class details
+2021-10-05 00:18:37 ERROR ClassRepositoryImpl:49 - Error while adding the class!
+2021-10-05 00:19:51 INFO  ClassRepositoryImpl:30 - Adding class details
+2021-10-05 00:20:53 INFO  ClassRepositoryImpl:30 - Adding class details
+2021-10-05 00:21:07 INFO  ClassRepositoryImpl:30 - Adding class details
+2021-10-05 00:21:23 INFO  ClassRepositoryImpl:30 - Adding class details

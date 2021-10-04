@@ -26,17 +26,26 @@ public class ClassRepositoryImpl implements ClassRepository {
 	private Logger logger = Logger.getLogger(ClassRepositoryImpl.class);
 
 	@Override
-	public Long addClass(Class classDetail) throws DatabaseException {
+	public Long addClass(Class classDetail) throws DatabaseException, NotAllowedException {
 		logger.info("Adding class details");
 		Session session = null;
 		Long roomNo = 0l;
 		try {
 			session = sessionFactory.getCurrentSession();
+			Query<ClassEntity> query = session
+					.createQuery("FROM ClassEntity c WHERE c.standard=:standard AND c.section=:section");
+			query.setParameter("standard", classDetail.getStandard());
+			query.setParameter("section", classDetail.getSection());
+			ClassEntity classEntity = query.uniqueResultOptional().orElse(null);
+			System.out.println(classEntity);
+			if (classEntity != null) {
+				throw new NotAllowedException("Standard and section already exits!");
+			}
 			roomNo = (Long) session.save(ClassMapper.mapClass(classDetail));
 			if (roomNo > 0) {
 				logger.info("Class details added successfully!");
 			}
-		} catch (Exception e) {
+		} catch (HibernateException e) {
 			logger.error("Error while adding the class!");
 			System.out.println(e.getMessage());
 			throw new DatabaseException(e.getMessage());

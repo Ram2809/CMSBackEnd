@@ -50,11 +50,13 @@ public class ClassController {
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException)
 				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+			else
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
 		}
 		return responseEntity;
 	}
 
-	@GetMapping // @JsonIgnore
+	@GetMapping
 	public ResponseEntity<Response> getAllClass() {
 		ResponseEntity<Response> responseEntity = null;
 		List<ClassEntity> classList = new ArrayList<>();
@@ -71,7 +73,7 @@ public class ClassController {
 		return responseEntity;
 	}
 
-	@PutMapping("/{roomNo}") // @JsonIgnore(x)
+	@PutMapping("/{roomNo}")
 	public ResponseEntity<Response> updateClass(@PathVariable("roomNo") Long roomNo, @RequestBody Class classDetail) {
 		ResponseEntity<Response> responseEntity = null;
 		ClassEntity classEntity = null;

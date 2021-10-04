@@ -5,10 +5,11 @@ import java.util.List;
 import com.curriculum.dto.Class;
 import com.curriculum.entity.ClassEntity;
 import com.curriculum.exception.DatabaseException;
+import com.curriculum.exception.NotAllowedException;
 import com.curriculum.exception.NotFoundException;
 
 public interface ClassRepository {
-	Long addClass(Class classDetail) throws DatabaseException;
+	Long addClass(Class classDetail) throws DatabaseException, NotAllowedException;
 
 	List<ClassEntity> getAllClass() throws DatabaseException;
 
