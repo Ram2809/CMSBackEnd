@@ -45,7 +45,6 @@ public class StudentEntity implements Serializable {
 	private String address;
 	@ManyToOne
 	@JoinColumn(name = "roomNo")
-	@JsonIgnore
-	private ClassEntity classEntity;
+	private ClassEntity classDetail;
 
 }

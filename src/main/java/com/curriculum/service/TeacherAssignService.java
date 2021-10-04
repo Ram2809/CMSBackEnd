@@ -18,4 +18,6 @@ public interface TeacherAssignService {
 	List<Long> getSubjectAssignIds(Long staffId) throws BusinessServiceException, NotFoundException;
 
 	Long getTeacherId(Long id) throws BusinessServiceException;
+
+	Long updateTeacherAssign(Long assignId, Long staffId) throws BusinessServiceException, NotFoundException;
 }

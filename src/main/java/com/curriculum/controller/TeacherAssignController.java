@@ -132,5 +132,25 @@ public class TeacherAssignController {
 //		}
 		return responseEntity;
 	}
+	
+	@PutMapping("/{assignId}/{staffId}")
+	public ResponseEntity<Response> updateTeacherAssign(@PathVariable("assignId") Long assignId,@PathVariable("staffId") Long staffId,@RequestBody TeacherAssign teacherAssign)
+	{
+		ResponseEntity<Response> responseEntity=null;
+		Long count = null;
+		try {
+			count = teacherAssignService.updateTeacherAssign(assignId,staffId);
+			if (count>0) {
+				responseEntity = ResponseUtil.getResponse(200, "Teacher Assigned for course successfully!", count);
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, "No Assign Id Found!");
+			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+		}
+		return responseEntity;
+	}
 
 }

@@ -185,7 +185,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 			updatedStudentEntity.setAddress(studentDetail.getAddress());
 			ClassEntity classEntity=new ClassEntity();
 			classEntity.setRoomNo(student.getClassDetail().getRoomNo());
-			updatedStudentEntity.setClassEntity(classEntity);
+			updatedStudentEntity.setClassDetail(classEntity);
 			studentEntity=(StudentEntity) session.merge(updatedStudentEntity);
 			logger.info("Student details is updated successfully!");
 		}

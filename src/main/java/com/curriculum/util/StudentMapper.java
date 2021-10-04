@@ -16,7 +16,7 @@ public class StudentMapper {
 		studentEntity.setAddress(student.getAddress());
 		ClassEntity classEntity = new ClassEntity();
 		classEntity.setRoomNo(student.getClassDetail().getRoomNo());
-		studentEntity.setClassEntity(classEntity);
+		studentEntity.setClassDetail(classEntity);
 		return studentEntity;
 	}
 }

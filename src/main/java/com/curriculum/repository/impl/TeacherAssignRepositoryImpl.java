@@ -35,43 +35,17 @@ public class TeacherAssignRepositoryImpl implements TeacherAssignRepository {
 		Long assignId = null;
 		try {
 			session = sessionFactory.getCurrentSession();
-			assignId = (Long) session.save(TeacherAssignMapper.teacherAssignMapper(teacherAssign));
+			 assignId=(Long) session.save(TeacherAssignMapper.teacherAssignMapper(teacherAssign));
 			if (assignId > 0) {
 				logger.info("Teacher assigned for course successfully!");
 			}
+			 logger.info("Teacher assigned for course successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while assigning staff for course!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return assignId;
 	}
-
-//	@Override
-//	public TeacherAssignEntity updateTeacherSubjectAssign(Long id, TeacherAssign teacherAssign)
-//			throws DatabaseException, NotFoundException {
-//		logger.info("Updating the teacher for course!");
-//		TeacherAssignEntity updatedTeacherSubject = null;
-//		Session session = null;
-//		try {
-//			checkAssignId(id);
-//			session = sessionFactory.getCurrentSession();
-//			TeacherAssignEntity teacherSubjectDetail = TeacherSubjectMapper.teacherSubjectMapper(teacherAssign);
-//			session.find(TeacherAssignEntity.class, id);
-//			TeacherAssignEntity teacherAssignEntity = session.load(TeacherAssignEntity.class, id);
-//			TeacherEntity teacherEntity = new TeacherEntity();
-//			teacherEntity.setId(teacherSubjectDetail.getTeacher().getId());
-//			teacherAssignEntity.setTeacher(teacherEntity);
-//			SubjectEntity subjectEntity = new SubjectEntity();
-//			subjectEntity.setCode(teacherSubjectDetail.getSubject().getCode());
-//			teacherAssignEntity.setSubject(subjectEntity);
-//			updatedTeacherSubject = (TeacherAssignEntity) session.merge(teacherAssignEntity);
-//			logger.info("Staff assigned for new subject successfully!");
-//		} catch (HibernateException e) {
-//			logger.error("Error while updating the staff  for new subject!");
-//			throw new DatabaseException(e.getMessage());
-//		}
-//		return updatedTeacherSubject;
-//	}
 
 	public void checkAssignId(Long id) throws AssignIdNotFoundException {
 		Session session = sessionFactory.getCurrentSession();
@@ -106,13 +80,6 @@ public class TeacherAssignRepositoryImpl implements TeacherAssignRepository {
 			throw new DatabaseException(e.getMessage());
 		}
 		return deletedTeacherSubjectAssign;
-	}
-
-	@Override
-	public TeacherAssignEntity updateTeacherSubjectAssign(Long id, TeacherAssign teacherAssign)
-			throws DatabaseException, NotFoundException {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -151,5 +118,33 @@ public class TeacherAssignRepositoryImpl implements TeacherAssignRepository {
 			throw new DatabaseException(e.getMessage());
 		}
 		return teacherId;
+	}
+
+	@Override
+	public Long updateTeacherAssign(Long assignId, Long staffId) throws DatabaseException {
+		logger.info("Updating teacher assign details...");
+		Session session=null;
+		Long count=0l;
+		try {
+			session=sessionFactory.getCurrentSession();
+			Query<Long> query=session.createQuery("UPDATE TeacherAssignEntity t SET t.teacher.id=:teacherId WHERE t.subjectAssign.id=:assignId");
+			query.setParameter("teacherId", staffId);
+			query.setParameter("assignId", assignId);
+			count=(long) query.executeUpdate();
+			logger.info("Teacher assign details updated successfully!");
+		}
+		catch(HibernateException e)
+		{
+			logger.error("Error while fetching teacher assign details!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return count;
+	}
+
+	@Override
+	public TeacherAssignEntity updateTeacherSubjectAssign(Long id, TeacherAssign teacherAssign)
+			throws DatabaseException, NotFoundException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

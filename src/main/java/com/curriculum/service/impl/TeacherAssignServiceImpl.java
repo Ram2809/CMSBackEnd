@@ -87,4 +87,14 @@ public class TeacherAssignServiceImpl implements TeacherAssignService {
 		}
 	}
 
+	@Override
+	public Long updateTeacherAssign(Long assignId, Long staffId) throws BusinessServiceException, NotFoundException {
+		teacherRepository.checkTeacher(staffId);
+		try {
+			return teacherAssignRepository.updateTeacherAssign(assignId, staffId);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
 }
