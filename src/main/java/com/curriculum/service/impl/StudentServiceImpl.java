@@ -3,6 +3,7 @@ package com.curriculum.service.impl;
 import java.util.List;
 
 import javax.transaction.Transactional;
+import javax.validation.ConstraintViolationException;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,16 +43,6 @@ public class StudentServiceImpl implements StudentService {
 		}
 	}
 
-//	@Override
-//	public ResponseEntity<List<Student>> getAllStudentDetails() {
-//		// TODO Auto-generated method stub
-//		return studentRepository.getAllStudentDetails();
-//	}
-//	@Override
-//	public ResponseEntity<String> updateStudentDetails(Long rollNo, Student studentDetails) throws StudentNotFoundException {
-//		// TODO Auto-generated method stub
-//		return studentRepository.updateStudentDetails(rollNo,studentDetails);
-//	}
 	@Override
 	public StudentEntity deleteStudent(Long rollNo) throws BusinessServiceException, NotFoundException {
 		try {
@@ -61,16 +52,34 @@ public class StudentServiceImpl implements StudentService {
 		}
 	}
 
-//	@Override
-//	public ResponseEntity<Student> getParticularStudentDetails(Long rollNo) throws StudentNotFoundException {
-//		// TODO Auto-generated method stub
-//		return studentRepository.getParticularStudentDetails(rollNo);
-//	}
 	@Override
 	public List<StudentEntity> getStudentByClass(Long roomNo) throws BusinessServiceException, NotFoundException {
 		try {
 			classRepository.checkClassRoom(roomNo);
 			return studentRepository.getStudentByClass(roomNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
+	@Override
+	public StudentEntity updateStudent(Long rollNo, Student student)
+			throws NotFoundException, BusinessServiceException {
+		try {
+			classRepository.checkClassRoom(student.getClassDetail().getRoomNo());
+			return studentRepository.updateStudent(rollNo, student);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		} catch (DataIntegrityViolationException | ConstraintViolationException e) {
+			logger.error("Constraint Violation fails!");
+			throw new ConstraintValidationException("Constraint Violation fails!");
+		}
+	}
+
+	@Override
+	public StudentEntity getStudent(Long rollNo) throws BusinessServiceException, NotFoundException {
+		try {
+			return studentRepository.getStudent(rollNo);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}

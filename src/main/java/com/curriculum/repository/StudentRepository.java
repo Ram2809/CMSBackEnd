@@ -15,12 +15,12 @@ public interface StudentRepository {
 	Long addStudent(Student student) throws DatabaseException;
 
 //	ResponseEntity<List<Student>> getAllStudentDetails();
-//
-//	ResponseEntity<String> updateStudentDetails(Long rollNo, Student studentDetails) throws StudentNotFoundException;
+
+	StudentEntity updateStudent(Long rollNo, Student student) throws DatabaseException;
 
 	StudentEntity deleteStudent(Long rollNo) throws DatabaseException, NotFoundException;
 
-//	ResponseEntity<Student> getParticularStudentDetails(Long rollNo) throws StudentNotFoundException;
+	StudentEntity getStudent(Long rollNo) throws NotFoundException, DatabaseException;
 
 	List<StudentEntity> getStudentByClass(Long roomNo) throws DatabaseException;
 }

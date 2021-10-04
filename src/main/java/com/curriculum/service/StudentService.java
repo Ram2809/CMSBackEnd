@@ -12,11 +12,11 @@ public interface StudentService {
 
 //	ResponseEntity<List<Student>> getAllStudentDetails();
 //
-//	ResponseEntity<String> updateStudentDetails(Long rollNo, Student studentDetails) throws StudentNotFoundException;
-//
+	StudentEntity updateStudent(Long rollNo, Student student) throws NotFoundException, BusinessServiceException;
+
 	StudentEntity deleteStudent(Long rollNo) throws BusinessServiceException, NotFoundException;
-//
-//	ResponseEntity<Student> getParticularStudentDetails(Long rollNo) throws StudentNotFoundException;
+
+	StudentEntity getStudent(Long rollNo) throws BusinessServiceException, NotFoundException;
 
 	List<StudentEntity> getStudentByClass(Long roomNo) throws BusinessServiceException, NotFoundException;
 }

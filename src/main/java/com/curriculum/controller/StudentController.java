@@ -16,13 +16,16 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import com.curriculum.dto.Student;
 import com.curriculum.entity.StudentEntity;
+import com.curriculum.entity.TeacherEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.NotFoundException;
@@ -63,18 +66,26 @@ public class StudentController {
 		return responseEntity;
 	}
 
-//	@GetMapping("/getAllStudentDetails")
-//	public ResponseEntity<List<Student>> getAllStudentDetails()
-//	{
-//		return studentService.getAllStudentDetails();
-//	}
-//	
-//	@PutMapping("/updateStudentDetails/{rollNo}")
-//	public ResponseEntity<String> updateStudentDetails(@PathVariable("rollNo") Long rollNo,@RequestBody Student studentDetails) throws StudentNotFoundException
-//	{
-//		return studentService.updateStudentDetails(rollNo,studentDetails);
-//	}
-//	
+	@PutMapping("/{rollNo}")
+	public ResponseEntity<Response> updateStudent(@PathVariable("rollNo") Long rollNo, @RequestBody Student student)
+			throws StudentNotFoundException {
+		ResponseEntity<Response> responseEntity = null;
+		StudentEntity studentEntity = null;
+		try {
+			studentEntity = studentService.updateStudent(rollNo, student);
+			responseEntity = ResponseUtil.getResponse(200, "Student Details Updated Successfully!", studentEntity);
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			if (e instanceof ConstraintValidationException) {
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			}
+		}
+		return responseEntity;
+	}
+
 	@DeleteMapping("/{rollNo}")
 	public ResponseEntity<Response> deleteStudent(@PathVariable("rollNo") Long rollNo) {
 		ResponseEntity<Response> responseEntity = null;
@@ -94,11 +105,21 @@ public class StudentController {
 		return responseEntity;
 	}
 
-//	@GetMapping("/getStudentDetails/{rollNo}")
-//	public ResponseEntity<Student> getParticularStudentDetails(@PathVariable("rollNo") Long rollNo) throws StudentNotFoundException
-//	{
-//		return studentService.getParticularStudentDetails(rollNo);
-//	}
+	@GetMapping
+	public ResponseEntity<Response> getStudent(@RequestParam("rollNo") Long rollNo) {
+		ResponseEntity<Response> responseEntity = null;
+		StudentEntity studentEntity = null;
+		try {
+			studentEntity = studentService.getStudent(rollNo);
+			responseEntity = ResponseUtil.getResponse(200, "Success!", studentEntity);
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+		}
+		return responseEntity;
+	}
+
 	@GetMapping("/{roomNo}")
 	public ResponseEntity<Response> getStudentByClass(@PathVariable("roomNo") Long roomNo) {
 		ResponseEntity<Response> responseEntity = null;

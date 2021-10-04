@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.curriculum.dto.Student;
+import com.curriculum.entity.ClassEntity;
 import com.curriculum.entity.StudentEntity;
 import com.curriculum.repository.StudentRepository;
 import com.curriculum.util.StudentMapper;
@@ -131,26 +132,22 @@ public class StudentRepositoryImpl implements StudentRepository {
 		return studentDetail;
 	}
 
-//	@Override
-//	public ResponseEntity<Student> getParticularStudentDetails(Long rollNo) throws StudentNotFoundException {
-//		// TODO Auto-generated method stub
-//		ResponseEntity<Student> response = null;
-//		Session session = null;
-//		try {
-//			boolean checkStudent = checkStudent(rollNo);
-//			if (!checkStudent) {
-//				throw new StudentNotFoundException("Student Not Found with" + " " + rollNo + "!");
-//			}
-//			session = sessionFactory.getCurrentSession();
-//			Query<Student> query = session.createQuery("FROM Student Where rollNo=:rollNo");
-//			query.setParameter("rollNo", rollNo);
-//			Student studentDetails = (Student) query.getSingleResult();
-//			response = new ResponseEntity<Student>(studentDetails, new HttpHeaders(), HttpStatus.OK);
-//		} catch (HibernateException | StudentNotFoundException e) {
-//			e.printStackTrace();
-//		} 
-//		return response;
-//	}
+	@Override
+	public StudentEntity getStudent(Long rollNo) throws NotFoundException, DatabaseException {
+		StudentEntity studentEntity=null;
+		Session session = null;
+		try {
+			checkStudent(rollNo);
+			session = sessionFactory.getCurrentSession();
+			Query<StudentEntity> query = session.createQuery("FROM StudentEntity Where rollNo=:rollNo");
+			query.setParameter("rollNo", rollNo);
+			studentEntity = query.uniqueResultOptional().orElse(null);
+		} catch (HibernateException e) {
+			logger.error("Error while fetching the student details!");
+			throw new DatabaseException(e.getMessage());
+		} 
+		return studentEntity;
+	}
 
 	@Override
 	public List<StudentEntity> getStudentByClass(Long roomNo) throws DatabaseException {
@@ -168,6 +165,36 @@ public class StudentRepositoryImpl implements StudentRepository {
 			throw new DatabaseException(e.getMessage());
 		}
 		return studentsList;
+	}
+
+	@Override
+	public StudentEntity updateStudent(Long rollNo, Student student) throws DatabaseException {
+		logger.info("Updating student details...");
+		StudentEntity studentEntity=null;
+		Session session=null;
+		try {
+			session=sessionFactory.getCurrentSession();
+			StudentEntity studentDetail=StudentMapper.studentMapper(student);
+			session.find(StudentEntity.class, rollNo);
+			StudentEntity updatedStudentEntity=session.load(StudentEntity.class, rollNo);
+			updatedStudentEntity.setFirstName(studentDetail.getFirstName());
+			updatedStudentEntity.setLastName(studentDetail.getLastName());
+			updatedStudentEntity.setDateOfBirth(studentDetail.getDateOfBirth());
+			updatedStudentEntity.setGender(studentDetail.getGender());
+			updatedStudentEntity.setContactNo(studentDetail.getContactNo());
+			updatedStudentEntity.setAddress(studentDetail.getAddress());
+			ClassEntity classEntity=new ClassEntity();
+			classEntity.setRoomNo(student.getClassDetail().getRoomNo());
+			updatedStudentEntity.setClassEntity(classEntity);
+			studentEntity=(StudentEntity) session.merge(updatedStudentEntity);
+			logger.info("Student details is updated successfully!");
+		}
+		catch(HibernateException e)
+		{
+			logger.error("Error while updating the student details!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return studentEntity;
 	}
 
 }
