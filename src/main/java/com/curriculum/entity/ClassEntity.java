@@ -1,8 +1,6 @@
 package com.curriculum.entity;
 
-import java.io.Serializable;
 import java.util.Set;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,14 +15,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-//@Data
 @Getter
 @Setter
 @NoArgsConstructor
 
 @Entity
 @Table(name = "Class")
-public class ClassEntity implements Serializable {
+public class ClassEntity {
 	@Id
 	private Long roomNo;
 	@Column(nullable = false)

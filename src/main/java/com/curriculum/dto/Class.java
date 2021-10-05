@@ -23,5 +23,4 @@ public class Class {
 	private Set<Subject> subject;
 	private Set<TimeTable> timeTable;
 	private Set<Discussion> discussion;
-	
 }

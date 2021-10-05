@@ -48,23 +48,6 @@ public class StudentRepositoryImpl implements StudentRepository {
 		return rollNo;
 	}
 
-//	@Override
-//	public ResponseEntity<List<Student>> getAllStudentDetails() {
-//		// TODO Auto-generated method stub
-//		ResponseEntity<List<Student>> response = null;
-//		List<Student> studentDetailsList = new ArrayList();
-//		Session session = null;
-//		try {
-//			session = sessionFactory.getCurrentSession();
-//			Query<Student> query = session.createQuery("FROM Student s");
-//			studentDetailsList = query.list();
-//			response = new ResponseEntity<List<Student>>(studentDetailsList, new HttpHeaders(), HttpStatus.OK);
-//		} catch (HibernateException e) {
-//			e.printStackTrace();
-//		} 
-//		return response;
-//	}
-//
 	public void checkStudent(Long rollNo) throws StudentNotFoundException {
 		Session session = sessionFactory.getCurrentSession();
 		Query<StudentEntity> query = session.createQuery("FROM StudentEntity WHERE rollNo=:regNo");
@@ -74,38 +57,6 @@ public class StudentRepositoryImpl implements StudentRepository {
 			throw new StudentNotFoundException("Student Not Found With" + " " + rollNo + "!");
 		}
 	}
-
-//	@Override
-//	public ResponseEntity<String> updateStudentDetails(Long rollNo, Student studentDetails)
-//			throws StudentNotFoundException {
-//		// TODO Auto-generated method stub
-//		ResponseEntity<String> response = null;
-//		Session session = null;
-//		try {
-//			boolean checkStudent = checkStudent(rollNo);
-//			if (!checkStudent) {
-//				throw new StudentNotFoundException("Student Not Found with" + " " + rollNo + "!");
-//			}
-//			session = sessionFactory.getCurrentSession();
-//			//session.beginTransaction();
-//			session.find(Student.class, rollNo);
-//			Student newStudentDetails = session.load(Student.class, rollNo);
-//			newStudentDetails.setFirstName(studentDetails.getFirstName());
-//			newStudentDetails.setLastName(studentDetails.getLastName());
-//			newStudentDetails.setDateOfBirth(studentDetails.getDateOfBirth());
-//			newStudentDetails.setGender(studentDetails.getGender());
-//			newStudentDetails.setContactNo(studentDetails.getContactNo());
-//			newStudentDetails.setAddress(studentDetails.getAddress());
-//			session.merge(newStudentDetails);
-//			//session.flush();
-//			//session.getTransaction().commit();
-//			response = new ResponseEntity<String>("Student Details Updated Successfully!", new HttpHeaders(),
-//					HttpStatus.OK);
-//		} catch (HibernateException | StudentNotFoundException e) {
-//			response = new ResponseEntity<String>(e.getMessage(), new HttpHeaders(), HttpStatus.OK);
-//		}		
-//		return response;
-//	}
 
 	@Override
 	public StudentEntity deleteStudent(Long rollNo) throws DatabaseException, NotFoundException {
@@ -134,7 +85,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 
 	@Override
 	public StudentEntity getStudent(Long rollNo) throws NotFoundException, DatabaseException {
-		StudentEntity studentEntity=null;
+		StudentEntity studentEntity = null;
 		Session session = null;
 		try {
 			checkStudent(rollNo);
@@ -145,7 +96,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 		} catch (HibernateException e) {
 			logger.error("Error while fetching the student details!");
 			throw new DatabaseException(e.getMessage());
-		} 
+		}
 		return studentEntity;
 	}
 
@@ -170,27 +121,25 @@ public class StudentRepositoryImpl implements StudentRepository {
 	@Override
 	public StudentEntity updateStudent(Long rollNo, Student student) throws DatabaseException {
 		logger.info("Updating student details...");
-		StudentEntity studentEntity=null;
-		Session session=null;
+		StudentEntity studentEntity = null;
+		Session session = null;
 		try {
-			session=sessionFactory.getCurrentSession();
-			StudentEntity studentDetail=StudentMapper.studentMapper(student);
+			session = sessionFactory.getCurrentSession();
+			StudentEntity studentDetail = StudentMapper.studentMapper(student);
 			session.find(StudentEntity.class, rollNo);
-			StudentEntity updatedStudentEntity=session.load(StudentEntity.class, rollNo);
+			StudentEntity updatedStudentEntity = session.load(StudentEntity.class, rollNo);
 			updatedStudentEntity.setFirstName(studentDetail.getFirstName());
 			updatedStudentEntity.setLastName(studentDetail.getLastName());
 			updatedStudentEntity.setDateOfBirth(studentDetail.getDateOfBirth());
 			updatedStudentEntity.setGender(studentDetail.getGender());
 			updatedStudentEntity.setContactNo(studentDetail.getContactNo());
 			updatedStudentEntity.setAddress(studentDetail.getAddress());
-			ClassEntity classEntity=new ClassEntity();
+			ClassEntity classEntity = new ClassEntity();
 			classEntity.setRoomNo(student.getClassDetail().getRoomNo());
 			updatedStudentEntity.setClassDetail(classEntity);
-			studentEntity=(StudentEntity) session.merge(updatedStudentEntity);
+			studentEntity = (StudentEntity) session.merge(updatedStudentEntity);
 			logger.info("Student details is updated successfully!");
-		}
-		catch(HibernateException e)
-		{
+		} catch (HibernateException e) {
 			logger.error("Error while updating the student details!");
 			throw new DatabaseException(e.getMessage());
 		}

@@ -32,16 +32,14 @@ public class TopicStatusRepositoryImpl implements TopicStatusRepository {
 		Long statusId = 0l;
 		try {
 			session = sessionFactory.getCurrentSession();
-			TopicStatusEntity topicStatusEntity=getStatusByUnitNo(topicStatus.getTopic().getUnitNo(),topicStatus.getTeacher().getId(),topicStatus.getClassDetail().getRoomNo());
-			if(topicStatusEntity==null)
-			{
+			TopicStatusEntity topicStatusEntity = getStatusByUnitNo(topicStatus.getTopic().getUnitNo(),
+					topicStatus.getTeacher().getId(), topicStatus.getClassDetail().getRoomNo());
+			if (topicStatusEntity == null) {
 				statusId = (Long) session.save(TopicStatusMapper.mapTopicStatus(topicStatus));
 				if (statusId > 0) {
 					logger.info("Topic status added successfully!");
 				}
-			}
-			else
-			{
+			} else {
 				throw new NotAllowedException("Already added status for particular unit!");
 			}
 		} catch (HibernateException e) {
@@ -80,8 +78,7 @@ public class TopicStatusRepositoryImpl implements TopicStatusRepository {
 		try {
 			checkStatusId(id);
 			session = sessionFactory.getCurrentSession();
-			Query<TopicStatusEntity> query = session.createQuery(
-					"FROM TopicStatusEntity t WHERE t.id=:id");
+			Query<TopicStatusEntity> query = session.createQuery("FROM TopicStatusEntity t WHERE t.id=:id");
 			query.setParameter("id", id);
 			topicStatusEntity = query.uniqueResultOptional().orElse(null);
 			logger.info("Topic status fetched succeddfully!");
@@ -93,14 +90,15 @@ public class TopicStatusRepositoryImpl implements TopicStatusRepository {
 	}
 
 	@Override
-	public TopicStatusEntity updateTopicStatus(Long id, TopicStatus topicStatus) throws DatabaseException, NotFoundException {
+	public TopicStatusEntity updateTopicStatus(Long id, TopicStatus topicStatus)
+			throws DatabaseException, NotFoundException {
 		logger.info("Updating topic status details!");
 		Session session = null;
 		TopicStatusEntity topicStatusEntity = null;
 		try {
 			checkStatusId(id);
 			session = sessionFactory.getCurrentSession();
-			TopicStatusEntity topicStatusDetail =new TopicStatusEntity();
+			TopicStatusEntity topicStatusDetail = new TopicStatusEntity();
 			topicStatusDetail.setBeginDate(topicStatus.getBeginDate());
 			topicStatusDetail.setStatus(topicStatus.getStatus());
 			topicStatusDetail.setCompletedDate(topicStatus.getCompletedDate());

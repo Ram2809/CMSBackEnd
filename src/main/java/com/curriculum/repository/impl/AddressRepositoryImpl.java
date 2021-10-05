@@ -12,11 +12,9 @@ import org.springframework.stereotype.Repository;
 
 import com.curriculum.dto.Address;
 import com.curriculum.entity.AddressEntity;
-import com.curriculum.entity.TeacherEntity;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.repository.AddressRepository;
 import com.curriculum.util.AddressMapper;
-import com.curriculum.util.TeacherMapper;
 
 @Repository
 @Transactional
@@ -46,17 +44,15 @@ public class AddressRepositoryImpl implements AddressRepository {
 	@Override
 	public AddressEntity getAddress(Long staffId) throws DatabaseException {
 		logger.info("Getting address details...");
-		Session session=null;
-		AddressEntity addressEntity=null;
+		Session session = null;
+		AddressEntity addressEntity = null;
 		try {
-			session=sessionFactory.getCurrentSession();
-			Query<AddressEntity> query=session.createQuery("FROM AddressEntity a WHERE a.teacher.id=:staffId");
-			query.setParameter("staffId",staffId);
-			addressEntity=query.uniqueResultOptional().orElse(null);
+			session = sessionFactory.getCurrentSession();
+			Query<AddressEntity> query = session.createQuery("FROM AddressEntity a WHERE a.teacher.id=:staffId");
+			query.setParameter("staffId", staffId);
+			addressEntity = query.uniqueResultOptional().orElse(null);
 			logger.info("Address details fetched successfully!");
-		}
-		catch(HibernateException e)
-		{
+		} catch (HibernateException e) {
 			logger.error("Error while fetching address details!");
 			throw new DatabaseException(e.getMessage());
 		}

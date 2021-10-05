@@ -78,6 +78,15 @@ public class ClassRepositoryImpl implements ClassRepository {
 		try {
 			checkClassRoom(roomNo);
 			session = sessionFactory.getCurrentSession();
+			Query<ClassEntity> query = session
+					.createQuery("FROM ClassEntity c WHERE c.standard=:standard AND c.section=:section");
+			query.setParameter("standard", classDetail.getStandard());
+			query.setParameter("section", classDetail.getSection());
+			ClassEntity classDetails = query.uniqueResultOptional().orElse(null);
+			System.out.println(classDetails);
+			if (classDetails != null) {
+				throw new NotAllowedException("Standard and section already exits!");
+			}
 			ClassEntity classEntityDetail = ClassMapper.mapClass(classDetail);
 			session.find(ClassEntity.class, roomNo);
 			ClassEntity classEntity = session.load(ClassEntity.class, roomNo);

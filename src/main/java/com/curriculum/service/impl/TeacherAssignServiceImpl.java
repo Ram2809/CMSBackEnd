@@ -2,8 +2,6 @@ package com.curriculum.service.impl;
 
 import java.util.List;
 
-import javax.validation.ConstraintViolationException;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -34,28 +32,13 @@ public class TeacherAssignServiceImpl implements TeacherAssignService {
 	public Long assignTeacherSubject(TeacherAssign teacherAssign) throws BusinessServiceException, NotFoundException {
 		try {
 			teacherRepository.checkTeacher(teacherAssign.getTeacher().getId());
-			// subjectAssignRepository.checkSubject(teacherAssign.getSubjectAssign().getId());
+			subjectAssignRepository.checkAssignId(teacherAssign.getSubjectAssign().getId());
 			return teacherAssignRepository.assignTeacherSubject(teacherAssign);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		} catch (DataIntegrityViolationException e) {
 			logger.error("Constraint Violation fails!");
 			throw new ConstraintValidationException("Constraint Violation fails!");
-		}
-	}
-
-	@Override
-	public TeacherAssignEntity updateTeacherSubjectAssign(Long id, TeacherAssign teacherAssign)
-			throws BusinessServiceException, NotFoundException {
-		try {
-			teacherRepository.checkTeacher(teacherAssign.getTeacher().getId());
-			// subjectRepository.checkSubject(teacherAssign.getSubject().getCode());
-			return teacherAssignRepository.updateTeacherSubjectAssign(id, teacherAssign);
-		} catch (DataIntegrityViolationException | ConstraintViolationException e) {
-			logger.error("Constraint Violation fails!");
-			throw new ConstraintValidationException("Constraint Violation fails!");
-		} catch (DatabaseException e) {
-			throw new BusinessServiceException(e.getMessage());
 		}
 	}
 
@@ -79,8 +62,9 @@ public class TeacherAssignServiceImpl implements TeacherAssignService {
 	}
 
 	@Override
-	public Long getTeacherId(Long id) throws BusinessServiceException {
+	public Long getTeacherId(Long id) throws BusinessServiceException, NotFoundException {
 		try {
+			subjectAssignRepository.checkAssignId(id);
 			return teacherAssignRepository.getTeacherId(id);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
@@ -89,6 +73,7 @@ public class TeacherAssignServiceImpl implements TeacherAssignService {
 
 	@Override
 	public Long updateTeacherAssign(Long assignId, Long staffId) throws BusinessServiceException, NotFoundException {
+		subjectAssignRepository.checkAssignId(assignId);
 		teacherRepository.checkTeacher(staffId);
 		try {
 			return teacherAssignRepository.updateTeacherAssign(assignId, staffId);

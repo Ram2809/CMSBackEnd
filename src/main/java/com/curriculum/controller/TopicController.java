@@ -7,8 +7,6 @@ import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -31,8 +29,6 @@ import com.curriculum.exception.NotFoundException;
 import com.curriculum.service.TopicService;
 import com.curriculum.util.Response;
 import com.curriculum.util.ResponseUtil;
-import com.curriculum.exception.SubjectNotFoundException;
-import com.curriculum.exception.UnitNotFoundException;
 
 @RestController
 @RequestMapping("api/topic")
@@ -48,7 +44,12 @@ public class TopicController {
 		String unitNo = null;
 		try {
 			unitNo = topicService.addTopic(topic);
-			responseEntity = ResponseUtil.getResponse(200, "Topic details added successfully!", topic);
+			if (unitNo.length() > 0) {
+				responseEntity = ResponseUtil.getResponse(200, "Topic details added successfully!", topic);
+			}
+			else {
+				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", topic);
+			}
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
 		} catch (NotFoundException e) {

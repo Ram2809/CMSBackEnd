@@ -35,11 +35,11 @@ public class TeacherAssignRepositoryImpl implements TeacherAssignRepository {
 		Long assignId = null;
 		try {
 			session = sessionFactory.getCurrentSession();
-			 assignId=(Long) session.save(TeacherAssignMapper.teacherAssignMapper(teacherAssign));
+			assignId = (Long) session.save(TeacherAssignMapper.teacherAssignMapper(teacherAssign));
 			if (assignId > 0) {
 				logger.info("Teacher assigned for course successfully!");
 			}
-			 logger.info("Teacher assigned for course successfully!");
+			logger.info("Teacher assigned for course successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while assigning staff for course!");
 			throw new DatabaseException(e.getMessage());
@@ -123,28 +123,20 @@ public class TeacherAssignRepositoryImpl implements TeacherAssignRepository {
 	@Override
 	public Long updateTeacherAssign(Long assignId, Long staffId) throws DatabaseException {
 		logger.info("Updating teacher assign details...");
-		Session session=null;
-		Long count=0l;
+		Session session = null;
+		Long count = 0l;
 		try {
-			session=sessionFactory.getCurrentSession();
-			Query<Long> query=session.createQuery("UPDATE TeacherAssignEntity t SET t.teacher.id=:teacherId WHERE t.subjectAssign.id=:assignId");
+			session = sessionFactory.getCurrentSession();
+			Query<Long> query = session.createQuery(
+					"UPDATE TeacherAssignEntity t SET t.teacher.id=:teacherId WHERE t.subjectAssign.id=:assignId");
 			query.setParameter("teacherId", staffId);
 			query.setParameter("assignId", assignId);
-			count=(long) query.executeUpdate();
+			count = (long) query.executeUpdate();
 			logger.info("Teacher assign details updated successfully!");
-		}
-		catch(HibernateException e)
-		{
+		} catch (HibernateException e) {
 			logger.error("Error while fetching teacher assign details!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return count;
-	}
-
-	@Override
-	public TeacherAssignEntity updateTeacherSubjectAssign(Long id, TeacherAssign teacherAssign)
-			throws DatabaseException, NotFoundException {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

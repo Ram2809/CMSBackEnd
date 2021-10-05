@@ -79,7 +79,7 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 		query.setParameter("email", email);
 		teacherEntity = query.uniqueResultOptional().orElse(null);
 		if (teacherEntity == null) {
-			throw new TeacherNotFoundException("Teacher Not Found With" + " " + email + "!");
+			throw new TeacherNotFoundException("Invalid email!");
 		}
 	}
 

@@ -2,8 +2,6 @@ package com.curriculum.repository;
 
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
-
 import com.curriculum.dto.TimeTable;
 import com.curriculum.entity.TimeTableEntity;
 import com.curriculum.exception.DatabaseException;
@@ -17,8 +15,6 @@ public interface TimeTableRepository {
 	Integer deleteTimeTable(Long roomNo) throws DatabaseException;
 
 	TimeTableEntity getTimeTableId(Long roomNo, String day) throws DatabaseException;
-
-	TimeTableEntity updateTimetable(Long id, TimeTable timetable) throws DatabaseException, NotFoundException;
 
 	Long updatePeriod(Integer period, String subject, Long id) throws DatabaseException, NotFoundException;
 

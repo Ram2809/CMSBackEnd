@@ -1,8 +1,5 @@
 package com.curriculum.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
@@ -18,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curriculum.dto.Subject;
@@ -60,11 +56,6 @@ public class SubjectController {
 		}
 		return responseEntity;
 	}
-
-//	@GetMapping("/getSubjectDetails")
-//	public ResponseEntity<List<Subject>> getAllSubjectDetails() {
-//		return subjectService.getAllSubjectDetails();
-//	}
 
 	@PutMapping("/{code}")
 	public ResponseEntity<Response> updateSubject(@PathVariable("code") String code, @RequestBody Subject subject) {
@@ -112,65 +103,6 @@ public class SubjectController {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", subjectEntity);
 			} else {
 				responseEntity = ResponseUtil.getResponse(404, "No Subject Found!");
-			}
-		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
-		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
-		}
-		return responseEntity;
-	}
-
-	@GetMapping
-	public ResponseEntity<Response> getSubjectByClass(@RequestParam("roomNo") Long roomNo) {
-		Response response = new Response();
-		ResponseEntity<Response> responseEntity = null;
-		List<SubjectEntity> subjectList = new ArrayList<>();
-		try {
-			subjectList = subjectService.getSubjectByClass(roomNo);
-			if (!subjectList.isEmpty()) {
-				responseEntity = ResponseUtil.getResponse(200, "Success!", subjectList);
-			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No subject found!");
-			}
-		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
-		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
-		}
-		return responseEntity;
-	}
-
-	@GetMapping("class/{roomNo}")
-	public ResponseEntity<Response> getSubjectName(@PathVariable("roomNo") Long roomNo) {
-		ResponseEntity<Response> responseEntity = null;
-		List<String> subjectNames = new ArrayList<>();
-		try {
-			subjectNames = subjectService.getSubjectName(roomNo);
-			if (!subjectNames.isEmpty()) {
-				responseEntity = ResponseUtil.getResponse(200, "Success!", subjectNames);
-			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No subject name found!");
-			}
-		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
-		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
-		}
-		return responseEntity;
-	}
-
-	@GetMapping("/{roomNo}/{name}")
-	public ResponseEntity<Response> getSubjectCode(@PathVariable("roomNo") Long roomNo,
-			@PathVariable("name") String name) {
-		ResponseEntity<Response> responseEntity = null;
-		String code = null;
-		try {
-			code = subjectService.getSubjectCode(roomNo, name);
-			if (code != null) {
-				responseEntity = ResponseUtil.getResponse(200, "Success!", code);
-			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No subject code found!");
 			}
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());

@@ -17,4 +17,5 @@ public interface SubjectAssignService {
 	String getSubjectCode(Long id, Long roomNo) throws BusinessServiceException, NotFoundException;
 
 	Long getRoomNo(Long id) throws NotFoundException, BusinessServiceException;
+	Long deleteSubjectAssign(Long roomNo) throws BusinessServiceException, NotFoundException;
 }

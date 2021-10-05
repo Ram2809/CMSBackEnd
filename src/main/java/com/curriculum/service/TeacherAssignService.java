@@ -10,14 +10,11 @@ import com.curriculum.exception.NotFoundException;
 public interface TeacherAssignService {
 	Long assignTeacherSubject(TeacherAssign teacherAssign) throws BusinessServiceException, NotFoundException;
 
-	TeacherAssignEntity updateTeacherSubjectAssign(Long id, TeacherAssign teacherAssign)
-			throws BusinessServiceException, NotFoundException;
-
 	TeacherAssignEntity deleteTeacherSubjectAssign(Long id) throws BusinessServiceException, NotFoundException;
 
 	List<Long> getSubjectAssignIds(Long staffId) throws BusinessServiceException, NotFoundException;
 
-	Long getTeacherId(Long id) throws BusinessServiceException;
+	Long getTeacherId(Long id) throws BusinessServiceException, NotFoundException;
 
 	Long updateTeacherAssign(Long assignId, Long staffId) throws BusinessServiceException, NotFoundException;
 }

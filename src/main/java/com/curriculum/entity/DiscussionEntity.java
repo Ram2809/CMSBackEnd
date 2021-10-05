@@ -1,9 +1,6 @@
 package com.curriculum.entity;
 
-import java.io.Serializable;
 import java.util.Date;
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,10 +12,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,7 +23,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "Discussion")
-public class DiscussionEntity implements Serializable {
+public class DiscussionEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long questionNo;
@@ -48,7 +43,7 @@ public class DiscussionEntity implements Serializable {
 	@JsonIgnore
 	private TeacherEntity teacher;
 	@ManyToOne
-	@JoinColumn(name="roomNo")
+	@JoinColumn(name = "roomNo")
 	private ClassEntity classDetail;
 
 }

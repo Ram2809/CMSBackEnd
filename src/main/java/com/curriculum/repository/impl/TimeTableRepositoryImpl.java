@@ -14,18 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.curriculum.dto.TimeTable;
-import com.curriculum.entity.ClassEntity;
-import com.curriculum.entity.SubjectEntity;
-import com.curriculum.entity.TeacherEntity;
 import com.curriculum.entity.TimeTableEntity;
-import com.curriculum.entity.TopicEntity;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotAllowedException;
 import com.curriculum.exception.NotFoundException;
-import com.curriculum.exception.TeacherNotFoundException;
 import com.curriculum.repository.TimeTableRepository;
 import com.curriculum.util.TimeTableMapper;
-import com.curriculum.util.TopicMapper;
 
 @Repository
 @Transactional
@@ -137,31 +131,6 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 	}
 
 	@Override
-	public TimeTableEntity updateTimetable(Long id, TimeTable timetable) throws DatabaseException, NotFoundException {
-		logger.info("Updating timetable details!");
-		Session session = null;
-		TimeTableEntity timetableEntity = null;
-		try {
-			checkTimetableId(id);
-			session = sessionFactory.getCurrentSession();
-			TimeTableEntity timetableDetail = TimeTableMapper.timeTableMapper(timetable);
-			session.find(TimeTableEntity.class, id);
-			TimeTableEntity updatedTimetableEntity = session.load(TimeTableEntity.class, id);
-			updatedTimetableEntity.setDay(timetableDetail.getDay());
-			updatedTimetableEntity.setPeriods(timetableDetail.getPeriods());
-			ClassEntity classEntity = new ClassEntity();
-			classEntity.setRoomNo(timetable.getClassDetail().getRoomNo());
-			updatedTimetableEntity.setClassRoom(classEntity);
-			timetableEntity = (TimeTableEntity) session.merge(updatedTimetableEntity);
-			logger.info("Timetable details updated successfully!");
-		} catch (HibernateException e) {
-			logger.error("Error while updating the timetable details!");
-			throw new DatabaseException(e.getMessage());
-		}
-		return timetableEntity;
-	}
-
-	@Override
 	public Long updatePeriod(Integer period, String subject, Long id) throws DatabaseException, NotFoundException {
 		logger.info("Updating period details..");
 		Session session = null;
@@ -207,12 +176,15 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 
 	@Override
 	public void checkTimetableId(Long id) throws NotFoundException {
+		logger.info("Checking timetable id...");
 		TimeTableEntity timetableEntity = null;
 		Session session = sessionFactory.getCurrentSession();
 		Query<TimeTableEntity> query = session.createQuery("FROM TimeTableEntity WHERE id=:id");
 		query.setParameter("id", id);
 		timetableEntity = query.uniqueResultOptional().orElse(null);
+		logger.info("Timetable id checked successfully!");
 		if (timetableEntity == null) {
+			logger.error("Error while checking timetable id!");
 			throw new NotFoundException("Timetable Not Found With" + " " + id + "!");
 		}
 	}

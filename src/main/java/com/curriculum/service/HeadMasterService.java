@@ -1,7 +1,5 @@
 package com.curriculum.service;
 
-import org.springframework.http.ResponseEntity;
-
 import com.curriculum.dto.HeadMaster;
 import com.curriculum.entity.HeadMasterEntity;
 import com.curriculum.exception.BusinessServiceException;

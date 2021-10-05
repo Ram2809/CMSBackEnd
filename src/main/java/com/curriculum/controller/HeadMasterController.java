@@ -4,8 +4,6 @@ import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,7 +21,6 @@ import com.curriculum.dto.HeadMaster;
 import com.curriculum.entity.HeadMasterEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;
-import com.curriculum.exception.HeadMasterNotFoundException;
 import com.curriculum.exception.NotFoundException;
 import com.curriculum.service.HeadMasterService;
 import com.curriculum.util.Response;
@@ -59,7 +56,6 @@ public class HeadMasterController {
 
 	@PutMapping("/{id}")
 	public ResponseEntity<Response> updateHeadMaster(@PathVariable("id") Long id, @RequestBody HeadMaster headMaster) {
-		Response response = new Response();
 		ResponseEntity<Response> responseEntity = null;
 		HeadMasterEntity headMasterEntity = null;
 		try {
@@ -83,7 +79,6 @@ public class HeadMasterController {
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Response> deleteHeadMaster(@PathVariable("id") Long id) {
-		Response response = new Response();
 		ResponseEntity<Response> responseEntity = null;
 		HeadMasterEntity headMasterEntity = null;
 		try {
@@ -104,7 +99,6 @@ public class HeadMasterController {
 
 	@GetMapping("/{email}")
 	public ResponseEntity<Response> getHeadMaster(@PathVariable("email") String email) {
-		Response response = new Response();
 		ResponseEntity<Response> responseEntity = null;
 		HeadMasterEntity headMasterEntity = null;
 		try {

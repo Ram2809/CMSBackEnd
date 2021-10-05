@@ -1,6 +1,5 @@
 package com.curriculum.entity;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
@@ -17,11 +16,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -31,7 +26,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "Teacher")
-public class TeacherEntity implements Serializable {
+public class TeacherEntity {
 	@Id
 	private Long id;
 	@NotNull
@@ -60,10 +55,9 @@ public class TeacherEntity implements Serializable {
 	@OneToMany(mappedBy = "teacher", fetch = FetchType.EAGER)
 	@JsonIgnore
 	private Set<DiscussionEntity> discussions;
-	@OneToOne(mappedBy = "teacher", fetch = FetchType.EAGER,cascade=CascadeType.ALL,orphanRemoval=true)
+	@OneToOne(mappedBy = "teacher", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
 	private LoginEntity login;
-	@OneToOne(mappedBy = "teacher")
-	//@JsonIgnore
+	@OneToOne(mappedBy = "teacher",fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	private AddressEntity address;
 }

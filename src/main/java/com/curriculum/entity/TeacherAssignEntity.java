@@ -1,9 +1,5 @@
 package com.curriculum.entity;
 
-import java.io.Serializable;
-import java.util.Date;
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +19,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "TeacherAssign")
-public class TeacherAssignEntity implements Serializable {
+public class TeacherAssignEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

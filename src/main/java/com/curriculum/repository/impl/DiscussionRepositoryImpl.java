@@ -15,8 +15,6 @@ import org.springframework.stereotype.Repository;
 
 import com.curriculum.dto.Discussion;
 import com.curriculum.entity.DiscussionEntity;
-import com.curriculum.entity.TeacherEntity;
-import com.curriculum.entity.TopicEntity;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
 import com.curriculum.exception.QuestionNotFoundException;
@@ -49,13 +47,15 @@ public class DiscussionRepositoryImpl implements DiscussionRepository {
 	}
 
 	@Override
-	public List<DiscussionEntity> getDiscussionByUnitNo(String unitNo,Long roomNo,Long staffId) throws DatabaseException {
+	public List<DiscussionEntity> getDiscussionByUnitNo(String unitNo, Long roomNo, Long staffId)
+			throws DatabaseException {
 		logger.info("Getting discussion details by Unit Number!");
 		Session session = null;
 		List<DiscussionEntity> discussionList = new ArrayList<>();
 		try {
 			session = sessionFactory.getCurrentSession();
-			Query<DiscussionEntity> query = session.createQuery("FROM DiscussionEntity d WHERE d.topic.unitNo=:unitId AND d.classDetail.roomNo=:roomNo AND d.teacher.id=:teacherId");
+			Query<DiscussionEntity> query = session.createQuery(
+					"FROM DiscussionEntity d WHERE d.topic.unitNo=:unitId AND d.classDetail.roomNo=:roomNo AND d.teacher.id=:teacherId");
 			query.setParameter("unitId", unitNo);
 			query.setParameter("roomNo", roomNo);
 			query.setParameter("teacherId", staffId);
@@ -96,12 +96,6 @@ public class DiscussionRepositoryImpl implements DiscussionRepository {
 			updatedDiscussionEntity.setQuestion(discussionDetail.getQuestion());
 			updatedDiscussionEntity.setAnswer(discussionDetail.getAnswer());
 			updatedDiscussionEntity.setDate(discussionDetail.getDate());
-//			TopicEntity topicEntity = new TopicEntity();
-//			topicEntity.setUnitNo(discussionDetail.getTopic().getUnitNo());
-//			updatedDiscussionEntity.setTopic(topicEntity);
-//			TeacherEntity teacherEntity = new TeacherEntity();
-//			teacherEntity.setId(discussionDetail.getTeacher().getId());
-//			updatedDiscussionEntity.setTeacher(teacherEntity);
 			discussionEntity = (DiscussionEntity) session.merge(updatedDiscussionEntity);
 			logger.info("Discussion details are updated successfully!");
 		} catch (HibernateException e) {
@@ -162,7 +156,8 @@ public class DiscussionRepositoryImpl implements DiscussionRepository {
 		List<DiscussionEntity> discussionList = new ArrayList<>();
 		try {
 			session = sessionFactory.getCurrentSession();
-			Query<DiscussionEntity> query = session.createQuery("FROM DiscussionEntity d WHERE d.topic.unitNo=:unitId AND d.classDetail.roomNo=:roomNo");
+			Query<DiscussionEntity> query = session.createQuery(
+					"FROM DiscussionEntity d WHERE d.topic.unitNo=:unitId AND d.classDetail.roomNo=:roomNo");
 			query.setParameter("unitId", unitNo);
 			query.setParameter("roomNo", roomNo);
 			discussionList = query.list();

@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.curriculum.dto.Teacher;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
@@ -37,7 +36,7 @@ public class AddressEntity {
 	private String country;
 	@Column(length = 6)
 	private Long pinCode;
-	@OneToOne(targetEntity = TeacherEntity.class,fetch=FetchType.EAGER)
+	@OneToOne(targetEntity = TeacherEntity.class, fetch = FetchType.EAGER)
 	@JoinColumn(name = "teacherId", unique = true)
 	@JsonIgnore
 	private TeacherEntity teacher;

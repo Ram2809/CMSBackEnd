@@ -61,7 +61,7 @@ public class DiscussionController {
 
 	@GetMapping("/{unitNo}/{roomNo}/{staffId}")
 	public ResponseEntity<Response> getDiscussionByUnitNo(@PathVariable("unitNo") String unitNo,@PathVariable("roomNo") Long roomNo,@PathVariable("staffId") Long staffId) {
-		ResponseEntity responseEntity = null;
+		ResponseEntity<Response> responseEntity = null;
 		List<DiscussionEntity> discussionsList = new ArrayList<>();
 		try {
 			discussionsList = discussionService.getDiscussionByUnitNo(unitNo,roomNo,staffId);
@@ -79,7 +79,7 @@ public class DiscussionController {
 	}
 	@GetMapping("/{unitNo}/{roomNo}")
 	public ResponseEntity<Response> getDiscussionByRoomNo(@PathVariable("unitNo") String unitNo,@PathVariable("roomNo") Long roomNo) {
-		ResponseEntity responseEntity = null;
+		ResponseEntity<Response> responseEntity = null;
 		List<DiscussionEntity> discussionsList = new ArrayList<>();
 		try {
 			discussionsList = discussionService.getDiscussionByRoomNo(unitNo,roomNo);

@@ -1,8 +1,5 @@
 package com.curriculum.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.curriculum.dto.Address;
-import com.curriculum.dto.Topic;
 import com.curriculum.dto.TopicStatus;
-import com.curriculum.entity.TopicEntity;
 import com.curriculum.entity.TopicStatusEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;

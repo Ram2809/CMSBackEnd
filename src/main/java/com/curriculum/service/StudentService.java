@@ -10,8 +10,6 @@ import com.curriculum.exception.NotFoundException;
 public interface StudentService {
 	Long addStudent(Student student) throws BusinessServiceException, NotFoundException;
 
-//	ResponseEntity<List<Student>> getAllStudentDetails();
-//
 	StudentEntity updateStudent(Long rollNo, Student student) throws NotFoundException, BusinessServiceException;
 
 	StudentEntity deleteStudent(Long rollNo) throws BusinessServiceException, NotFoundException;

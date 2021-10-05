@@ -1,8 +1,5 @@
 package com.curriculum.repository.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.transaction.Transactional;
 
 import org.apache.log4j.Logger;
@@ -46,24 +43,6 @@ public class SubjectRepositoryImpl implements SubjectRepository {
 		return subjectCode;
 	}
 
-//	@Override
-//	public ResponseEntity<List<Subject>> getAllSubjectDetails() {
-//		ResponseEntity<List<Subject>> response=null;
-//		Session session=null;
-//		List<Subject> subjectList=new ArrayList<>();
-//		try
-//		{
-//			session=sessionFactory.getCurrentSession();
-//			Query query=session.createQuery("FROM Subject s");
-//			subjectList=query.list();
-//			response=new ResponseEntity<List<Subject>>(subjectList,new HttpHeaders(),HttpStatus.OK);
-//		}
-//		catch(HibernateException e)
-//		{
-//			e.printStackTrace();
-//		}
-//		return response;
-//	}
 	public void checkSubject(String code) throws SubjectNotFoundException {
 		Session session = sessionFactory.getCurrentSession();
 		Query<SubjectEntity> query = session.createQuery("FROM SubjectEntity WHERE code=:subjectCode");
@@ -138,58 +117,5 @@ public class SubjectRepositoryImpl implements SubjectRepository {
 			throw new DatabaseException(e.getMessage());
 		}
 		return subject;
-	}
-
-	@Override
-	public List<SubjectEntity> getSubjectByClass(Long roomNo) throws DatabaseException {
-		logger.info("Getting subject details by class!");
-		Session session = null;
-		List<SubjectEntity> subjectList = new ArrayList<>();
-		try {
-			session = sessionFactory.getCurrentSession();
-			Query<SubjectEntity> query = session.createQuery("FROM SubjectEntity WHERE roomNo=:roomId");
-			query.setParameter("roomId", roomNo);
-			subjectList = query.list();
-			logger.info("Subject details are fetched successfully!");
-		} catch (HibernateException e) {
-			logger.error("Error while fetching the subject details!");
-			throw new DatabaseException(e.getMessage());
-		}
-		return subjectList;
-	}
-
-	@Override
-	public List<String> getSubjectName(Long roomNo) throws DatabaseException {
-		logger.info("Getting subject names!");
-		Session session = null;
-		List<String> subjectNames = new ArrayList<>();
-		try {
-			session = sessionFactory.getCurrentSession();
-			Query query = session.createQuery("SELECT s.name FROM SubjectEntity s WHERE s.classRoom.roomNo=:roomId");
-			query.setParameter("roomId", roomNo);
-			subjectNames = query.getResultList();
-			logger.info("Subject Names fetched successfully!");
-		} catch (HibernateException e) {
-			logger.error("Error while fetching the subject names!");
-			throw new DatabaseException(e.getMessage());
-		}
-		return subjectNames;
-	}
-
-	@Override
-	public String getSubjectCode(Long roomNo, String name) throws DatabaseException {
-		Session session = null;
-		String code = "";
-		try {
-			session = sessionFactory.getCurrentSession();
-			Query<String> query = session.createQuery(
-					"SELECT s.code FROM SubjectEntity s WHERE s.name=:subjectName AND s.classRoom.roomNo=:roomId");
-			query.setParameter("subjectName", name);
-			query.setParameter("roomId", roomNo);
-			code = query.uniqueResult();
-		} catch (HibernateException e) {
-			throw new DatabaseException(e.getMessage());
-		}
-		return code;
 	}
 }

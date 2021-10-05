@@ -10,9 +10,6 @@ import com.curriculum.exception.NotFoundException;
 public interface TeacherAssignRepository {
 	Long assignTeacherSubject(TeacherAssign teacherAssign) throws DatabaseException;
 
-	TeacherAssignEntity updateTeacherSubjectAssign(Long id, TeacherAssign teacherAssign)
-			throws DatabaseException, NotFoundException;
-
 	TeacherAssignEntity deleteTeacherSubjectAssign(Long assignId) throws DatabaseException, NotFoundException;
 
 	List<Long> getSubjectAssignIds(Long staffId) throws DatabaseException;

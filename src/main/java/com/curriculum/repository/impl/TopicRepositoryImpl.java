@@ -54,7 +54,7 @@ public class TopicRepositoryImpl implements TopicRepository {
 		List<TopicEntity> topicsList = new ArrayList<>();
 		try {
 			session = sessionFactory.getCurrentSession();
-			Query query = session.createQuery("FROM TopicEntity t WHERE t.subject.code=:subjectCode");
+			Query<TopicEntity> query = session.createQuery("FROM TopicEntity t WHERE t.subject.code=:subjectCode");
 			query.setParameter("subjectCode", subjectCode);
 			topicsList = query.getResultList();
 			logger.info("Unit details are fetched successfully!");

@@ -3,18 +3,15 @@ package com.curriculum.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.validation.Valid;
-
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curriculum.dto.SubjectAssign;
@@ -34,7 +31,6 @@ public class SubjectAssignController {
 
 	@Autowired
 	private SubjectAssignService subjectAssignService;
-	private Logger logger = Logger.getLogger(SubjectAssignController.class);
 
 	@PostMapping
 	public ResponseEntity<Response> addSubjectAssign(@RequestBody SubjectAssign subjectAssign) {
@@ -43,7 +39,7 @@ public class SubjectAssignController {
 		try {
 			id = subjectAssignService.addSubjectAssign(subjectAssign);
 			if (id > 0) {
-				responseEntity = ResponseUtil.getResponse(200, "Subject assigned for class  successfully!",
+				responseEntity = ResponseUtil.getResponse(200, "Subject assigned for class successfully!",
 						subjectAssign);
 			} else {
 				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
@@ -100,15 +96,15 @@ public class SubjectAssignController {
 	}
 
 	@GetMapping("/subject/{id}/{roomNo}")
-	public ResponseEntity<Response> getSubjectCode(@PathVariable("id") Long id,@PathVariable("roomNo") Long roomNo) {
+	public ResponseEntity<Response> getSubjectCode(@PathVariable("id") Long id, @PathVariable("roomNo") Long roomNo) {
 		ResponseEntity<Response> responseEntity = null;
 		String subjectCode = null;
 		try {
-			subjectCode = subjectAssignService.getSubjectCode(id,roomNo);
+			subjectCode = subjectAssignService.getSubjectCode(id, roomNo);
 			if (subjectCode != null) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", subjectCode);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!"+" "+id+"!", subjectCode);
+				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!" + " " + id + "!", subjectCode);
 			}
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
@@ -117,6 +113,7 @@ public class SubjectAssignController {
 		}
 		return responseEntity;
 	}
+
 	@GetMapping("/subject/{id}")
 	public ResponseEntity<Response> getRoomNo(@PathVariable("id") Long id) {
 		ResponseEntity<Response> responseEntity = null;
@@ -126,7 +123,23 @@ public class SubjectAssignController {
 			if (roomNo != 0) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", roomNo);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!"+" "+id+"!", roomNo);
+				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!" + " " + id + "!", roomNo);
+			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+		}
+		return responseEntity;
+	}
+	@DeleteMapping("/{roomNo}")
+	public ResponseEntity<Response> deleteSubjectAssign(@PathVariable("roomNo") Long roomNo) {
+		ResponseEntity<Response> responseEntity = null;
+		Long count = null;
+		try {
+			count = subjectAssignService.deleteSubjectAssign(roomNo);
+			if (count >0) {
+				responseEntity = ResponseUtil.getResponse(200, "Subject Assign details deleted successfully!", count);
 			}
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());

@@ -17,9 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curriculum.dto.Address;
-import com.curriculum.dto.Teacher;
 import com.curriculum.entity.AddressEntity;
-import com.curriculum.entity.TeacherEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.NotFoundException;
@@ -29,7 +27,7 @@ import com.curriculum.util.ResponseUtil;
 
 @RestController
 @RequestMapping("api/address")
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:4200")
 public class AddressController {
 	@Autowired
 	private AddressService addressService;
@@ -59,11 +57,11 @@ public class AddressController {
 		return responseEntity;
 	}
 	@GetMapping("/{staffId}")
-	public ResponseEntity<Response> getAddress(@PathVariable("staffId") Long id) {
+	public ResponseEntity<Response> getAddress(@PathVariable("staffId") Long staffId) {
 		ResponseEntity<Response> responseEntity = null;
 		AddressEntity addressEntity = null;
 		try {
-			addressEntity = addressService.getAddress(id);
+			addressEntity = addressService.getAddress(staffId);
 			responseEntity = ResponseUtil.getResponse(200, "Success!", addressEntity);
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
@@ -78,7 +76,7 @@ public class AddressController {
 		AddressEntity addressEntity = null;
 		try {
 			addressEntity = addressService.updateAddress(id, address);
-			responseEntity = ResponseUtil.getResponse(200, "Teacher Details Updated Successfully!", addressEntity);
+			responseEntity = ResponseUtil.getResponse(200, "Teacher Address Details Updated Successfully!", addressEntity);
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
 		} catch (NotFoundException e) {

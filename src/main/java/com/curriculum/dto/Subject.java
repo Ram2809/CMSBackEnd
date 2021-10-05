@@ -5,9 +5,6 @@ import java.util.Set;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.curriculum.entity.SubjectAssignEntity;
-import com.curriculum.entity.TopicEntity;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

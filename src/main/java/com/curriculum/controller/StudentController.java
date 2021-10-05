@@ -7,8 +7,6 @@ import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,7 +23,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import com.curriculum.dto.Student;
 import com.curriculum.entity.StudentEntity;
-import com.curriculum.entity.TeacherEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.NotFoundException;
@@ -50,7 +47,7 @@ public class StudentController {
 			rollNo = studentService.addStudent(student);
 			if (student != null) {
 				student.setRollNo(rollNo);
-				responseEntity = ResponseUtil.getResponse(200, "Student details deleted successfully!", student);
+				responseEntity = ResponseUtil.getResponse(200, "Student details added successfully!", student);
 			} else {
 				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
 			}

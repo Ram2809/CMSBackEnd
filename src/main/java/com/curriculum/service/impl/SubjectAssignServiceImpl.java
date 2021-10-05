@@ -4,13 +4,13 @@ import java.util.List;
 
 import javax.validation.ConstraintViolationException;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.curriculum.dto.SubjectAssign;
 import com.curriculum.entity.SubjectAssignEntity;
-import com.curriculum.entity.SubjectEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.DatabaseException;
@@ -28,6 +28,7 @@ public class SubjectAssignServiceImpl implements SubjectAssignService {
 	private SubjectRepository subjectRepository;
 	@Autowired
 	private ClassRepository classRepository;
+	private Logger logger = Logger.getLogger(SubjectAssignServiceImpl.class);
 
 	@Override
 	public Long addSubjectAssign(SubjectAssign subjectAssign) throws BusinessServiceException, NotFoundException {
@@ -38,7 +39,7 @@ public class SubjectAssignServiceImpl implements SubjectAssignService {
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		} catch (DataIntegrityViolationException | ConstraintViolationException e) {
-			// logger.error("Constraint Violation fails!");
+			logger.error("Constraint Violation fails!");
 			throw new ConstraintValidationException("Constraint Violation fails!");
 		}
 	}
@@ -65,10 +66,10 @@ public class SubjectAssignServiceImpl implements SubjectAssignService {
 	}
 
 	@Override
-	public String getSubjectCode(Long id,Long roomNo) throws BusinessServiceException, NotFoundException {
+	public String getSubjectCode(Long id, Long roomNo) throws BusinessServiceException, NotFoundException {
 		try {
 			classRepository.checkClassRoom(roomNo);
-			return subjectAssignRepository.getSubjectCode(id,roomNo);
+			return subjectAssignRepository.getSubjectCode(id, roomNo);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -80,7 +81,17 @@ public class SubjectAssignServiceImpl implements SubjectAssignService {
 			return subjectAssignRepository.getRoomNo(id);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
-		} 
+		}
+	}
+
+	@Override
+	public Long deleteSubjectAssign(Long roomNo) throws BusinessServiceException,NotFoundException  {
+		classRepository.checkClassRoom(roomNo);
+		try {
+			return subjectAssignRepository.deleteSubjectAssign(roomNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
 	}
 
 }

@@ -77,7 +77,6 @@ public class LoginController {
 	public ResponseEntity<Response> updateLogin(@PathVariable("teacherId") Long teacherId,
 			@Valid @RequestBody Login login) {
 		ResponseEntity<Response> responseEntity = null;
-		Response response = new Response();
 		LoginEntity loginEntity = null;
 		try {
 			loginEntity = loginService.updateLogin(teacherId, login);

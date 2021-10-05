@@ -3,8 +3,6 @@ package com.curriculum.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -41,27 +39,6 @@ public class TeacherAssignController {
 			assignId = teacherAssignService.assignTeacherSubject(teacherAssign);
 			teacherAssign.setId(assignId);
 			responseEntity = ResponseUtil.getResponse(200, "Teacher assigned for subject successfully!", teacherAssign);
-		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
-		} catch (NotFoundException e) {
-			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
-			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
-			}
-		}
-		return responseEntity;
-	}
-
-	@PutMapping("/{id}")
-	public ResponseEntity<Response> updateTeacherSubjectAssign(@PathVariable("id") Long id,
-			@RequestBody TeacherAssign teacherAssign) {
-		ResponseEntity<Response> responseEntity = null;
-		TeacherAssignEntity teacherAssignEntity = null;
-		try {
-			teacherAssignEntity = teacherAssignService.updateTeacherSubjectAssign(id, teacherAssign);
-			responseEntity = ResponseUtil.getResponse(200, "Teacher assigned for subject successfully!",
-					teacherAssignEntity);
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
 		} catch (NotFoundException e) {
@@ -126,21 +103,20 @@ public class TeacherAssignController {
 			}
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
 		}
-//		} catch (NotFoundException e) {
-//			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
-//		}
 		return responseEntity;
 	}
-	
+
 	@PutMapping("/{assignId}/{staffId}")
-	public ResponseEntity<Response> updateTeacherAssign(@PathVariable("assignId") Long assignId,@PathVariable("staffId") Long staffId,@RequestBody TeacherAssign teacherAssign)
-	{
-		ResponseEntity<Response> responseEntity=null;
+	public ResponseEntity<Response> updateTeacherAssign(@PathVariable("assignId") Long assignId,
+			@PathVariable("staffId") Long staffId, @RequestBody TeacherAssign teacherAssign) {
+		ResponseEntity<Response> responseEntity = null;
 		Long count = null;
 		try {
-			count = teacherAssignService.updateTeacherAssign(assignId,staffId);
-			if (count>0) {
+			count = teacherAssignService.updateTeacherAssign(assignId, staffId);
+			if (count > 0) {
 				responseEntity = ResponseUtil.getResponse(200, "Teacher Assigned for course successfully!", count);
 			} else {
 				responseEntity = ResponseUtil.getResponse(404, "No Assign Id Found!");

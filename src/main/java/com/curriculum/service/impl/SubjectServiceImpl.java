@@ -1,7 +1,5 @@
 package com.curriculum.service.impl;
 
-import java.util.List;
-
 import javax.validation.ConstraintViolationException;
 
 import org.apache.log4j.Logger;
@@ -15,7 +13,6 @@ import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
-import com.curriculum.repository.ClassRepository;
 import com.curriculum.repository.SubjectRepository;
 import com.curriculum.service.SubjectService;
 
@@ -23,8 +20,6 @@ import com.curriculum.service.SubjectService;
 public class SubjectServiceImpl implements SubjectService {
 	@Autowired
 	private SubjectRepository subjectRepository;
-	@Autowired
-	private ClassRepository classRepository;
 	private Logger logger = Logger.getLogger(SubjectServiceImpl.class);
 
 	@Override
@@ -69,35 +64,4 @@ public class SubjectServiceImpl implements SubjectService {
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
-
-	@Override
-	public List<SubjectEntity> getSubjectByClass(Long roomNo) throws BusinessServiceException, NotFoundException {
-		try {
-			classRepository.checkClassRoom(roomNo);
-			return subjectRepository.getSubjectByClass(roomNo);
-		} catch (DatabaseException e) {
-			throw new BusinessServiceException(e.getMessage());
-		}
-	}
-
-	@Override
-	public List<String> getSubjectName(Long roomNo) throws BusinessServiceException, NotFoundException {
-		try {
-			classRepository.checkClassRoom(roomNo);
-			return subjectRepository.getSubjectName(roomNo);
-		} catch (DatabaseException e) {
-			throw new BusinessServiceException(e.getMessage());
-		}
-	}
-
-	@Override
-	public String getSubjectCode(Long roomNo, String name) throws BusinessServiceException, NotFoundException {
-		try {
-			classRepository.checkClassRoom(roomNo);
-			return subjectRepository.getSubjectCode(roomNo, name);
-		} catch (DatabaseException e) {
-			throw new BusinessServiceException(e.getMessage());
-		}
-	}
-
 }
