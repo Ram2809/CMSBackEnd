@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "HeadMaster")
 public class HeadMasterEntity {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotNull
 	private String firstName;
@@ -49,6 +49,6 @@ public class HeadMasterEntity {
 	private Long contactNo;
 	@NotNull
 	private String address;
-	@Size(min=8)
+	@Size(min = 8)
 	private String password;
 }

@@ -7,6 +7,8 @@ import com.curriculum.exception.NotFoundException;
 
 public interface AddressService {
 	Long addAddress(Address address) throws BusinessServiceException, NotFoundException;
+
 	AddressEntity getAddress(Long staffId) throws NotFoundException, BusinessServiceException;
-	AddressEntity updateAddress(Long id,Address address) throws BusinessServiceException, NotFoundException;
+
+	AddressEntity updateAddress(Long id, Address address) throws BusinessServiceException, NotFoundException;
 }

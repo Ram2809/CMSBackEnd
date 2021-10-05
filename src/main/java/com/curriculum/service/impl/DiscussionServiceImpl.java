@@ -49,11 +49,11 @@ public class DiscussionServiceImpl implements DiscussionService {
 	}
 
 	@Override
-	public List<DiscussionEntity> getDiscussionByUnitNo(String unitNo,Long roomNo,Long staffId)
+	public List<DiscussionEntity> getDiscussionByUnitNo(String unitNo, Long roomNo, Long staffId)
 			throws BusinessServiceException, NotFoundException {
 		try {
 			topicRepository.checkTopic(unitNo);
-			return discussionRepository.getDiscussionByUnitNo(unitNo,roomNo,staffId);
+			return discussionRepository.getDiscussionByUnitNo(unitNo, roomNo, staffId);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}

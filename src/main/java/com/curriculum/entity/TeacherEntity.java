@@ -58,6 +58,6 @@ public class TeacherEntity {
 	@OneToOne(mappedBy = "teacher", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	@JsonIgnore
 	private LoginEntity login;
-	@OneToOne(mappedBy = "teacher",fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@OneToOne(mappedBy = "teacher", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private AddressEntity address;
 }

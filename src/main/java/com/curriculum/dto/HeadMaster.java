@@ -37,6 +37,6 @@ public class HeadMaster {
 	private Long contactNo;
 	@NotNull
 	private String address;
-	@Size(min=8)
+	@Size(min = 8)
 	private String password;
 }

@@ -142,17 +142,16 @@ public class SubjectAssignRepositoryImpl implements SubjectAssignRepository {
 	@Override
 	public Long deleteSubjectAssign(Long roomNo) throws DatabaseException {
 		logger.info("Deleting subject assign details...");
-		Session session=null;
-		Long count=0l;
+		Session session = null;
+		Long count = 0l;
 		try {
-			session=sessionFactory.getCurrentSession();
-			Query<Long> query=session.createQuery("DELETE FROM SubjectAssignEntity s WHERE s.classDetail.roomNo=:roomNo");
+			session = sessionFactory.getCurrentSession();
+			Query<Long> query = session
+					.createQuery("DELETE FROM SubjectAssignEntity s WHERE s.classDetail.roomNo=:roomNo");
 			query.setParameter("roomNo", roomNo);
-			count=(long) query.executeUpdate();
+			count = (long) query.executeUpdate();
 			logger.info("Subject Assign details deleted successfully!");
-		}
-		catch(HibernateException e)
-		{
+		} catch (HibernateException e) {
 			logger.error("Error while deleting the subject assign details!");
 			throw new DatabaseException(e.getMessage());
 		}

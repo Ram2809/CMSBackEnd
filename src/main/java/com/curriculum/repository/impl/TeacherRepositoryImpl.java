@@ -72,6 +72,7 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 			throw new TeacherNotFoundException("Teacher Not Found With" + " " + id + "!");
 		}
 	}
+
 	public void checkTeacher(String email) throws TeacherNotFoundException {
 		TeacherEntity teacherEntity = null;
 		Session session = sessionFactory.getCurrentSession();

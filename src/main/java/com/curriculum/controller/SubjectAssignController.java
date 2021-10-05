@@ -132,13 +132,14 @@ public class SubjectAssignController {
 		}
 		return responseEntity;
 	}
+
 	@DeleteMapping("/{roomNo}")
 	public ResponseEntity<Response> deleteSubjectAssign(@PathVariable("roomNo") Long roomNo) {
 		ResponseEntity<Response> responseEntity = null;
 		Long count = null;
 		try {
 			count = subjectAssignService.deleteSubjectAssign(roomNo);
-			if (count >0) {
+			if (count > 0) {
 				responseEntity = ResponseUtil.getResponse(200, "Subject Assign details deleted successfully!", count);
 			}
 		} catch (BusinessServiceException e) {

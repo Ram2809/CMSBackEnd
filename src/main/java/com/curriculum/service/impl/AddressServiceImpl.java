@@ -47,9 +47,9 @@ public class AddressServiceImpl implements AddressService {
 	}
 
 	@Override
-	public AddressEntity updateAddress(Long id, Address address) throws BusinessServiceException, NotFoundException{
+	public AddressEntity updateAddress(Long id, Address address) throws BusinessServiceException, NotFoundException {
 		try {
-			return addressRepository.updateAddress(id,address);
+			return addressRepository.updateAddress(id, address);
 		} catch (DataIntegrityViolationException e) {
 			logger.error("Constraint Violation fails!");
 			throw new ConstraintValidationException("Constraint Violation fails!");

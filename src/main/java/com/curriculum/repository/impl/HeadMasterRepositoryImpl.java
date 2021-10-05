@@ -51,6 +51,7 @@ public class HeadMasterRepositoryImpl implements HeadMasterRepository {
 			throw new HeadMasterNotFoundException("Head master not found with" + " " + id + "!");
 		}
 	}
+
 	public void checkHeadMaster(String email) throws HeadMasterNotFoundException {
 		Session session = sessionFactory.getCurrentSession();
 		Query<HeadMasterEntity> query = session.createQuery("FROM HeadMasterEntity WHERE email=:email");

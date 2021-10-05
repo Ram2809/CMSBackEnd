@@ -19,7 +19,7 @@ public class DiscussionMapper {
 		TeacherEntity teacherEntity = new TeacherEntity();
 		teacherEntity.setId(discussion.getTeacher().getId());
 		discussionEntity.setTeacher(teacherEntity);
-		ClassEntity classEntity=new ClassEntity();
+		ClassEntity classEntity = new ClassEntity();
 		classEntity.setRoomNo(discussion.getClassDetail().getRoomNo());
 		discussionEntity.setClassDetail(classEntity);
 		return discussionEntity;

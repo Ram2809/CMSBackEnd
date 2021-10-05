@@ -11,9 +11,10 @@ public interface TopicStatusService {
 	TopicStatusEntity getStatusByUnitNo(String unitNo, Long staffId, Long roomNo)
 			throws NotFoundException, BusinessServiceException;
 
-	TopicStatusEntity getTopicStatus(Long id) throws BusinessServiceException,NotFoundException;
+	TopicStatusEntity getTopicStatus(Long id) throws BusinessServiceException, NotFoundException;
 
-	TopicStatusEntity updateTopicStatus(Long id, TopicStatus topicStatus) throws BusinessServiceException,NotFoundException;
-	
-	TopicStatusEntity deleteTopicStatus(Long id) throws BusinessServiceException,NotFoundException;
+	TopicStatusEntity updateTopicStatus(Long id, TopicStatus topicStatus)
+			throws BusinessServiceException, NotFoundException;
+
+	TopicStatusEntity deleteTopicStatus(Long id) throws BusinessServiceException, NotFoundException;
 }

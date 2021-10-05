@@ -6,6 +6,8 @@ import com.curriculum.exception.DatabaseException;
 
 public interface AddressRepository {
 	Long addAddress(Address address) throws DatabaseException;
+
 	AddressEntity getAddress(Long staffId) throws DatabaseException;
-	AddressEntity updateAddress(Long id,Address address) throws DatabaseException;
+
+	AddressEntity updateAddress(Long id, Address address) throws DatabaseException;
 }

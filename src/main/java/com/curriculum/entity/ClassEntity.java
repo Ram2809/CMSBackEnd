@@ -39,7 +39,7 @@ public class ClassEntity {
 	@OneToMany(mappedBy = "classRoom", fetch = FetchType.EAGER)
 	@JsonIgnore
 	private Set<TimeTableEntity> timeTable;
-	@OneToMany(mappedBy="classDetail",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "classDetail", fetch = FetchType.EAGER)
 	@JsonIgnore
 	private Set<DiscussionEntity> discussion;
 

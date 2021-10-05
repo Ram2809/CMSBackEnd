@@ -18,10 +18,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name="Topicstatus")
+@Table(name = "Topicstatus")
 public class TopicStatusEntity {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Temporal(TemporalType.DATE)
 	private Date beginDate;
@@ -30,12 +30,12 @@ public class TopicStatusEntity {
 	private Date completedDate;
 	private String remarks;
 	@ManyToOne
-	@JoinColumn(name="unitNo")
+	@JoinColumn(name = "unitNo")
 	private TopicEntity topic;
 	@ManyToOne
-	@JoinColumn(name="teacherId")
+	@JoinColumn(name = "teacherId")
 	private TeacherEntity teacher;
 	@ManyToOne
-	@JoinColumn(name="roomNo")
+	@JoinColumn(name = "roomNo")
 	private ClassEntity classDetail;
 }

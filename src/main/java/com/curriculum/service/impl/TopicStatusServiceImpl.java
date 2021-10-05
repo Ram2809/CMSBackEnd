@@ -27,7 +27,8 @@ public class TopicStatusServiceImpl implements TopicStatusService {
 	private ClassRepository classRepository;
 
 	@Override
-	public Long addTopicStatus(TopicStatus topicStatus) throws NotFoundException, BusinessServiceException, NotAllowedException {
+	public Long addTopicStatus(TopicStatus topicStatus)
+			throws NotFoundException, BusinessServiceException, NotAllowedException {
 		topicRepository.checkTopic(topicStatus.getTopic().getUnitNo());
 		teacherRepository.checkTeacher(topicStatus.getTeacher().getId());
 		classRepository.checkClassRoom(topicStatus.getClassDetail().getRoomNo());
@@ -39,12 +40,13 @@ public class TopicStatusServiceImpl implements TopicStatusService {
 	}
 
 	@Override
-	public TopicStatusEntity getStatusByUnitNo(String unitNo, Long staffId, Long roomNo) throws NotFoundException, BusinessServiceException {
+	public TopicStatusEntity getStatusByUnitNo(String unitNo, Long staffId, Long roomNo)
+			throws NotFoundException, BusinessServiceException {
 		topicRepository.checkTopic(unitNo);
 		teacherRepository.checkTeacher(staffId);
 		classRepository.checkClassRoom(roomNo);
 		try {
-			return topicStatusRepository.getStatusByUnitNo(unitNo,staffId,roomNo);
+			return topicStatusRepository.getStatusByUnitNo(unitNo, staffId, roomNo);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -60,9 +62,10 @@ public class TopicStatusServiceImpl implements TopicStatusService {
 	}
 
 	@Override
-	public TopicStatusEntity updateTopicStatus(Long id, TopicStatus topicStatus) throws BusinessServiceException, NotFoundException {
+	public TopicStatusEntity updateTopicStatus(Long id, TopicStatus topicStatus)
+			throws BusinessServiceException, NotFoundException {
 		try {
-			return topicStatusRepository.updateTopicStatus(id,topicStatus);
+			return topicStatusRepository.updateTopicStatus(id, topicStatus);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}

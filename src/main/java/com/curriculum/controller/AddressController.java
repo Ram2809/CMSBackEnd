@@ -56,6 +56,7 @@ public class AddressController {
 		}
 		return responseEntity;
 	}
+
 	@GetMapping("/{staffId}")
 	public ResponseEntity<Response> getAddress(@PathVariable("staffId") Long staffId) {
 		ResponseEntity<Response> responseEntity = null;
@@ -70,13 +71,15 @@ public class AddressController {
 		}
 		return responseEntity;
 	}
+
 	@PutMapping("/{id}")
 	public ResponseEntity<Response> updateAddress(@PathVariable("id") Long id, @RequestBody Address address) {
 		ResponseEntity<Response> responseEntity = null;
 		AddressEntity addressEntity = null;
 		try {
 			addressEntity = addressService.updateAddress(id, address);
-			responseEntity = ResponseUtil.getResponse(200, "Teacher Address Details Updated Successfully!", addressEntity);
+			responseEntity = ResponseUtil.getResponse(200, "Teacher Address Details Updated Successfully!",
+					addressEntity);
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
 		} catch (NotFoundException e) {

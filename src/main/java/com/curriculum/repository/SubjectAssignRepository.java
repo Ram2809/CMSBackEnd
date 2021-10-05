@@ -20,5 +20,6 @@ public interface SubjectAssignRepository {
 	void checkAssignId(Long id) throws AssignIdNotFoundException;
 
 	Long getRoomNo(Long id) throws DatabaseException, NotFoundException;
+
 	Long deleteSubjectAssign(Long roomNo) throws DatabaseException;
 }

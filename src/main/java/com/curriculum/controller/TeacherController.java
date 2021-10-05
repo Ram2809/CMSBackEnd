@@ -130,6 +130,7 @@ public class TeacherController {
 		}
 		return responseEntity;
 	}
+
 	@GetMapping("/email/{email}")
 	public ResponseEntity<Response> getTeacherByEmail(@PathVariable("email") String email) {
 		ResponseEntity<Response> responseEntity = null;

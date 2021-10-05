@@ -46,8 +46,7 @@ public class TopicController {
 			unitNo = topicService.addTopic(topic);
 			if (unitNo.length() > 0) {
 				responseEntity = ResponseUtil.getResponse(200, "Topic details added successfully!", topic);
-			}
-			else {
+			} else {
 				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", topic);
 			}
 		} catch (BusinessServiceException e) {

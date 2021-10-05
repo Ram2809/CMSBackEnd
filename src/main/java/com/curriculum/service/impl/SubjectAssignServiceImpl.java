@@ -85,7 +85,7 @@ public class SubjectAssignServiceImpl implements SubjectAssignService {
 	}
 
 	@Override
-	public Long deleteSubjectAssign(Long roomNo) throws BusinessServiceException,NotFoundException  {
+	public Long deleteSubjectAssign(Long roomNo) throws BusinessServiceException, NotFoundException {
 		classRepository.checkClassRoom(roomNo);
 		try {
 			return subjectAssignRepository.deleteSubjectAssign(roomNo);
