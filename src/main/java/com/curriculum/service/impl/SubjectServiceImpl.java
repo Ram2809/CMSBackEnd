@@ -1,5 +1,7 @@
 package com.curriculum.service.impl;
 
+import java.util.List;
+
 import javax.validation.ConstraintViolationException;
 
 import org.apache.log4j.Logger;
@@ -61,6 +63,15 @@ public class SubjectServiceImpl implements SubjectService {
 		try {
 			return subjectRepository.getParticularSubject(subjectCode);
 		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
+	@Override
+	public List<SubjectEntity> getSubjectList(List<String> subjectCodeList) throws BusinessServiceException, NotFoundException {
+		try {
+			return subjectRepository.getSubjectList(subjectCodeList);
+		}  catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}

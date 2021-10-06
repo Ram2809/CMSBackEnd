@@ -2,9 +2,11 @@ package com.curriculum.service;
 
 import java.util.List;
 
+import com.curriculum.dto.ListWrapper;
 import com.curriculum.dto.SubjectAssign;
 import com.curriculum.entity.SubjectAssignEntity;
 import com.curriculum.exception.BusinessServiceException;
+import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
 
 public interface SubjectAssignService {
@@ -19,4 +21,8 @@ public interface SubjectAssignService {
 	Long getRoomNo(Long id) throws NotFoundException, BusinessServiceException;
 
 	Long deleteSubjectAssign(Long roomNo) throws BusinessServiceException, NotFoundException;
+
+	List<Long> getRoomNoList(List<Long> assignList) throws BusinessServiceException;
+
+	List<String> getSubjectCodeList(List<Long> assignList, Long roomNo) throws NotFoundException, BusinessServiceException;
 }

@@ -1,5 +1,7 @@
 package com.curriculum.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curriculum.dto.Subject;
@@ -101,6 +104,24 @@ public class SubjectController {
 			subjectEntity = subjectService.getParticularSubject(subjectCode);
 			if (subjectEntity != null) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", subjectEntity);
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, "No Subject Found!");
+			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+		}
+		return responseEntity;
+	}
+	@GetMapping
+	public ResponseEntity<Response> getSubjectList(@RequestParam("subjectCodeList") List<String> subjectCodeList) {
+		ResponseEntity<Response> responseEntity = null;
+		List<SubjectEntity> subjectList = null;
+		try {
+			subjectList = subjectService.getSubjectList(subjectCodeList);
+			if (!subjectList.isEmpty()) {
+				responseEntity = ResponseUtil.getResponse(200, "Success!", subjectList);
 			} else {
 				responseEntity = ResponseUtil.getResponse(404, "No Subject Found!");
 			}

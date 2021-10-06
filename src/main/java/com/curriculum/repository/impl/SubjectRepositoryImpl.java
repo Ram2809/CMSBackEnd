@@ -1,5 +1,8 @@
 package com.curriculum.repository.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.apache.log4j.Logger;
@@ -117,5 +120,29 @@ public class SubjectRepositoryImpl implements SubjectRepository {
 			throw new DatabaseException(e.getMessage());
 		}
 		return subject;
+	}
+
+	@Override
+	public List<SubjectEntity> getSubjectList(List<String> subjectCodeList) throws NotFoundException, DatabaseException {
+		logger.info("Getting subject subject details list");
+		Session session=null;
+		List<SubjectEntity> subjectList=new ArrayList<>();
+		SubjectEntity subjectEntity=null;
+		try {
+			session = sessionFactory.getCurrentSession();
+			for(String subjectCode:subjectCodeList) {
+				checkSubject(subjectCode);
+				Query<SubjectEntity> query=session.createQuery("FROM SubjectEntity WHERE code=:subjectCode");
+				query.setParameter("subjectCode", subjectCode);
+				subjectEntity=query.uniqueResultOptional().orElse(null);
+				subjectList.add(subjectEntity);
+			}
+			logger.info("Subject details are fetched succesfully!");
+		}
+		catch(HibernateException e) {
+			logger.error("Error while fetching the subject details!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return subjectList;
 	}
 }

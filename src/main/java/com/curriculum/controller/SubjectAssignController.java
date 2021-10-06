@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.curriculum.dto.ListWrapper;
 import com.curriculum.dto.SubjectAssign;
 import com.curriculum.entity.SubjectAssignEntity;
 import com.curriculum.entity.SubjectEntity;
@@ -149,4 +151,43 @@ public class SubjectAssignController {
 		}
 		return responseEntity;
 	}
+	
+	@GetMapping("/list/{assignList}")
+	public ResponseEntity<Response> getRoomNoList(@PathVariable("assignList") List<Long> assignList) {
+		ResponseEntity<Response> responseEntity = null;
+		List<Long> roomNoList = null;
+		try {
+			roomNoList = subjectAssignService.getRoomNoList(assignList);
+			if (!roomNoList.isEmpty()) {
+				responseEntity = ResponseUtil.getResponse(200, "Success!", roomNoList);
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!");
+			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} 
+//		catch (NotFoundException e) {
+//			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+//		}
+		return responseEntity;
+	}
+	@GetMapping("/list/{assignList}/{roomNo}")
+	public ResponseEntity<Response> getSubjectCodeList(@PathVariable("assignList") List<Long> assignList,@PathVariable("roomNo") Long roomNo) {
+		ResponseEntity<Response> responseEntity = null;
+		List<String> subjectCodeList = null;
+		try {
+			subjectCodeList = subjectAssignService.getSubjectCodeList(assignList,roomNo);
+			if (!subjectCodeList.isEmpty()) {
+				responseEntity = ResponseUtil.getResponse(200, "Success!", subjectCodeList);
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!");
+			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+		}
+		return responseEntity;
+	}
+	
 }

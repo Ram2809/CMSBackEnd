@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import com.curriculum.dto.ListWrapper;
 import com.curriculum.dto.SubjectAssign;
 import com.curriculum.entity.SubjectAssignEntity;
 import com.curriculum.exception.BusinessServiceException;
@@ -92,6 +93,26 @@ public class SubjectAssignServiceImpl implements SubjectAssignService {
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
+	}
+
+	@Override
+	public List<Long> getRoomNoList(List<Long> assignList) throws BusinessServiceException {
+		try {
+			return subjectAssignRepository.getRoomNoList(assignList);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
+	@Override
+	public List<String> getSubjectCodeList(List<Long> assignList, Long roomNo)
+			throws  NotFoundException, BusinessServiceException {
+		classRepository.checkClassRoom(roomNo);
+		try {
+			return subjectAssignRepository.getSubjectCodeList(assignList,roomNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		} 
 	}
 
 }

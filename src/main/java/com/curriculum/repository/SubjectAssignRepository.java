@@ -22,4 +22,8 @@ public interface SubjectAssignRepository {
 	Long getRoomNo(Long id) throws DatabaseException, NotFoundException;
 
 	Long deleteSubjectAssign(Long roomNo) throws DatabaseException;
+
+	List<Long> getRoomNoList(List<Long> assignList) throws DatabaseException;
+
+	List<String> getSubjectCodeList(List<Long> assignList, Long roomNo) throws DatabaseException, NotFoundException;
 }

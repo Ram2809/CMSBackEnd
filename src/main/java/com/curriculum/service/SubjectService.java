@@ -1,5 +1,7 @@
 package com.curriculum.service;
 
+import java.util.List;
+
 import com.curriculum.dto.Subject;
 import com.curriculum.entity.SubjectEntity;
 import com.curriculum.exception.BusinessServiceException;
@@ -13,4 +15,6 @@ public interface SubjectService {
 	SubjectEntity deleteSubject(String subjectCode) throws BusinessServiceException, NotFoundException;
 
 	SubjectEntity getParticularSubject(String subjectCode) throws BusinessServiceException, NotFoundException;
+
+	List<SubjectEntity> getSubjectList(List<String> subjectCodeList) throws BusinessServiceException, NotFoundException;
 }

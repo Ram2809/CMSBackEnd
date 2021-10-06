@@ -23,4 +23,12 @@ public class Class {
 	private Set<Subject> subject;
 	private Set<TimeTable> timeTable;
 	private Set<Discussion> discussion;
+	public Class(@NotNull Long roomNo,
+			@NotNull @Size(max = 3, message = "Standard cannot be empty and Standard not more than 3") String standard,
+			@NotNull @Size(max = 2, message = "Section cannot be empty and Section length not more than 2") String section) {
+		super();
+		this.roomNo = roomNo;
+		this.standard = standard;
+		this.section = section;
+	}
 }
