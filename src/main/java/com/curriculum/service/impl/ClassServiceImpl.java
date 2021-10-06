@@ -93,4 +93,13 @@ public class ClassServiceImpl implements ClassService {
 		}
 	}
 
+	@Override
+	public List<ClassEntity> getClassList(List<Long> roomNoList) throws BusinessServiceException, NotFoundException {
+		try {
+			return classRepository.getClassList(roomNoList);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
 }

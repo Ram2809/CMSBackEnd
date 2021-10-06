@@ -21,4 +21,6 @@ public interface ClassService {
 	List<ClassEntity> getClassList(String standard) throws BusinessServiceException, NotFoundException;
 
 	Long getClassRoomNo(String standard, String section) throws BusinessServiceException, NotFoundException;
+
+	List<ClassEntity> getClassList(List<Long> roomNoList) throws BusinessServiceException, NotFoundException;
 }

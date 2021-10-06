@@ -219,4 +219,27 @@ public class ClassRepositoryImpl implements ClassRepository {
 		return classRoomNo;
 	}
 
+	@Override
+	public List<ClassEntity> getClassList(List<Long> roomNoList) throws DatabaseException, NotFoundException {
+		logger.info("Getting Class Details Method...");
+		List<ClassEntity> classList = new ArrayList<>();
+		Session session = null;
+		try {
+			session = sessionFactory.getCurrentSession();
+			for (Long roomNo : roomNoList) {
+				checkClassRoom(roomNo);
+				Query<ClassEntity> query = session.createQuery("FROM ClassEntity WHERE roomNo=:roomNo");
+				query.setParameter("roomNo", roomNo);
+				classList.add(query.getSingleResult());
+			}
+			if (!classList.isEmpty()) {
+				logger.info("Class Details are fetched successfully!");
+			}
+		} catch (HibernateException e) {
+			logger.error("Error occured while getting class details!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return classList;
+	}
+
 }

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.curriculum.dto.Class;
 import com.curriculum.entity.ClassEntity;
@@ -160,6 +161,24 @@ public class ClassController {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", roomNo);
 			} else {
 				responseEntity = ResponseUtil.getResponse(404, "No class room found!");
+			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+		}
+		return responseEntity;
+	}
+	@GetMapping("/list/{roomNoList}")
+	public ResponseEntity<Response> getClassList(@PathVariable("roomNoList") List<Long> roomNoList) {
+		ResponseEntity<Response> responseEntity = null;
+		List<ClassEntity> classList = new ArrayList<>();
+		try {
+			classList = classService.getClassList(roomNoList);
+			if (!classList.isEmpty()) {
+				responseEntity = ResponseUtil.getResponse(200, "Success!", classList);
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, "No class rooms found!");
 			}
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());

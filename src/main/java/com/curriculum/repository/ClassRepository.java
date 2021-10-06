@@ -24,4 +24,6 @@ public interface ClassRepository {
 	Long getClassRoomNo(String standard, String section) throws DatabaseException, NotFoundException;
 
 	void checkClassRoom(Long id) throws NotFoundException;
+
+	List<ClassEntity> getClassList(List<Long> roomNoList) throws DatabaseException, NotFoundException;
 }
