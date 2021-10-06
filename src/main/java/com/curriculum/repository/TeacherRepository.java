@@ -23,4 +23,6 @@ public interface TeacherRepository {
 	void checkTeacher(String email) throws NotFoundException;
 
 	TeacherEntity getTeacherByEmail(String email) throws DatabaseException, NotFoundException;
+
+	List<TeacherEntity> getTeacherList(List<Long> teacherIdList) throws DatabaseException, NotFoundException;
 }

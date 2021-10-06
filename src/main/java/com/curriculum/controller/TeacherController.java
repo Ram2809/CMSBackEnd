@@ -145,6 +145,25 @@ public class TeacherController {
 		}
 		return responseEntity;
 	}
+	@GetMapping("/list/{teacherIdList}")
+	public ResponseEntity<Response> getTeacherList(@PathVariable("teacherIdList") List<Long> teacherIdList)
+	{
+		ResponseEntity<Response> responseEntity = null;
+		List<TeacherEntity> teachersList = new ArrayList<>();
+		try {
+			teachersList = teacherService.getTeacherList(teacherIdList);
+			if (!teachersList.isEmpty()) {
+				responseEntity = ResponseUtil.getResponse(200, "Success!", teachersList);
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, "No Teacher Found!", teachersList);
+			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		}catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+		}
+		return responseEntity;
+	}
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<Response> validationFailed(MethodArgumentNotValidException e) {

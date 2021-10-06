@@ -177,4 +177,29 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 		return teacherEntity;
 	}
 
+	@Override
+	public List<TeacherEntity> getTeacherList(List<Long> teacherIdList) throws DatabaseException, NotFoundException {
+		logger.info("Getting teacher details list...");
+		Session session=null;
+		List<TeacherEntity> teachersList=new ArrayList<>();
+		try {
+			session=sessionFactory.getCurrentSession();
+			for(Long teacherId:teacherIdList) {
+				checkTeacher(teacherId);
+				Query<TeacherEntity> query=session.createQuery("FROM TeacherEntity WHERE id=:staffId");
+				query.setParameter("staffId", teacherId);
+				TeacherEntity teacherEntity=query.uniqueResultOptional().orElse(null);
+				if(teacherEntity!=null) {
+					teachersList.add(teacherEntity);
+				}
+			}
+		}
+		catch(HibernateException e)
+		{
+			logger.error("Error while fecthing teacher detail!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return teachersList;
+	}
+
 }

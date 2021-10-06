@@ -85,4 +85,13 @@ public class TeacherServiceImpl implements TeacherService {
 		}
 	}
 
+	@Override
+	public List<TeacherEntity> getTeacherList(List<Long> teacherIdList) throws BusinessServiceException, NotFoundException {
+		try {
+			return teacherRepository.getTeacherList(teacherIdList);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		} 
+	}
+
 }

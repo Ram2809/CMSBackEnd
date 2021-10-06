@@ -85,7 +85,7 @@ public class TeacherAssignServiceImpl implements TeacherAssignService {
 
 	@Override
 	public List<Long> getTeacherIdList(List<Long> assignIdList) throws NotFoundException, BusinessServiceException {
-		for(Long assignId:assignIdList) {
+		for (Long assignId : assignIdList) {
 			subjectAssignRepository.checkAssignId(assignId);
 		}
 		try {
