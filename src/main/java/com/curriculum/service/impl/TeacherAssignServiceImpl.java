@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.curriculum.dto.TeacherAssign;
 import com.curriculum.entity.TeacherAssignEntity;
+import com.curriculum.exception.AssignIdNotFoundException;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.DatabaseException;
@@ -77,6 +78,18 @@ public class TeacherAssignServiceImpl implements TeacherAssignService {
 		teacherRepository.checkTeacher(staffId);
 		try {
 			return teacherAssignRepository.updateTeacherAssign(assignId, staffId);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
+	@Override
+	public List<Long> getTeacherIdList(List<Long> assignIdList) throws NotFoundException, BusinessServiceException {
+		for(Long assignId:assignIdList) {
+			subjectAssignRepository.checkAssignId(assignId);
+		}
+		try {
+			return teacherAssignRepository.getTeacherIdList(assignIdList);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}

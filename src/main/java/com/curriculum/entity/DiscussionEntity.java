@@ -37,7 +37,7 @@ public class DiscussionEntity {
 	@ManyToOne
 	@JoinColumn(name = "unitNo")
 	@JsonIgnore
-	private TopicEntity topic;
+	private UnitEntity unit;
 	@ManyToOne
 	@JoinColumn(name = "teacherId")
 	@JsonIgnore

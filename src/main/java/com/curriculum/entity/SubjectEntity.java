@@ -32,5 +32,5 @@ public class SubjectEntity {
 	@JsonIgnore
 	private Set<SubjectAssignEntity> subjects;
 	@OneToMany(mappedBy = "subject", fetch = FetchType.EAGER)
-	private Set<TopicEntity> topics;
+	private Set<UnitEntity> topics;
 }

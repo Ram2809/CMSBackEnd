@@ -55,7 +55,7 @@ public class DiscussionRepositoryImpl implements DiscussionRepository {
 		try {
 			session = sessionFactory.getCurrentSession();
 			Query<DiscussionEntity> query = session.createQuery(
-					"FROM DiscussionEntity d WHERE d.topic.unitNo=:unitId AND d.classDetail.roomNo=:roomNo AND d.teacher.id=:teacherId");
+					"FROM DiscussionEntity d WHERE d.unit.unitNo=:unitId AND d.classDetail.roomNo=:roomNo AND d.teacher.id=:teacherId");
 			query.setParameter("unitId", unitNo);
 			query.setParameter("roomNo", roomNo);
 			query.setParameter("teacherId", staffId);
@@ -157,7 +157,7 @@ public class DiscussionRepositoryImpl implements DiscussionRepository {
 		try {
 			session = sessionFactory.getCurrentSession();
 			Query<DiscussionEntity> query = session.createQuery(
-					"FROM DiscussionEntity d WHERE d.topic.unitNo=:unitId AND d.classDetail.roomNo=:roomNo");
+					"FROM DiscussionEntity d WHERE d.unit.unitNo=:unitId AND d.classDetail.roomNo=:roomNo");
 			query.setParameter("unitId", unitNo);
 			query.setParameter("roomNo", roomNo);
 			discussionList = query.list();

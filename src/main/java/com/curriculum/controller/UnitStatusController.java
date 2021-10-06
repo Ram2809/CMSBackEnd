@@ -14,31 +14,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.curriculum.dto.TopicStatus;
-import com.curriculum.entity.TopicStatusEntity;
+import com.curriculum.dto.UnitStatus;
+import com.curriculum.entity.UnitStatusEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.NotFoundException;
-import com.curriculum.service.TopicStatusService;
+import com.curriculum.service.UnitStatusService;
 import com.curriculum.util.Response;
 import com.curriculum.util.ResponseUtil;
 
 @RestController
-@RequestMapping("api/topicstatus")
+@RequestMapping("api/unitstatus")
 @CrossOrigin("*")
-public class TopicStatusController {
+public class UnitStatusController {
 	@Autowired
-	private TopicStatusService topicStatusService;
+	private UnitStatusService unitStatusService;
 
 	@PostMapping
-	public ResponseEntity<Response> addTopicStatus(@Valid @RequestBody TopicStatus topicStatus) {
+	public ResponseEntity<Response> addUnitStatus(@Valid @RequestBody UnitStatus unitStatus) {
 		ResponseEntity<Response> responseEntity = null;
 		Long statusId = null;
 		try {
-			statusId = topicStatusService.addTopicStatus(topicStatus);
+			statusId = unitStatusService.addUnitStatus(unitStatus);
 			if (statusId > 0) {
-				topicStatus.setId(statusId);
-				responseEntity = ResponseUtil.getResponse(200, "Topic Status Details Added Successfully!", topicStatus);
+				unitStatus.setId(statusId);
+				responseEntity = ResponseUtil.getResponse(200, "Unit Status Details Added Successfully!", unitStatus);
 			} else {
 				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
 			}
@@ -58,9 +58,9 @@ public class TopicStatusController {
 	public ResponseEntity<Response> getStatusByUnitNo(@PathVariable("unitNo") String unitNo,
 			@PathVariable("staffId") Long staffId, @PathVariable("roomNo") Long roomNo) {
 		ResponseEntity<Response> responseEntity = null;
-		TopicStatusEntity topicsStatus = null;
+		UnitStatusEntity topicsStatus = null;
 		try {
-			topicsStatus = topicStatusService.getStatusByUnitNo(unitNo, staffId, roomNo);
+			topicsStatus = unitStatusService.getStatusByUnitNo(unitNo, staffId, roomNo);
 			if (topicsStatus != null) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", topicsStatus);
 			} else {
@@ -75,15 +75,15 @@ public class TopicStatusController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Response> getTopicStatus(@PathVariable("id") Long id) {
+	public ResponseEntity<Response> getUnitStatus(@PathVariable("id") Long id) {
 		ResponseEntity<Response> responseEntity = null;
-		TopicStatusEntity topicsStatus = null;
+		UnitStatusEntity unitStatus = null;
 		try {
-			topicsStatus = topicStatusService.getTopicStatus(id);
-			if (topicsStatus != null) {
-				responseEntity = ResponseUtil.getResponse(200, "Success!", topicsStatus);
+			unitStatus = unitStatusService.getUnitStatus(id);
+			if (unitStatus != null) {
+				responseEntity = ResponseUtil.getResponse(200, "Success!", unitStatus);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No status found!", topicsStatus);
+				responseEntity = ResponseUtil.getResponse(404, "No status found!", unitStatus);
 			}
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
@@ -94,13 +94,13 @@ public class TopicStatusController {
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<Response> updateTopicStatus(@PathVariable("id") Long id,
-			@RequestBody TopicStatus topicStatus) {
+	public ResponseEntity<Response> updateUnitStatus(@PathVariable("id") Long id,
+			@RequestBody UnitStatus unitStatus) {
 		ResponseEntity<Response> responseEntity = null;
-		TopicStatusEntity topicStatusEntity = null;
+		UnitStatusEntity unitStatusEntity = null;
 		try {
-			topicStatusEntity = topicStatusService.updateTopicStatus(id, topicStatus);
-			responseEntity = ResponseUtil.getResponse(200, "Topic details updated successfully!", topicStatusEntity);
+			unitStatusEntity = unitStatusService.updateUnitStatus(id, unitStatus);
+			responseEntity = ResponseUtil.getResponse(200, "Unit details updated successfully!", unitStatusEntity);
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
 		} catch (NotFoundException e) {
@@ -114,14 +114,14 @@ public class TopicStatusController {
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Response> deleteTopicStatus(@PathVariable("id") Long id) {
+	public ResponseEntity<Response> deleteUnitStatus(@PathVariable("id") Long id) {
 		ResponseEntity<Response> responseEntity = null;
-		TopicStatusEntity topicStatusEntity = null;
+		UnitStatusEntity unitStatusEntity = null;
 		try {
-			topicStatusEntity = topicStatusService.deleteTopicStatus(id);
-			if (topicStatusEntity != null) {
-				responseEntity = ResponseUtil.getResponse(200, "Topic details deleted successfully!",
-						topicStatusEntity);
+			unitStatusEntity = unitStatusService.deleteUnitStatus(id);
+			if (unitStatusEntity != null) {
+				responseEntity = ResponseUtil.getResponse(200, "Unit details deleted successfully!",
+						unitStatusEntity);
 			} else {
 				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
 			}

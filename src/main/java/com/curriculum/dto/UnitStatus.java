@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class TopicStatus {
+public class UnitStatus {
 	private Long id;
 	@Temporal(TemporalType.DATE)
 	private Date beginDate;
@@ -18,7 +18,7 @@ public class TopicStatus {
 	@Temporal(TemporalType.DATE)
 	private Date completedDate;
 	private String remarks;
-	private Topic topic;
+	private Unit unit;
 	private Teacher teacher;
 	private Class classDetail;
 }

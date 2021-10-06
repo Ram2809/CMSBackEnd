@@ -18,8 +18,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "Topicstatus")
-public class TopicStatusEntity {
+@Table(name = "Unitstatus")
+public class UnitStatusEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -31,7 +31,7 @@ public class TopicStatusEntity {
 	private String remarks;
 	@ManyToOne
 	@JoinColumn(name = "unitNo")
-	private TopicEntity topic;
+	private UnitEntity unit;
 	@ManyToOne
 	@JoinColumn(name = "teacherId")
 	private TeacherEntity teacher;

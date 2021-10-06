@@ -17,4 +17,6 @@ public interface TeacherAssignRepository {
 	Long getTeacherId(Long id) throws DatabaseException;
 
 	Long updateTeacherAssign(Long assignId, Long staffId) throws DatabaseException;
+
+	List<Long> getTeacherIdList(List<Long> assignIdList) throws DatabaseException;
 }

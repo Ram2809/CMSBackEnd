@@ -115,4 +115,19 @@ public class SubjectAssignServiceImpl implements SubjectAssignService {
 		} 
 	}
 
+//	@Override
+//	public Long addSubjectAssign(List<SubjectAssign> subjectAssignList)
+//			throws BusinessServiceException, NotFoundException {
+//		try {
+////			subjectRepository.checkSubject(subjectAssign.getSubject().getCode());
+////			classRepository.checkClassRoom(subjectAssign.getClassDetail().getRoomNo());
+//			return subjectAssignRepository.addSubjectAssign(subjectAssignList);
+//		} catch (DatabaseException e) {
+//			throw new BusinessServiceException(e.getMessage());
+//		} catch (DataIntegrityViolationException | ConstraintViolationException e) {
+//			logger.error("Constraint Violation fails!");
+//			throw new ConstraintValidationException("Constraint Violation fails!");
+//		}
+//	}
+
 }

@@ -16,5 +16,5 @@ public class Subject {
 	private String code;
 	private String name;
 	private Set<SubjectAssign> subjects;
-	private Set<Topic> topics;
+	private Set<Unit> units;
 }

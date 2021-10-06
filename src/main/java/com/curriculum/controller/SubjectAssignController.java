@@ -57,6 +57,29 @@ public class SubjectAssignController {
 		}
 		return responseEntity;
 	}
+//	@PostMapping
+//	public ResponseEntity<Response> addSubjectAssign(@RequestBody List<SubjectAssign> subjectAssignList) {
+//		ResponseEntity<Response> responseEntity = null;
+//		Long id = null;
+//		try {
+//			id = subjectAssignService.addSubjectAssign(subjectAssignList);
+//			if (id > 0) {
+//				responseEntity = ResponseUtil.getResponse(200, "Subject assigned for class successfully!",
+//						subjectAssignList);
+//			} else {
+//				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
+//			}
+//		} catch (BusinessServiceException e) {
+//			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+//		} catch (NotFoundException e) {
+//			if (e instanceof ConstraintValidationException) {
+//				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+//			} else {
+//				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+//			}
+//		}
+//		return responseEntity;
+//	}
 
 	@GetMapping("/{roomNo}")
 	public ResponseEntity<Response> getSubjects(@PathVariable("roomNo") Long roomNo) {

@@ -139,4 +139,35 @@ public class TeacherAssignRepositoryImpl implements TeacherAssignRepository {
 		}
 		return count;
 	}
+
+	@Override
+	public List<Long> getTeacherIdList(List<Long> assignIdList) throws DatabaseException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+//	@Override
+//	public List<Long> getTeacherIdList(List<Long> assignIdList) throws DatabaseException {
+//		logger.info("Getting teacher assign details!");
+//		Session session = null;
+//		List<Long> teacherIdList = null;
+//		try {
+//			session = sessionFactory.getCurrentSession();
+//			for (Long assignId : assignIdList) {
+//				Query<Long> query = session
+//						.createQuery("SELECT t.teacher.id FROM TeacherAssignEntity t WHERE t.subjectAssign.id=:id");
+//				query.setParameter("id", assignId);
+//				Long teacherId = query.uniqueResult();
+//				if(teacherId>0)
+//				{
+//					teacherIdList.add(teacherId);
+//				}
+//			}
+//			logger.info("Teacher assign details fetched successfully!");
+//		} catch (HibernateException e) {
+//			logger.error("Error while fetching teacher assign details!");
+//			throw new DatabaseException(e.getMessage());
+//		}
+//		return teacherIdList;
+//	}
 }

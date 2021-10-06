@@ -1,5 +1,7 @@
 package com.curriculum.dto;
 
+import java.util.List;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

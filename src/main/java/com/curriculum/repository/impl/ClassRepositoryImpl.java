@@ -37,7 +37,6 @@ public class ClassRepositoryImpl implements ClassRepository {
 			query.setParameter("standard", classDetail.getStandard());
 			query.setParameter("section", classDetail.getSection());
 			ClassEntity classEntity = query.uniqueResultOptional().orElse(null);
-			System.out.println(classEntity);
 			if (classEntity != null) {
 				throw new NotAllowedException("Standard and section already exits!");
 			}
@@ -47,7 +46,6 @@ public class ClassRepositoryImpl implements ClassRepository {
 			}
 		} catch (HibernateException e) {
 			logger.error("Error while adding the class!");
-			System.out.println(e.getMessage());
 			throw new DatabaseException(e.getMessage());
 		}
 		return roomNo;

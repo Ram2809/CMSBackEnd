@@ -18,7 +18,7 @@ import com.curriculum.exception.NotFoundException;
 import com.curriculum.repository.ClassRepository;
 import com.curriculum.repository.DiscussionRepository;
 import com.curriculum.repository.TeacherRepository;
-import com.curriculum.repository.TopicRepository;
+import com.curriculum.repository.UnitRepository;
 import com.curriculum.service.DiscussionService;
 
 @Service
@@ -26,7 +26,7 @@ public class DiscussionServiceImpl implements DiscussionService {
 	@Autowired
 	private DiscussionRepository discussionRepository;
 	@Autowired
-	private TopicRepository topicRepository;
+	private UnitRepository unitRepository;
 	@Autowired
 	private TeacherRepository teacherRepository;
 	@Autowired
@@ -36,7 +36,7 @@ public class DiscussionServiceImpl implements DiscussionService {
 	@Override
 	public Long addDiscussion(Discussion discussion) throws BusinessServiceException, NotFoundException {
 		try {
-			topicRepository.checkTopic(discussion.getTopic().getUnitNo());
+			unitRepository.checkUnit(discussion.getUnit().getUnitNo());
 			teacherRepository.checkTeacher(discussion.getTeacher().getId());
 			classRepository.checkClassRoom(discussion.getClassDetail().getRoomNo());
 			return discussionRepository.addDiscussion(discussion);
@@ -52,7 +52,7 @@ public class DiscussionServiceImpl implements DiscussionService {
 	public List<DiscussionEntity> getDiscussionByUnitNo(String unitNo, Long roomNo, Long staffId)
 			throws BusinessServiceException, NotFoundException {
 		try {
-			topicRepository.checkTopic(unitNo);
+			unitRepository.checkUnit(unitNo);
 			return discussionRepository.getDiscussionByUnitNo(unitNo, roomNo, staffId);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());

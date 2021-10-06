@@ -128,5 +128,23 @@ public class TeacherAssignController {
 		}
 		return responseEntity;
 	}
+	@GetMapping("list/{assignIdList}")
+	public ResponseEntity<Response> getTeacherIdList(@PathVariable("assignIdList") List<Long> assignIdList) {
+		ResponseEntity<Response> responseEntity = null;
+		List<Long> teacherIdList = null;
+		try {
+			teacherIdList = teacherAssignService.getTeacherIdList(assignIdList);
+			if (!teacherIdList.isEmpty()) {
+				responseEntity = ResponseUtil.getResponse(200, "Success!", teacherIdList);
+			} else {
+				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", teacherIdList);
+			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+		}
+		return responseEntity;
+	}
 
 }

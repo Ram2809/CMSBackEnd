@@ -17,6 +17,7 @@ import com.curriculum.dto.ListWrapper;
 import com.curriculum.dto.SubjectAssign;
 import com.curriculum.entity.SubjectAssignEntity;
 import com.curriculum.exception.AssignIdNotFoundException;
+import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
 import com.curriculum.repository.SubjectAssignRepository;

@@ -3,78 +3,78 @@ package com.curriculum.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.curriculum.dto.TopicStatus;
-import com.curriculum.entity.TopicStatusEntity;
+import com.curriculum.dto.UnitStatus;
+import com.curriculum.entity.UnitStatusEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotAllowedException;
 import com.curriculum.exception.NotFoundException;
 import com.curriculum.repository.ClassRepository;
 import com.curriculum.repository.TeacherRepository;
-import com.curriculum.repository.TopicRepository;
-import com.curriculum.repository.TopicStatusRepository;
-import com.curriculum.service.TopicStatusService;
+import com.curriculum.repository.UnitRepository;
+import com.curriculum.repository.UnitStatusRepository;
+import com.curriculum.service.UnitStatusService;
 
 @Service
-public class TopicStatusServiceImpl implements TopicStatusService {
+public class UnitStatusServiceImpl implements UnitStatusService {
 	@Autowired
-	private TopicStatusRepository topicStatusRepository;
+	private UnitStatusRepository unitStatusRepository;
 	@Autowired
-	private TopicRepository topicRepository;
+	private UnitRepository unitRepository;
 	@Autowired
 	private TeacherRepository teacherRepository;
 	@Autowired
 	private ClassRepository classRepository;
 
 	@Override
-	public Long addTopicStatus(TopicStatus topicStatus)
+	public Long addUnitStatus(UnitStatus unitStatus)
 			throws NotFoundException, BusinessServiceException, NotAllowedException {
-		topicRepository.checkTopic(topicStatus.getTopic().getUnitNo());
-		teacherRepository.checkTeacher(topicStatus.getTeacher().getId());
-		classRepository.checkClassRoom(topicStatus.getClassDetail().getRoomNo());
+		unitRepository.checkUnit(unitStatus.getUnit().getUnitNo());
+		teacherRepository.checkTeacher(unitStatus.getTeacher().getId());
+		classRepository.checkClassRoom(unitStatus.getClassDetail().getRoomNo());
 		try {
-			return topicStatusRepository.addTopicStatus(topicStatus);
+			return unitStatusRepository.addUnitStatus(unitStatus);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
 
 	@Override
-	public TopicStatusEntity getStatusByUnitNo(String unitNo, Long staffId, Long roomNo)
+	public UnitStatusEntity getStatusByUnitNo(String unitNo, Long staffId, Long roomNo)
 			throws NotFoundException, BusinessServiceException {
-		topicRepository.checkTopic(unitNo);
+		unitRepository.checkUnit(unitNo);
 		teacherRepository.checkTeacher(staffId);
 		classRepository.checkClassRoom(roomNo);
 		try {
-			return topicStatusRepository.getStatusByUnitNo(unitNo, staffId, roomNo);
+			return unitStatusRepository.getStatusByUnitNo(unitNo, staffId, roomNo);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
 
 	@Override
-	public TopicStatusEntity getTopicStatus(Long id) throws BusinessServiceException, NotFoundException {
+	public UnitStatusEntity getUnitStatus(Long id) throws BusinessServiceException, NotFoundException {
 		try {
-			return topicStatusRepository.getTopicStatus(id);
+			return unitStatusRepository.getUnitStatus(id);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
 
 	@Override
-	public TopicStatusEntity updateTopicStatus(Long id, TopicStatus topicStatus)
+	public UnitStatusEntity updateUnitStatus(Long id, UnitStatus unitStatus)
 			throws BusinessServiceException, NotFoundException {
 		try {
-			return topicStatusRepository.updateTopicStatus(id, topicStatus);
+			return unitStatusRepository.updateUnitStatus(id, unitStatus);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
 
 	@Override
-	public TopicStatusEntity deleteTopicStatus(Long id) throws BusinessServiceException, NotFoundException {
+	public UnitStatusEntity deleteUnitStatus(Long id) throws BusinessServiceException, NotFoundException {
 		try {
-			return topicStatusRepository.deleteTopicStatus(id);
+			return unitStatusRepository.deleteUnitStatus(id);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}

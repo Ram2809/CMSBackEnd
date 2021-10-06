@@ -15,7 +15,7 @@ public class Discussion {
 	private String answer;
 	@Temporal(TemporalType.DATE)
 	private Date date;
-	private Topic topic;
+	private Unit unit;
 	private Teacher teacher;
 	private Class classDetail;
 }
