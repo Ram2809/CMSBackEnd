@@ -213,4 +213,23 @@ public class SubjectAssignController {
 		return responseEntity;
 	}
 	
+	@GetMapping("/listAll/{assignList}")
+	public ResponseEntity<Response> getAllSubjectCodeList(@PathVariable("assignList") List<Long> assignList) {
+		ResponseEntity<Response> responseEntity = null;
+		List<String> subjectCodeList = null;
+		try {
+			subjectCodeList = subjectAssignService.getAllSubjectCodeList(assignList);
+			if (!subjectCodeList.isEmpty()) {
+				responseEntity = ResponseUtil.getResponse(200, "Success!", subjectCodeList);
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!");
+			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+		}
+		return responseEntity;
+	}
+	
 }

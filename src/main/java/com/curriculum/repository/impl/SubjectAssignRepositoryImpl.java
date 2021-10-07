@@ -166,10 +166,10 @@ public class SubjectAssignRepositoryImpl implements SubjectAssignRepository {
 		Session session = null;
 		try {
 			session = sessionFactory.getCurrentSession();
-			for (int i = 0; i < assignList.size(); i++) {
+			for (Long assignId:assignList) {
 				Query<Long> query = session
 						.createQuery("SELECT s.classDetail.roomNo FROM SubjectAssignEntity s WHERE s.id=:id");
-				query.setParameter("id", assignList.get(i));
+				query.setParameter("id", assignId);
 				if (!roomNoList.contains((Long) query.uniqueResult())) {
 					roomNoList.add((Long) query.uniqueResult());
 				}
@@ -202,6 +202,34 @@ public class SubjectAssignRepositoryImpl implements SubjectAssignRepository {
 						}
 					}
 				}
+			}
+		} catch (HibernateException e) {
+			throw new DatabaseException(e.getMessage());
+		}
+		return subjectCodeList;
+	}
+
+	@Override
+	public List<String> getAllSubjectCodeList(List<Long> assignList)
+			throws NotFoundException, DatabaseException {
+		List<String> subjectCodeList = new ArrayList<>();
+		Session session = null;
+		String subjectCode = null;
+		try {
+			session = sessionFactory.getCurrentSession();
+			List<Long> roomNoList = getRoomNoList(assignList);
+			System.out.println(roomNoList);
+			for (Long roomId : roomNoList) {
+					for (Long assignId : assignList) {
+						Query<String> query = session.createQuery(
+								"SELECT s.subject.code FROM SubjectAssignEntity s WHERE s.id=:id AND s.classDetail.roomNo=:roomNo");
+						query.setParameter("id", assignId);
+						query.setParameter("roomNo", roomId);
+						subjectCode = query.uniqueResult();
+						if (subjectCode != null) {
+							subjectCodeList.add(subjectCode);
+						}
+					}
 			}
 		} catch (HibernateException e) {
 			throw new DatabaseException(e.getMessage());

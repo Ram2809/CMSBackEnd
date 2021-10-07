@@ -47,7 +47,7 @@ public class DiscussionRepositoryImpl implements DiscussionRepository {
 	}
 
 	@Override
-	public List<DiscussionEntity> getDiscussionByUnitNo(String unitNo, Long roomNo, Long staffId)
+	public List<DiscussionEntity> getDiscussionByTopicNo(Long topicNo, Long roomNo, Long staffId)
 			throws DatabaseException {
 		logger.info("Getting discussion details by Unit Number!");
 		Session session = null;
@@ -55,8 +55,8 @@ public class DiscussionRepositoryImpl implements DiscussionRepository {
 		try {
 			session = sessionFactory.getCurrentSession();
 			Query<DiscussionEntity> query = session.createQuery(
-					"FROM DiscussionEntity d WHERE d.unit.unitNo=:unitId AND d.classDetail.roomNo=:roomNo AND d.teacher.id=:teacherId");
-			query.setParameter("unitId", unitNo);
+					"FROM DiscussionEntity d WHERE d.topic.id=:topicNo AND d.classDetail.roomNo=:roomNo AND d.teacher.id=:teacherId");
+			query.setParameter("topicNo", topicNo);
 			query.setParameter("roomNo", roomNo);
 			query.setParameter("teacherId", staffId);
 			discussionList = query.list();
@@ -150,15 +150,15 @@ public class DiscussionRepositoryImpl implements DiscussionRepository {
 	}
 
 	@Override
-	public List<DiscussionEntity> getDiscussionByRoomNo(String unitNo, Long roomNo) throws DatabaseException {
+	public List<DiscussionEntity> getDiscussionByRoomNo(Long topicNo, Long roomNo) throws DatabaseException {
 		logger.info("Getting discussion details by Unit Number!");
 		Session session = null;
 		List<DiscussionEntity> discussionList = new ArrayList<>();
 		try {
 			session = sessionFactory.getCurrentSession();
 			Query<DiscussionEntity> query = session.createQuery(
-					"FROM DiscussionEntity d WHERE d.unit.unitNo=:unitId AND d.classDetail.roomNo=:roomNo");
-			query.setParameter("unitId", unitNo);
+					"FROM DiscussionEntity d WHERE d.topic.id=:topicNo AND d.classDetail.roomNo=:roomNo");
+			query.setParameter("topicNo", topicNo);
 			query.setParameter("roomNo", roomNo);
 			discussionList = query.list();
 			logger.info("Discussion details are fetched successfully!");

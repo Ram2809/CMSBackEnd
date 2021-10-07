@@ -35,6 +35,4 @@ public class UnitEntity {
 	@JoinColumn(name = "subjectCode")
 	@JsonIgnore
 	private SubjectEntity subject;
-	@OneToMany(mappedBy = "unit", fetch = FetchType.EAGER)
-	private Set<DiscussionEntity> discussion;
 }

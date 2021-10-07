@@ -36,7 +36,7 @@ public class DiscussionServiceImpl implements DiscussionService {
 	@Override
 	public Long addDiscussion(Discussion discussion) throws BusinessServiceException, NotFoundException {
 		try {
-			unitRepository.checkUnit(discussion.getUnit().getUnitNo());
+			//unitRepository.checkUnit(discussion.getUnit().getUnitNo());
 			teacherRepository.checkTeacher(discussion.getTeacher().getId());
 			classRepository.checkClassRoom(discussion.getClassDetail().getRoomNo());
 			return discussionRepository.addDiscussion(discussion);
@@ -49,11 +49,11 @@ public class DiscussionServiceImpl implements DiscussionService {
 	}
 
 	@Override
-	public List<DiscussionEntity> getDiscussionByUnitNo(String unitNo, Long roomNo, Long staffId)
+	public List<DiscussionEntity> getDiscussionByTopicNo(Long topicNo, Long roomNo, Long staffId)
 			throws BusinessServiceException, NotFoundException {
 		try {
-			unitRepository.checkUnit(unitNo);
-			return discussionRepository.getDiscussionByUnitNo(unitNo, roomNo, staffId);
+			//unitRepository.checkUnit(unitNo);
+			return discussionRepository.getDiscussionByTopicNo(topicNo, roomNo, staffId);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
@@ -92,11 +92,11 @@ public class DiscussionServiceImpl implements DiscussionService {
 	}
 
 	@Override
-	public List<DiscussionEntity> getDiscussionByRoomNo(String unitNo, Long roomNo)
+	public List<DiscussionEntity> getDiscussionByRoomNo(Long topicNo, Long roomNo)
 			throws BusinessServiceException, NotFoundException {
 		try {
 			classRepository.checkClassRoom(roomNo);
-			return discussionRepository.getDiscussionByRoomNo(unitNo, roomNo);
+			return discussionRepository.getDiscussionByRoomNo(topicNo, roomNo);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}

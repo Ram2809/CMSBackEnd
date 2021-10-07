@@ -157,8 +157,8 @@ public class TeacherAssignRepositoryImpl implements TeacherAssignRepository {
 				Query<Long> query = session
 						.createQuery("SELECT t.teacher.id FROM TeacherAssignEntity t WHERE t.subjectAssign.id=:id");
 				query.setParameter("id", assignId);
-				Long teacherId = query.uniqueResultOptional().orElse(null);
-				if(teacherId>0) {
+				Long teacherId = query.uniqueResult();
+				if(teacherId!=null) {
 					teacherIdList.add(teacherId);
 				}
 			}

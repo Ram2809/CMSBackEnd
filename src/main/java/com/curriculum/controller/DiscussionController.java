@@ -43,7 +43,6 @@ public class DiscussionController {
 		ResponseEntity<Response> responseEntity = null;
 		Long questionNo = null;
 		try {
-			System.out.println(discussion.getTeacher().getId());
 			questionNo = discussionService.addDiscussion(discussion);
 			discussion.setQuestionNo(questionNo);
 			responseEntity = ResponseUtil.getResponse(200, "Discussion details added successfully!", discussion);
@@ -59,13 +58,13 @@ public class DiscussionController {
 		return responseEntity;
 	}
 
-	@GetMapping("/{unitNo}/{roomNo}/{staffId}")
-	public ResponseEntity<Response> getDiscussionByUnitNo(@PathVariable("unitNo") String unitNo,
+	@GetMapping("/{topicNo}/{roomNo}/{staffId}")
+	public ResponseEntity<Response> getDiscussionByTopicNo(@PathVariable("topicNo") Long topicNo,
 			@PathVariable("roomNo") Long roomNo, @PathVariable("staffId") Long staffId) {
 		ResponseEntity<Response> responseEntity = null;
 		List<DiscussionEntity> discussionsList = new ArrayList<>();
 		try {
-			discussionsList = discussionService.getDiscussionByUnitNo(unitNo, roomNo, staffId);
+			discussionsList = discussionService.getDiscussionByTopicNo(topicNo, roomNo, staffId);
 			if (!discussionsList.isEmpty()) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", discussionsList);
 			} else {
@@ -79,13 +78,13 @@ public class DiscussionController {
 		return responseEntity;
 	}
 
-	@GetMapping("/{unitNo}/{roomNo}")
-	public ResponseEntity<Response> getDiscussionByRoomNo(@PathVariable("unitNo") String unitNo,
+	@GetMapping("/{topicNo}/{roomNo}")
+	public ResponseEntity<Response> getDiscussionByRoomNo(@PathVariable("topicNo") Long topicNo,
 			@PathVariable("roomNo") Long roomNo) {
 		ResponseEntity<Response> responseEntity = null;
 		List<DiscussionEntity> discussionsList = new ArrayList<>();
 		try {
-			discussionsList = discussionService.getDiscussionByRoomNo(unitNo, roomNo);
+			discussionsList = discussionService.getDiscussionByRoomNo(topicNo, roomNo);
 			if (!discussionsList.isEmpty()) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", discussionsList);
 			} else {

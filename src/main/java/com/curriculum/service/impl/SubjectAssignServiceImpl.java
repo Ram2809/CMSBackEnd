@@ -34,7 +34,7 @@ public class SubjectAssignServiceImpl implements SubjectAssignService {
 	@Override
 	public Long addSubjectAssign(SubjectAssign subjectAssign) throws BusinessServiceException, NotFoundException {
 		try {
-			subjectRepository.checkSubject(subjectAssign.getSubject().getCode());
+			//for(String subjectCode:subjectAssign.getSubject())
 			classRepository.checkClassRoom(subjectAssign.getClassDetail().getRoomNo());
 			return subjectAssignRepository.addSubjectAssign(subjectAssign);
 		} catch (DatabaseException e) {
@@ -110,6 +110,16 @@ public class SubjectAssignServiceImpl implements SubjectAssignService {
 		classRepository.checkClassRoom(roomNo);
 		try {
 			return subjectAssignRepository.getSubjectCodeList(assignList,roomNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		} 
+	}
+	
+	@Override
+	public List<String> getAllSubjectCodeList(List<Long> assignList)
+			throws  NotFoundException, BusinessServiceException {
+		try {
+			return subjectAssignRepository.getAllSubjectCodeList(assignList);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		} 

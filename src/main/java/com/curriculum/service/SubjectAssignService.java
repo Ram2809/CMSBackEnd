@@ -12,7 +12,8 @@ import com.curriculum.exception.NotFoundException;
 public interface SubjectAssignService {
 	Long addSubjectAssign(SubjectAssign subjectAssign) throws BusinessServiceException, NotFoundException;
 
-	//Long addSubjectAssign(List<SubjectAssign> subjectAssignList) throws BusinessServiceException, NotFoundException;
+	// Long addSubjectAssign(List<SubjectAssign> subjectAssignList) throws
+	// BusinessServiceException, NotFoundException;
 
 	List<SubjectAssignEntity> getSubjects(Long roomNo) throws NotFoundException, BusinessServiceException;
 
@@ -28,4 +29,6 @@ public interface SubjectAssignService {
 
 	List<String> getSubjectCodeList(List<Long> assignList, Long roomNo)
 			throws NotFoundException, BusinessServiceException;
+
+	List<String> getAllSubjectCodeList(List<Long> assignList) throws NotFoundException, BusinessServiceException;
 }

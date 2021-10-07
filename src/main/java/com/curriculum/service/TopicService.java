@@ -10,5 +10,13 @@ import com.curriculum.exception.NotFoundException;
 public interface TopicService {
 	Long addTopic(Topic topic) throws BusinessServiceException, NotFoundException;
 
-	List<TopicEntity> getTopics(String unitNoF) throws BusinessServiceException, NotFoundException;
+	List<TopicEntity> getTopics(String unitNo) throws BusinessServiceException, NotFoundException;
+
+	List<List<TopicEntity>> getTopicList(List<String> unitNoList) throws NotFoundException, BusinessServiceException;
+
+	TopicEntity getTopic(Long topicNo) throws NotFoundException, BusinessServiceException;
+
+	TopicEntity updateTopic(Long topicNo, Topic topic) throws NotFoundException, BusinessServiceException;
+
+	TopicEntity deleteTopic(Long topicNo) throws NotFoundException, BusinessServiceException;
 }

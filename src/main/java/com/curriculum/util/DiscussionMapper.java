@@ -4,7 +4,7 @@ import com.curriculum.dto.Discussion;
 import com.curriculum.entity.ClassEntity;
 import com.curriculum.entity.DiscussionEntity;
 import com.curriculum.entity.TeacherEntity;
-import com.curriculum.entity.UnitEntity;
+import com.curriculum.entity.TopicEntity;
 
 public class DiscussionMapper {
 	public static DiscussionEntity discussionMapper(Discussion discussion) {
@@ -13,9 +13,9 @@ public class DiscussionMapper {
 		discussionEntity.setQuestion(discussion.getQuestion());
 		discussionEntity.setAnswer(discussion.getAnswer());
 		discussionEntity.setDate(discussion.getDate());
-		UnitEntity unitEntity = new UnitEntity();
-		unitEntity.setUnitNo(discussion.getUnit().getUnitNo());
-		discussionEntity.setUnit(unitEntity);
+		TopicEntity topicEntity=new TopicEntity();
+		topicEntity.setId(discussion.getTopic().getId());
+		discussionEntity.setTopic(topicEntity);
 		TeacherEntity teacherEntity = new TeacherEntity();
 		teacherEntity.setId(discussion.getTeacher().getId());
 		discussionEntity.setTeacher(teacherEntity);

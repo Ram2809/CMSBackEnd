@@ -37,5 +37,40 @@ public class TopicServiceImpl implements TopicService{
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}
+	@Override
+	public List<List<TopicEntity>> getTopicList(List<String> unitNoList) throws NotFoundException, BusinessServiceException {
+		for(String unitNo:unitNoList) {
+			unitRepository.checkUnit(unitNo);
+		}
+		try {
+			return topicRepository.getTopicList(unitNoList);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+	@Override
+	public TopicEntity getTopic(Long topicNo) throws NotFoundException,BusinessServiceException {
+		try {
+			return topicRepository.getTopic(topicNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		} 
+	}
+	@Override
+	public TopicEntity updateTopic(Long topicNo, Topic topic) throws NotFoundException,BusinessServiceException {
+		try {
+			return topicRepository.updateTopic(topicNo,topic);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		} 
+	}
+	@Override
+	public TopicEntity deleteTopic(Long topicNo) throws NotFoundException,BusinessServiceException {
+		try {
+			return topicRepository.deleteTopic(topicNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		} 
+	}
 
 }

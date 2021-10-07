@@ -128,7 +128,7 @@ public class TeacherAssignController {
 		}
 		return responseEntity;
 	}
-	@GetMapping("list/{assignIdList}")
+	@GetMapping("/list/{assignIdList}")
 	public ResponseEntity<Response> getTeacherIdList(@PathVariable("assignIdList") List<Long> assignIdList) {
 		ResponseEntity<Response> responseEntity = null;
 		List<Long> teacherIdList = null;
