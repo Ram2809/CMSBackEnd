@@ -111,7 +111,6 @@ public class ClassRepositoryImpl implements ClassRepository {
 	}
 
 	public void checkStandard(String standard) throws NotFoundException {
-		ClassEntity classEntity = null;
 		Session session = sessionFactory.getCurrentSession();
 		Query<ClassEntity> query = session.createQuery("FROM ClassEntity WHERE standard=:standard");
 		query.setParameter("standard", standard);
@@ -122,7 +121,6 @@ public class ClassRepositoryImpl implements ClassRepository {
 	}
 
 	public void checkSection(String section) throws NotFoundException {
-		ClassEntity classEntity = null;
 		Session session = sessionFactory.getCurrentSession();
 		Query<ClassEntity> query = session.createQuery("FROM ClassEntity WHERE section=:section");
 		query.setParameter("section", section);
