@@ -50,12 +50,12 @@ public class UnitController {
 				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", unit);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),unit);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(),unit);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(),unit);
 			}
 		}
 		return responseEntity;
@@ -73,9 +73,9 @@ public class UnitController {
 				responseEntity = ResponseUtil.getResponse(404, "No units found!", unitsList);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),unitsList);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),unitsList);
 		}
 		return responseEntity;
 	}
@@ -103,12 +103,12 @@ public class UnitController {
 			unitEntity = unitService.updateUnit(unitNo, unit);
 			responseEntity = ResponseUtil.getResponse(200, "Unit details updated successfully!", unitEntity);
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),unitEntity);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(),unitEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(),unitEntity);
 			}
 		}
 		return responseEntity;
@@ -122,9 +122,9 @@ public class UnitController {
 			subjectCode = unitService.getSubjectCode(unitNo);
 			responseEntity = ResponseUtil.getResponse(200, "Success!", subjectCode);
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),subjectCode);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),subjectCode);
 		}
 		return responseEntity;
 	}
@@ -138,12 +138,12 @@ public class UnitController {
 			if (unitEntity != null) {
 				responseEntity = ResponseUtil.getResponse(200, "Unit details deleted successfully!", unitEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
+				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!",unitEntity);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),unitEntity);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),unitEntity);
 		}
 		return responseEntity;
 	}

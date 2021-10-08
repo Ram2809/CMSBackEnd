@@ -25,7 +25,7 @@ public class AddressRepositoryImpl implements AddressRepository {
 
 	@Override
 	public Long addAddress(Address address) throws DatabaseException {
-		logger.info("Adding address details!");
+		logger.info("Adding address details...");
 		Session session = null;
 		Long addressId = null;
 		try {
@@ -51,7 +51,7 @@ public class AddressRepositoryImpl implements AddressRepository {
 			Query<AddressEntity> query = session.createQuery("FROM AddressEntity a WHERE a.teacher.id=:staffId");
 			query.setParameter("staffId", staffId);
 			addressEntity = query.uniqueResultOptional().orElse(null);
-			logger.info("Address details fetched successfully!");
+			logger.info("Address details are fetched successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while fetching address details!");
 			throw new DatabaseException(e.getMessage());
@@ -75,7 +75,7 @@ public class AddressRepositoryImpl implements AddressRepository {
 			updatedAddressEntity.setCountry(address.getCountry());
 			updatedAddressEntity.setPinCode(address.getPinCode());
 			addressEntity = (AddressEntity) session.merge(updatedAddressEntity);
-			logger.info("Address Details updated successfully!");
+			logger.info("Address Details are updated successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while updating the address!");
 			throw new DatabaseException(e.getMessage());

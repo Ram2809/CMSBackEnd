@@ -31,7 +31,7 @@ public class UnitRepositoryImpl implements UnitRepository {
 
 	@Override
 	public String addUnit(Unit unit) throws DatabaseException, NotFoundException {
-		logger.info("Adding the unit details!");
+		logger.info("Adding the unit details...");
 		Session session = null;
 		String unitNo = null;
 		try {
@@ -49,7 +49,7 @@ public class UnitRepositoryImpl implements UnitRepository {
 
 	@Override
 	public List<UnitEntity> getUnitBySubjectCode(String subjectCode) throws DatabaseException {
-		logger.info("Getting units for given subject!");
+		logger.info("Getting units for given subject...");
 		Session session = null;
 		List<UnitEntity> unitsList = new ArrayList<>();
 		try {
@@ -77,7 +77,7 @@ public class UnitRepositoryImpl implements UnitRepository {
 
 	@Override
 	public UnitEntity getUnitByUnitNo(String unitNo) throws DatabaseException, NotFoundException {
-		logger.info("Getting particular unit details");
+		logger.info("Getting particular unit details...");
 		Session session = null;
 		UnitEntity unitEntity = null;
 		try {
@@ -86,7 +86,7 @@ public class UnitRepositoryImpl implements UnitRepository {
 			Query<UnitEntity> query = session.createQuery("FROM UnitEntity WHERE unitNo=:unitNo");
 			query.setParameter("unitNo", unitNo);
 			unitEntity = query.uniqueResultOptional().orElse(null);
-			logger.info("Unit details fetched successfully!");
+			logger.info("Unit details are fetched successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while fetching the unit details!");
 			throw new DatabaseException(e.getMessage());
@@ -96,7 +96,7 @@ public class UnitRepositoryImpl implements UnitRepository {
 
 	@Override
 	public UnitEntity updateUnit(String unitNo, Unit unit) throws DatabaseException, NotFoundException {
-		logger.info("Updating unit details!");
+		logger.info("Updating the unit details...");
 		Session session = null;
 		UnitEntity unitEntity = null;
 		try {
@@ -112,7 +112,7 @@ public class UnitRepositoryImpl implements UnitRepository {
 			subjectEntity.setCode(unit.getSubject().getCode());
 			updatedUnitEntity.setSubject(subjectEntity);
 			unitEntity = (UnitEntity) session.merge(updatedUnitEntity);
-			logger.info("Unit details updated successfully!");
+			logger.info("Unit details are updated successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while updating the unit details!");
 			throw new DatabaseException(e.getMessage());
@@ -147,7 +147,7 @@ public class UnitRepositoryImpl implements UnitRepository {
 
 	@Override
 	public String getSubjectCode(String unitNo) throws DatabaseException, NotFoundException {
-		logger.info("Getting subject by unit number!");
+		logger.info("Getting the subject by unit number!");
 		Session session = null;
 		String subjectCode = "";
 		try {
@@ -157,7 +157,7 @@ public class UnitRepositoryImpl implements UnitRepository {
 					.createQuery("SELECT t.subject.code FROM UnitEntity t WHERE t.unitNo=:unitNo");
 			query.setParameter("unitNo", unitNo);
 			subjectCode = query.uniqueResult();
-			logger.info("Subject code fetched successfully using unit number!");
+			logger.info("Subject code is fetched successfully using unit number!");
 		} catch (HibernateException e) {
 			logger.error("Error while fetching the subject code!");
 			throw new DatabaseException(e.getMessage());

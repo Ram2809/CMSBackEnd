@@ -43,12 +43,12 @@ public class HeadMasterController {
 			headMaster.setId(headMasterId);
 			responseEntity = ResponseUtil.getResponse(200, "Headmaster details added successfully!", headMaster);
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), headMaster);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(), headMaster);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(), headMaster);
 			}
 		}
 		return responseEntity;
@@ -64,15 +64,15 @@ public class HeadMasterController {
 				responseEntity = ResponseUtil.getResponse(200, "Headmaster details updated successfully!",
 						headMasterEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
+				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", headMasterEntity);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), headMasterEntity);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException)
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(), headMasterEntity);
 			else
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(), headMasterEntity);
 		}
 		return responseEntity;
 	}
@@ -87,12 +87,12 @@ public class HeadMasterController {
 				responseEntity = ResponseUtil.getResponse(200, "Headmaster details deleted successfully!",
 						headMasterEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
+				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", headMasterEntity);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), headMasterEntity);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), headMasterEntity);
 		}
 		return responseEntity;
 	}
@@ -105,9 +105,9 @@ public class HeadMasterController {
 			headMasterEntity = headMasterService.getHeadMaster(email);
 			responseEntity = ResponseUtil.getResponse(200, "Success!", headMasterEntity);
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), headMasterEntity);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), headMasterEntity);
 		}
 		return responseEntity;
 	}

@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.curriculum.dto.Class;
 import com.curriculum.entity.ClassEntity;
@@ -47,12 +46,12 @@ public class ClassController {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", classDetail);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), classDetail);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException)
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(), classDetail);
 			else
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(), classDetail);
 		}
 		return responseEntity;
 	}
@@ -66,10 +65,10 @@ public class ClassController {
 			if (!classList.isEmpty()) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", classList);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No class rooms found!");
+				responseEntity = ResponseUtil.getResponse(404, "No class rooms found!", classList);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), classList);
 		}
 		return responseEntity;
 	}
@@ -82,12 +81,12 @@ public class ClassController {
 			classEntity = classService.updateClass(roomNo, classDetail);
 			responseEntity = ResponseUtil.getResponse(200, "Class details updated successfully!", classEntity);
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), classEntity);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(), classEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(), classEntity);
 			}
 		}
 		return responseEntity;
@@ -102,12 +101,12 @@ public class ClassController {
 			if (classEntity != null) {
 				responseEntity = ResponseUtil.getResponse(200, "Class details deleted successfully!", classEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
+				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", classEntity);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), classEntity);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), classEntity);
 		}
 		return responseEntity;
 	}
@@ -121,12 +120,12 @@ public class ClassController {
 			if (classEntity != null) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", classEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No data found!");
+				responseEntity = ResponseUtil.getResponse(404, "No data found!", classEntity);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), classEntity);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), classEntity);
 		}
 		return responseEntity;
 	}
@@ -140,12 +139,12 @@ public class ClassController {
 			if (!classList.isEmpty()) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", classList);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No section found for given standard!");
+				responseEntity = ResponseUtil.getResponse(404, "No section found for given standard!", classList);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), classList);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), classList);
 		}
 		return responseEntity;
 	}
@@ -160,15 +159,16 @@ public class ClassController {
 			if (roomNo != null) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", roomNo);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No class room found!");
+				responseEntity = ResponseUtil.getResponse(404, "No class room found!", roomNo);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), roomNo);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), roomNo);
 		}
 		return responseEntity;
 	}
+
 	@GetMapping("/list/{roomNoList}")
 	public ResponseEntity<Response> getClassList(@PathVariable("roomNoList") List<Long> roomNoList) {
 		ResponseEntity<Response> responseEntity = null;
@@ -178,12 +178,12 @@ public class ClassController {
 			if (!classList.isEmpty()) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", classList);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No class rooms found!");
+				responseEntity = ResponseUtil.getResponse(404, "No class rooms found!", classList);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), classList);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), classList);
 		}
 		return responseEntity;
 	}

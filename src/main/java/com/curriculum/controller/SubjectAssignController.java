@@ -12,13 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.curriculum.dto.ListWrapper;
 import com.curriculum.dto.SubjectAssign;
 import com.curriculum.entity.SubjectAssignEntity;
-import com.curriculum.entity.SubjectEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.NotFoundException;
@@ -44,58 +41,35 @@ public class SubjectAssignController {
 				responseEntity = ResponseUtil.getResponse(200, "Subject assigned for class successfully!",
 						subjectAssign);
 			} else {
-				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
+				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", subjectAssign);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), subjectAssign);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(), subjectAssign);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(), subjectAssign);
 			}
 		}
 		return responseEntity;
 	}
-//	@PostMapping
-//	public ResponseEntity<Response> addSubjectAssign(@RequestBody List<SubjectAssign> subjectAssignList) {
-//		ResponseEntity<Response> responseEntity = null;
-//		Long id = null;
-//		try {
-//			id = subjectAssignService.addSubjectAssign(subjectAssignList);
-//			if (id > 0) {
-//				responseEntity = ResponseUtil.getResponse(200, "Subject assigned for class successfully!",
-//						subjectAssignList);
-//			} else {
-//				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
-//			}
-//		} catch (BusinessServiceException e) {
-//			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
-//		} catch (NotFoundException e) {
-//			if (e instanceof ConstraintValidationException) {
-//				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
-//			} else {
-//				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
-//			}
-//		}
-//		return responseEntity;
-//	}
 
 	@GetMapping("/{roomNo}")
 	public ResponseEntity<Response> getSubjects(@PathVariable("roomNo") Long roomNo) {
 		ResponseEntity<Response> responseEntity = null;
-		List<SubjectAssignEntity> subjectList = new ArrayList<>();
+		List<SubjectAssignEntity> subjectsList = new ArrayList<>();
 		try {
-			subjectList = subjectAssignService.getSubjects(roomNo);
-			if (!subjectList.isEmpty()) {
-				responseEntity = ResponseUtil.getResponse(200, "Success!", subjectList);
+			subjectsList = subjectAssignService.getSubjects(roomNo);
+			if (!subjectsList.isEmpty()) {
+				responseEntity = ResponseUtil.getResponse(200, "Success!", subjectsList);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No subject name found!");
+				responseEntity = ResponseUtil.getResponse(404, "No subject name found!", subjectsList);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), subjectsList);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), subjectsList);
 		}
 		return responseEntity;
 	}
@@ -110,12 +84,12 @@ public class SubjectAssignController {
 			if (assignId != 0) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", assignId);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!");
+				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!", assignId);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), assignId);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), assignId);
 		}
 		return responseEntity;
 	}
@@ -132,9 +106,9 @@ public class SubjectAssignController {
 				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!" + " " + id + "!", subjectCode);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), subjectCode);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), subjectCode);
 		}
 		return responseEntity;
 	}
@@ -151,9 +125,9 @@ public class SubjectAssignController {
 				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!" + " " + id + "!", roomNo);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), roomNo);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), roomNo);
 		}
 		return responseEntity;
 	}
@@ -161,20 +135,21 @@ public class SubjectAssignController {
 	@DeleteMapping("/{roomNo}")
 	public ResponseEntity<Response> deleteSubjectAssign(@PathVariable("roomNo") Long roomNo) {
 		ResponseEntity<Response> responseEntity = null;
-		Long count = null;
+		Long noOfRowsDeleted = null;
 		try {
-			count = subjectAssignService.deleteSubjectAssign(roomNo);
-			if (count > 0) {
-				responseEntity = ResponseUtil.getResponse(200, "Subject Assign details deleted successfully!", count);
+			noOfRowsDeleted = subjectAssignService.deleteSubjectAssign(roomNo);
+			if (noOfRowsDeleted > 0) {
+				responseEntity = ResponseUtil.getResponse(200, "Subject Assign details deleted successfully!",
+						noOfRowsDeleted);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), noOfRowsDeleted);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), noOfRowsDeleted);
 		}
 		return responseEntity;
 	}
-	
+
 	@GetMapping("/list/{assignList}")
 	public ResponseEntity<Response> getRoomNoList(@PathVariable("assignList") List<Long> assignList) {
 		ResponseEntity<Response> responseEntity = null;
@@ -184,35 +159,36 @@ public class SubjectAssignController {
 			if (!roomNoList.isEmpty()) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", roomNoList);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!");
+				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!", roomNoList);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
-		} 
-//		catch (NotFoundException e) {
-//			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
-//		}
-		return responseEntity;
-	}
-	@GetMapping("/list/{assignList}/{roomNo}")
-	public ResponseEntity<Response> getSubjectCodeList(@PathVariable("assignList") List<Long> assignList,@PathVariable("roomNo") Long roomNo) {
-		ResponseEntity<Response> responseEntity = null;
-		List<String> subjectCodeList = null;
-		try {
-			subjectCodeList = subjectAssignService.getSubjectCodeList(assignList,roomNo);
-			if (!subjectCodeList.isEmpty()) {
-				responseEntity = ResponseUtil.getResponse(200, "Success!", subjectCodeList);
-			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!");
-			}
-		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), roomNoList);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), roomNoList);
 		}
 		return responseEntity;
 	}
-	
+
+	@GetMapping("/list/{assignList}/{roomNo}")
+	public ResponseEntity<Response> getSubjectCodeList(@PathVariable("assignList") List<Long> assignList,
+			@PathVariable("roomNo") Long roomNo) {
+		ResponseEntity<Response> responseEntity = null;
+		List<String> subjectCodeList = null;
+		try {
+			subjectCodeList = subjectAssignService.getSubjectCodeList(assignList, roomNo);
+			if (!subjectCodeList.isEmpty()) {
+				responseEntity = ResponseUtil.getResponse(200, "Success!", subjectCodeList);
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!", subjectCodeList);
+			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), subjectCodeList);
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), subjectCodeList);
+		}
+		return responseEntity;
+	}
+
 	@GetMapping("/listAll/{assignList}")
 	public ResponseEntity<Response> getAllSubjectCodeList(@PathVariable("assignList") List<Long> assignList) {
 		ResponseEntity<Response> responseEntity = null;
@@ -222,14 +198,14 @@ public class SubjectAssignController {
 			if (!subjectCodeList.isEmpty()) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", subjectCodeList);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!");
+				responseEntity = ResponseUtil.getResponse(404, "No Assign Id found!", subjectCodeList);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), subjectCodeList);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), subjectCodeList);
 		}
 		return responseEntity;
 	}
-	
+
 }

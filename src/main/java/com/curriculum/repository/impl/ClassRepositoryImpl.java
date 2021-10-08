@@ -27,7 +27,7 @@ public class ClassRepositoryImpl implements ClassRepository {
 
 	@Override
 	public Long addClass(Class classDetail) throws DatabaseException, NotAllowedException {
-		logger.info("Adding class details");
+		logger.info("Adding class details...");
 		Session session = null;
 		Long roomNo = 0l;
 		try {
@@ -42,7 +42,7 @@ public class ClassRepositoryImpl implements ClassRepository {
 			}
 			roomNo = (Long) session.save(ClassMapper.mapClass(classDetail));
 			if (roomNo > 0) {
-				logger.info("Class details added successfully!");
+				logger.info("Class details are added successfully!");
 			}
 		} catch (HibernateException e) {
 			logger.error("Error while adding the class!");
@@ -53,7 +53,7 @@ public class ClassRepositoryImpl implements ClassRepository {
 
 	@Override
 	public List<ClassEntity> getAllClass() throws DatabaseException {
-		logger.info("Getting all class details!");
+		logger.info("Getting all class details...");
 		Session session = null;
 		List<ClassEntity> classList = new ArrayList<>();
 		try {
@@ -70,7 +70,7 @@ public class ClassRepositoryImpl implements ClassRepository {
 
 	@Override
 	public ClassEntity updateClass(Long roomNo, Class classDetail) throws DatabaseException, NotFoundException {
-		logger.info("Updating the class details!");
+		logger.info("Updating the class details...");
 		Session session = null;
 		ClassEntity updatedClassEntity = null;
 		try {
@@ -81,7 +81,6 @@ public class ClassRepositoryImpl implements ClassRepository {
 			query.setParameter("standard", classDetail.getStandard());
 			query.setParameter("section", classDetail.getSection());
 			ClassEntity classDetails = query.uniqueResultOptional().orElse(null);
-			System.out.println(classDetails);
 			if (classDetails != null) {
 				throw new NotAllowedException("Standard and section already exits!");
 			}
@@ -91,7 +90,7 @@ public class ClassRepositoryImpl implements ClassRepository {
 			classEntity.setStandard(classEntityDetail.getStandard());
 			classEntity.setSection(classEntityDetail.getSection());
 			updatedClassEntity = (ClassEntity) session.merge(classEntity);
-			logger.info("Class Details updated successfully!");
+			logger.info("Class Details are updated successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while updating the class!");
 			throw new DatabaseException(e.getMessage());
@@ -132,18 +131,18 @@ public class ClassRepositoryImpl implements ClassRepository {
 
 	@Override
 	public ClassEntity deleteClass(Long roomNo) throws DatabaseException, NotFoundException {
-		logger.info("Deleting the class!");
+		logger.info("Deleting the class details...");
 		Session session = null;
-		ClassEntity response = null;
+		ClassEntity deletedClassEntity = null;
 		try {
 			checkClassRoom(roomNo);
 			session = sessionFactory.getCurrentSession();
 			session.find(ClassEntity.class, roomNo);
-			ClassEntity classEntity = session.load(ClassEntity.class, roomNo);
-			session.delete(classEntity);
-			ClassEntity classDetails = session.get(ClassEntity.class, roomNo);
-			if (classDetails == null) {
-				response = classEntity;
+			ClassEntity classDetail = session.load(ClassEntity.class, roomNo);
+			session.delete(classDetail);
+			ClassEntity classEntity = session.get(ClassEntity.class, roomNo);
+			if (classEntity == null) {
+				deletedClassEntity = classDetail;
 				logger.info("Class Details deleted successfully!");
 			} else {
 				logger.error("Error while deleting the class!");
@@ -152,31 +151,31 @@ public class ClassRepositoryImpl implements ClassRepository {
 			logger.error("Error while deleting the class!");
 			throw new DatabaseException(e.getMessage());
 		}
-		return response;
+		return deletedClassEntity;
 	}
 
 	@Override
 	public ClassEntity getParticularClass(Long roomNo) throws DatabaseException, NotFoundException {
-		logger.info("Getting particular class details!");
+		logger.info("Getting particular class details...");
 		Session session = null;
-		ClassEntity classDetails = new ClassEntity();
+		ClassEntity classDetail = new ClassEntity();
 		try {
 			checkClassRoom(roomNo);
 			session = sessionFactory.getCurrentSession();
 			Query<ClassEntity> query = session.createQuery("FROM ClassEntity WHERE roomNo=:roomId");
 			query.setParameter("roomId", roomNo);
-			classDetails = query.getSingleResult();
+			classDetail = query.getSingleResult();
 			logger.info("Particular class details fetched successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while fetching the particular class details!");
 			throw new DatabaseException(e.getMessage());
 		}
-		return classDetails;
+		return classDetail;
 	}
 
 	@Override
 	public List<ClassEntity> getClassList(String standard) throws DatabaseException, NotFoundException {
-		logger.info("Getting class rooms for particular standard");
+		logger.info("Getting class rooms for particular standard...");
 		Session session = null;
 		List<ClassEntity> classList = null;
 		try {
@@ -187,7 +186,7 @@ public class ClassRepositoryImpl implements ClassRepository {
 			classList = query.getResultList();
 			logger.info("class details are fetched successfully!");
 		} catch (HibernateException e) {
-			logger.error("Error while fetching class details");
+			logger.error("Error while fetching the class details!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return classList;
@@ -195,7 +194,7 @@ public class ClassRepositoryImpl implements ClassRepository {
 
 	@Override
 	public Long getClassRoomNo(String standard, String section) throws DatabaseException, NotFoundException {
-		logger.info("Getting classroom");
+		logger.info("Getting classroom for given standard and section...");
 		Session session = null;
 		Long classRoomNo = null;
 		try {
@@ -217,7 +216,7 @@ public class ClassRepositoryImpl implements ClassRepository {
 
 	@Override
 	public List<ClassEntity> getClassList(List<Long> roomNoList) throws DatabaseException, NotFoundException {
-		logger.info("Getting Class Details Method...");
+		logger.info("Getting Class Details...");
 		List<ClassEntity> classList = new ArrayList<>();
 		Session session = null;
 		try {

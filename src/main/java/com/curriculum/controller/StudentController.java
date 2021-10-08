@@ -49,15 +49,15 @@ public class StudentController {
 				student.setRollNo(rollNo);
 				responseEntity = ResponseUtil.getResponse(200, "Student details added successfully!", student);
 			} else {
-				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
+				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!",student);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),student);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(),student);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(),student);
 			}
 		}
 		return responseEntity;
@@ -72,12 +72,12 @@ public class StudentController {
 			studentEntity = studentService.updateStudent(rollNo, student);
 			responseEntity = ResponseUtil.getResponse(200, "Student Details Updated Successfully!", studentEntity);
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),studentEntity);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(),studentEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(),studentEntity);
 			}
 		}
 		return responseEntity;
@@ -92,12 +92,12 @@ public class StudentController {
 			if (studentEntity != null) {
 				responseEntity = ResponseUtil.getResponse(200, "Student is deleted successfully!", studentEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
+				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!",studentEntity);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),studentEntity);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),studentEntity);
 		}
 		return responseEntity;
 	}
@@ -110,9 +110,9 @@ public class StudentController {
 			studentEntity = studentService.getStudent(rollNo);
 			responseEntity = ResponseUtil.getResponse(200, "Success!", studentEntity);
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),studentEntity);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),studentEntity);
 		}
 		return responseEntity;
 	}
@@ -126,12 +126,12 @@ public class StudentController {
 			if (!studentsList.isEmpty()) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", studentsList);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No Student Found!");
+				responseEntity = ResponseUtil.getResponse(404, "No Student Found!",studentsList);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),studentsList);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),studentsList);
 		}
 		return responseEntity;
 	}

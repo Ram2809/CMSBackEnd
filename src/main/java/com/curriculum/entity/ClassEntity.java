@@ -25,10 +25,10 @@ public class ClassEntity {
 	@Id
 	private Long roomNo;
 	@Column(nullable = false)
-	@Size(max = 3, message = "Standard cannot be empty and Standard not more than 3")
+	@Size(max = 3)
 	private String standard;
 	@Column(nullable = false)
-	@Size(max = 2, message = "Section cannot be empty and Section length not more than 2")
+	@Size(max = 2)
 	private String section;
 	@OneToMany(mappedBy = "classDetail", fetch = FetchType.EAGER)
 	@JsonIgnore

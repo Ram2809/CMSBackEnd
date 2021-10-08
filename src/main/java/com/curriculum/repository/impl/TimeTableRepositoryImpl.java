@@ -30,7 +30,7 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 
 	@Override
 	public TimeTableEntity addTimeTable(TimeTable timeTable) throws DatabaseException {
-		logger.info("Adding timetable details!");
+		logger.info("Adding the timetable details...");
 		TimeTableEntity timeTableEntity = null;
 		Session session = null;
 		try {
@@ -39,7 +39,6 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 			Long count = (Long) session.save(TimeTableMapper.timeTableMapper(timeTable));
 			if (count > 0) {
 				timeTableEntity = TimeTableMapper.timeTableMapper(timeTable);
-				System.out.println(timeTableEntity);
 				logger.info("Timetable details are added successfully!");
 			}
 		} catch (HibernateException | NotAllowedException e) {
@@ -51,7 +50,7 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 
 	@Override
 	public List<TimeTableEntity> getTimeTable(Long roomNo) throws DatabaseException {
-		logger.info("Getting timetable details!");
+		logger.info("Getting the timetable details...");
 		Session session = null;
 		List<TimeTableEntity> timeTableList = new ArrayList<>();
 		try {
@@ -83,7 +82,7 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 
 	@Override
 	public Integer deleteTimeTable(Long roomNo) throws DatabaseException {
-		logger.info("Deleting timetable!");
+		logger.info("Deleting the timetable details...");
 		Session session = null;
 		Integer noOfRowsDeleted = 0;
 		try {
@@ -101,9 +100,9 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 					.createQuery("DELETE FROM TimeTableEntity t WHERE t.classRoom.roomNo=:roomNo");
 			deleteTimeTablequery.setParameter("roomNo", roomNo);
 			noOfRowsDeleted = deleteTimeTablequery.executeUpdate();
-			logger.info("Timetable Deleted successfully!");
+			logger.info("Timetable details are deleted successfully!");
 		} catch (HibernateException e) {
-			logger.error("Error while deleting the timetable!");
+			logger.error("Error while deleting the timetable details!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return noOfRowsDeleted;
@@ -111,7 +110,7 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 
 	@Override
 	public TimeTableEntity getTimeTableId(Long roomNo, String day) throws DatabaseException {
-		logger.info("Getting timetable id!");
+		logger.info("Getting the timetable id...");
 		Session session = null;
 		TimeTableEntity timeTableEntity = null;
 		try {
@@ -122,9 +121,9 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 			query.setParameter("day", day);
 			timeTableEntity = query.uniqueResultOptional().orElse(null);
 			System.out.println(timeTableEntity);
-			logger.info("Timetable id fetched successfully!");
+			logger.info("Timetable id is fetched successfully!");
 		} catch (HibernateException e) {
-			logger.error("Error while fetching timetable details!");
+			logger.error("Error while fetching the timetable details!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return timeTableEntity;
@@ -132,7 +131,7 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 
 	@Override
 	public Long updatePeriod(Integer period, String subject, Long id) throws DatabaseException, NotFoundException {
-		logger.info("Updating period details..");
+		logger.info("Updating the period details..");
 		Session session = null;
 		Long count = 0l;
 		try {
@@ -144,7 +143,7 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 			query.setParameter(2, id);
 			query.setParameter(3, period);
 			count = (long) query.executeUpdate();
-			logger.info("Period updated successfully!");
+			logger.info("Period is updated successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while updating the period details!");
 			throw new DatabaseException(e.getMessage());
@@ -154,7 +153,7 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 
 	@Override
 	public String getPeriod(Integer period, Long id) throws DatabaseException, NotFoundException {
-		logger.info("Getting period details..");
+		logger.info("Getting the period details..");
 		Session session = null;
 		String subjectName = "";
 		try {
@@ -165,7 +164,7 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 			query.setParameter(1, id);
 			query.setParameter(2, period);
 			subjectName = (String) query.getSingleResult();
-			logger.info("Subject name fetched successfully!");
+			logger.info("Subject name is fetched successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while getting the period details!");
 			throw new DatabaseException(e.getMessage());
@@ -176,13 +175,13 @@ public class TimeTableRepositoryImpl implements TimeTableRepository {
 
 	@Override
 	public void checkTimetableId(Long id) throws NotFoundException {
-		logger.info("Checking timetable id...");
+		logger.info("Checking the timetable id...");
 		TimeTableEntity timetableEntity = null;
 		Session session = sessionFactory.getCurrentSession();
 		Query<TimeTableEntity> query = session.createQuery("FROM TimeTableEntity WHERE id=:id");
 		query.setParameter("id", id);
 		timetableEntity = query.uniqueResultOptional().orElse(null);
-		logger.info("Timetable id checked successfully!");
+		logger.info("Timetable id is checked successfully!");
 		if (timetableEntity == null) {
 			logger.error("Error while checking timetable id!");
 			throw new NotFoundException("Timetable Not Found With" + " " + id + "!");

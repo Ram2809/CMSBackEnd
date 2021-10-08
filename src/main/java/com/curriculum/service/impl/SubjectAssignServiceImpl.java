@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import com.curriculum.dto.ListWrapper;
 import com.curriculum.dto.SubjectAssign;
 import com.curriculum.entity.SubjectAssignEntity;
 import com.curriculum.exception.BusinessServiceException;
@@ -34,7 +33,7 @@ public class SubjectAssignServiceImpl implements SubjectAssignService {
 	@Override
 	public Long addSubjectAssign(SubjectAssign subjectAssign) throws BusinessServiceException, NotFoundException {
 		try {
-			//for(String subjectCode:subjectAssign.getSubject())
+			subjectRepository.checkSubject(subjectAssign.getSubject().getCode());
 			classRepository.checkClassRoom(subjectAssign.getClassDetail().getRoomNo());
 			return subjectAssignRepository.addSubjectAssign(subjectAssign);
 		} catch (DatabaseException e) {
@@ -96,7 +95,7 @@ public class SubjectAssignServiceImpl implements SubjectAssignService {
 	}
 
 	@Override
-	public List<Long> getRoomNoList(List<Long> assignList) throws BusinessServiceException {
+	public List<Long> getRoomNoList(List<Long> assignList) throws BusinessServiceException, NotFoundException {
 		try {
 			return subjectAssignRepository.getRoomNoList(assignList);
 		} catch (DatabaseException e) {
@@ -124,20 +123,5 @@ public class SubjectAssignServiceImpl implements SubjectAssignService {
 			throw new BusinessServiceException(e.getMessage());
 		} 
 	}
-
-//	@Override
-//	public Long addSubjectAssign(List<SubjectAssign> subjectAssignList)
-//			throws BusinessServiceException, NotFoundException {
-//		try {
-////			subjectRepository.checkSubject(subjectAssign.getSubject().getCode());
-////			classRepository.checkClassRoom(subjectAssign.getClassDetail().getRoomNo());
-//			return subjectAssignRepository.addSubjectAssign(subjectAssignList);
-//		} catch (DatabaseException e) {
-//			throw new BusinessServiceException(e.getMessage());
-//		} catch (DataIntegrityViolationException | ConstraintViolationException e) {
-//			logger.error("Constraint Violation fails!");
-//			throw new ConstraintValidationException("Constraint Violation fails!");
-//		}
-//	}
 
 }

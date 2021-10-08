@@ -2,10 +2,13 @@ package com.curriculum.controller;
 
 import javax.validation.Valid;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +32,7 @@ import com.curriculum.util.ResponseUtil;
 public class UnitStatusController {
 	@Autowired
 	private UnitStatusService unitStatusService;
-
+	private Logger logger = Logger.getLogger(UnitStatusController.class);
 	@PostMapping
 	public ResponseEntity<Response> addUnitStatus(@Valid @RequestBody UnitStatus unitStatus) {
 		ResponseEntity<Response> responseEntity = null;
@@ -40,15 +43,15 @@ public class UnitStatusController {
 				unitStatus.setId(statusId);
 				responseEntity = ResponseUtil.getResponse(200, "Unit Status Details Added Successfully!", unitStatus);
 			} else {
-				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
+				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!",unitStatus);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),unitStatus);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(),unitStatus);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(),unitStatus);
 			}
 		}
 		return responseEntity;
@@ -67,9 +70,9 @@ public class UnitStatusController {
 				responseEntity = ResponseUtil.getResponse(404, "No status found!", topicsStatus);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),topicsStatus);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),topicsStatus);
 		}
 		return responseEntity;
 	}
@@ -86,9 +89,9 @@ public class UnitStatusController {
 				responseEntity = ResponseUtil.getResponse(404, "No status found!", unitStatus);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),unitStatus);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),unitStatus);
 		}
 		return responseEntity;
 	}
@@ -102,12 +105,12 @@ public class UnitStatusController {
 			unitStatusEntity = unitStatusService.updateUnitStatus(id, unitStatus);
 			responseEntity = ResponseUtil.getResponse(200, "Unit details updated successfully!", unitStatusEntity);
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),unitStatusEntity);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(),unitStatusEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(),unitStatusEntity);
 			}
 		}
 		return responseEntity;
@@ -123,13 +126,20 @@ public class UnitStatusController {
 				responseEntity = ResponseUtil.getResponse(200, "Unit details deleted successfully!",
 						unitStatusEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
+				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!",unitStatusEntity);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),unitStatusEntity);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),unitStatusEntity);
 		}
+		return responseEntity;
+	}
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public ResponseEntity<Response> validationFailed(MethodArgumentNotValidException e) {
+		logger.error("Validation fails, Check your input!");
+		ResponseEntity<Response> responseEntity = null;
+		responseEntity = ResponseUtil.getResponse(422, "Validation fails!");
 		return responseEntity;
 	}
 }

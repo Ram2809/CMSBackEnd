@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.curriculum.dto.TeacherAssign;
 import com.curriculum.entity.TeacherAssignEntity;
-import com.curriculum.exception.AssignIdNotFoundException;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.DatabaseException;

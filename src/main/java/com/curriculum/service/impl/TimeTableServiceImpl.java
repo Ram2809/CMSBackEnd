@@ -24,7 +24,6 @@ public class TimeTableServiceImpl implements TimeTableService {
 	@Override
 	public TimeTableEntity addTimeTable(TimeTable timeTable) throws BusinessServiceException, NotFoundException {
 		try {
-			System.out.println(timeTable);
 			classRepository.checkClassRoom(timeTable.getClassDetail().getRoomNo());
 			return timeTableRepository.addTimeTable(timeTable);
 		} catch (DatabaseException e) {

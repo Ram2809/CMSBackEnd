@@ -29,17 +29,17 @@ public class TopicRepositoryImpl implements TopicRepository {
 
 	@Override
 	public Long addTopic(Topic topic) throws DatabaseException {
-		logger.info("Adding topic details...");
+		logger.info("Adding the topic details...");
 		Session session = null;
 		Long topicNo = 0l;
 		try {
 			session = sessionFactory.getCurrentSession();
 			topicNo = (Long) session.save(TopicMapper.mapTopic(topic));
 			if (topicNo > 0) {
-				logger.info("Topic details added successfully!");
+				logger.info("Topic details are added successfully!");
 			}
 		} catch (HibernateException e) {
-			logger.error("Error while adding topic details!");
+			logger.error("Error while adding the topic details!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return topicNo;
@@ -47,7 +47,7 @@ public class TopicRepositoryImpl implements TopicRepository {
 
 	@Override
 	public List<TopicEntity> getTopics(String unitNo) throws DatabaseException {
-		logger.info("Getting topic details...");
+		logger.info("Getting the topic details...");
 		Session session = null;
 		List<TopicEntity> topicsList = new ArrayList<>();
 		try {
@@ -65,7 +65,7 @@ public class TopicRepositoryImpl implements TopicRepository {
 
 	@Override
 	public List<List<TopicEntity>> getTopicList(List<String> unitNoList) throws DatabaseException {
-		logger.info("Getting topic details...");
+		logger.info("Getting the topic details...");
 		Session session = null;
 		List<List<TopicEntity>> topicsList = new ArrayList<>();
 		try {
@@ -116,7 +116,7 @@ public class TopicRepositoryImpl implements TopicRepository {
 
 	@Override
 	public TopicEntity updateTopic(Long topicNo, Topic topic) throws DatabaseException,NotFoundException {
-		logger.info("Updating topic details...");
+		logger.info("Updating the topic details...");
 		Session session = null;
 		TopicEntity topicEntity = null;
 		try {
@@ -128,7 +128,7 @@ public class TopicRepositoryImpl implements TopicRepository {
 			TopicEntity updatedTopicEntity = session.load(TopicEntity.class, topicNo);
 			updatedTopicEntity.setName(topicDetail.getName());
 			topicEntity = (TopicEntity) session.merge(updatedTopicEntity);
-			logger.info("Topic details updated successfully!");
+			logger.info("Topic details are updated successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while updating the topic details!");
 			throw new DatabaseException(e.getMessage());

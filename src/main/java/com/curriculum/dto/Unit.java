@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Unit {
-	@Size(max = 8, message = "Unit Number not exceeds the 8 characters!")
+	@Size(max = 8)
 	private String unitNo;
 	@NotNull
 	private String unitName;

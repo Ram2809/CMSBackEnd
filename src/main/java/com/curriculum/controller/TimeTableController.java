@@ -45,9 +45,9 @@ public class TimeTableController {
 				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", timeTable);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), timeTable);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), timeTable);
 		}
 		return responseEntity;
 	}
@@ -61,12 +61,12 @@ public class TimeTableController {
 			if (!timeTableList.isEmpty()) {
 				responseEntity = ResponseUtil.getResponse(200, "Timetable fetched successfully!", timeTableList);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No Timetable Found!");
+				responseEntity = ResponseUtil.getResponse(404, "No Timetable Found!",timeTableList);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),timeTableList);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),timeTableList);
 		}
 		return responseEntity;
 	}
@@ -74,16 +74,16 @@ public class TimeTableController {
 	@DeleteMapping("/{roomNo}")
 	public ResponseEntity<Response> deleteTimeTable(@PathVariable("roomNo") Long roomNo) {
 		ResponseEntity<Response> responseEntity = null;
-		Integer count = 0;
+		Integer noOfRowsDeleted = 0;
 		try {
-			count = timeTableService.deleteTimeTable(roomNo);
-			if (count > 0) {
-				responseEntity = ResponseUtil.getResponse(200, "Timetable details deleted successfully!", count);
+			noOfRowsDeleted = timeTableService.deleteTimeTable(roomNo);
+			if (noOfRowsDeleted > 0) {
+				responseEntity = ResponseUtil.getResponse(200, "Timetable details deleted successfully!", noOfRowsDeleted);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),noOfRowsDeleted);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),noOfRowsDeleted);
 		}
 		return responseEntity;
 	}
@@ -98,12 +98,12 @@ public class TimeTableController {
 			if (timeTableEntity != null) {
 				responseEntity = ResponseUtil.getResponse(200, "Timetable id fetched successfully!", timeTableEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No Timetable id Found!");
+				responseEntity = ResponseUtil.getResponse(404, "No Timetable id Found!",timeTableEntity);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),timeTableEntity);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),timeTableEntity);
 		}
 		return responseEntity;
 	}
@@ -112,18 +112,18 @@ public class TimeTableController {
 	public ResponseEntity<Response> updatePeriod(@PathVariable("period") Integer period,
 			@PathVariable("subject") String subject, @PathVariable("id") Long id, @RequestBody TimeTable timeTable) {
 		ResponseEntity<Response> responseEntity = null;
-		Long count = null;
+		Long noOfRowsUpdated = null;
 		try {
-			count = timeTableService.updatePeriod(period, subject, id);
-			if (count > 0) {
-				responseEntity = ResponseUtil.getResponse(200, "Timetable updated successfully!", count);
+			noOfRowsUpdated = timeTableService.updatePeriod(period, subject, id);
+			if (noOfRowsUpdated > 0) {
+				responseEntity = ResponseUtil.getResponse(200, "Timetable updated successfully!", noOfRowsUpdated);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No Timetable Found!");
+				responseEntity = ResponseUtil.getResponse(404, "No Timetable Found!",noOfRowsUpdated);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),noOfRowsUpdated);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),noOfRowsUpdated);
 		}
 		return responseEntity;
 	}
@@ -137,12 +137,12 @@ public class TimeTableController {
 			if (subjectName != null) {
 				responseEntity = ResponseUtil.getResponse(200, "Period fetched successfully!", subjectName);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No Period Found!");
+				responseEntity = ResponseUtil.getResponse(404, "No Period Found!",subjectName);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),subjectName);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),subjectName);
 		}
 		return responseEntity;
 	}

@@ -32,17 +32,17 @@ public class StudentRepositoryImpl implements StudentRepository {
 
 	@Override
 	public Long addStudent(Student student) throws DatabaseException {
-		logger.info("Adding student details");
+		logger.info("Adding the student details...");
 		Session session = null;
 		Long rollNo = null;
 		try {
 			session = sessionFactory.getCurrentSession();
 			rollNo = (Long) session.save(StudentMapper.studentMapper(student));
 			if (rollNo > 0) {
-				logger.info("Student details added successfully!");
+				logger.info("Student details are added successfully!");
 			}
 		} catch (HibernateException e) {
-			logger.error("Error while adding student details!");
+			logger.error("Error while adding the student details!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return rollNo;
@@ -60,7 +60,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 
 	@Override
 	public StudentEntity deleteStudent(Long rollNo) throws DatabaseException, NotFoundException {
-		logger.info("Deleting the Student details!");
+		logger.info("Deleting the Student details...");
 		Session session = null;
 		StudentEntity studentDetail = null;
 		try {
@@ -85,6 +85,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 
 	@Override
 	public StudentEntity getStudent(Long rollNo) throws NotFoundException, DatabaseException {
+		logger.info("Getting the student details...");
 		StudentEntity studentEntity = null;
 		Session session = null;
 		try {
@@ -93,6 +94,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 			Query<StudentEntity> query = session.createQuery("FROM StudentEntity Where rollNo=:rollNo");
 			query.setParameter("rollNo", rollNo);
 			studentEntity = query.uniqueResultOptional().orElse(null);
+			logger.info("Student details are fetched successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while fetching the student details!");
 			throw new DatabaseException(e.getMessage());
@@ -102,7 +104,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 
 	@Override
 	public List<StudentEntity> getStudentByClass(Long roomNo) throws DatabaseException {
-		logger.info("Getting student details by class!");
+		logger.info("Getting student details by class...");
 		Session session = null;
 		List<StudentEntity> studentsList = null;
 		try {
@@ -120,7 +122,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 
 	@Override
 	public StudentEntity updateStudent(Long rollNo, Student student) throws DatabaseException {
-		logger.info("Updating student details...");
+		logger.info("Updating the student details...");
 		StudentEntity studentEntity = null;
 		Session session = null;
 		try {
@@ -138,7 +140,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 			classEntity.setRoomNo(student.getClassDetail().getRoomNo());
 			updatedStudentEntity.setClassDetail(classEntity);
 			studentEntity = (StudentEntity) session.merge(updatedStudentEntity);
-			logger.info("Student details is updated successfully!");
+			logger.info("Student details are updated successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while updating the student details!");
 			throw new DatabaseException(e.getMessage());

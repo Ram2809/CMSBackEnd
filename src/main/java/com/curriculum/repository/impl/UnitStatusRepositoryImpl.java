@@ -27,7 +27,7 @@ public class UnitStatusRepositoryImpl implements UnitStatusRepository {
 
 	@Override
 	public Long addUnitStatus(UnitStatus unitStatus) throws DatabaseException, NotAllowedException {
-		logger.info("Adding unit status...");
+		logger.info("Adding the unit status...");
 		Session session = null;
 		Long statusId = 0l;
 		try {
@@ -37,7 +37,7 @@ public class UnitStatusRepositoryImpl implements UnitStatusRepository {
 			if (unitStatusEntity == null) {
 				statusId = (Long) session.save(UnitStatusMapper.mapUnitStatus(unitStatus));
 				if (statusId > 0) {
-					logger.info("Unit status added successfully!");
+					logger.info("Unit status is added successfully!");
 				}
 			} else {
 				throw new NotAllowedException("Already added status for particular unit!");
@@ -51,7 +51,7 @@ public class UnitStatusRepositoryImpl implements UnitStatusRepository {
 
 	@Override
 	public UnitStatusEntity getStatusByUnitNo(String unitNo, Long staffId, Long roomNo) throws DatabaseException {
-		logger.info("Geeting unit status...");
+		logger.info("Geeting the unit status...");
 		Session session = null;
 		UnitStatusEntity unitStatusEntity = null;
 		try {
@@ -62,9 +62,9 @@ public class UnitStatusRepositoryImpl implements UnitStatusRepository {
 			query.setParameter("staffId", staffId);
 			query.setParameter("roomNo", roomNo);
 			unitStatusEntity = query.uniqueResultOptional().orElse(null);
-			logger.info("Unit status fetched succeddfully!");
+			logger.info("Unit status is fetched succeddfully!");
 		} catch (HibernateException e) {
-			logger.error("Error while getting unit status!");
+			logger.error("Error while getting the unit status!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return unitStatusEntity;
@@ -72,7 +72,7 @@ public class UnitStatusRepositoryImpl implements UnitStatusRepository {
 
 	@Override
 	public UnitStatusEntity getUnitStatus(Long id) throws DatabaseException, NotFoundException {
-		logger.info("Geeting unit status...");
+		logger.info("Geeting the unit status...");
 		Session session = null;
 		UnitStatusEntity unitStatusEntity = null;
 		try {
@@ -81,9 +81,9 @@ public class UnitStatusRepositoryImpl implements UnitStatusRepository {
 			Query<UnitStatusEntity> query = session.createQuery("FROM UnitStatusEntity t WHERE t.id=:id");
 			query.setParameter("id", id);
 			unitStatusEntity = query.uniqueResultOptional().orElse(null);
-			logger.info("Unit status fetched succeddfully!");
+			logger.info("Unit status is fetched succeddfully!");
 		} catch (HibernateException e) {
-			logger.error("Error while getting unit status!");
+			logger.error("Error while getting the unit status!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return unitStatusEntity;
@@ -92,7 +92,7 @@ public class UnitStatusRepositoryImpl implements UnitStatusRepository {
 	@Override
 	public UnitStatusEntity updateUnitStatus(Long id, UnitStatus unitStatus)
 			throws DatabaseException, NotFoundException {
-		logger.info("Updating unit status details!");
+		logger.info("Updating the unit status details...");
 		Session session = null;
 		UnitStatusEntity unitStatusEntity = null;
 		try {
@@ -110,7 +110,7 @@ public class UnitStatusRepositoryImpl implements UnitStatusRepository {
 			updatedUnitStatusEntity.setCompletedDate(unitStatusDetail.getCompletedDate());
 			updatedUnitStatusEntity.setRemarks(unitStatusDetail.getRemarks());
 			unitStatusEntity = (UnitStatusEntity) session.merge(updatedUnitStatusEntity);
-			logger.info("Unit status details updated successfully!");
+			logger.info("Unit status details are updated successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while updating the unit status details!");
 			throw new DatabaseException(e.getMessage());
@@ -120,7 +120,7 @@ public class UnitStatusRepositoryImpl implements UnitStatusRepository {
 
 	@Override
 	public UnitStatusEntity deleteUnitStatus(Long id) throws DatabaseException, NotFoundException {
-		logger.info("Deleting the unit status details!");
+		logger.info("Deleting the unit status details...");
 		Session session = null;
 		UnitStatusEntity unitStatusEntity = null;
 		try {

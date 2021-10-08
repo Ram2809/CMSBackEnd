@@ -46,15 +46,15 @@ public class SubjectController {
 			if (subjectCode.length() > 0) {
 				responseEntity = ResponseUtil.getResponse(200, "Subject details added successfully!", subject);
 			} else {
-				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
+				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!",subject);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),subject);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(),subject);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(),subject);
 			}
 		}
 		return responseEntity;
@@ -68,12 +68,12 @@ public class SubjectController {
 			subjectEntity = subjectService.updateSubject(code, subject);
 			responseEntity = ResponseUtil.getResponse(200, "Subject details updated successfully!", subjectEntity);
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),subjectEntity);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(),subjectEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(),subjectEntity);
 			}
 		}
 		return responseEntity;
@@ -89,9 +89,9 @@ public class SubjectController {
 				responseEntity = ResponseUtil.getResponse(200, "Subject details deleted successfully!", subjectEntity);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),subjectEntity);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),subjectEntity);
 		}
 		return responseEntity;
 	}
@@ -105,12 +105,12 @@ public class SubjectController {
 			if (subjectEntity != null) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", subjectEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No Subject Found!");
+				responseEntity = ResponseUtil.getResponse(404, "No Subject Found!",subjectEntity);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),subjectEntity);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),subjectEntity);
 		}
 		return responseEntity;
 	}
@@ -123,12 +123,12 @@ public class SubjectController {
 			if (!subjectList.isEmpty()) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", subjectList);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No Subject Found!");
+				responseEntity = ResponseUtil.getResponse(404, "No Subject Found!",subjectList);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),subjectList);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),subjectList);
 		}
 		return responseEntity;
 	}

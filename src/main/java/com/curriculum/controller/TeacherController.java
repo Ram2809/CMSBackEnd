@@ -47,15 +47,15 @@ public class TeacherController {
 				teacher.setId(staffId);
 				responseEntity = ResponseUtil.getResponse(200, "Teacher Details Added Successfully!", teacher);
 			} else {
-				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
+				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!",teacher);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),teacher);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(),teacher);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(),teacher);
 			}
 		}
 		return responseEntity;
@@ -73,7 +73,7 @@ public class TeacherController {
 				responseEntity = ResponseUtil.getResponse(404, "No Teacher Found!", teachersList);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),teachersList);
 		}
 		return responseEntity;
 	}
@@ -86,12 +86,12 @@ public class TeacherController {
 			teacherEntity = teacherService.updateTeacher(id, teacher);
 			responseEntity = ResponseUtil.getResponse(200, "Teacher Details Updated Successfully!", teacherEntity);
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),teacherEntity);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(),teacherEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(),teacherEntity);
 			}
 		}
 		return responseEntity;
@@ -109,9 +109,9 @@ public class TeacherController {
 				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", teacherEntity);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),teacherEntity);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),teacherEntity);
 		}
 		return responseEntity;
 	}
@@ -124,9 +124,9 @@ public class TeacherController {
 			teacherEntity = teacherService.getParticularTeacher(id);
 			responseEntity = ResponseUtil.getResponse(200, "Success!", teacherEntity);
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),teacherEntity);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),teacherEntity);
 		}
 		return responseEntity;
 	}
@@ -139,9 +139,9 @@ public class TeacherController {
 			teacherEntity = teacherService.getTeacherByEmail(email);
 			responseEntity = ResponseUtil.getResponse(200, "Success!", teacherEntity);
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),teacherEntity);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),teacherEntity);
 		}
 		return responseEntity;
 	}
@@ -158,9 +158,9 @@ public class TeacherController {
 				responseEntity = ResponseUtil.getResponse(404, "No Teacher Found!", teachersList);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),teachersList);
 		}catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),teachersList);
 		}
 		return responseEntity;
 	}

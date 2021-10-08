@@ -43,12 +43,12 @@ public class LoginController {
 			login.setTeacher(login.getTeacher());
 			responseEntity = ResponseUtil.getResponse(200, "Login credentials added successfully!", login);
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),login);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(),login);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(),login);
 			}
 		}
 		return responseEntity;
@@ -63,12 +63,12 @@ public class LoginController {
 			if (loginEntity != null) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", loginEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No User Found!");
+				responseEntity = ResponseUtil.getResponse(404, "No User Found!",loginEntity);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),loginEntity);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),loginEntity);
 		}
 		return responseEntity;
 	}
@@ -82,12 +82,12 @@ public class LoginController {
 			loginEntity = loginService.updateLogin(teacherId, login);
 			responseEntity = ResponseUtil.getResponse(200, "Password Changed Successfully!", loginEntity);
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),loginEntity);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(),loginEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(),loginEntity);
 			}
 		}
 		return responseEntity;

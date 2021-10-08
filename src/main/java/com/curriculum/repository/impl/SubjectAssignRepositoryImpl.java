@@ -13,11 +13,9 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.curriculum.dto.ListWrapper;
 import com.curriculum.dto.SubjectAssign;
 import com.curriculum.entity.SubjectAssignEntity;
 import com.curriculum.exception.AssignIdNotFoundException;
-import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
 import com.curriculum.repository.SubjectAssignRepository;
@@ -52,19 +50,19 @@ public class SubjectAssignRepositoryImpl implements SubjectAssignRepository {
 	public List<SubjectAssignEntity> getSubjects(Long roomNo) throws DatabaseException {
 		logger.info("Getting subject assign details for given class...");
 		Session session = null;
-		List<SubjectAssignEntity> subjectList = new ArrayList<>();
+		List<SubjectAssignEntity> subjectAssignList = new ArrayList<>();
 		try {
 			session = sessionFactory.getCurrentSession();
 			Query<SubjectAssignEntity> query = session
 					.createQuery("FROM SubjectAssignEntity s WHERE s.classDetail.roomNo=:roomNo");
 			query.setParameter("roomNo", roomNo);
-			subjectList = query.getResultList();
+			subjectAssignList = query.getResultList();
 			logger.info("Subject assign details are fetched sucessfully!");
 		} catch (HibernateException e) {
-			logger.error("Error while getting subject details for givenclass !");
+			logger.error("Error while getting subject details for given class!");
 			throw new DatabaseException(e.getMessage());
 		}
-		return subjectList;
+		return subjectAssignList;
 	}
 
 	@Override
@@ -123,7 +121,7 @@ public class SubjectAssignRepositoryImpl implements SubjectAssignRepository {
 
 	@Override
 	public Long getRoomNo(Long id) throws DatabaseException, NotFoundException {
-		logger.info("Getting class details based on id...");
+		logger.info("Getting class details based on subject assign id...");
 		Session session = null;
 		Long roomNo = 0l;
 		try {
@@ -143,7 +141,7 @@ public class SubjectAssignRepositoryImpl implements SubjectAssignRepository {
 
 	@Override
 	public Long deleteSubjectAssign(Long roomNo) throws DatabaseException {
-		logger.info("Deleting subject assign details...");
+		logger.info("Deleting the subject assign details...");
 		Session session = null;
 		Long count = 0l;
 		try {
@@ -152,7 +150,7 @@ public class SubjectAssignRepositoryImpl implements SubjectAssignRepository {
 					.createQuery("DELETE FROM SubjectAssignEntity s WHERE s.classDetail.roomNo=:roomNo");
 			query.setParameter("roomNo", roomNo);
 			count = (long) query.executeUpdate();
-			logger.info("Subject Assign details deleted successfully!");
+			logger.info("Subject Assign details are deleted successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while deleting the subject assign details!");
 			throw new DatabaseException(e.getMessage());
@@ -161,12 +159,14 @@ public class SubjectAssignRepositoryImpl implements SubjectAssignRepository {
 	}
 
 	@Override
-	public List<Long> getRoomNoList(List<Long> assignList) throws DatabaseException {
+	public List<Long> getRoomNoList(List<Long> assignList) throws DatabaseException, NotFoundException {
+		logger.info("Getting the room number list for given assign id list...");
 		List<Long> roomNoList = new ArrayList<>();
 		Session session = null;
 		try {
 			session = sessionFactory.getCurrentSession();
-			for (Long assignId:assignList) {
+			for (Long assignId : assignList) {
+				checkAssignId(assignId);
 				Query<Long> query = session
 						.createQuery("SELECT s.classDetail.roomNo FROM SubjectAssignEntity s WHERE s.id=:id");
 				query.setParameter("id", assignId);
@@ -174,21 +174,24 @@ public class SubjectAssignRepositoryImpl implements SubjectAssignRepository {
 					roomNoList.add((Long) query.uniqueResult());
 				}
 			}
+			logger.info("Room Number list is fetched successfully!");
 		} catch (HibernateException e) {
+			logger.error("Error while getting room number list!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return roomNoList;
 	}
 
 	@Override
-	public List<String> getSubjectCodeList(List<Long> assignList, Long roomNo) throws DatabaseException {
+	public List<String> getSubjectCodeList(List<Long> assignList, Long roomNo)
+			throws DatabaseException, NotFoundException {
+		logger.info("Getting the subject code list...");
 		List<String> subjectCodeList = new ArrayList<>();
 		Session session = null;
 		String subjectCode = null;
 		try {
 			session = sessionFactory.getCurrentSession();
 			List<Long> roomNoList = getRoomNoList(assignList);
-			System.out.println(roomNoList);
 			for (Long roomId : roomNoList) {
 				if (roomId == roomNo) {
 					for (Long assignId : assignList) {
@@ -203,35 +206,38 @@ public class SubjectAssignRepositoryImpl implements SubjectAssignRepository {
 					}
 				}
 			}
+			logger.info("Subject code list is fetched successfully!");
 		} catch (HibernateException e) {
+			logger.error("Error while fetching the subject code list!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return subjectCodeList;
 	}
 
 	@Override
-	public List<String> getAllSubjectCodeList(List<Long> assignList)
-			throws NotFoundException, DatabaseException {
+	public List<String> getAllSubjectCodeList(List<Long> assignList) throws NotFoundException, DatabaseException {
+		logger.info("Getting the subject code list...");
 		List<String> subjectCodeList = new ArrayList<>();
 		Session session = null;
 		String subjectCode = null;
 		try {
 			session = sessionFactory.getCurrentSession();
 			List<Long> roomNoList = getRoomNoList(assignList);
-			System.out.println(roomNoList);
 			for (Long roomId : roomNoList) {
-					for (Long assignId : assignList) {
-						Query<String> query = session.createQuery(
-								"SELECT s.subject.code FROM SubjectAssignEntity s WHERE s.id=:id AND s.classDetail.roomNo=:roomNo");
-						query.setParameter("id", assignId);
-						query.setParameter("roomNo", roomId);
-						subjectCode = query.uniqueResult();
-						if (subjectCode != null) {
-							subjectCodeList.add(subjectCode);
-						}
+				for (Long assignId : assignList) {
+					Query<String> query = session.createQuery(
+							"SELECT s.subject.code FROM SubjectAssignEntity s WHERE s.id=:id AND s.classDetail.roomNo=:roomNo");
+					query.setParameter("id", assignId);
+					query.setParameter("roomNo", roomId);
+					subjectCode = query.uniqueResult();
+					if (subjectCode != null) {
+						subjectCodeList.add(subjectCode);
 					}
+				}
 			}
+			logger.info("Subject code list is fetched successfully!");
 		} catch (HibernateException e) {
+			logger.error("Error while fetching the subject code list!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return subjectCodeList;

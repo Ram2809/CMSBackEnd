@@ -2,10 +2,13 @@ package com.curriculum.controller;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,6 +35,7 @@ import com.curriculum.util.ResponseUtil;
 public class TopicController {
 	@Autowired
 	private TopicService topicService;
+	private Logger logger = Logger.getLogger(TopicController.class);
 
 	@PostMapping
 	public ResponseEntity<Response> addTopic(@RequestBody Topic topic) {
@@ -46,12 +50,12 @@ public class TopicController {
 				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", topic);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), topic);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(), topic);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(), topic);
 			}
 		}
 		return responseEntity;
@@ -69,12 +73,12 @@ public class TopicController {
 				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", topicsList);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), topicsList);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(), topicsList);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(), topicsList);
 			}
 		}
 		return responseEntity;
@@ -92,12 +96,12 @@ public class TopicController {
 				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", topicsList);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), topicsList);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(), topicsList);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(), topicsList);
 			}
 		}
 		return responseEntity;
@@ -115,12 +119,12 @@ public class TopicController {
 				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", topicEntity);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), topicEntity);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(), topicEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(), topicEntity);
 			}
 		}
 		return responseEntity;
@@ -135,12 +139,12 @@ public class TopicController {
 			if (topicEntity != null) {
 				responseEntity = ResponseUtil.getResponse(200, "Topic details deleted successfully!", topicEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
+				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", topicEntity);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), topicEntity);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), topicEntity);
 		}
 		return responseEntity;
 	}
@@ -151,17 +155,28 @@ public class TopicController {
 		TopicEntity topicEntity = null;
 		try {
 			topicEntity = topicService.updateTopic(topicNo, topic);
-			responseEntity = ResponseUtil.getResponse(200, "Topic details updated successfully!", topicEntity);
-		} 
-		catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			if (topicEntity != null) {
+				responseEntity = ResponseUtil.getResponse(200, "Topic details updated successfully!", topicEntity);
+			} else {
+				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", topicEntity);
+			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), topicEntity);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(), topicEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(), topicEntity);
 			}
 		}
+		return responseEntity;
+	}
+
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public ResponseEntity<Response> validationFailed(MethodArgumentNotValidException e) {
+		logger.error("Validation fails, Check your input!");
+		ResponseEntity<Response> responseEntity = null;
+		responseEntity = ResponseUtil.getResponse(422, "Validation fails!");
 		return responseEntity;
 	}
 }

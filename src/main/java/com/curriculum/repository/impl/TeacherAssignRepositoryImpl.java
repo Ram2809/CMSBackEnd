@@ -30,7 +30,7 @@ public class TeacherAssignRepositoryImpl implements TeacherAssignRepository {
 
 	@Override
 	public Long assignTeacherSubject(TeacherAssign teacherAssign) throws DatabaseException {
-		logger.info("Assigning teacher for particular course!");
+		logger.info("Assigning teacher for particular course...");
 		Session session = null;
 		Long assignId = null;
 		try {
@@ -39,7 +39,6 @@ public class TeacherAssignRepositoryImpl implements TeacherAssignRepository {
 			if (assignId > 0) {
 				logger.info("Teacher assigned for course successfully!");
 			}
-			logger.info("Teacher assigned for course successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while assigning staff for course!");
 			throw new DatabaseException(e.getMessage());
@@ -59,7 +58,7 @@ public class TeacherAssignRepositoryImpl implements TeacherAssignRepository {
 
 	@Override
 	public TeacherAssignEntity deleteTeacherSubjectAssign(Long id) throws DatabaseException, NotFoundException {
-		logger.info("Deleting the teacher subject assign!");
+		logger.info("Deleting the teacher subject assign...");
 		TeacherAssignEntity deletedTeacherSubjectAssign = null;
 		Session session = null;
 		try {
@@ -84,7 +83,7 @@ public class TeacherAssignRepositoryImpl implements TeacherAssignRepository {
 
 	@Override
 	public List<Long> getSubjectAssignIds(Long staffId) throws DatabaseException {
-		logger.info("Getting teacher assign details!");
+		logger.info("Getting teacher assign details...");
 		Session session = null;
 		List<Long> subjectAssignIdList = new ArrayList<>();
 		try {
@@ -93,9 +92,9 @@ public class TeacherAssignRepositoryImpl implements TeacherAssignRepository {
 					.createQuery("SELECT t.subjectAssign.id FROM TeacherAssignEntity t WHERE t.teacher.id=:id");
 			query.setParameter("id", staffId);
 			subjectAssignIdList = query.list();
-			logger.info("Teacher assign details fetched successfully!");
+			logger.info("Teacher assign details are fetched successfully!");
 		} catch (HibernateException e) {
-			logger.error("Error while fetching teacher assign details!");
+			logger.error("Error while fetching the teacher assign details!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return subjectAssignIdList;
@@ -103,7 +102,7 @@ public class TeacherAssignRepositoryImpl implements TeacherAssignRepository {
 
 	@Override
 	public Long getTeacherId(Long id) throws DatabaseException {
-		logger.info("Getting teacher assign details!");
+		logger.info("Getting teacher assign details...");
 		Session session = null;
 		Long teacherId = null;
 		try {
@@ -112,9 +111,9 @@ public class TeacherAssignRepositoryImpl implements TeacherAssignRepository {
 					.createQuery("SELECT t.teacher.id FROM TeacherAssignEntity t WHERE t.subjectAssign.id=:id");
 			query.setParameter("id", id);
 			teacherId = query.getSingleResult();
-			logger.info("Teacher assign details fetched successfully!");
+			logger.info("Teacher assign details are fetched successfully!");
 		} catch (HibernateException e) {
-			logger.error("Error while fetching teacher assign details!");
+			logger.error("Error while fetching the teacher assign details!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return teacherId;
@@ -122,7 +121,7 @@ public class TeacherAssignRepositoryImpl implements TeacherAssignRepository {
 
 	@Override
 	public Long updateTeacherAssign(Long assignId, Long staffId) throws DatabaseException {
-		logger.info("Updating teacher assign details...");
+		logger.info("Updating the teacher assign details...");
 		Session session = null;
 		Long count = 0l;
 		try {
@@ -132,23 +131,17 @@ public class TeacherAssignRepositoryImpl implements TeacherAssignRepository {
 			query.setParameter("teacherId", staffId);
 			query.setParameter("assignId", assignId);
 			count = (long) query.executeUpdate();
-			logger.info("Teacher assign details updated successfully!");
+			logger.info("Teacher assign details are updated successfully!");
 		} catch (HibernateException e) {
-			logger.error("Error while fetching teacher assign details!");
+			logger.error("Error while fetching the teacher assign details!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return count;
 	}
 
-//	@Override
-//	public List<Long> getTeacherIdList(List<Long> assignIdList) throws DatabaseException {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
 	@Override
 	public List<Long> getTeacherIdList(List<Long> assignIdList) throws DatabaseException {
-		logger.info("Getting teacher assign details!");
+		logger.info("Getting teacher assign details...");
 		Session session = null;
 		List<Long> teacherIdList = new ArrayList<>();
 		try {
@@ -162,9 +155,9 @@ public class TeacherAssignRepositoryImpl implements TeacherAssignRepository {
 					teacherIdList.add(teacherId);
 				}
 			}
-			logger.info("Teacher assign details fetched successfully!");
+			logger.info("Teacher assign details are fetched successfully!");
 		} catch (HibernateException e) {
-			logger.error("Error while fetching teacher assign details!");
+			logger.error("Error while fetching the teacher assign details!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return teacherIdList;

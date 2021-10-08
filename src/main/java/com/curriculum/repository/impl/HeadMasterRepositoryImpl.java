@@ -26,7 +26,7 @@ public class HeadMasterRepositoryImpl implements HeadMasterRepository {
 	private Logger logger = Logger.getLogger(HeadMasterRepositoryImpl.class);
 
 	public Long addHeadMaster(HeadMaster headMaster) throws DatabaseException {
-		logger.info("Adding the headmaster details!");
+		logger.info("Adding the headmaster details...");
 		Session session = null;
 		Long headMasterId = null;
 		try {
@@ -64,7 +64,7 @@ public class HeadMasterRepositoryImpl implements HeadMasterRepository {
 
 	public HeadMasterEntity updateHeadMaster(Long id, HeadMaster headMaster)
 			throws DatabaseException, NotFoundException {
-		logger.info("Updating head master details!");
+		logger.info("Updating head master details...");
 		Session session = null;
 		HeadMasterEntity updatedHeadMasterEntity = null;
 		try {
@@ -93,7 +93,7 @@ public class HeadMasterRepositoryImpl implements HeadMasterRepository {
 	}
 
 	public HeadMasterEntity deleteHeadMaster(Long id) throws DatabaseException, NotFoundException {
-		logger.info("Deleting the head master details!");
+		logger.info("Deleting the head master details...");
 		Session session = null;
 		HeadMasterEntity headMaster = null;
 		try {
@@ -117,7 +117,7 @@ public class HeadMasterRepositoryImpl implements HeadMasterRepository {
 	}
 
 	public HeadMasterEntity getHeadMaster(String email) throws DatabaseException, NotFoundException {
-		logger.info("Getting head master details!");
+		logger.info("Getting head master details by email...");
 		Session session = null;
 		HeadMasterEntity headMaster = null;
 		try {

@@ -30,7 +30,7 @@ public class DiscussionRepositoryImpl implements DiscussionRepository {
 
 	@Override
 	public Long addDiscussion(Discussion discussion) throws DatabaseException {
-		logger.info("Adding discussion details!");
+		logger.info("Adding discussion details...");
 		Session session = null;
 		Long questionNo = null;
 		try {
@@ -49,7 +49,7 @@ public class DiscussionRepositoryImpl implements DiscussionRepository {
 	@Override
 	public List<DiscussionEntity> getDiscussionByTopicNo(Long topicNo, Long roomNo, Long staffId)
 			throws DatabaseException {
-		logger.info("Getting discussion details by Unit Number!");
+		logger.info("Getting discussion details by Topic Number...");
 		Session session = null;
 		List<DiscussionEntity> discussionList = new ArrayList<>();
 		try {
@@ -81,7 +81,7 @@ public class DiscussionRepositoryImpl implements DiscussionRepository {
 	@Override
 	public DiscussionEntity updateDiscussion(Long questionNo, Discussion discussion)
 			throws DatabaseException, NotFoundException {
-		logger.info("Updating the discussion details!");
+		logger.info("Updating the discussion details...");
 		Session session = null;
 		DiscussionEntity discussionEntity = null;
 		try {
@@ -107,7 +107,7 @@ public class DiscussionRepositoryImpl implements DiscussionRepository {
 
 	@Override
 	public DiscussionEntity deleteDiscussion(Long questionNo) throws DatabaseException, NotFoundException {
-		logger.info("Deleting the discussion details!");
+		logger.info("Deleting the discussion details...");
 		Session session = null;
 		DiscussionEntity discussionEntity = null;
 		try {
@@ -132,7 +132,7 @@ public class DiscussionRepositoryImpl implements DiscussionRepository {
 
 	@Override
 	public DiscussionEntity getParticularDiscussion(Long questionNo) throws DatabaseException, NotFoundException {
-		logger.info("Getting discussion detail!");
+		logger.info("Getting discussion detail...");
 		DiscussionEntity discussionEntity = null;
 		Session session = null;
 		try {
@@ -151,7 +151,7 @@ public class DiscussionRepositoryImpl implements DiscussionRepository {
 
 	@Override
 	public List<DiscussionEntity> getDiscussionByRoomNo(Long topicNo, Long roomNo) throws DatabaseException {
-		logger.info("Getting discussion details by Unit Number!");
+		logger.info("Getting discussion details by Topic Number and Room Number!");
 		Session session = null;
 		List<DiscussionEntity> discussionList = new ArrayList<>();
 		try {

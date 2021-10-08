@@ -40,12 +40,12 @@ public class TeacherAssignController {
 			teacherAssign.setId(assignId);
 			responseEntity = ResponseUtil.getResponse(200, "Teacher assigned for subject successfully!", teacherAssign);
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),teacherAssign);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(),teacherAssign);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(),teacherAssign);
 			}
 		}
 		return responseEntity;
@@ -83,9 +83,9 @@ public class TeacherAssignController {
 				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", subjectAssignIdList);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),subjectAssignIdList);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),subjectAssignIdList);
 		}
 		return responseEntity;
 	}
@@ -102,9 +102,9 @@ public class TeacherAssignController {
 				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", teacherId);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),teacherId);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),teacherId);
 		}
 		return responseEntity;
 	}
@@ -113,18 +113,18 @@ public class TeacherAssignController {
 	public ResponseEntity<Response> updateTeacherAssign(@PathVariable("assignId") Long assignId,
 			@PathVariable("staffId") Long staffId, @RequestBody TeacherAssign teacherAssign) {
 		ResponseEntity<Response> responseEntity = null;
-		Long count = null;
+		Long noOfRowsUpdated = null;
 		try {
-			count = teacherAssignService.updateTeacherAssign(assignId, staffId);
-			if (count > 0) {
-				responseEntity = ResponseUtil.getResponse(200, "Teacher Assigned for course successfully!", count);
+			noOfRowsUpdated = teacherAssignService.updateTeacherAssign(assignId, staffId);
+			if (noOfRowsUpdated > 0) {
+				responseEntity = ResponseUtil.getResponse(200, "Teacher Assigned for course successfully!", noOfRowsUpdated);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No Assign Id Found!");
+				responseEntity = ResponseUtil.getResponse(404, "No Assign Id Found!",noOfRowsUpdated);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),noOfRowsUpdated);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),noOfRowsUpdated);
 		}
 		return responseEntity;
 	}
@@ -140,9 +140,9 @@ public class TeacherAssignController {
 				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", teacherIdList);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),teacherIdList);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(),teacherIdList);
 		}
 		return responseEntity;
 	}

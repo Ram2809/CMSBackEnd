@@ -30,7 +30,7 @@ public class SubjectRepositoryImpl implements SubjectRepository {
 
 	@Override
 	public String addSubject(Subject subject) throws DatabaseException {
-		logger.info("Adding subject details!");
+		logger.info("Adding the subject details...");
 		Session session = null;
 		String subjectCode = null;
 		try {
@@ -59,7 +59,7 @@ public class SubjectRepositoryImpl implements SubjectRepository {
 	@Override
 	public SubjectEntity updateSubject(String subjectCode, Subject subject)
 			throws DatabaseException, NotFoundException {
-		logger.info("Updating the subject details!");
+		logger.info("Updating the subject details...");
 		Session session = null;
 		SubjectEntity subjectEntity = null;
 		try {
@@ -70,7 +70,12 @@ public class SubjectRepositoryImpl implements SubjectRepository {
 			SubjectEntity updatedSubjectEntity = session.load(SubjectEntity.class, subjectCode);
 			updatedSubjectEntity.setName(subjectDetail.getName());
 			subjectEntity = (SubjectEntity) session.merge(updatedSubjectEntity);
+			if(subjectEntity!=null) {
 			logger.info("Subject details updated successfully!");
+			}
+			else {
+				logger.error("Error while updating the subject details!");
+			}
 		} catch (HibernateException e) {
 			logger.error("Error while updating the subject!");
 			throw new DatabaseException(e.getMessage());
@@ -80,7 +85,7 @@ public class SubjectRepositoryImpl implements SubjectRepository {
 
 	@Override
 	public SubjectEntity deleteSubject(String subjectCode) throws DatabaseException, NotFoundException {
-		logger.info("Deleting the subject details!");
+		logger.info("Deleting the subject details...");
 		Session session = null;
 		SubjectEntity subject = null;
 		try {
@@ -105,7 +110,7 @@ public class SubjectRepositoryImpl implements SubjectRepository {
 
 	@Override
 	public SubjectEntity getParticularSubject(String subjectCode) throws DatabaseException, NotFoundException {
-		logger.info("Getting subject details by code!");
+		logger.info("Getting subject details by code...");
 		Session session = null;
 		SubjectEntity subject = null;
 		try {
@@ -124,7 +129,7 @@ public class SubjectRepositoryImpl implements SubjectRepository {
 
 	@Override
 	public List<SubjectEntity> getSubjectList(List<String> subjectCodeList) throws NotFoundException, DatabaseException {
-		logger.info("Getting subject subject details list");
+		logger.info("Getting subject details list...");
 		Session session=null;
 		List<SubjectEntity> subjectList=new ArrayList<>();
 		SubjectEntity subjectEntity=null;

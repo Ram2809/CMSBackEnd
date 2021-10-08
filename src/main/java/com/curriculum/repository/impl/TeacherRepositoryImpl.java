@@ -29,14 +29,14 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 
 	@Override
 	public Long addTeacher(Teacher teacher) throws DatabaseException {
-		logger.info("Adding teacher");
+		logger.info("Adding the teacher details...S");
 		Session session = null;
 		Long staffId = 0l;
 		try {
 			session = sessionFactory.getCurrentSession();
 			staffId = (Long) session.save(TeacherMapper.teacherMapper(teacher));
 			if (staffId > 0) {
-				logger.info("Teacher details added successfully!");
+				logger.info("Teacher details are added successfully!");
 			}
 		} catch (HibernateException e) {
 			logger.error("Error while adding the teacher!");
@@ -47,7 +47,7 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 
 	@Override
 	public List<TeacherEntity> getAllTeacher() throws DatabaseException {
-		logger.info("Getting all teacher details");
+		logger.info("Getting all teacher details...");
 		Session session = null;
 		List<TeacherEntity> teacherList = new ArrayList<>();
 		try {
@@ -56,7 +56,7 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 			teacherList = query.getResultList();
 			logger.info("Teacher list is fetched successfully!");
 		} catch (HibernateException e) {
-			logger.error("Error while fetching the teacher list");
+			logger.error("Error while fetching the teacher list!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return teacherList;
@@ -86,26 +86,26 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 
 	@Override
 	public TeacherEntity updateTeacher(Long id, Teacher teacher) throws DatabaseException, NotFoundException {
-		logger.info("Updating the teacher details");
+		logger.info("Updating the teacher details...");
 		TeacherEntity response = null;
 		Session session = null;
 		try {
 			checkTeacher(id);
 			session = sessionFactory.getCurrentSession();
-			TeacherEntity teacherEntity = TeacherMapper.teacherMapper(teacher);
+			TeacherEntity teacherDetail = TeacherMapper.teacherMapper(teacher);
 			session.find(TeacherEntity.class, id);
 			TeacherEntity updatedTeacherEntity = session.load(TeacherEntity.class, id);
-			updatedTeacherEntity.setFirstName(teacherEntity.getFirstName());
-			updatedTeacherEntity.setLastName(teacherEntity.getLastName());
-			updatedTeacherEntity.setDateOfBirth(teacherEntity.getDateOfBirth());
-			updatedTeacherEntity.setGender(teacherEntity.getGender());
-			updatedTeacherEntity.setQualification(teacherEntity.getQualification());
-			updatedTeacherEntity.setMajor(teacherEntity.getMajor());
-			updatedTeacherEntity.setEmail(teacherEntity.getEmail());
-			updatedTeacherEntity.setContactNo(teacherEntity.getContactNo());
-			updatedTeacherEntity.setAddress(teacherEntity.getAddress());
+			updatedTeacherEntity.setFirstName(teacherDetail.getFirstName());
+			updatedTeacherEntity.setLastName(teacherDetail.getLastName());
+			updatedTeacherEntity.setDateOfBirth(teacherDetail.getDateOfBirth());
+			updatedTeacherEntity.setGender(teacherDetail.getGender());
+			updatedTeacherEntity.setQualification(teacherDetail.getQualification());
+			updatedTeacherEntity.setMajor(teacherDetail.getMajor());
+			updatedTeacherEntity.setEmail(teacherDetail.getEmail());
+			updatedTeacherEntity.setContactNo(teacherDetail.getContactNo());
+			updatedTeacherEntity.setAddress(teacherDetail.getAddress());
 			response = (TeacherEntity) session.merge(updatedTeacherEntity);
-			logger.info("Teacher Details updated successfully!");
+			logger.info("Teacher Details are updated successfully!");
 		} catch (HibernateException e) {
 			logger.error("Error while updating the teacher!");
 			throw new DatabaseException(e.getMessage());
@@ -115,9 +115,9 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 
 	@Override
 	public TeacherEntity deleteTeacher(Long id) throws DatabaseException, NotFoundException {
-		logger.info("Deleting the teacher");
+		logger.info("Deleting the teacher details...");
 		Session session = null;
-		TeacherEntity response = null;
+		TeacherEntity deletedTeacherEntity = null;
 		try {
 			checkTeacher(id);
 			session = sessionFactory.getCurrentSession();
@@ -126,22 +126,22 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 			session.delete(teacherEntity);
 			TeacherEntity teacherDetail = session.get(TeacherEntity.class, id);
 			if (teacherDetail == null) {
-				response = teacherEntity;
-				logger.info("Teacher Deleted Successfully!");
+				deletedTeacherEntity = teacherEntity;
+				logger.info("Teacher details are deleted successfully!");
 			} else {
-				logger.error("Error while deleting the teacher!");
+				logger.error("Error while deleting the teacher details!");
 			}
 		} catch (HibernateException e) {
-			logger.error("Error while deleting the teacher!");
+			logger.error("Error while deleting the teacher details!");
 			throw new DatabaseException(e.getMessage());
 		}
 
-		return response;
+		return deletedTeacherEntity;
 	}
 
 	@Override
 	public TeacherEntity getParticularTeacher(Long id) throws DatabaseException, NotFoundException {
-		logger.info("Getting teacher detail");
+		logger.info("Getting the teacher detail...");
 		Session session = null;
 		TeacherEntity teacherEntity = null;
 		try {
@@ -150,9 +150,9 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 			Query<TeacherEntity> query = session.createQuery("FROM TeacherEntity WHERE id=:teacherId");
 			query.setParameter("teacherId", id);
 			teacherEntity = query.uniqueResultOptional().orElse(null);
-			logger.info("Teacher details fetched succesfully!");
+			logger.info("Teacher details are fetched succesfully!");
 		} catch (HibernateException e) {
-			logger.error("Error while fecthing teacher detail!");
+			logger.error("Error while fecthing the teacher detail!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return teacherEntity;
@@ -160,7 +160,7 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 
 	@Override
 	public TeacherEntity getTeacherByEmail(String email) throws DatabaseException, NotFoundException {
-		logger.info("Getting teacher detail");
+		logger.info("Getting the teacher detail...");
 		Session session = null;
 		TeacherEntity teacherEntity = null;
 		try {
@@ -169,9 +169,9 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 			Query<TeacherEntity> query = session.createQuery("FROM TeacherEntity WHERE email=:email");
 			query.setParameter("email", email);
 			teacherEntity = query.uniqueResultOptional().orElse(null);
-			logger.info("Teacher details fetched succesfully!");
+			logger.info("Teacher details are fetched succesfully!");
 		} catch (HibernateException e) {
-			logger.error("Error while fecthing teacher detail!");
+			logger.error("Error while fecthing the teacher detail!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return teacherEntity;
@@ -193,6 +193,7 @@ public class TeacherRepositoryImpl implements TeacherRepository {
 					teachersList.add(teacherEntity);
 				}
 			}
+			logger.info("Teacher details are fetched successfully!");
 		}
 		catch(HibernateException e)
 		{

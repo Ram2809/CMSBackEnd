@@ -23,7 +23,7 @@ public class ClassServiceImpl implements ClassService {
 	@Autowired
 	private ClassRepository classRepository;
 	private Logger logger = Logger.getLogger(ClassServiceImpl.class);
-
+	
 	public Long addClass(Class classDetail) throws BusinessServiceException, NotFoundException {
 		try {
 			return classRepository.addClass(classDetail);

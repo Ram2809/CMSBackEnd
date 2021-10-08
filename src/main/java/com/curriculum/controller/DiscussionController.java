@@ -47,12 +47,12 @@ public class DiscussionController {
 			discussion.setQuestionNo(questionNo);
 			responseEntity = ResponseUtil.getResponse(200, "Discussion details added successfully!", discussion);
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), discussion);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(), discussion);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(), discussion);
 			}
 		}
 		return responseEntity;
@@ -68,12 +68,12 @@ public class DiscussionController {
 			if (!discussionsList.isEmpty()) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", discussionsList);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No discussion found!");
+				responseEntity = ResponseUtil.getResponse(404, "No discussion found!", discussionsList);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), discussionsList);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), discussionsList);
 		}
 		return responseEntity;
 	}
@@ -88,12 +88,12 @@ public class DiscussionController {
 			if (!discussionsList.isEmpty()) {
 				responseEntity = ResponseUtil.getResponse(200, "Success!", discussionsList);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, "No discussion found!");
+				responseEntity = ResponseUtil.getResponse(404, "No discussion found!", discussionsList);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), discussionsList);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), discussionsList);
 		}
 		return responseEntity;
 	}
@@ -108,12 +108,12 @@ public class DiscussionController {
 			responseEntity = ResponseUtil.getResponse(200, "Discussion details updated successfully!",
 					discussionEntity);
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), discussionEntity);
 		} catch (NotFoundException e) {
 			if (e instanceof ConstraintValidationException) {
-				responseEntity = ResponseUtil.getResponse(422, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(), discussionEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(), discussionEntity);
 			}
 		}
 		return responseEntity;
@@ -129,12 +129,12 @@ public class DiscussionController {
 				responseEntity = ResponseUtil.getResponse(200, "Discussion details deleted successfully!",
 						discussionEntity);
 			} else {
-				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!");
+				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", discussionEntity);
 			}
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), discussionEntity);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), discussionEntity);
 		}
 		return responseEntity;
 	}
@@ -147,9 +147,9 @@ public class DiscussionController {
 			discussionEntity = discussionService.getParticularDiscussion(questionNo);
 			responseEntity = ResponseUtil.getResponse(200, "Success!", discussionEntity);
 		} catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), discussionEntity);
 		} catch (NotFoundException e) {
-			responseEntity = ResponseUtil.getResponse(404, e.getMessage());
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), discussionEntity);
 		}
 		return responseEntity;
 	}

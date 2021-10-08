@@ -25,14 +25,14 @@ public class LoginRepositoryImpl implements LoginRepository {
 
 	@Override
 	public Long addLogin(Login login) throws DatabaseException {
-		logger.info("Adding login credentials");
+		logger.info("Adding login credentials for staff...");
 		Session session = null;
 		Long loginId = 0l;
 		try {
 			session = sessionFactory.getCurrentSession();
 			loginId = (Long) session.save(LoginMapper.loginMapper(login));
 			if (loginId > 0) {
-				logger.info("Login credentials added successfully!");
+				logger.info("Login credentials are added successfully!");
 			}
 		} catch (HibernateException e) {
 			logger.error("Error while adding login credentials");
@@ -43,7 +43,7 @@ public class LoginRepositoryImpl implements LoginRepository {
 
 	@Override
 	public LoginEntity getLogin(Long teacherId) throws DatabaseException {
-		logger.info("Fetching login credentials");
+		logger.info("Fetching login credentials...");
 		Session session = null;
 		LoginEntity loginEntity = null;
 		try {
@@ -51,9 +51,9 @@ public class LoginRepositoryImpl implements LoginRepository {
 			Query<LoginEntity> query = session.createQuery("FROM LoginEntity WHERE teacher_id=:teacherId");
 			query.setParameter("teacherId", teacherId);
 			loginEntity = query.uniqueResultOptional().orElse(null);
-			logger.info("Login Credentials Updated successfully!");
+			logger.info("Login Credentials are fetched successfully!");
 		} catch (HibernateException e) {
-			logger.error("Error while fetching login credentials");
+			logger.error("Error while fetching the login credentials");
 			throw new DatabaseException(e.getMessage());
 		}
 		return loginEntity;
@@ -61,7 +61,7 @@ public class LoginRepositoryImpl implements LoginRepository {
 
 	@Override
 	public LoginEntity updateLogin(Long teacherId, Login login) throws DatabaseException {
-		logger.info("Updating login credentials");
+		logger.info("Updating login credentials...");
 		Session session = null;
 		Long count = 0l;
 		LoginEntity loginEntity = null;
@@ -80,7 +80,7 @@ public class LoginRepositoryImpl implements LoginRepository {
 			}
 			logger.info("Password updated successfully!");
 		} catch (HibernateException e) {
-			logger.error("Error while updating login credentials");
+			logger.error("Error while updating login credentials!");
 			throw new DatabaseException(e.getMessage());
 		}
 		return loginEntity;
