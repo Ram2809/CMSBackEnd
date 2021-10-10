@@ -28,4 +28,6 @@ public interface SubjectAssignRepository {
 	List<String> getSubjectCodeList(List<Long> assignList, Long roomNo) throws DatabaseException, NotFoundException;
 
 	List<String> getAllSubjectCodeList(List<Long> assignList) throws NotFoundException, DatabaseException;
+	
+	Long countOfAssignIds(Long roomNo) throws DatabaseException;
 }

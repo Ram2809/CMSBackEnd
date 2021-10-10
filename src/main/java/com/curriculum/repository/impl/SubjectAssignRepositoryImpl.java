@@ -243,4 +243,23 @@ public class SubjectAssignRepositoryImpl implements SubjectAssignRepository {
 		return subjectCodeList;
 	}
 
+	@Override
+	public Long countOfAssignIds(Long roomNo) throws DatabaseException {
+		logger.info("Getting count of assign ids for given room number...");
+		Long countOfAssignIds=0l;
+		Session session=null;
+		try {
+			session=sessionFactory.getCurrentSession();
+			Query<Long> query=session.createQuery("SELECT COUNT(*) FROM SubjectAssignEntity s WHERE s.classDetail.roomNo=:roomNo");
+			query.setParameter("roomNo", roomNo);
+			countOfAssignIds=query.uniqueResult();
+			logger.info("Count of assign ids is fetched successfully!");
+		}
+		catch(HibernateException e) {
+			logger.error("Error while fetching the count of assign ids!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return countOfAssignIds;
+	}
+
 }

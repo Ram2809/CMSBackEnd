@@ -207,5 +207,22 @@ public class SubjectAssignController {
 		}
 		return responseEntity;
 	}
+	@GetMapping("/count/{roomNo}")
+	public ResponseEntity<Response> countOfAssignIds(@PathVariable("roomNo") Long roomNo) {
+		ResponseEntity<Response> responseEntity = null;
+		Long count = null;
+		try {
+			count = subjectAssignService.countOfAssignIds(roomNo);
+			if (count > 0) {
+				responseEntity = ResponseUtil.getResponse(200, "Count is fetched successfully!",
+						count);
+			}
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), count);
+		} catch (NotFoundException e) {
+			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), count);
+		}
+		return responseEntity;
+	}
 
 }

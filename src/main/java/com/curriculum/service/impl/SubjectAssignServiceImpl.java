@@ -124,4 +124,14 @@ public class SubjectAssignServiceImpl implements SubjectAssignService {
 		} 
 	}
 
+	@Override
+	public Long countOfAssignIds(Long roomNo) throws NotFoundException,BusinessServiceException {
+		classRepository.checkClassRoom(roomNo);
+		try {
+			return subjectAssignRepository.countOfAssignIds(roomNo);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
 }

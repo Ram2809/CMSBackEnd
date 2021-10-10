@@ -26,4 +26,6 @@ public interface SubjectAssignService {
 			throws NotFoundException, BusinessServiceException;
 
 	List<String> getAllSubjectCodeList(List<Long> assignList) throws NotFoundException, BusinessServiceException;
+
+	Long countOfAssignIds(Long roomNo) throws NotFoundException, BusinessServiceException;
 }
