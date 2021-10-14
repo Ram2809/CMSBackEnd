@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Repository;
 
 import com.curriculum.dto.HeadMaster;
@@ -17,12 +18,15 @@ import com.curriculum.exception.HeadMasterNotFoundException;
 import com.curriculum.exception.NotFoundException;
 import com.curriculum.repository.HeadMasterRepository;
 import com.curriculum.util.HeadMasterMapper;
+import com.curriculum.util.MailSenderUtil;
 
 @Repository
 @Transactional
 public class HeadMasterRepositoryImpl implements HeadMasterRepository {
 	@Autowired
 	private SessionFactory sessionFactory;
+	@Autowired
+	private JavaMailSender javaMailSender;
 	private Logger logger = Logger.getLogger(HeadMasterRepositoryImpl.class);
 
 	public Long addHeadMaster(HeadMaster headMaster) throws DatabaseException {
@@ -34,6 +38,7 @@ public class HeadMasterRepositoryImpl implements HeadMasterRepository {
 			headMasterId = (Long) session.save(HeadMasterMapper.headMasterMapper(headMaster));
 			if (headMasterId > 0) {
 				logger.info("Headmaster details added successfully!");
+				MailSenderUtil.sendMail(javaMailSender, headMaster.getEmail(), "Regarding Account creation", "Hi"+" "+headMaster.getEmail()+"You have successfully created your account!");
 			}
 		} catch (HibernateException e) {
 			logger.error("Error while adding the headmaster!");
