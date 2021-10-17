@@ -6,6 +6,7 @@ import com.curriculum.dto.Student;
 import com.curriculum.entity.StudentEntity;
 import com.curriculum.exception.DatabaseException;
 import com.curriculum.exception.NotFoundException;
+import com.curriculum.exception.StudentNotFoundException;
 
 public interface StudentRepository {
 	Long addStudent(Student student) throws DatabaseException;
@@ -17,4 +18,6 @@ public interface StudentRepository {
 	StudentEntity getStudent(Long rollNo) throws NotFoundException, DatabaseException;
 
 	List<StudentEntity> getStudentByClass(Long roomNo) throws DatabaseException;
+
+	void checkStudent(Long rollNo) throws StudentNotFoundException;
 }

@@ -72,6 +72,7 @@ public class QualificationController {
 		}
 		return responseEntity;
 	}
+	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<Response> validationFailed(MethodArgumentNotValidException e) {
 		log.error("Validation fails, Check your input!");
