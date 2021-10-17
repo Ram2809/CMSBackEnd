@@ -39,8 +39,4 @@ public class StudentEntity {
 	private Long contactNo;
 	@NotNull
 	private String address;
-	@ManyToOne
-	@JoinColumn(name = "roomNo")
-	private ClassEntity classDetail;
-
 }

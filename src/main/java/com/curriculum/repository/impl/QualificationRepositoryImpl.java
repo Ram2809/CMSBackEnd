@@ -14,8 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.curriculum.dto.Qualification;
+import com.curriculum.entity.MajorEntity;
 import com.curriculum.entity.QualificationEntity;
 import com.curriculum.exception.DatabaseException;
+import com.curriculum.exception.NotFoundException;
 import com.curriculum.repository.QualificationRepository;
 import com.curriculum.util.QualificationMapper;
 
@@ -60,6 +62,37 @@ public class QualificationRepositoryImpl implements QualificationRepository {
 			throw new DatabaseException(e.getMessage());
 		}
 		return qualificationList;
+	}
+	public void checkQualification(Long id) throws NotFoundException {
+		Session session = sessionFactory.getCurrentSession();
+		Query<QualificationEntity> query = session.createQuery("FROM QualificationEntity WHERE id=:id");
+		query.setParameter("id", id);
+		QualificationEntity qualification = query.uniqueResultOptional().orElse(null);
+		if (qualification == null) {
+			throw new NotFoundException("Qualification Not Found!");
+		}
+	}
+	@Override
+	public QualificationEntity deleteQualification(Long qualificationId) throws DatabaseException, NotFoundException {
+		logger.info("Deleting the qualification details...");
+		Session session=null;
+		QualificationEntity qualificationEntity=null;
+		try {
+			checkQualification(qualificationId);
+			session=sessionFactory.getCurrentSession();
+			QualificationEntity qualification=session.load(QualificationEntity.class,qualificationId);
+			session.delete(qualification);
+			QualificationEntity deletedQualification=session.get(QualificationEntity.class, qualificationId);
+			if(deletedQualification==null) {
+				qualificationEntity=qualification;
+				logger.info("Qualification details are deleted successfully!");
+			}
+		}
+		catch(HibernateException e) {
+			logger.error("Error while deleting the qualification details!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return qualificationEntity;
 	}
 
 }

@@ -136,9 +136,6 @@ public class StudentRepositoryImpl implements StudentRepository {
 			updatedStudentEntity.setGender(studentDetail.getGender());
 			updatedStudentEntity.setContactNo(studentDetail.getContactNo());
 			updatedStudentEntity.setAddress(studentDetail.getAddress());
-			ClassEntity classEntity = new ClassEntity();
-			classEntity.setRoomNo(student.getClassDetail().getRoomNo());
-			updatedStudentEntity.setClassDetail(classEntity);
 			studentEntity = (StudentEntity) session.merge(updatedStudentEntity);
 			logger.info("Student details are updated successfully!");
 		} catch (HibernateException e) {

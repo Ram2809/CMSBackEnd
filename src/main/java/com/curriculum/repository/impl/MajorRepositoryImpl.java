@@ -15,7 +15,10 @@ import org.springframework.stereotype.Repository;
 
 import com.curriculum.dto.Major;
 import com.curriculum.entity.MajorEntity;
+import com.curriculum.entity.StudentEntity;
 import com.curriculum.exception.DatabaseException;
+import com.curriculum.exception.NotFoundException;
+import com.curriculum.exception.StudentNotFoundException;
 import com.curriculum.repository.MajorRepository;
 import com.curriculum.util.MajorMapper;
 @Repository
@@ -57,6 +60,40 @@ public class MajorRepositoryImpl implements MajorRepository{
 			throw new DatabaseException(e.getMessage());
 		}
 		return majorList;
+	}
+	public void checkMajor(Long id) throws NotFoundException {
+		Session session = sessionFactory.getCurrentSession();
+		Query<MajorEntity> query = session.createQuery("FROM MajorEntity WHERE id=:majorId");
+		query.setParameter("majorId", id);
+		MajorEntity major = query.uniqueResultOptional().orElse(null);
+		System.out.println(major);
+		if (major == null) {
+			throw new NotFoundException("Major Not Found!");
+		}
+	}
+	
+	@Override
+	public MajorEntity deleteMajor(Long majorId) throws NotFoundException, DatabaseException {
+		System.out.println(majorId);
+		logger.info("Deleting the major detail...");
+		Session session=null;
+		MajorEntity majorEntity=null;
+		try {
+			checkMajor(majorId);
+			session=sessionFactory.getCurrentSession();
+			MajorEntity major=session.load(MajorEntity.class, majorId);
+			session.delete(major);
+			MajorEntity deletedMajor=session.get(MajorEntity.class, majorId);
+			if(deletedMajor==null) {
+				majorEntity=major;
+				logger.info("Major deleted successfully!");
+			}
+		}
+		catch(HibernateException e){
+			logger.error("Error while deleting the major");
+			throw new DatabaseException(e.getMessage());
+		}
+		return majorEntity;
 	}
 
 }

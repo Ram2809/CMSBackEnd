@@ -43,7 +43,7 @@ public class ClassController {
 		try {
 			roomNo = classService.addClass(classDetail);
 			if (roomNo > 0) {
-				responseEntity = ResponseUtil.getResponse(200, "Success!", classDetail);
+				responseEntity = ResponseUtil.getResponse(200, "Class details added successfully!", classDetail);
 			}
 		} catch (BusinessServiceException e) {
 			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), classDetail);

@@ -8,14 +8,18 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.curriculum.dto.Qualification;
+import com.curriculum.entity.MajorEntity;
 import com.curriculum.entity.QualificationEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.ConstraintValidationException;
@@ -29,6 +33,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("api/qualification")
 @Slf4j
+@CrossOrigin("*")
 public class QualificationController {
 	
 	@Autowired
@@ -69,6 +74,24 @@ public class QualificationController {
 			}
 		}catch(BusinessServiceException e) {
 			responseEntity=ResponseUtil.getResponse(500, e.getMessage(), qualificationList);
+		}
+		return responseEntity;
+	}
+	@DeleteMapping("/{qualificationId}")
+	public ResponseEntity<Response> deleteQualification(@PathVariable("qualificationId") Long qualificationId){
+		ResponseEntity<Response> responseEntity=null;
+		QualificationEntity qualificationEntity=null;
+		try {
+			qualificationEntity=qualificationService.deleteQualification(qualificationId);
+			if(qualificationEntity!=null) {
+				responseEntity = ResponseUtil.getResponse(200, "Qualification deleted successfully!", qualificationEntity);
+			} else {
+				responseEntity = ResponseUtil.getResponse(500, "Internal Server Error!", qualificationEntity);
+			}
+		}catch(BusinessServiceException e) {
+			responseEntity=ResponseUtil.getResponse(500, e.getMessage(), qualificationEntity);
+		}catch(NotFoundException e) {
+			responseEntity=ResponseUtil.getResponse(404, e.getMessage(), qualificationEntity);
 		}
 		return responseEntity;
 	}

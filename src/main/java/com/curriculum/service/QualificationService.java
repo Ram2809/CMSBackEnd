@@ -11,4 +11,6 @@ public interface QualificationService {
 	Long addQualification(Qualification qualification) throws BusinessServiceException, NotFoundException;
 
 	List<QualificationEntity> getQualifications() throws BusinessServiceException;
+
+	QualificationEntity deleteQualification(Long qualificationId) throws BusinessServiceException,NotFoundException;
 }

@@ -33,7 +33,6 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public Long addStudent(Student student) throws BusinessServiceException, NotFoundException {
 		try {
-			classRepository.checkClassRoom(student.getClassDetail().getRoomNo());
 			return studentRepository.addStudent(student);
 		} catch (DataIntegrityViolationException e) {
 			logger.error("Constraint Violation fails!");
@@ -66,7 +65,6 @@ public class StudentServiceImpl implements StudentService {
 	public StudentEntity updateStudent(Long rollNo, Student student)
 			throws NotFoundException, BusinessServiceException {
 		try {
-			classRepository.checkClassRoom(student.getClassDetail().getRoomNo());
 			return studentRepository.updateStudent(rollNo, student);
 		} catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());

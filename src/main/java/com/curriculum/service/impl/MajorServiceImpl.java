@@ -9,6 +9,7 @@ import com.curriculum.dto.Major;
 import com.curriculum.entity.MajorEntity;
 import com.curriculum.exception.BusinessServiceException;
 import com.curriculum.exception.DatabaseException;
+import com.curriculum.exception.NotFoundException;
 import com.curriculum.repository.MajorRepository;
 import com.curriculum.service.MajorService;
 
@@ -31,6 +32,15 @@ public class MajorServiceImpl implements MajorService {
 		try {
 			return majorRepository.getMajors();
 		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
+	@Override
+	public MajorEntity deleteMajor(Long majorId) throws BusinessServiceException,NotFoundException {
+		try {
+			return majorRepository.deleteMajor(majorId);
+		}  catch (DatabaseException e) {
 			throw new BusinessServiceException(e.getMessage());
 		}
 	}

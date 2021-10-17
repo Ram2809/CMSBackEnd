@@ -42,4 +42,13 @@ public class QualificationServiceImpl implements QualificationService {
 		}
 	}
 
+	@Override
+	public QualificationEntity deleteQualification(Long qualificationId) throws BusinessServiceException,NotFoundException {
+		try {
+			return qualificationRepository.deleteQualification(qualificationId);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
 }

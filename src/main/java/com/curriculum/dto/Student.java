@@ -28,6 +28,4 @@ public class Student {
 	private Long contactNo;
 	@NotNull
 	private String address;
-	@NotNull
-	private Class classDetail;
 }

@@ -32,9 +32,6 @@ public class ClassEntity {
 	private String section;
 	@OneToMany(mappedBy = "classDetail", fetch = FetchType.EAGER)
 	@JsonIgnore
-	private Set<StudentEntity> student;
-	@OneToMany(mappedBy = "classDetail", fetch = FetchType.EAGER)
-	@JsonIgnore
 	private Set<SubjectAssignEntity> subjectAssign;
 	@OneToMany(mappedBy = "classRoom", fetch = FetchType.EAGER)
 	@JsonIgnore

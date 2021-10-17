@@ -14,9 +14,6 @@ public class StudentMapper {
 		studentEntity.setGender(student.getGender());
 		studentEntity.setContactNo(student.getContactNo());
 		studentEntity.setAddress(student.getAddress());
-		ClassEntity classEntity = new ClassEntity();
-		classEntity.setRoomNo(student.getClassDetail().getRoomNo());
-		studentEntity.setClassDetail(classEntity);
 		return studentEntity;
 	}
 }
