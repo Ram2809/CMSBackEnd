@@ -13,14 +13,19 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.curriculum.dto.Student;
 import com.curriculum.dto.StudentAssignDTO;
 import com.curriculum.entity.StudentAssign;
+import com.curriculum.entity.StudentEntity;
 import com.curriculum.exception.BusinessServiceException;
+import com.curriculum.exception.ConstraintValidationException;
 import com.curriculum.exception.NotFoundException;
+import com.curriculum.exception.StudentNotFoundException;
 import com.curriculum.service.StudentAssignService;
 import com.curriculum.util.Response;
 import com.curriculum.util.ResponseUtil;
@@ -55,26 +60,47 @@ public class StudentAssignController {
 		}
 		return responseEntity;
 	}
+
 	@GetMapping("/{roomNo}/{academicYear}")
-	public ResponseEntity<Response> getStudentClassDetails(@PathVariable("roomNo") Long roomNo,@PathVariable("academicYear") String academicYear){
-		ResponseEntity<Response> responseEntity=null;
-		List<StudentAssign> studentAssignList=new ArrayList<>();
+	public ResponseEntity<Response> getStudentClassDetails(@PathVariable("roomNo") Long roomNo,
+			@PathVariable("academicYear") String academicYear) {
+		ResponseEntity<Response> responseEntity = null;
+		List<StudentAssign> studentAssignList = new ArrayList<>();
 		try {
-			studentAssignList=studentAssignService.getStudentClassDetails(roomNo,academicYear);
-			if(!studentAssignList.isEmpty()) {
-				responseEntity=ResponseUtil.getResponse(200, "Success", studentAssignList);
+			studentAssignList = studentAssignService.getStudentClassDetails(roomNo, academicYear);
+			if (!studentAssignList.isEmpty()) {
+				responseEntity = ResponseUtil.getResponse(200, "Success", studentAssignList);
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, "Not Found!", studentAssignList);
 			}
-			else {
-				responseEntity=ResponseUtil.getResponse(404, "Not Found!", studentAssignList);
-			}
-		}catch (BusinessServiceException e) {
-			responseEntity = ResponseUtil.getResponse(500, e.getMessage(),studentAssignList);
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), studentAssignList);
 		} catch (NotFoundException e) {
 			responseEntity = ResponseUtil.getResponse(404, e.getMessage(), studentAssignList);
 		}
 		return responseEntity;
 	}
-	
+
+	@PutMapping("/{assignId}")
+	public ResponseEntity<Response> updateStudentAssign(@PathVariable("assignId") Long assignId,
+			@RequestBody StudentAssignDTO studentAssignDTO) throws StudentNotFoundException {
+		ResponseEntity<Response> responseEntity = null;
+		StudentAssign studentAssign = null;
+		try {
+			studentAssign = studentAssignService.updateStudentAssign(assignId, studentAssignDTO);
+			responseEntity = ResponseUtil.getResponse(200, "Student Details Updated Successfully!", studentAssign);
+		} catch (BusinessServiceException e) {
+			responseEntity = ResponseUtil.getResponse(500, e.getMessage(), studentAssign);
+		} catch (NotFoundException e) {
+			if (e instanceof ConstraintValidationException) {
+				responseEntity = ResponseUtil.getResponse(422, e.getMessage(), studentAssign);
+			} else {
+				responseEntity = ResponseUtil.getResponse(404, e.getMessage(), studentAssign);
+			}
+		}
+		return responseEntity;
+	}
+
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<Response> validationFailed(MethodArgumentNotValidException e) {
 		log.error("Validation fails, Check your input!");

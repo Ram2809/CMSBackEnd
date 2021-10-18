@@ -10,5 +10,8 @@ import com.curriculum.exception.NotFoundException;
 public interface StudentAssignService {
 	Long addStudentAssign(StudentAssignDTO studentAssignDTO) throws BusinessServiceException, NotFoundException;
 
-	List<StudentAssign> getStudentClassDetails(Long roomNo, String academicYear) throws BusinessServiceException, NotFoundException;
+	List<StudentAssign> getStudentClassDetails(Long roomNo, String academicYear)
+			throws BusinessServiceException, NotFoundException;
+
+	StudentAssign updateStudentAssign(Long assignId, StudentAssignDTO studentAssignDTO) throws BusinessServiceException, NotFoundException;
 }

@@ -45,4 +45,15 @@ public class StudentAssignServiceImpl implements StudentAssignService {
 		}
 	}
 
+	@Override
+	public StudentAssign updateStudentAssign(Long assignId, StudentAssignDTO studentAssignDTO) throws BusinessServiceException,NotFoundException {
+		studentRepository.checkStudent(studentAssignDTO.getStudent().getRollNo());
+		classRepository.checkClassRoom(studentAssignDTO.getClassDetail().getRoomNo());
+		try {
+			return studentAssignRepository.updateStudentAssign(assignId,studentAssignDTO);
+		} catch (DatabaseException e) {
+			throw new BusinessServiceException(e.getMessage());
+		}
+	}
+
 }

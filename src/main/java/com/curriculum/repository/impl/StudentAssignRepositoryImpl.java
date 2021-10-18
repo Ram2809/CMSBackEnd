@@ -146,4 +146,32 @@ public class StudentAssignRepositoryImpl implements StudentAssignRepository {
 		}
 		return studentAssignList;
 	}
+
+	@Override
+	public StudentAssign updateStudentAssign(Long assignId, StudentAssignDTO studentAssignDTO) throws DatabaseException {
+		logger.info("Updating the student assign details...");
+		Session session = null;
+		StudentAssign studentAssign = null;
+		try {
+			session = sessionFactory.getCurrentSession();
+			StudentAssign studentAssignEntity=StudentAssignMapper.mapStudentAssign(studentAssignDTO);
+			session.find(StudentAssign.class, assignId);
+			StudentAssign updatedStudentAssign = session.load(StudentAssign.class, assignId);
+			updatedStudentAssign.setAcademicYear(studentAssignEntity.getAcademicYear());
+			updatedStudentAssign.setStudentAddedOn(studentAssignEntity.getStudentAddedOn());
+			updatedStudentAssign.setStudentLeftOn(studentAssignEntity.getStudentLeftOn());
+			ClassEntity classEntity = new ClassEntity();
+			classEntity.setRoomNo(studentAssignEntity.getClassDetail().getRoomNo());
+			updatedStudentAssign.setClassDetail(classEntity);
+			studentAssign = (StudentAssign) session.merge(updatedStudentAssign);
+			if(studentAssign!=null)
+			{
+				logger.info("Student assign details updated successfully!");
+			}
+		} catch (HibernateException e) {
+			logger.error("Error while updating the student assign details!");
+			throw new DatabaseException(e.getMessage());
+		}
+		return studentAssign;
+	}
 }

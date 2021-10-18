@@ -11,4 +11,6 @@ public interface StudentAssignRepository {
 	Long addStudentAssign(StudentAssignDTO studentAssignDTO) throws DatabaseException, NotAllowedException;
 
 	List<StudentAssign> getStudentClassDetails(Long roomNo, String academicYear) throws DatabaseException;
+
+	StudentAssign updateStudentAssign(Long assignId, StudentAssignDTO studentAssignDTO) throws DatabaseException;
 }
